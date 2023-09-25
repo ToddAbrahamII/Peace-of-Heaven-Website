@@ -1,0 +1,172 @@
+body{
+    background-color: darkgray;
+}
+
+/*Formating Background Image*/
+.background-image {
+    background-image: url('/img/POH-Sign.jpg'); /*Background Image with file path*/
+    position: relative;
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    color: #fff; /* Text color for the header */
+    text-align: center; /* Centers the text */
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+/*Web page header*/
+.header {
+    text-align: center;
+    font-size: 50px;
+    font-family: fantasy;
+    text-decoration: underline;
+}
+
+/*Web page sub header*/
+.subheader1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+/*Introduction Paragraph, talks about company*/
+.intro-paragraph {
+    text-align: center;
+    font-size:25px;
+    margin: 0;
+}
+
+/*Box that links to one of three services*/
+.service-box {
+    width: 400px;
+    padding: 30px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    float:right;
+}
+
+/*Images for the services*/
+.service-box img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*Button with link to the services*/
+.service-box .button {
+    display: block;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/*Container for the Kennel Concept Section*/
+.Kennel-container {
+    display: flex;
+    align-items:flex-start;/* Vertically align items */
+    max-width: 1400px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 10px;
+    background-color: white;
+}
+
+/*The image for Kennel Concept Section*/
+.Kennel-image {
+    max-width: 60%;
+    height: auto;
+    margin-right: 10px; /* Adjust the spacing between image and description */
+}
+
+/*Text decription for Kennel Concept*/
+.Kennel-description {
+    flex: 1; /* Allow the description to take up the remaining space */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) of the column */
+}
+
+/*Header for Kennel Concept Section*/
+.Kennel-description h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/*Paragraph for Kennel Concept Section*/
+.Kennel-description p {
+    font-size: 20px;
+}
+
+/*Link Button for Kennel Concept Section*/
+.Kennel-button{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: limegreen; /* Button background color */
+    color: black; /* Button text color */
+    text-decoration: none; /* Remove underline from the link */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 50px;
+    margin-left: auto; /* Auto margin on the left pushes the button to the right */
+    margin-right: auto; /* Auto margin on the right pushes the button to the left */
+}
+
+.Our-Reason-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+}
+
+.Our-Reason-description {
+    flex: 1; /* Allow the description to take up the remaining space */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) of the column */
+}
+
+.Our-Reason-image-container {
+    flex: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+}
+
+.Our-Reason-image {
+    flex: 0 0 calc(50% - 1px); /* 33.33% width with 10px gap */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%; /* Set a fixed width for the image container */
+    height: 300px; /* Set a fixed height for the image container */
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+}
+
+.Our-Reason-image img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.Location-container {
+    background-image: url('/img/Dogs-In-Field.jpg');
+    position: relative; /* Make it a reference for absolute positioning */
+    width: 100%;
+    height: 50vh; /* 100% of viewport height */
+    background-size: cover; /* Scale the image to cover the container */
+    color: white; /* Text color on top of the image */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+}
