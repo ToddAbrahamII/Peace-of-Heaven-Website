@@ -1,0 +1,22 @@
+/*Sets the List Horizontal*/
+.Navigation-Bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    color:white; 
+}
+
+/*Changes the Attributes of the site links in the list*/
+.Navigation-Bar li{
+margin: 7px;
+margin-right: 100px;
+font-size: 18px;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+color: white;
+line-height: 1;
+padding: 5px;
+}
