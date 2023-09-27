@@ -29,7 +29,7 @@
 
     <!--Boarding Box with Link to Service Page-->
     <div class="service-box">
-        <img src="POH-Logo.png" alt="Image">
+        <img src="/PeaceOfHeavenWebPage/Img/POH-Logo.png" alt="Image">
         <p>Description of Service</p>
         <a class="button" href="Boarding.html">Boarding</a>
     </div>
@@ -50,7 +50,7 @@
 
     <!--Image and Description of the Kennel Concept Section of the Page-->
     <div class="Kennel-container">
-        <img src="/PeaceOfHeavenWebPage/img/Kennel_Image.jpg" alt="Kennel" class="Kennel-image">
+        <img src="/PeaceOfHeavenWebPage/Img/Kennel_Image.jpg" alt="Kennel" class="Kennel-image">
         <div class="Kennel-description">
             <h2>Our Kennel Concept</h2>
             <p>At Peace of Heaven, we promote peace by keeping our numbers small, our spaces large, and our dedication strong. We understand the hesitancy of leaving your pets in unfamiliar surroundings with unfamiliar faces (& tails!) and disrupted routines. We recognize these challenges and strive to overcome them. Our kennels are each their own individual tiny building, we have multiple areas for play & exercise, and a lower max capacity allows us to individualize care & keep up normal routines. We offer superior services & care in a serene atmosphere.</p>
@@ -73,16 +73,16 @@
         <!--Image Section--> 
     <div class="Our-Reason-image-container">
         <div class="Our-Reason-image">
-            <img src="/PeaceOfHeavenWebPage/img/Dogs-In-Field.jpg" alt="Dogs-In-Field">
+            <img src="/PeaceOfHeavenWebPage/Img/Dogs-In-Field.jpg" alt="Dogs-In-Field">
         </div>
         <div class="Our-Reason-image">
-            <img src="/PeaceOfHeavenWebPage/img/Dogs-In-Snow.jpg" alt="Dogs-In-Snow">
+            <img src="/PeaceOfHeavenWebPage/Img/Dogs-In-Snow.jpg" alt="Dogs-In-Snow">
         </div>
         <div class="Our-Reason-image">
-            <img src="/PeaceOfHeavenWebPage/img/Sunflower-Dog.jpg" alt="Sunflower-Dog">
+            <img src="/PeaceOfHeavenWebPage/Img/Sunflower-Dog.jpg" alt="Sunflower-Dog">
         </div>
         <div class="Our-Reason-image">
-            <img src="/PeaceOfHeavenWebPage/img/Dogs-in-Snow2.jpg" alt="Dogs-in-Snow2">
+            <img src="/PeaceOfHeavenWebPage/Img/Dogs-in-Snow2.jpg" alt="Dogs-in-Snow2">
         </div>
     </div>
 </div>

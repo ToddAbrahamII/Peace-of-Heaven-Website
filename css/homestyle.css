@@ -4,7 +4,7 @@ body{
 
 /*Formating Background Image*/
 .background-image {
-    background-image: url('/img/POH-Sign.jpg'); /*Background Image with file path*/
+    background-image: url('/PeaceOfHeavenWebPage/Img/POH-Sign.jpg'); /*Background Image with file path*/
     position: relative;
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
@@ -13,6 +13,7 @@ body{
     background-attachment: fixed;
     background-size: cover;
     height: 100%;
+    display: flex;
 }
 
 /*Web page header*/
@@ -157,7 +158,7 @@ body{
 }
 
 .Location-container {
-    background-image: url('/img/Dogs-In-Field.jpg');
+    background-image: url('/PeaceOfHeavenPetCare/Img/Dogs-In-Field.jpg');
     position: relative; /* Make it a reference for absolute positioning */
     width: 100%;
     height: 50vh; /* 100% of viewport height */
