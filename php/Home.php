@@ -1,4 +1,4 @@
-<?php include "Navigation_Bar.php" ?>
+<?php include "/PeaceOfHeavenWebPage/php/Navigation_Bar.php" ?>
 <html>
 <head>
     <!--Links Home_Page.html to CSS File-->
