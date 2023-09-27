@@ -1,10 +1,10 @@
-<?php include "PeaceOfHeavenWebPage/php/Navigation_Bar.php" ?>
+<?php include "Navigation_Bar.php" ?>
 <html>
 <head>
     <!--Links Home_Page.html to CSS File-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="PeaceOfHeavenWebPage/css/homestyle.css">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/homestyle.css">
 
     <title>Peace of Heaven</title>
 </head>
@@ -94,4 +94,4 @@
     </div>
         
 </html>
-<?php include "PeaceOfHeavenWebPage/html/PoHPC Footer.html" ?>
+<?php include "Footer.php" ?>

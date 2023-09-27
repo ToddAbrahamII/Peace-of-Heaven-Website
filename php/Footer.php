@@ -4,7 +4,7 @@
       <!--PoHPC Footer.html to CSS File-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PeaceOfHeavenPetCare/html/PoHFooter.css">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/PoHFooter.css">
 
     <title>Peace of Heaven</title>
    </header>
@@ -14,7 +14,7 @@
            <th>Contact</th>
            <th>Hours of Operation</th>
            <th>Request Reservation</th>
-           <th rowspan="5"><img src="/PeaceOfHeavenPetCare/img/IBPSA_Badge.png" alt="IBPSA badge"></th>
+           <th rowspan="5"><img src="/PeaceOfHeavenWebPage/Img/IBPSA_Badge.png" alt="IBPSA badge"></th>
         </tr>
 
         <tr>
