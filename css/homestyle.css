@@ -6,13 +6,14 @@ body{
 .background-image {
     background-image: url('/PeaceOfHeavenWebPage/Img/POH-Sign.jpg'); /*Background Image with file path*/
     position: relative;
-    background-position: center; /* Center the background image */
+    background-position: center center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     color: #fff; /* Text color for the header */
     text-align: center; /* Centers the text */
     background-attachment: fixed;
     background-size: cover;
     height: 100%;
+    display: flex; 
 }
 
 /*Web page header*/

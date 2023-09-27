@@ -49,4 +49,4 @@
 
 </body> 
 </html>
-<?php include "PoHPC Footer.html" ?>
+<?php include "Footer.php" ?>
