@@ -4,7 +4,7 @@ body{
 
 /*Formating Background Image*/
 .background-image {
-    background-image: url('/PeaceOfHeavenWebPage/Img/POH-Sign.jpg'); /*Background Image with file path*/
+    background-image: url('PeaceOfHeavenWebPage/Img/POH-Sign.jpg'); /*Background Image with file path*/
     position: relative;
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
