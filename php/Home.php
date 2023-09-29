@@ -28,25 +28,27 @@
     </div>
 
     <!--Boarding Box with Link to Service Page-->
-    <div class="service-box">
-        <img src="/PeaceOfHeavenWebPage/Img/POH-Logo.png" alt="Image">
-        <p>Description of Service</p>
-        <a class="button" href="Boarding.html">Boarding</a>
-    </div>
+    <section class="box-sections">
+        <div class="service-box">
+            <img src="/PeaceOfHeavenWebPage/Img/POH-Logo.png" alt="Image">
+            <p>Description of Service</p>
+            <a class="button" href="Boarding.html">Boarding</a>
+        </div>
 
-     <!-- Day Care Box with Link to Service Page-->
-    <div class="service-box">
-        <img src="POH-Logo.png" alt="Image">
-        <p>Description of Service</p>
-        <a class="button" href="Day_Care.html">Day Care</a>
-    </div>
+        <!-- Day Care Box with Link to Service Page-->
+        <div class="service-box">
+            <img src="POH-Logo.png" alt="Image">
+            <p>Description of Service</p>
+            <a class="button" href="Day_Care.html">Day Care</a>
+        </div>
 
-     <!--Grooming Box with Link to Service Page-->
-    <div class="service-box">
-        <img src="POH-Logo.png" alt="Image">
-        <p>Description of Service</p>
-        <a class="button" href="Grooming.html">Grooming</a>
-    </div>
+        <!--Grooming Box with Link to Service Page-->
+        <div class="service-box">
+            <img src="POH-Logo.png" alt="Image">
+            <p>Description of Service</p>
+            <a class="button" href="Grooming.html">Grooming</a>
+        </div>
+    </section>
 
     <!--Image and Description of the Kennel Concept Section of the Page-->
     <div class="Kennel-container">
@@ -66,7 +68,7 @@
         <!--Description & Link Section-->
         <div class="Our-Reason-description">
             <h2>Our Reason</h2>
-            <p>Text Description</p>
+            <p>Meet Beau & Bronx, two awesome German Shepherd Dogs and the reasons behind building Peace of Heaven. Beau was rescued as a small puppy and the story of his first few months of life is unknown. He is loyal, obedient, & full of love but also sensitive and easily stressed. Bronx, on the other hand, is independent, outgoing, stubborn, & sweet all at the same time! Each dog has a unique personality and unique needs. Finding somewhere (or someone) to leave them while we went away was a struggle.</p>
             <a href="About_Us.html" class="Our-Reason-button">Our Story</a>
         </div>
 
@@ -89,7 +91,8 @@
 
     <!--Location Container with Link to directions-->
     <div class="Location-container">
-        <h1>Located at INSERT LOCATION</h1>
+        <h1>Located at 30614 E. 200 North Rd. Le Roy, IL 61752</h1>
+        <a href="https://www.google.com/maps/place/30614+E+200+North+Rd,+Le+Roy,+IL+61752/@40.4818192,-88.8353999,9z/data=!4m6!3m5!1s0x880c9888abf5cd97:0xc2f74d5073502376!8m2!3d40.311845!4d-88.676935!16s%2Fg%2F11cs94rygn?entry=ttu" >
         <button class="Location-button">Click for Directions</button>
     </div>
         

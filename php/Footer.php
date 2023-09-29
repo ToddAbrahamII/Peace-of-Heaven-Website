@@ -9,6 +9,7 @@
     <title>Peace of Heaven</title>
    </header>
    <body>
+   <section class = footer>
     <table class="banner-table">
         <tr>
            <th>Contact</th>
@@ -57,6 +58,6 @@
          <td><a class="facebook-link" href="https://www.facebook.com/profile.php?id=100091893606209">Facebook</a></td>
         </tr>
      </table>
-
+</section>
    </body>
 </html>

@@ -4,7 +4,7 @@
      <!--Links Contact.html to CSS File-->
      <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Contactstyle.css">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Contactstyle.css">
 
     <title>Contact Us</title>
 </head>   
