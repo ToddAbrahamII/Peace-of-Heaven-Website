@@ -15,7 +15,7 @@
             <li class ="Logo" ><img src="/PeaceOfHeavenWebPage/Img/POH_Logo.png" alt="Peace of Heaven Logo" width = "100" height = "100"></li>
             <li class ="Home"><a href="Home.php">Home</a></li>
             <li class ="Contact Us"><a href="/PeaceOfHeavenWebPage/php/Contact.php">Contact Us</a></li>
-            <li class ="About Us"><a href="/POH_Html/About_Us.html">About Us</a></li>
+            <li class ="About Us"><a href="/PeaceOfHeavenWebPage/php/About_Us.php">About Us</a></li>
             <li class ="Day Care"><a href="/POH_Html/Day_Care.html">Day Care</a></li>
             <li class ="Grooming"><a href="/POH_Html/Grooming.html">Grooming</a></li>
             <li class ="Boarding"><a href="/POH_Html/Boarding.html">Boarding</a></li>
