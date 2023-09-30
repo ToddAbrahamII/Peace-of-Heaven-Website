@@ -3,32 +3,34 @@ body{
 }
 
 /*Formating Background Image*/
-.background-image {
+ .background-image {
     background-image: url('/PeaceOfHeavenWebPage/Img/POH-Sign.jpg'); /*Background Image with file path*/
     background-position: center center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-attachment: fixed;
     background-size: cover;
     min-height: 100vh;
-}
+} 
 
 /*Web page header*/
 .header {
     text-align: center;
     font-size: 50px;
-    font-family: fantasy;
+    font-family:'Times New Roman', Times, serif;
     text-decoration: underline;
 }
 
 /*Web page sub header*/
 .subheader1 {
     text-align: center;
+    font-family:'Times New Roman', Times, serif;
     font-size: 40px;
 }
 
 /*Introduction Paragraph, talks about company*/
 .intro-paragraph {
     text-align: center;
+    font-family:'Times New Roman', Times, serif;
     font-size:25px;
     margin: 0;
 }
@@ -75,7 +77,8 @@ body{
 /*Container for the Kennel Concept Section*/
 .Kennel-container {
     display: flex;
-    align-items:flex-start;/* Vertically align items */
+    align-items:center;/* Vertically align items */
+    justify-content: center;
    /* max-width: 1400px; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the container horizontally */
     padding: 10px;
@@ -94,6 +97,7 @@ body{
     flex: 1; /* Allow the description to take up the remaining space */
     flex-direction: column;
     align-items: flex-start; /* Align items to the start (left) of the column */
+    text-align: center;
 }
 
 /*Header for Kennel Concept Section*/
@@ -126,21 +130,24 @@ body{
 
 .Our-Reason-container {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    align-items:center;/* Vertically align items */
+    justify-content: center;
+   /* max-width: 1400px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 10px;
     background-color: white;
 }
 
 .Our-Reason-description {
     flex: 1; /* Allow the description to take up the remaining space */
-    display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align items to the start (left) of the column */
+    text-align: center;
 }
 
-.Our-Reason-description h2{
+.Reason-Header {
     font-size: 40px;
-    text-align: center;
+    text-align: cente r;
     margin-bottom: 10px;
 }
 
@@ -176,6 +183,7 @@ body{
 
 .Our-Reason-button {
     display: inline-block;
+    text-align: center;
     padding: 10px 20px;
     background-color: limegreen; /* Button background color */
     color: black; /* Button text color */
@@ -201,4 +209,17 @@ body{
     justify-content: center;
     align-items: center;
     background-position: center;
+}
+
+.Location-button {
+    background-color: limegreen; /* Button background color */
+    color: black; /* Button text color */
+    text-decoration: none; /* Remove underline from the link */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 50px;
+    margin-left: auto; /* Auto margin on the left pushes the button to the right */
+    margin-right: auto; /* Auto margin on the right pushes the button to the left */
 }

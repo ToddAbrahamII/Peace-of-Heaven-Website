@@ -1,0 +1,19 @@
+body{
+    background-color: darkgrey;
+}
+.Header-container {
+    background-image: url('/PeaceOfHeavenWebPage/Img/Dogs-in-Snow2.jpg');
+    position: relative; /* Make it a reference for absolute positioning */
+    width: 100%;
+    height: 60vh; /* 100% of viewport height */
+    background-size: cover; /* Scale the image to cover the container */
+    color: white; /* Text color on top of the image */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 35px;
+}

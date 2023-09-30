@@ -49,3 +49,47 @@ body{
     line-height: 1.5;
     margin-left:15px;
 }
+
+.Our-Facility-container {
+    display: flex;
+    align-items:flex-start;/* Vertically align items */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 10px;
+    background-color: white;
+}
+
+.Overnight-img {
+    max-width: 50%;
+    width: 50%;
+    height: 15%;
+    margin-right: 10px;
+}
+
+.Our-Facility-Description{
+    flex: 1; /* Allow the description to take up the remaining space */
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) of the column */
+}
+
+.Our-Facility-Description h2{
+    font-size: 50px;
+    text-align: center;
+}
+
+.Our-Facility-Description p {
+    font-size: 35px;
+    text-align: center;
+}
+
+.h3-center {
+    font-size: 40px;
+    text-align: center;
+}
+
+.Amenities-h3 {
+    font-size: 40px;
+}
+
+.Our-Facility-Description ul{
+    font-size: 35px;
+}

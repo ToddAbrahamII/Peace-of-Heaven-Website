@@ -24,6 +24,29 @@
             <p>-POH is designed to accommodate sensitive dogs like Beau, social dogs like Bronx, and extra care dogs like Brody while still being able to incorporate all the exercise, play, stimulation, and bonding time needed.</p>
         </div>
     </div>
+
+<p><br><br><br></p>
+
+<div class = "Our-Facility-container">
+    <img src="/PeaceOfHeavenWebPage/Img/overnight-kennels.jpg" alt="kennels" Class="Overnight-img">
+    <div class="Our-Facility-Description">
+        <h2>Our Facility</h2>
+        <p>More information coming soon</p>
+        <h3 class="h3-center">Layout of Property</h3>
+        <p>Coming Soon</p>
+        <h3 class="h3-center">Overview of Buildings</h3>
+        <p>Coming Soon</p>
+        <h3 class="Amenities-h3">Amenities</h3>
+        <ul>
+            <li>Fire Alarm Systems</li>
+            <li>Infection Prevention & Control</li>
+            <li>Evacuation Plan</li>
+            <li>Overnight On-Site Supervision</li>
+            <li>Live Feed Monitoring</li>
+        </ul>
+    </div>  
+
+</div>
 </body>
 </html>
 <?php include "Footer.php" ?>
