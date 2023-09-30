@@ -11,7 +11,19 @@
 <body>
     <!--Add Line breaks to account for Navigation Bar-->
     <br><br><br><br><br>
-
+    <h1>Frequently Asked Questions:</h1>
+    <p>
+        <h2>Question 1</h2>
+        <div>Answer</div>
+    </p>
+    <p>
+        <h2>Question 2</h2>
+        <div>Answer</div>
+    </p>
+    <p>
+        <h2>Question 3</h2>
+        <div>Answer</div>
+    </p>
 
 </body> 
 </html>

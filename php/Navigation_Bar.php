@@ -19,7 +19,7 @@
             <li class ="Day Care"><a href="/PeaceOfHeavenWebPage/php/Day_Care.php">Day Care</a></li>
             <li class ="Grooming"><a href="/POH_Html/Grooming.html">Grooming</a></li>
             <li class ="Boarding"><a href="/POH_Html/Boarding.html">Boarding</a></li>
-            <li class ="FAQ"><a href="/POH_Html/FAQ.html">FAQ</a></li>
+            <li class ="FAQ"><a href="/POH_Html/FAQ.php">FAQ</a></li>
         </ul>
     </section>
 </html>
