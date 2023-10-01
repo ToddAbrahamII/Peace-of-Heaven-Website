@@ -2,10 +2,10 @@ body{
     background-color: darkgrey;
 }
 .Header-container {
-    background-image: url('/PeaceOfHeavenWebPage/Img/Dogs-in-Snow2.jpg');
+    background-image: url('/PeaceOfHeavenWebPage/Img/Sunflower-Dog.jpg');
     position: relative; /* Make it a reference for absolute positioning */
     width: 100%;
-    height: 60vh; /* 100% of viewport height */
+    height: 80vh; /* 100% of viewport height */
     background-size: cover; /* Scale the image to cover the container */
     color: white; /* Text color on top of the image */
     text-align: center;
@@ -13,79 +13,72 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-position: center;
+    background-position: top center;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 35px;
 }
 
-.Dog-Days-container {
+
+.Clean-Days-container {
     display: flex;
-    align-items: flex-start;
-    margin: 0 auto;
+    align-items:flex-start;/* Vertically align items */
+    margin: 0 auto; /* Center the container horizontally */
     padding: 10px;
     background-color: white;
 }
 
-.Kennel-img {
+.Portrait-img {
     max-width: 50%;
     width: 50%;
     height: 15%;
     margin-right: 10px;
 }
 
-.Dog-Days-Description {
-    flex:1;
+.Clean-Days-Description{
+    flex: 1; /* Allow the description to take up the remaining space */
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start; /* Align items to the start (left) of the column */
 }
 
-.Dog-Days-Description h2 {
+.Clean-Days-Description h2{
     font-size: 45px;
     text-align: center;
     margin-bottom: 10px;
 }
 
-.Dog-Days-Description p{
-    font-size: 30px;
+.Clean-Days-container p{
+    font-size: 35px;
     line-height: 1.5;
     margin-left:15px;
 }
 
-.Playground-container {
+.Relax-container {
     display: flex;
-    align-items: flex-start;
-    margin: 0 auto;
+    align-items:flex-start;/* Vertically align items */
+    margin: 0 auto; /* Center the container horizontally */
     padding: 10px;
     background-color: white;
 }
 
-.Playground-img {
+.Relax-img {
     max-width: 50%;
     width: 50%;
     height: 15%;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.Playground-Description {
-    flex:1;
+.Relax-Description{
+    flex: 1; /* Allow the description to take up the remaining space */
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start; /* Align items to the start (left) of the column */
 }
 
-.Playground-Description h2{
+.Relax-Description h2{
     font-size: 45px;
     text-align: center;
-    margin-bottom: 10px;
 }
 
-.Playground-Description h3{
-    font-size: 30px;
+.Relax-Description p {
+    font-size: 35px;
     text-align: center;
-
-}
-
-.Playground-Description p{
-    font-size: 20px;
-    line-height: 1.5;
-    margin-left:15px;
 }
