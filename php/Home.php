@@ -9,9 +9,10 @@
     <title>Peace of Heaven</title>
 </head>
 <body>
-
     <!--Headers for the Home Page-->
-    <h1 class="header">Peace of Heaven Pet Care, LLC</h1>
+    <div class ="Header-container">
+         <h1 class="header">Peace of Heaven Pet Care, LLC</h1>
+    </div>
     <h2 class="subheader1">Peace, Love, and Pawprints</h2>
 
     <!--Paragrah One includes description and mission statements--> 

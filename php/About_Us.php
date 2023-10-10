@@ -9,7 +9,6 @@
     <title>About Us</title>
 </head>   
 <body>
-    <p><br><br><br><br><br></p>
     <div class="Header-container">
         <h1>About Us!</h1>
     </div>

@@ -10,7 +10,7 @@
 </head>   
 <body>
 <!--Create Spacing for the Navigation Bar-->
-<p><br><br><br><br><br></p>
+
 
 <!--Background image with text-->
     <div class="Header-container">
