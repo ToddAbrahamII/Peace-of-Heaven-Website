@@ -65,7 +65,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
             <input type="submit" value="Login"><br><br>
 
-            <a href="signup.php">Click to Signup</a>
+            <a href="signup.php">Click to Signup</a><br><br>
+
+            <a href="/PeaceOfHeavenWebPage/php/Home.php">Return Home</a>
     </div>
     
 </body>
