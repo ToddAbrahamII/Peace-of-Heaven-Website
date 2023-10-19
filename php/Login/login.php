@@ -10,7 +10,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     //Something was Posted
     $user_name = $_POST['User_Name'];
     $password = $_POST['Password'];
-    $hashed_pass = password_hash($password, PASSWORD_DEFAULT); //Password is Encrypted
 
     //Check if both are empty
     if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
@@ -18,7 +17,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         //All info is correct
 
         //Read from Database
-        $query = "SELECT * FROM Login WHERE User_Name = '$user_name' limit 1";
+        $query = "SELECT * FROM Login WHERE User_Name = '$user_name' limit 1"; //Gets Username
+      
+        
 
         $result = mysqli_query($connection, $query); //Results from read
         
@@ -29,11 +30,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 $user_data = mysqli_fetch_assoc($result); //Fetchs Results
                 
                 //Checks if user data password is same 
-                if(password_verify($password, $hashed_pass) == 1)
+                if(password_verify($password, $user_data['Password']) && $user_data['PermissionLvl'] === '0') //Add check for permission level
                 {
                     //Kills program, assigns session and redirects
                     $_SESSION['User_ID'] = $user_data['User_ID'];
-                    header("Location: index.php");
+                    header("Location: /PeaceOfHeavenWebPage/php/Customer Portal/CustHome.php");
                     die;
                 }
             }
@@ -64,7 +65,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
             <input type="submit" value="Login"><br><br>
 
-            <a href="signup.php">Click to Signup</a>
+            <a href="signup.php">Click to Signup</a><br><br>
+
+            <a href="/PeaceOfHeavenWebPage/php/Home.php">Return Home</a>
     </div>
     
 </body>

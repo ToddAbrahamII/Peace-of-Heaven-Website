@@ -9,5 +9,5 @@ if(isset($_SESSION['User_ID']))
 }
 
 //Redirect User
-header("Location: login.php");
+header("Location: /PeaceOfHeavenWebPage/php/Login/login.php");
 die;
