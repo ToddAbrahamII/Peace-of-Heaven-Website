@@ -5,7 +5,7 @@
  */
 class Input {
     /**
-     * Summary of exists
+     * Verify what method has been used to send input and that it exists.
      * @param mixed $type
      * @return bool
      */
@@ -24,7 +24,7 @@ class Input {
     }
 
     /**
-     * Summary of get
+     * Get submitted information from user
      * @param mixed $item
      * @return mixed
      */
