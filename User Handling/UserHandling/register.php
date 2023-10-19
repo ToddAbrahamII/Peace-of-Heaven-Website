@@ -1,42 +1,73 @@
 <?php
 require_once 'core/init.php';
 
+
 if(Input::exists()) {
+    if(Token::check(Input::get('token'))) 
     $validate = new Validate(); // return instance of DB
-    // Validate instance of database according to field rules below
+    // Validate elements of POST method against an array of conditions
     $validation = $validate->check($_POST, array( 
-        'username' => array(
+        'username' => array( 
             // username requirements
+            'name'=> 'Username',
             'required' => true,
             'min' => 2,
             'max' => 20,
             'unique' => 'users'
         ),
+        // password requirements
         'password' => array(
+            'name'=> 'Password',
             'required' => true,
             'min' => 6
         ),
         'password_again' => array(
+            'name'=> 'Password Again',
             'required' => true,
             'matches' => 'password'
         ),
+        // name registration requirement
         'name' => array(
+            'name'=> 'Name',
             'required' => true,
             'min' => 2,
             'max' => 50
         )
     ));
+
     // detect if passed
     if($validation->passed()) {
-        //register user
-        echo 'passed';
+        // register user
+        $user = new User();
+
+        $salt = Hash::salt(32);
+        try {
+            $user->create(array( //!!! WRONG - update to match our User table
+                'username' => Input::get('username'),
+                'password' => Hash::make(Input::get('password'), $salt),
+                'salt' => $salt,
+                'name' => Input::get('name'),
+                'joined' => date('Y-m-d H:i:s'),
+                'group' => 1 // this will eventually be the permission group. Right now there is only one permission group.
+            ));
+
+            Session::flash('home','You have been registered and can now log in!');
+            
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
     } else {
         // output errors
-        print_r($validation->errors());
-        echo 'failed';
+        foreach($validation->errors() as $error) {
+            echo $error, '<br>';
+        }   
     }
 }
+
+
 ?>
+
 <form action="" method="post">
     <div class="field">
         <label for="username">Username</label>
@@ -58,6 +89,7 @@ if(Input::exists()) {
         <input type="text" name="name" id="name" value="<?php echo escape(Input::get('name'))?>">
     </div> 
 
+    <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
     <input type="submit" value="Register">
 </form>
 

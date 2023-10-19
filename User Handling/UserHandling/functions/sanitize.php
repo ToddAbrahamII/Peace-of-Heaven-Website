@@ -1,5 +1,11 @@
 <?php
-// Method to sanitize database queries before interacting with DB server
+
+/**
+ * function to sanitize database queries before interacting with DB server
+ * 
+ * @param mixed $string
+ * @return string
+ */
 function escape($string) {
     return htmlentities($string, ENT_QUOTES, 'UTF-8');
 }

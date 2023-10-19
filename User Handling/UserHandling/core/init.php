@@ -15,12 +15,15 @@ $GLOBALS['config'] = array(
         'cookie_expiry' => 604800
     ),
     'session' => array(
-        'session_name' => 'user'
+        'session_name' => 'user',
+        'token_name' => 'token' 
     )
 );
 
+// Pass in a function that is run every time a class is accessed (auto import)
 spl_autoload_register(function($class) {
     require_once 'classes/' . $class . '.php';
 });
 
+require_once 'functions/sanitize.php';
 require_once 'functions/sanitize.php';
