@@ -29,12 +29,30 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             {
                 $user_data = mysqli_fetch_assoc($result); //Fetchs Results
                 
-                //Checks if user data password is same 
+                //Verfies Password and Permission Level - Sends to Customer Portal
                 if(password_verify($password, $user_data['Password']) && $user_data['PermissionLvl'] === '0') //Add check for permission level
                 {
                     //Kills program, assigns session and redirects
                     $_SESSION['User_ID'] = $user_data['User_ID'];
                     header("Location: /PeaceOfHeavenWebPage/php/Customer Portal/CustHome.php");
+                    die;
+                }
+                
+                //Verfies Password and Permission Level - Sends to Employee Portal
+                if(password_verify($password, $user_data['Password']) && $user_data['PermissionLvl'] === '1') //Add check for permission level
+                {
+                    //Kills program, assigns session and redirects
+                    $_SESSION['User_ID'] = $user_data['User_ID'];
+                    header("Location: /PeaceOfHeavenWebPage/php/Employee Portal/EmpHome.php");
+                    die;
+                }
+
+                //Verfies Password and Permission Level - Sends to Admin Portal
+                if(password_verify($password, $user_data['Password']) && $user_data['PermissionLvl'] === '2') //Add check for permission level
+                {
+                    //Kills program, assigns session and redirects
+                    $_SESSION['User_ID'] = $user_data['User_ID'];
+                    header("Location: /PeaceOfHeavenWebPage/php/AdminPortal/AdminHome.php");
                     die;
                 }
             }

@@ -24,6 +24,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
             $query = "INSERT INTO login (User_ID, User_Name, Password) values ('$user_id', '$user_name', '$hashed_pass')";
             mysqli_query($connection, $query);
 
+            //Redirects             Add a page here that goes to a page that collects, name, email, phone, address, etc. 
             header("Location: login.php");
             die;
 
