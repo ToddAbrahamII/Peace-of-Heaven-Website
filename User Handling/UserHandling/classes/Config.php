@@ -1,5 +1,6 @@
 <?php
 class Config {
+    
     public static function get($path = null) {
         if($path) {
             $config = $GLOBALS['config'];
@@ -7,7 +8,7 @@ class Config {
             $path = explode('/',$path);
             
             foreach($path as $bit ) {
-                if(isset($config[$bit])) {
+                if(isset($config[$bit])) { //check if set in confit
                     
                     $config = $config[$bit];
                 } else {
