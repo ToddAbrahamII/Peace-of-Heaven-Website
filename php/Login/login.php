@@ -70,22 +70,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Login.css">
+
     <title>Login</title>
 </head>
 <body>
-    <div> 
+    <div class="login-container"> 
     <!--Creates the login box in html -->
-        <form method="post">
+        <form method="post" class="login-form">
             Username
-            <input type="text" name="User_Name"><br><br>
+            <input type="text" name="User_Name" id="User_Name"><br><br>
             Password
-            <input type="password" name="Password"><br><br>
+            <input type="password" name="Password" id="Password"><br><br>
 
             <input type="submit" value="Login"><br><br>
 
-            <a href="signup.php">Click to Signup</a><br><br>
+            <a href="signup.php"  class="signup-link">Click to Signup</a><br><br>
 
-            <a href="/PeaceOfHeavenWebPage/php/Home.php">Return Home</a>
+            <a href="/PeaceOfHeavenWebPage/php/Home.php" class="home-link">Return Home</a>
     </div>
     
 </body>

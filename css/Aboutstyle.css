@@ -93,3 +93,30 @@ body{
 .Our-Facility-Description ul{
     font-size: 35px;
 }
+
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+    .Header-container {
+        font-size: 10px; /* Adjust font size for mobile */
+    }
+
+    .Our-Story-Description h2, .Our-Facility-Description h2 {
+        font-size: 15px; /* Adjust font size for mobile */
+    }
+
+    .Our-Story-Description p, .Our-Facility-Description p {
+        font-size: 8px; /* Adjust font size for mobile */
+    }
+
+    .h3-center {
+        font-size: 15px; /* Adjust font size for mobile */
+    }
+
+    .Amenities-h3 {
+        font-size: 10px; /* Adjust font size for mobile */
+    }
+
+    .Our-Facility-Description ul {
+        font-size: 8px; /* Adjust font size for mobile */
+    }
+}
