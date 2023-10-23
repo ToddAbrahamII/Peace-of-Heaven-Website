@@ -38,20 +38,24 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Signup.css">
     <title>Signup</title>
 </head>
 <body>
-    <div> 
+    <div class="signup-container"> 
     <!--Creates the Signup box in html -->
-        <form method="POST">
+        <form method="POST" class="signup-form">
             Username
-            <input type="text" name="User_Name"><br><br>
+            <input type="text" name="User_Name"  id="User_Name"><br><br>
             Password
-            <input type="password" name="Password"><br><br>
+            <input type="password" name="Password"  id="Password"><br><br>
 
             <input type="submit" value="Signup"><br><br>
 
-            <a href="Login.php">Click to Login</a>
+            <a href="Login.php" class = "login-link">Click to Login</a><br><br>
+            <a href="/PeaceOfHeavenWebPage/php/Home.php" class="home-link">Return Home</a>
     </div>
     
 </body>

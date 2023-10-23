@@ -34,21 +34,21 @@
         <div class="service-box">
             <img src="/PeaceOfHeavenWebPage/Img/Paw-print.jpg" alt="Image" class="paw-print-img">
             <p>Overnight Dog Watching</p>
-            <a class="button" href="Boarding.html">Boarding</a>
+            <a class="button" href="/PeaceOfHeavenWebPage/php/Boarding.php">Boarding</a>
         </div>
 
         <!-- Day Care Box with Link to Service Page-->
         <div class="service-box">
             <img src="/PeaceOfHeavenWebPage/Img/Paw-print.jpg" alt="Image" class="paw-print-img">
             <p>Monday-Friday Dog Watching </p>
-            <a class="button" href="Day_Care.html">Day Care</a>
+            <a class="button" href="/PeaceOfHeavenWebPage/php/Day_Care.php">Day Care</a>
         </div>
 
         <!--Grooming Box with Link to Service Page-->
         <div class="service-box">
     <img src="/PeaceOfHeavenWebPage/Img/Paw-print.jpg" alt="Image" class="paw-print-img">
             <p>Services with Cleaning, Nail Clippings and Hair Trimmings</p>
-            <a class="button" href="Grooming.html">Grooming</a>
+            <a class="button" href="/PeaceOfHeavenWebPage/php/Grooming.php">Grooming</a>
         </div>
     </section>
 
