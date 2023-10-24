@@ -41,6 +41,8 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Signup.css">
+    <script src="/PeaceOfHeavenWebPage/JavaScript/signup.js"></script>
+
     <title>Signup</title>
 </head>
 <body>
