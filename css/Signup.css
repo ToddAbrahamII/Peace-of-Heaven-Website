@@ -78,3 +78,9 @@ body {
 .login-link {
     margin-right: 10px; /* Separate the links */
 }
+
+.invalid_username{
+    color: red;
+    font-size: 25px;
+    text-align: center;
+}

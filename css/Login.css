@@ -78,3 +78,9 @@ body {
 .signup-link {
     margin-right: 10px; /* Separate the links */
 }
+
+.invalid_cred{
+    color: red;
+    font-size: 25px;
+    text-align: center;
+}

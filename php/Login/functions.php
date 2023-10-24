@@ -47,4 +47,120 @@ function random_num($length)
 
 }
 
+$GLOBALS['config'] = array(
+    'mysql' => array(
+        'host' => '127.0.0.1',
+        'username' => 'root',
+        'password' => '',
+        'db' => 'login'
+    ),
+    'remember' => array(
+        'cookie_name' => 'hash',
+        'cookie_expiry' => 604800
+    ),
+    'session' => array(
+        'session_name' => 'user',
+        'token_name' => 'token' 
+    )
+);
+
+class Config {
+    
+    public static function get($path = null) {
+        if($path) {
+            $config = $GLOBALS['config'];
+            // separates into array delimited by '/'
+            $path = explode('/',$path);
+            
+            foreach($path as $bit ) {
+                if(isset($config[$bit])) { //check if set in confit
+                    
+                    $config = $config[$bit];
+                } else {
+                    // Return false if a path component doesn't exist
+                    return false;
+                }
+            }
+
+            return $config;
+            
+        }
+        return false;
+    }
+}
+
+class Session {
+    
+    public static function exists($name) {
+        return (isset($_SESSION[$name])) ? true : false;
+
+    }
+    public static function put($name, $value) {
+        return $_SESSION[$name] = $value;
+    }
+
+    public static function get($name) {
+        return $_SESSION[$name];
+    }
+
+    public static function delete($name) {
+        if (self::exists($name)) {
+            unset($_SESSION[$name]);
+        }
+    }
+
+    /**
+     * Flash a message to user that will be gone once it refreshes
+     * @param mixed $name
+     * @param mixed $string
+     * @return void
+     */
+    public static function flash($name, $string = '') {
+        if(Self::exists($name)) {
+            $session = Self::get($name);
+            self::delete($name);
+            return $session;
+        } else {
+            self::put($name,$string);
+        }
+        return '';
+    }
+
+}
+
+/**
+ * function to sanitize database queries before interacting with DB server
+ * 
+ * @param mixed $string
+ * @return string
+ */
+function escape($string) {
+    return htmlentities($string, ENT_QUOTES, 'UTF-8');
+}
+
+class Token {
+    /**
+     * Summary of generate
+     * @return mixed
+     */
+    function generate() {
+        return Session::put('token', md5(uniqid()));
+    }
+
+    /**
+     * Summary of check
+     * @param mixed $token
+     * @return bool
+     */
+   function check($token) {
+        $tokenName = Config::get('session/token_name');
+
+        if (Session::exists($tokenName) && $token === Session::get($tokenName)) {
+            Session::delete($tokenName);
+            return true;
+        }
+        return false;
+    }
+}
+
 ?>

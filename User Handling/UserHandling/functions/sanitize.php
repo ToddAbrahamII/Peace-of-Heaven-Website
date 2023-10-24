@@ -1,5 +1,5 @@
 <?php
-
+//ADDED TO FUNCTIONS.PHP
 /**
  * function to sanitize database queries before interacting with DB server
  * 

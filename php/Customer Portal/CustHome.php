@@ -5,7 +5,8 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
     require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/functions.php");//Needed for making login required, calls other php page
 
     $user_data = check_login($connection); //Needed for making login required, checks credentials
-
+    $token = new Token;
+    $token->check($token);
 ?>
 <!DOCTYPE html>
 <html>

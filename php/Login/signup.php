@@ -30,7 +30,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 
         }else //Message for Wrong info
         {
-            echo "Please Enter Valid Information!";
+            echo "<p class='invalid_username'>Please Enter Valid Information!</p>";
         }
     }
 ?>

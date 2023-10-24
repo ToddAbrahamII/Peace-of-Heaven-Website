@@ -1,5 +1,5 @@
 <?php 
-
+//ADDED TO FUNCTIONS.PHP
 /**
  * Generates and checks a session's token to prevent against cross-site scripting attacks
  * 

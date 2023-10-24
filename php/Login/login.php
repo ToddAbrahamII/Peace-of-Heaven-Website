@@ -4,6 +4,8 @@
     include("connection.php"); //Needed for making login required, calls other php page
     include("functions.php");//Needed for making login required, calls other php page
 
+    $token = new Token;
+
 //Check if user has clicked on the post button
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
@@ -41,7 +43,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 //Verfies Password and Permission Level - Sends to Employee Portal
                 if(password_verify($password, $user_data['Password']) && $user_data['PermissionLvl'] === '1') //Add check for permission level
                 {
-                    //Kills program, assigns session and redirects
+                    //Kills program, assigns session and redirects, assigns toekn
+                    $token->generate();
                     $_SESSION['User_ID'] = $user_data['User_ID'];
                     header("Location: /PeaceOfHeavenWebPage/php/Employee Portal/EmpHome.php");
                     die;
@@ -59,11 +62,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
         }
                 //Message for Wrong Credentials
-                echo "Wrong Username or Password!"; 
+                echo "<p class='invalid_cred'>Wrong Username or Password!</p>"; 
         }
         else //Message for Wrong Credentials
             {
-                echo "Wrong Username or Password!";
+                echo "<p class ='invalid_cred'>Wrong Username or Password!</p>";
             }
         }
 ?>
