@@ -3,6 +3,7 @@
 
     include("connection.php"); //Needed for making login required, calls other php page
     include("functions.php");//Needed for making login required, calls other php page
+    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
 
     $token = new Token;
 

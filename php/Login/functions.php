@@ -1,5 +1,7 @@
 <?php
 
+    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
+
 //Method to Verify the Credentials of a Login
 function check_login($connection)
 {
@@ -46,23 +48,6 @@ function random_num($length)
 
 
 }
-
-$GLOBALS['config'] = array(
-    'mysql' => array(
-        'host' => '127.0.0.1',
-        'username' => 'root',
-        'password' => '',
-        'db' => 'login'
-    ),
-    'remember' => array(
-        'cookie_name' => 'hash',
-        'cookie_expiry' => 604800
-    ),
-    'session' => array(
-        'session_name' => 'user',
-        'token_name' => 'token' 
-    )
-);
 
 class Config {
     
@@ -126,16 +111,6 @@ class Session {
         return '';
     }
 
-}
-
-/**
- * function to sanitize database queries before interacting with DB server
- * 
- * @param mixed $string
- * @return string
- */
-function escape($string) {
-    return htmlentities($string, ENT_QUOTES, 'UTF-8');
 }
 
 class Token {

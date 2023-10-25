@@ -1,14 +1,13 @@
 <?php
 
 // Initialization method to be included on each webpage. Autoloader calls functions in each class when they are required (saves code).
-session_start();
 
 $GLOBALS['config'] = array(
     'mysql' => array(
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'db' => 'login'
+        'db' => 'peaceofheavendb'
     ),
     'remember' => array(
         'cookie_name' => 'hash',
@@ -25,5 +24,4 @@ spl_autoload_register(function($class) {
     require_once 'classes/' . $class . '.php';
 });
 
-require_once 'functions/sanitize.php';
-require_once 'functions/sanitize.php';
+require_once 'sanitize.php';
