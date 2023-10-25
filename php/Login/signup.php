@@ -3,6 +3,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 
     include("connection.php"); //Needed for making login required, calls other php page
     include("functions.php");//Needed for making login required, calls other php page
+    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
 
     //Check if user has clicked on the post button
     if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -25,7 +26,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
             mysqli_query($connection, $query);
 
             //Redirects             Add a page here that goes to a page that collects, name, email, phone, address, etc. 
-            header("Location: login.php");
+            header("Location: acctinfo.php");
             die;
 
         }else //Message for Wrong info

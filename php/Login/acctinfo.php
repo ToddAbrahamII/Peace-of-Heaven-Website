@@ -3,6 +3,31 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 
     include("connection.php"); //Needed for making login required, calls other php page
     include("functions.php");//Needed for making login required, calls other php page
+    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
+
+    if($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+            //Pulls input into variables
+            $custFirstName = $_POST['custFirstName'];
+            $custLastName = $_POST['custLastName'];
+            $custPhone = $_POST['cell_phone'];
+            $acctEmail = $_POST['email'];
+            $address = $_POST['address'];
+            $city = $_POST['city'];
+            $state = $_POST['state'];
+            $zip = $_POST['zip'];
+
+            //Posts to Database
+            //$query1 = "INSERT INTO login (AcctEmail) values ('$acctEmail')";
+            $query2 = "INSERT INTO customer (CustFirstName, CustLastName, CustPhone, CustAddress, CustCity, CustState, CustZip) values ('$custFirstName', '$custLastName', '$custPhone', '$address', '$city', '$state', '$zip')";
+            //mysqli_query($connection, $query1);
+            mysqli_query($connection, $query2);
+
+            //Redirects
+            header("Location: login.php");
+            die;
+
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +36,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 </head>
 
 <body>
-    <form>
+    <form method="POST" class="CustInfo-Form">
         <fieldset>
 
             <legend>Customer Account Signup Information</legend>
@@ -23,7 +48,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                 <input type="text" name="custLastName" id="custLastName" required>
 
                 <label for="cell_phone"><br>Cell Phone:</label>
-                <input type="tel" id="cell_phone" name="cell_phone" placeholder="123-45-678" pattern="([0-9]{3})[0-9]{3}-[0-9]{4}" required>
+                <input type="tel" id="cell_phone" name="cell_phone" placeholder="(123)-456-678" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
 
                 <label for="AcctEmail"><br>Email:</label>
                 <input type="email" id="email" name="email" required> <!-- There is a multiple keyword that will allow multiple addresses-->
@@ -38,7 +63,9 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                 <input type="text" name="state" id="state" required>
 
                 <label for="zip">Zip:</label>
-                <input type="text" name="zip" id="zip" required>
+                <input type="text" name="zip" id="zip" required><br>
+
+                <input type="submit" value="Complete Signup"><br><br>
 
 </p>
         </fieldset>
