@@ -18,10 +18,9 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
             $zip = $_POST['zip'];
 
             //Posts to Database
-            //$query1 = "INSERT INTO login (AcctEmail) values ('$acctEmail')";
-            $query2 = "INSERT INTO customer (CustFirstName, CustLastName, CustPhone, CustAddress, CustCity, CustState, CustZip) values ('$custFirstName', '$custLastName', '$custPhone', '$address', '$city', '$state', '$zip')";
-            //mysqli_query($connection, $query1);
-            mysqli_query($connection, $query2);
+            $query1 = "INSERT INTO customer (CustFirstName) values ('$custFirstName')";
+            //$query1 = "INSERT INTO customer (CustFirstName, CustLastName, CustPhone, CustAddress, /*CustCity,*/ CustState, CustZip, AcctEmail) values ('$custFirstName', '$custLastName', '$custPhone', '$address', /*'$city'*/, '$state', '$zip','$acctEmail')";
+            mysqli_query($connection, $query1);
 
             //Redirects
             header("Location: login.php");
