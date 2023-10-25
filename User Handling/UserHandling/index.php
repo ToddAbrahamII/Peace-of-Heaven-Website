@@ -1,19 +1,20 @@
 <?php 
-//call init file containing class autoloader
 require_once 'core/init.php';
 
+if (Session::exists('home')) {
+    echo '<p>' . Session::flash('home') . '</p>';
+}
 
-// example insert **
-$user=DB::getInstance()->insert('users', array(
-    'username' => 'Dale',
-    'password' => 'password',
-    'salt' => 'salt'
-));
+$user = new User();
+if($user->isLoggedIn()) {
+?>
+    <p>Hello <a href="#"><?php echo escape($user->data()->username); ?></a></p>
 
-if ($user->count()) {
-    echo 'No User';
+    <ul>
+        <li><a href="logout.php">Log out</a></li>
+    </ul>
+
+<?php
 } else {
-    foreach ($user->results() as $user) {
-        echo $user->username , '<br>';
-    }
+    echo '<p>You need to <a href="login">Log in</a> or <a>register</a></p>';
 }

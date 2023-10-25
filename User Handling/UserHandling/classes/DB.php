@@ -121,7 +121,11 @@ class DB {
      */
     public function results() {
         return $this->_results;
-    }   
+    }  
+    
+    public function first() {
+        return $this->results()[0];
+    }
 
     /**
      * Reusable Delete method from db
@@ -157,7 +161,7 @@ class DB {
             }
 
             // Creates a comma delimited insert statement. For examle: SELECT * FROM users (`name`,`pass`)
-            $sql = "INSERT INTO users (`" . implode('`,`',$keys) . "`) VALUES ({$values})"; // https://www.youtube.com/watch?v=FCnZsU19jyo&list=PLfdtiltiRHWF5Rhuk7k4UAU1_yLAZzhWc&index=10
+            $sql = "INSERT INTO {$table} (`" . implode('`,`',$keys) . "`) VALUES ({$values})"; // https://www.youtube.com/watch?v=FCnZsU19jyo&list=PLfdtiltiRHWF5Rhuk7k4UAU1_yLAZzhWc&index=10
             
             if($this->query($sql, $fields)->error()) {
                 return true;
