@@ -24,6 +24,10 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
             //Save to Database
             $query = "INSERT INTO login (User_ID, User_Name, Password) values ('$user_id', '$user_name', '$hashed_pass')";
             mysqli_query($connection, $query);
+            //Add second query that adds USERID into Customer table 
+            $query1 = "INSERT INTO customer (User_ID) values ('$user_id')";
+            mysqli_query($connection, $query1);
+
 
             //Redirects             Add a page here that goes to a page that collects, name, email, phone, address, etc. 
             header("Location: acctinfo.php");
