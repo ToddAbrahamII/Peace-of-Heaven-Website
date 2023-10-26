@@ -1,9 +1,38 @@
 <?php
 session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 
-require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/connection.php"); //Needed for making login required, calls other php page
-require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/functions.php");//Needed for making login required, calls other php page
-include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
+    require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/connection.php"); //Needed for making login required, calls other php page
+    require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/functions.php");//Needed for making login required, calls other php page
+    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
+    $user_data = check_login($connection); //Needed for making login required, checks credentials
+    
+
+    //Allows permission level to be checked even when Check_Login is not called
+    if (isset($_SESSION['user_data'])) {
+        $user_data = $_SESSION['user_data']; // Retrieve user data from the session
+    } else {
+      
+    }
+
+
+       //Displays Customer's Navigation Bar
+       if($user_data['PermissionLvl'] === '0'){
+        include("");
+        }
+
+    //Displays Employee's Navigation Bar
+    if($user_data['PermissionLvl'] === '1'){
+        include("");
+        }
+
+    //Displays Admin's Navigation Bar
+    if($user_data['PermissionLvl'] === '2'){
+        include("/xampp/htdocs/PeaceOfHeavenWebPage/php/AdminPortal/AdminNavBar.php");
+        }
+
+
+    $token = new Token;
+    $token->check($token);
 
 //Only shows page to users with the correct PermissionLvl
 if($user_data['PermissionLvl'] = '2')
@@ -66,13 +95,14 @@ if($user_data['PermissionLvl'] = '2')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/EmployeeCreation.css">
     
 
     <title>Employee Signup</title>
 </head>
 <body>
-    
-<form method="POST" class="EmpInfo-Form">
+    <div class=content>
+    <form method="POST" class="EmpInfo-Form">
         <fieldset>
 
             <legend>Employee Account Creation</legend>
@@ -109,9 +139,9 @@ if($user_data['PermissionLvl'] = '2')
 
                 <input type="submit" value="Complete Employee Account"><br><br>
 
-</p>
+            </p>
         </fieldset>
     </form>
-    
+</div>
 </body>
 </html>

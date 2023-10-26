@@ -14,14 +14,6 @@
         </div>
         <a href='Home.php'>Home</a>
         <a href='/PeaceOfHeavenWebPage/php/About_Us.php'>About Us</a>
-        <!--<div class = "dropdown">
-                <button class="dropbtn">Services</button>
-                <div class="dropdown-content">
-                <a href='/PeaceOfHeavenWebPage/php/Boarding.php'>Boarding</a>
-                <a href='/PeaceOfHeavenWebPage/php/Grooming.php'>Grooming</a>
-                <a href='/PeaceOfHeavenWebPage/php/Day_Care.php'>Day Care</a>
-                </div>
-        </div> -->
         <a href='/PeaceOfHeavenWebPage/php/Boarding.php'>Boarding</a>
         <a href='/PeaceOfHeavenWebPage/php/Grooming.php'>Grooming</a>
         <a href='/PeaceOfHeavenWebPage/php/Day_Care.php'>Day Care</a>

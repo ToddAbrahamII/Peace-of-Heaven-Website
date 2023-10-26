@@ -1,0 +1,33 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #007BFF;
+    padding: 20px;
+  }
+
+  .sidenav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .sidenav a:hover {
+    background-color: darkgray;
+  }
+  
+  .content {
+    margin-left: 75%; /* Adjust this value to create space beside the sidebar */
+    padding: 20px;
+  }
+  

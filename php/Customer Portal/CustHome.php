@@ -3,8 +3,25 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 
     require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/connection.php"); //Needed for making login required, calls other php page
     require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/functions.php");//Needed for making login required, calls other php page
+    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
 
     $user_data = check_login($connection); //Needed for making login required, checks credentials
+
+       //Displays Customer's Navigation Bar
+       if($user_data['PermissionLvl'] === '0'){
+        include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Customer Portal/CustNavBar.php");
+        }
+
+    //Displays Employee's Navigation Bar
+    if($user_data['PermissionLvl'] === '1'){
+        include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Employee Portal/EmpNavBar.php");
+        }
+
+    //Displays Admin's Navigation Bar
+    if($user_data['PermissionLvl'] === '2'){
+        include("/xampp/htdocs/PeaceOfHeavenWebPage/php/AdminPortal/AdminNavBar.php");
+        }
+
     $token = new Token;
     $token->check($token);
 
@@ -31,7 +48,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
     <title>Customer Portal</title>
 </head>
 <body>
-
+<div class=content>
     <a href="/PeaceOfHeavenWebPage/php/Login/logout.php">Logout</a>
     <h1> Welcome to the Customer Portal </h1>
     <p>Hello, <?php echo $user_data['User_Name']; ?>! </p>
@@ -108,6 +125,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
         echo '<a href="/PeaceOfHeavenWebPage/php/AdminPortal/AdminHome.php">Admin Portal</a>';
     }
 ?>
- 
+
+</div>
 </body>
 </html>
