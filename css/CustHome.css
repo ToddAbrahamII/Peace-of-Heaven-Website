@@ -1,0 +1,46 @@
+.calendar {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+td {
+    width: 14%;
+    padding: 10px;
+}
+
+.available {
+    background-color: #e0e0e0;
+}
+
+.booked {
+    background-color: #ff8c8c;
+}
+
+.book-now {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.day {
+    font-weight: bold;
+}
+
+.event {
+    font-size: 0.8em;
+}
