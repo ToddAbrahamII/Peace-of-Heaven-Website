@@ -27,9 +27,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `calander`
 --
 
-CREATE TABLE `calander` (
+CREATE TABLE `calendar` (
   `TimeSlot` date NOT NULL,
-  `ResID` bigint(20) NOT NULL,
+  `ResID` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -58,9 +58,9 @@ ALTER TABLE `calander`
 --
 -- Constraints for table `calander`
 --
-ALTER TABLE `calander`
-  ADD CONSTRAINT `calander - TimeSlot` FOREIGN KEY (`TimeSlot`) REFERENCES `timeslot` (`TimeSlot`);
-  ADD CONSTRAINT `calander - ResID` FOREIGN KEY (`ResID`) REFERENCES `reservation` (`ResID`);
+ALTER TABLE `calendar`
+  ADD CONSTRAINT `calendar - TimeSlot` FOREIGN KEY (`TimeSlot`) REFERENCES `timeslot` (`TimeSlot`);
+  ADD CONSTRAINT `calendar - ResID` FOREIGN KEY (`ResID`) REFERENCES `reservation` (`ResID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

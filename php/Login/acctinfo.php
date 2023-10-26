@@ -18,10 +18,8 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
             $zip = $_POST['zip'];
 
             //Posts to Database
-            //$query = "INSERT INTO customer (CustFirstName, CustLastName, CustPhone, CustAddress, CustCity, CustState, CustZip, AcctEmail) values ('$custFirstName', '$custLastName', '$custPhone', '$address', '$city', '$state', '$zip', '$acctEmail')
-              //         SELECT * FROM customer INNER JOIN login ON login.User_ID = customer.User_ID";
-
-            $query = "UPDATE customer JOIN login ON customer.User_ID = login.User_ID SET CustFirstName = '$custFirstName', CustLastName = '$custLastName', CustPhone = '$custPhone', AcctEmail='$acctEmail', CustAddress='$address', CustState='$state', CustCity='$city', CustZip='$zip'";        
+            $query = "UPDATE customer JOIN login ON customer.User_ID = login.User_ID 
+                      SET CustFirstName = '$custFirstName', CustLastName = '$custLastName', CustPhone = '$custPhone', AcctEmail='$acctEmail', CustAddress='$address', CustState='$state', CustCity='$city', CustZip='$zip'";        
             mysqli_query($connection, $query);
 
             //Redirects
