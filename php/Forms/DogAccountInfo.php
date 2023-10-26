@@ -14,8 +14,19 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
         <body>
             <form>
                 <fieldset>
+                    
+                        <legend>Dog General Information</legend>
                     <p>
-                        <legend>1. What is your dog's previous daycare and/or boarding experience?</legend>
+                        <input type="radio" id="1a" name="experience" value="1a">
+                        <label for="1a">a. Never attempted either</label>
+                </fieldset>
+                <fieldset>
+                        <legend>Dog Behavior Information</legend>
+                </fieldset>
+                <fieldset>
+                        <legend>Dog Health Information</legend>
+
+                        <legend>Dog Vaccine Information</legend>
     
                         <input type="radio" id="1a" name="experience" value="1a">
                         <label for="1a">a. Never attempted either</label>
