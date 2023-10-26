@@ -1,0 +1,62 @@
+/* Apply general styling to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Style the form container */
+.CustInfo-Form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Style the form legend (the title) */
+.CustInfo-Form legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Style form input labels and input fields */
+.CustInfo-Form label {
+    display: block;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.CustInfo-Form input[type="text"],
+.CustInfo-Form input[type="tel"],
+.CustInfo-Form input[type="email"] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Style the submit button */
+.CustInfo-Form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.CustInfo-Form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Add some spacing at the bottom of the form */
+.CustInfo-Form p {
+    margin-bottom: 10px;
+}

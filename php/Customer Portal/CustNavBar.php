@@ -17,6 +17,7 @@
     <a href=''>Create a Reservation</a>
     <a href=''>My Reservations</a>
     <a href=''>Add a Dog Account</a>
+    <a href=''> My Dog Accounts</a>
     <a href='/PeaceOfHeavenWebPage/php/Login/logout.php'>Logout</a>
    
   </div>

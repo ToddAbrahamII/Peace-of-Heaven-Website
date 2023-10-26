@@ -2,3 +2,58 @@
     margin-left: 12%; /* Adjust this value to create space beside the sidebar */
     padding: 20px;
   }
+
+/* Style for the form elements */
+.EmpInfo-Form {
+  text-align: left;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 50%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+.EmpInfo-Form fieldset {
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.EmpInfo-Form legend {
+  font-weight: bold;
+}
+
+.EmpInfo-Form label {
+  display: block;
+  margin: 5px 0;
+}
+
+.EmpInfo-Form input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.EmpInfo-Form input[type="submit"] {
+  background-color: #0074D9;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.EmpInfo-Form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Style for error message */
+.invalid_username {
+  color: red;
+  font-weight: bold;
+}
