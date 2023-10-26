@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2023 at 07:37 PM
+-- Generation Time: Oct 26, 2023 at 03:58 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -41,9 +41,9 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`ID`, `User_ID`, `User_Name`, `Password`, `PermissionLvl`, `Date`) VALUES
-(6, 64803, 'Cust', '$2y$10$ew7sQdHbOS72a6NUa3rXxOhYWm4tRN4Z51dNms25Bei5YzFOf1Cna', 0, '2023-10-18 19:49:07'),
-(7, 9887246346, 'Admin', '$2y$10$e8BEG5bwIbOWSnu0fF474uuEaydTm.nN5MnJCqlwMCLt1At0YbZiq', 2, '2023-10-18 20:02:36'),
-(8, 322879, 'Emp', '$2y$10$U7KQs7XvxeFWjBqQixfQEuA5avTHDhgbahJfKK9Q/gUxUizvk/yvu', 1, '2023-10-22 17:11:07');
+(6, 64803, 'Cust', '$2y$10$ew7sQdHbOS72a6NUa3rXxOhYWm4tRN4Z51dNms25Bei5YzFOf1Cna', 0, '2023-10-23 01:56:29'),
+(7, 9887246346, 'Admin', '$2y$10$e8BEG5bwIbOWSnu0fF474uuEaydTm.nN5MnJCqlwMCLt1At0YbZiq', 2, '2023-10-23 01:56:29'),
+(8, 322879, 'Emp', '$2y$10$U7KQs7XvxeFWjBqQixfQEuA5avTHDhgbahJfKK9Q/gUxUizvk/yvu', 1, '2023-10-23 01:56:29');
 
 --
 -- Indexes for dumped tables
@@ -66,7 +66,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

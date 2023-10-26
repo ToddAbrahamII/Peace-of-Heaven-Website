@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2023 at 04:04 AM
+-- Generation Time: Oct 26, 2023 at 03:59 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -61,17 +61,6 @@ ALTER TABLE `employee`
 --
 ALTER TABLE `employee`
   MODIFY `Emp_ID` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `employee`
---
-ALTER TABLE `employee`
-  ADD CONSTRAINT `Employee - AcctEmail` FOREIGN KEY (`AcctEmail`) REFERENCES `login` (`AcctEmail`),
-  ADD CONSTRAINT `Employee - UserId` FOREIGN KEY (`User_ID`) REFERENCES `login` (`User_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

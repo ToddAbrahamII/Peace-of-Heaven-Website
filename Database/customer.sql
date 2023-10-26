@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2023 at 03:59 AM
+-- Generation Time: Oct 26, 2023 at 03:59 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -36,7 +36,8 @@ CREATE TABLE `customer` (
   `CustState` varchar(100) NOT NULL,
   `CustZip` varchar(100) NOT NULL,
   `AcctEmail` varchar(100) NOT NULL,
-  `User_ID` bigint(20) NOT NULL
+  `User_ID` bigint(20) NOT NULL,
+  `CustCity` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -48,9 +49,9 @@ CREATE TABLE `customer` (
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`CustID`),
-  ADD KEY `UserID` (`User_ID`),
-  ADD KEY `AcctEmail` (`AcctEmail`),
-  ADD KEY `CustID` (`CustID`);
+  ADD KEY `CustID` (`CustID`),
+  ADD KEY `Cust - UserId` (`User_ID`),
+  ADD KEY `Cust - AcctEmail` (`AcctEmail`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -60,18 +61,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustID` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `customer`
---
-ALTER TABLE `customer`
-  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `login` (`User_ID`),
-  ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`AcctEmail`) REFERENCES `login` (`AcctEmail`);
+  MODIFY `CustID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

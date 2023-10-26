@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2023 at 10:54 PM
+-- Generation Time: Oct 26, 2023 at 03:58 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -20,6 +20,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `peaceofheavendb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calendar`
+--
+
+CREATE TABLE `calendar` (
+  `TimeSlot` date NOT NULL,
+  `ResID` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -75,6 +86,18 @@ CREATE TABLE `family` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kennel`
+--
+
+CREATE TABLE `kennel` (
+  `kennel_ID` int(4) NOT NULL,
+  `isOccupied` tinyint(1) NOT NULL,
+  `isBoarding` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `login`
 --
 
@@ -94,10 +117,17 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`ID`, `User_ID`, `User_Name`, `Password`, `PermissionLvl`, `Date`) VALUES
 (6, 64803, 'Cust', '$2y$10$ew7sQdHbOS72a6NUa3rXxOhYWm4tRN4Z51dNms25Bei5YzFOf1Cna', 0, '2023-10-23 01:56:29'),
 (7, 9887246346, 'Admin', '$2y$10$e8BEG5bwIbOWSnu0fF474uuEaydTm.nN5MnJCqlwMCLt1At0YbZiq', 2, '2023-10-23 01:56:29'),
-(8, 322879, 'Emp', '$2y$10$U7KQs7XvxeFWjBqQixfQEuA5avTHDhgbahJfKK9Q/gUxUizvk/yvu', 1, '2023-10-23 01:56:29'),
-(22, 2593134560, 'ToddAbraham', '$2y$10$sMi0yay2g7ciDOmwUkH5V.nHrt8etR/RsUQ2LjichZSFPzlbNHaG.', 0, '2023-10-25 20:47:52'),
-(23, 989640, 'Tredcvsdf', '$2y$10$zWGYV67sy5u5ckUNqGL2Hui0DA8Gej/k6pKu6UML2URcUupBTchpi', 0, '2023-10-25 20:49:36'),
-(24, 402337, 'Asdfserf', '$2y$10$zIjda1ECvQhA2P/GEZfduOWBhIHf3B5L1oFAB4aCdiDK1eugKVdAa', 0, '2023-10-25 20:54:08');
+(8, 322879, 'Emp', '$2y$10$U7KQs7XvxeFWjBqQixfQEuA5avTHDhgbahJfKK9Q/gUxUizvk/yvu', 1, '2023-10-23 01:56:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timeslot`
+--
+
+CREATE TABLE `timeslot` (
+  `TimeSlot` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -129,6 +159,12 @@ ALTER TABLE `family`
   ADD KEY `Family - Cust_ID` (`Cust_ID`);
 
 --
+-- Indexes for table `kennel`
+--
+ALTER TABLE `kennel`
+  ADD PRIMARY KEY (`kennel_ID`);
+
+--
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
@@ -145,7 +181,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `CustID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `employee`
@@ -160,26 +196,20 @@ ALTER TABLE `family`
   MODIFY `Family_ID` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `kennel`
+--
+ALTER TABLE `kennel`
+  MODIFY `kennel_ID` int(4) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `customer`
---
-ALTER TABLE `customer`
-  ADD CONSTRAINT `Cust - UserId` FOREIGN KEY (`User_ID`) REFERENCES `login` (`User_ID`);
-
---
--- Constraints for table `employee`
---
-ALTER TABLE `employee`
-  ADD CONSTRAINT `Employee - UserId` FOREIGN KEY (`User_ID`) REFERENCES `login` (`User_ID`);
 
 --
 -- Constraints for table `family`
