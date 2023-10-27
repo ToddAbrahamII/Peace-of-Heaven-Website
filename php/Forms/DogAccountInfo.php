@@ -16,9 +16,43 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                 <fieldset>
                     
                         <legend>Dog General Information</legend>
-                    <p>
-                        <input type="radio" id="1a" name="experience" value="1a">
-                        <label for="1a">a. Never attempted either</label>
+                    <p> 
+                        <!-- Gets Dog Name From Input -->
+                        <label for="DogName">What is your Dog's Name? </label><br>
+                        <input type="text" name="DogName" id="DogName" required><br>
+
+                        <!-- Gets Dog Breed From Input -->
+                        <label for="Breed">What is your Dog's Breed? </label><br>
+                        <input type="text" name="Breed" id="Breed" required><br>
+
+                        <!-- Gets Dog DOB From Input -->
+                        <label for="DogDOB">What is your Dog's Date of Birth?</label><br>
+                        <input type="date" name ="DogDOB" id="DogDOB" required><br>
+                        
+                        <!-- Gets Dog Sex from Male and Female Option -->
+                        <label for="DogSex">What is the Sex of your Dog?</label><br>
+                        <input type="radio" id="M" name="Male" value="M" required>
+                        <label for="M">Male</label>
+                        
+                        <input type="radio" id="F" name="Female" value="F" required>
+                        <label for="F">Female</label><br>
+                        
+                        <!-- Gets If the Dog is Fixed from Options -->
+                        <label for="isFixed">Has your dog be fixed?</label><br>
+                        <input type="radio" id="T" name="True" value=1 required>
+                        <label for="T">Fixed</label>
+                        
+                        <input type="radio" id="F" name="False" value=0 required>
+                        <label for="F">Not Fixed</label><br>
+                        
+                        <!-- Gets the Dog's Weight from Input -->
+                        <label for="DogWeight"> What is your Dog's Weight</label><br>
+                        <input type="number" if="DogWeight" name="DogWeight" required>
+
+                        <!-- Gets the Dog's Color from Input -->
+
+                        
+                        <!-- Gets the Dog's Other Information -->
                 </fieldset>
                 <fieldset>
                         <legend>Dog Behavior Information</legend>

@@ -1,9 +1,10 @@
 <?php
+//JON FIX THIS WITH SINGLETON PATTERN
 session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 
-    include("connection.php"); //Needed for making login required, calls other php page
-    include("functions.php");//Needed for making login required, calls other php page
-    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
+    //include("connection.php"); //Needed for making login required, calls other php page
+   // include("functions.php");//Needed for making login required, calls other php page
+   // include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
 
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
@@ -18,6 +19,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
             $zip = $_POST['zip'];
 
             //Posts to Database
+            //JON FIX THIS WITH DB CLASS
             $query = "UPDATE customer JOIN login ON customer.User_ID = login.User_ID 
                       SET CustFirstName = '$custFirstName', CustLastName = '$custLastName', CustPhone = '$custPhone', AcctEmail='$acctEmail', CustAddress='$address', CustState='$state', CustCity='$city', CustZip='$zip'";        
             mysqli_query($connection, $query);
