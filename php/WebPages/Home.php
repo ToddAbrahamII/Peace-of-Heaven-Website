@@ -34,21 +34,21 @@
         <div class="service-box">
             <img src="/PeaceOfHeavenWebPage/Img/Paw-print.jpg" alt="Image" class="paw-print-img">
             <p>Overnight Dog Watching</p>
-            <a class="button" href="/PeaceOfHeavenWebPage/php/Boarding.php">Boarding</a>
+            <a class="button" href="/PeaceOfHeavenWebPage/php/WebPagesBoarding.php">Boarding</a>
         </div>
 
         <!-- Day Care Box with Link to Service Page-->
         <div class="service-box">
             <img src="/PeaceOfHeavenWebPage/Img/Paw-print.jpg" alt="Image" class="paw-print-img">
             <p>Monday-Friday Dog Watching </p>
-            <a class="button" href="/PeaceOfHeavenWebPage/php/Day_Care.php">Day Care</a>
+            <a class="button" href="/PeaceOfHeavenWebPage/php/WebPages/Day_Care.php">Day Care</a>
         </div>
 
         <!--Grooming Box with Link to Service Page-->
         <div class="service-box">
     <img src="/PeaceOfHeavenWebPage/Img/Paw-print.jpg" alt="Image" class="paw-print-img">
             <p>Services with Cleaning, Nail Clippings and Hair Trimmings</p>
-            <a class="button" href="/PeaceOfHeavenWebPage/php/Grooming.php">Grooming</a>
+            <a class="button" href="/PeaceOfHeavenWebPage/WebPages/php/Grooming.php">Grooming</a>
         </div>
     </section>
 
@@ -58,7 +58,7 @@
         <div class="Kennel-description">
             <h2>Our Kennel Concept</h2>
             <p>At Peace of Heaven, we promote peace by keeping our numbers small, our spaces large, and our dedication strong. We understand the hesitancy of leaving your pets in unfamiliar surroundings with unfamiliar faces (& tails!) and disrupted routines. We recognize these challenges and strive to overcome them. Our kennels are each their own individual tiny building, we have multiple areas for play & exercise, and a lower max capacity allows us to individualize care & keep up normal routines. We offer superior services & care in a serene atmosphere.</p>
-            <a href="/PeaceOfHeavenWebPage/php/About_Us.php" class="Kennel-button">Our Facilities</a>
+            <a href="/PeaceOfHeavenWebPage/php/WebPages/About_Us.php" class="Kennel-button">Our Facilities</a>
         </div>
     </div>
 
@@ -71,7 +71,7 @@
         <div class="Our-Reason-description">
             <h2 class="Reason-Header">Our Reason</h2>
             <p>Meet Beau & Bronx, two awesome German Shepherd Dogs and the reasons behind building Peace of Heaven. Beau was rescued as a small puppy and the story of his first few months of life is unknown. He is loyal, obedient, & full of love but also sensitive and easily stressed. Bronx, on the other hand, is independent, outgoing, stubborn, & sweet all at the same time! Each dog has a unique personality and unique needs. Finding somewhere (or someone) to leave them while we went away was a struggle.</p>
-            <a href="/PeaceOfHeavenWebPage/php/About_Us.php" class="Our-Reason-button">Our Story</a>
+            <a href="/PeaceOfHeavenWebPage/php/WebPages/About_Us.php" class="Our-Reason-button">Our Story</a>
         </div>
 
         <!--Image Section--> 
