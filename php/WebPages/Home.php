@@ -48,7 +48,7 @@
         <div class="service-box">
     <img src="/PeaceOfHeavenWebPage/Img/Paw-print.jpg" alt="Image" class="paw-print-img">
             <p>Services with Cleaning, Nail Clippings and Hair Trimmings</p>
-            <a class="button" href="/PeaceOfHeavenWebPage/WebPages/php/Grooming.php">Grooming</a>
+            <a class="button" href="/PeaceOfHeavenWebPage/php/WebPages/Grooming.php">Grooming</a>
         </div>
     </section>
 
