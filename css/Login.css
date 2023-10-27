@@ -23,20 +23,37 @@ body {
     padding: 20px;
     border-radius: 8px;
     text-align: center;
+    width: 300px; /* Set a fixed width for the form */
+    margin: 0 auto; /* Center the form horizontally */
 }
 
 .login-form label {
     display: block;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .login-form input {
-    width: 90%;
+    width: 80%;
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 16px; /* Increase the font size for better readability */
 }
+
+/* Style the "Remember me" checkbox input */
+.login-form input.remember-checkbox {
+    width: auto; /* Allow the input element to expand to its content */
+    margin: 0; /* Remove any margin (if any) around the checkbox */
+}
+
+/* Add space between the checkbox and "Remember Me" text */
+.login-form label[for="remember"] {
+    display: flex;
+    align-items: center;
+}
+
 
 .login-form input[type="submit"] {
     background-color: #007BFF;
@@ -46,16 +63,7 @@ body {
     border-radius: 4px;
     padding: 10px 20px;
     cursor: pointer;
-}
-
-/* Style the signup and home links */
-.signup-link, .home-link {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-.signup-link:hover, .home-link:hover {
-    text-decoration: underline;
+    margin-top: 20px; /* Add some spacing below the submit button */
 }
 
 /* Style the signup and home links */
@@ -79,8 +87,9 @@ body {
     margin-right: 10px; /* Separate the links */
 }
 
-.invalid_cred{
-    color: red;
-    font-size: 25px;
-    text-align: center;
+/* Style the "Remember me" checkbox label */
+.login-form label[for="remember"] {
+    display: flex;
+    align-items: center;
 }
+

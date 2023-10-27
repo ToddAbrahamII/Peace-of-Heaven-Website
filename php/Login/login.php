@@ -93,8 +93,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
             <a href="signup.php"  class="signup-link">Click to Signup</a><br><br>
 
-            <a href="/PeaceOfHeavenWebPage/php/Home.php" class="home-link">Return Home</a>
-    </div>
-    
+            <a href="/PeaceOfHeavenWebPage/php/WebPages/Home.php" class="home-link">Return Home</a>
+    </div>  
 </body>
 </html>

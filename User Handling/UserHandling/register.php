@@ -84,11 +84,6 @@ if(Input::exists()) {
         <input type="password_again" name="password_again" id="password_again">
     </div>   
 
-    <div class="field">
-        <label for="name">Enter your Name</label>
-        <input type="text" name="name" id="name" value="<?php echo escape(Input::get('name'))?>">
-    </div> 
-
     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
     <input type="submit" value="Register">
 </form>
