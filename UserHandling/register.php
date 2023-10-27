@@ -87,12 +87,6 @@ if (Input::exists()) {
                 'name' => 'Password Again',
                 'required' => true,
                 'matches' => 'password'
-            ),
-            'name' => array(
-                'name' => 'Name',
-                'required' => true,
-                'min' => 2,
-                'max' => 50
             )
         ));
 
@@ -101,6 +95,7 @@ if (Input::exists()) {
             // Register user
             Session::flash('success', 'You registered successfully!');
             $user = new User();
+            echo 'validation passed';
 
             // Generate a unique salt for the user
             $salt = Hash::salt(32);
@@ -117,6 +112,7 @@ if (Input::exists()) {
                     'joined' => date('Y-m-d H:i:s'),
                     'group' => 1
                 ));
+                echo 'created';
 
                 Session::flash('home', 'You have been registered and can now log in!');
                 Redirect::to(404); //once logged in, send user to index page
@@ -152,10 +148,6 @@ if (Input::exists()) {
         <input type="password" name="password_again" id="password_again">
     </div>   
 
-    <div class="field">
-        <label for="name">Enter your Name</label>
-        <input type="text" name="name" id="name" value="<?php echo escape(Input::get('name'))?>">
-    </div> 
 
     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
     <input type="submit" value="Register">

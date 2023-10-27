@@ -8,7 +8,7 @@ $GLOBALS['config'] = array(
         'host' => '127.0.0.1', //local host
         'username' => 'root', //htdocs
         'password' => '', 
-        'db' => 'lr' // database
+        'db' => 'peaceofheavendb' // database
     ),
     'remember' => array(
         'cookie_name' => 'hash',
