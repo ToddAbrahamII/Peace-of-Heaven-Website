@@ -10,7 +10,17 @@ class Validate {
         $this->_db = DB::getInstance();
     }
 
-    public function check ($source, $items = array()) {
+    /**
+     * Abstract method to check if passed valitation rules are met 
+     * by the passed data in the array
+     * 
+     * Note: Future checks on input should be added here
+     * 
+     * @param mixed $source
+     * @param mixed $items
+     * @return static
+     */
+    public function check ($source, $items = array()) { 
         foreach ($items as $item => $rules) {
             foreach($rules as $rule => $rule_value) {
                 $value = trim($source[$item]);
@@ -24,27 +34,27 @@ class Validate {
                         case 'min':
                             // Check string length is less than rule valu
                             if(strlen($value) < $rule_value) {
-                                $this->addError('{$item} must be a minimum of {$rule_value} characters') ;
+                                $this->addError("{$item} must be a minimum of {$rule_value} characters") ;
                             }
                         break;
                         case 'max':
                             // Check string length is greater than maximum
                             if(strlen($value) > $rule_value) {
-                                $this->addError('{$item} must be a maximum of {$rule_value} characters') ;
+                                $this->addError("{$item} must be a maximum of {$rule_value} characters") ;
                             }
 
                         break;
                         case 'matches':
                             // Check if value is not equal to source value
                             if($value != $source[$rule_value]) {
-                                $this->addError('{$rule_value} must match {$item}');
+                                $this->addError("{$rule_value} must match {$item}");
                             }
 
                         break;
                         case 'unique': 
                             $check = $this->_db->get($rule_value, array($item, '=', $value));
                             if($check->count()) { // if not empty
-                                $this->addError('{$item} already exists.');
+                                $this->addError("{$item} already exists.");
                             }
                         break;
                     }
@@ -69,7 +79,7 @@ class Validate {
     }
 
     public function passed() {
-        $this->_passed;
+        return $this->_passed;
     }
 
 

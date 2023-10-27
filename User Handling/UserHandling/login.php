@@ -1,6 +1,5 @@
 <?php
 
-use function PHPSTORM_META\elementType;
 
 require_once 'core/init.php';
 
@@ -16,12 +15,10 @@ if(Input::exists()) {
         if($validation->passed()) {
             // log user in
             $user = new User();
-
-            $remember = (Input::get('remember' === 'on') ? true : false);
-            $login = $user->login(Input::get('username'), Input::get('password'), $remember);
+            $login = $user->login(Input::get('username'), Input::get('password'));
 
             if($login) {
-                Redirect::to('index.php'); // default redirects user to home page. Can be expanded to return to requested page.
+                echo 'success';
             } else {
                 echo 'Sorry, Login Failed';
             }
@@ -44,12 +41,6 @@ if(Input::exists()) {
     <div class="field">
         <label for="password">Password</label>
         <input type="password" name="password" id="password" autocomplete="off">
-    </div>
-
-    <div>
-        <label for="remember">
-            <input type="checkbox" name="remember" id="remember"> Remember me
-        </label>
     </div>
 
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">

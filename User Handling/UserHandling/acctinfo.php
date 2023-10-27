@@ -1,5 +1,12 @@
 <?php
-//JON FIX THIS WITH SINGLETON PATTERN
+require_once 'core/init.php';
+
+if(Input::exists()) {
+    if(Token::check(Input::get('token'))) {
+        
+    }
+}
+/*
 session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 
     //include("connection.php"); //Needed for making login required, calls other php page
@@ -29,6 +36,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
             die;
 
     }
+*/
 ?>
 <!DOCTYPE html>
 <html>

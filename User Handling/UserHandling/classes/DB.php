@@ -15,7 +15,6 @@ class DB {
         try {
             $this->_pdo = new PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db'),Config::get('mysql/username'), Config::get('mysql/password'));
 
-            echo 'Connected';
         } catch (PDOException $e) {
             die($e->getMessage());
         }
@@ -51,31 +50,7 @@ class DB {
         return $this;
     }
 
-    /**
-     * Summary of action
-     * @param mixed $action
-     * @param mixed $table
-     * @param mixed $where
-     * @return static
-     */
-    private function action ($action, $table, $where = array()) { // 
-        if(count($where) === 3) { // Ensure array is filled
-            $operators = array('=','>','<','<=','>=');
-
-            $field      = $where[0];
-            $operator   = $where[1];
-            $value      = $where[2];
-
-            if (in_array($operator, $operators)) {
-                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
-
-                if(!$this->query($sql,array($value))->error()) {
-                    return $this;
-                }
-            } 
-        }
-        return false;
-    }
+  
 
     /**
      * Reusable select method from db
@@ -121,8 +96,12 @@ class DB {
      */
     public function results() {
         return $this->_results;
-    }  
-    
+    }   
+
+    /**
+     * Return the first result from the query
+     * @return mixed
+     */
     public function first() {
         return $this->results()[0];
     }
@@ -139,6 +118,31 @@ class DB {
 
     }
 
+  /**
+     * Summary of action
+     * @param mixed $action
+     * @param mixed $table
+     * @param mixed $where
+     * @return static
+     */
+    private function action ($action, $table, $where = array()) { // 
+        if(count($where) === 3) { // Ensure array is filled
+            $operators = array('=','>','<','<=','>=');
+
+            $field      = $where[0];
+            $operator   = $where[1];
+            $value      = $where[2];
+
+            if (in_array($operator, $operators)) {
+                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
+
+                if(!$this->query($sql,array($value))->error()) {
+                    return $this;
+                }
+            } 
+        }
+        return false;
+    }
     /**
      * Summary of insert
      * @param mixed $table
@@ -163,7 +167,7 @@ class DB {
             // Creates a comma delimited insert statement. For examle: SELECT * FROM users (`name`,`pass`)
             $sql = "INSERT INTO {$table} (`" . implode('`,`',$keys) . "`) VALUES ({$values})"; // https://www.youtube.com/watch?v=FCnZsU19jyo&list=PLfdtiltiRHWF5Rhuk7k4UAU1_yLAZzhWc&index=10
             
-            if($this->query($sql, $fields)->error()) {
+            if(!$this->query($sql, $fields)->error()) {
                 return true;
             }
 
@@ -184,5 +188,21 @@ class DB {
      */
     public function error() {
         return $this->_error;
+    }
+
+    ####### Transaction Handling ############
+    // Useful for when we need to update multiple tables at once. If any statement fails, it rolls back any changes
+    //   within the transaction
+
+    public function  beginTransaction() {
+        return $this->_pdo->beginTransaction();
+    }
+
+    public function commit() {
+        return $this->_pdo->commit();
+    }
+
+    public function rollBack() {
+        
     }
 }
