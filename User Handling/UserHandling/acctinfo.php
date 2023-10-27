@@ -1,9 +1,43 @@
 <?php
 require_once 'core/init.php';
 
+
 if(Input::exists()) {
     if(Token::check(Input::get('token'))) {
         
+        $validate = new Validate();
+        $validation = $validate->check($_POST, array(
+            ### Insert rules that acctInfo fields must meet in addition to js validation ###
+        ));
+
+        // If all rules are satisfied, create new customer
+        if($validation->passed()) {
+            $customer = new Customer(); // constructor call
+
+            try {
+                $customer->create(array( // NOTE:: DB table names might be case sensitive if this doesn't work.
+                    'CustFirstName' => Input::get('custFirstName'),
+                    'CustLastName' => Input::get('custLastName'),
+                    'CustPhone' => Input::get('custPhone'),
+                    'AcctEmail' => Input::get('email'),
+                    'CustAddress'=> Input::get('address'),
+                    'CustCity' => Input::get('city'),
+                    'CustState'=> Input::get('state'),
+                    'CustZip' => Input::get('zip'),
+                ));
+
+                Session::flash('#page', '#message');
+                Redirect::to('#page');
+
+            }catch (Exception $e) {
+                die($e->getMessage());
+            }
+        } else {
+            // output errors
+            foreach ($validation->errors() as $error) {
+                echo $error, '<br>';
+            }
+        }
     }
 }
 /*
@@ -61,7 +95,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                 <label for="cell_phone"><br>Cell Phone:</label>
                 <input type="tel" id="cell_phone" name="cell_phone" placeholder="(123)-456-678" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
 
-                <label for="AcctEmail"><br>Email:</label>
+                <label for="email"><br>Email:</label>
                 <input type="email" id="email" name="email" required> <!-- There is a multiple keyword that will allow multiple addresses-->
 
                 <label for="address"><br>Address:</label>
