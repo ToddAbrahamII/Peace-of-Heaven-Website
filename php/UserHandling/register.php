@@ -46,7 +46,7 @@ if(Input::exists()) {
                 'username' => Input::get('username'),
                 'password' => Hash::make(Input::get('password'), $salt),
                 'salt' => $salt,
-                'name' => Input::get('name'),
+                //'name' => Input::get('name'),
                 'joined' => date('Y-m-d H:i:s'),
                 'group' => 1 // this will eventually be the permission group. Right now there is only one permission group.
             ));
@@ -67,29 +67,34 @@ if(Input::exists()) {
 
 
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Register.css">
 
-<form action="" method="post">
-    <div class="field">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off">
+    <title>Signup</title>
+</head>
+<body>
+<div class="signup-container">
+<form action="" method="post" class="signup-form">
 
-    </div>
+        <label for="username">Create a Username</label>
+        <input type="text" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off"><br><br>
 
-    <div class="field">
-        <label for="password">Choose a password</label>
-        <input type="password" name="password" id="password">
-    </div> 
-    <div class="field">
-        <label for="password_again">Enter your password again</label>
-        <input type="password_again" name="password_again" id="password_again">
-    </div>   
-
-    <div class="field">
-        <label for="name">Enter your Name</label>
-        <input type="text" name="name" id="name" value="<?php echo escape(Input::get('name'))?>">
-    </div> 
+        <label for="password">Choose a Password</label>
+        <input type="password" name="password" id="password"><br><br>
+ 
+        <label for="password_again">Enter your Password Again</label>
+        <input type="password_again" name="password_again" id="password_again"><br><br>
 
     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-    <input type="submit" value="Register">
-</form>
+    <input type="submit" value="Register"><br><br>
 
+    <a href="Login.php" class = "login-link">Click to Login</a><br><br>
+        <a href="/PeaceOfHeavenWebPage/php/Home.php" class="home-link">Return Home</a>
+
+</div>
+</body>
+</html>
