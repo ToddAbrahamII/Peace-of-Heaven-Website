@@ -2,7 +2,8 @@
 class User {
     private $_db,
             $_data,
-            $_sessionName;
+            $_sessionName,
+            $_isLoggedIn; 
 
     public function __construct($user = null) {
         $this->_db = DB::getInstance();
@@ -10,6 +11,19 @@ class User {
         $this->_sessionName = Config::get('session/session_name');
 
         // check if user logged in
+        if(!$user) {
+            if(Session::exists($this->_sessionName)) {
+                $user = Session::get($this->_sessionName);
+                
+                if($this->find($user)) {
+                    $this->_isLoggedIn = true;
+                } else {
+                    // process logout
+                }
+            }
+        } else {
+            $this->find($user);
+        }
     }
 
     public function create($fields) {
@@ -45,14 +59,24 @@ class User {
         if($user) {
             if($this->data()->password === Hash::make($password, $this->data()->salt)) {
                 echo 'OK!';
-                Session::put($this->_sessionName, $this->data()->id);
+                print_r($this->_data);
+                Session::put($this->_sessionName, $this->data()->id); // use ID to set a session
+                return true;
 
             }
         }
         return false;
     }
 
-    private function data() {
+    public function logout() {
+        Session::delete($this->_sessionName);
+    }
+
+    public function data() {
         return $this->_data;
+    }
+
+    public function isLoggedIn() {
+        return $this->_isLoggedIn;
     }
 }

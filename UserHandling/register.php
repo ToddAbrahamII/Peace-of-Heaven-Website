@@ -95,7 +95,6 @@ if (Input::exists()) {
             // Register user
             Session::flash('success', 'You registered successfully!');
             $user = new User();
-            echo 'validation passed';
 
             // Generate a unique salt for the user
             $salt = Hash::salt(32);
@@ -108,14 +107,12 @@ if (Input::exists()) {
                     'username' => Input::get('username'),
                     'password' => Hash::make(Input::get('password'), $salt),
                     'salt' => $salt,
-                    'name' => Input::get('name'),
                     'joined' => date('Y-m-d H:i:s'),
                     'group' => 1
                 ));
-                echo 'created';
 
                 Session::flash('home', 'You have been registered and can now log in!');
-                Redirect::to(404); //once logged in, send user to index page
+                Redirect::to('index.php'); //once logged in, send user to index page
 
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -147,7 +144,6 @@ if (Input::exists()) {
         <label for="password_again">Enter your password again</label>
         <input type="password" name="password_again" id="password_again">
     </div>   
-
 
     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
     <input type="submit" value="Register">

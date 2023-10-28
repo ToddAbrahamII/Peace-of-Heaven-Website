@@ -18,7 +18,7 @@ if(Input::exists()) {
             $login = $user->login(Input::get('username'), Input::get('password'));
 
             if($login) {
-                echo 'success';
+               Redirect::to('index.php');
             } else {
                 echo 'Sorry, Login Failed';
             }
@@ -43,6 +43,7 @@ if(Input::exists()) {
         <input type="password" name="password" id="password" autocomplete="off">
     </div>
 
+    <!-- Token must be hidden and included on all interating webpages that need a session -->
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
     <input type="submit" value="Log in">
 </form>

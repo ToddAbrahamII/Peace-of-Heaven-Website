@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Summary of Input
+ * Reusable form handler to grab form data
  */
 class Input {
     /**
