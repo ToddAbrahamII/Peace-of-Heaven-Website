@@ -51,7 +51,7 @@ if(Input::exists()) {
                 'group' => 1 // this will eventually be the permission group. Right now there is only one permission group.
             ));
 
-            Session::flash('home','You have been registered and can now log in!');
+            Session::flash('Location: acctinfo.php');
             
 
         } catch (Exception $e) {
