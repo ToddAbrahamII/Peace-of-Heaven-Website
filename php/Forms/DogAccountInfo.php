@@ -1,8 +1,4 @@
 <?php
-session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
-
-    include("connection.php"); //Needed for making login required, calls other php page
-    include("functions.php");//Needed for making login required, calls other php page
     ?>
 
     <!DOCTYPE html>
@@ -14,68 +10,113 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
         <body>
             <form>
                 <fieldset>
-                    
+                        <!-- Collects information for Dog Table -->
                         <legend>Dog General Information</legend>
                     <p> 
-                        <!-- Gets Dog Name From Input -->
-                        <label for="DogName">What is your Dog's Name? </label><br>
-                        <input type="text" name="DogName" id="DogName" required><br>
+                            <!-- Gets Dog Name From Input -->
+                            <label for="DogName">What is your Dog's Name? </label><br>
+                            <input type="text" name="DogName" id="DogName" required><br><br>
 
-                        <!-- Gets Dog Breed From Input -->
-                        <label for="Breed">What is your Dog's Breed? </label><br>
-                        <input type="text" name="Breed" id="Breed" required><br>
+                            <!-- Gets Dog Breed From Input -->
+                            <label for="Breed">What is your Dog's Breed? </label><br>
+                            <input type="text" name="Breed" id="Breed" required><br><br>
 
-                        <!-- Gets Dog DOB From Input -->
-                        <label for="DogDOB">What is your Dog's Date of Birth?</label><br>
-                        <input type="date" name ="DogDOB" id="DogDOB" required><br>
-                        
-                        <!-- Gets Dog Sex from Male and Female Option -->
-                        <label for="DogSex">What is the Sex of your Dog?</label><br>
-                        <input type="radio" id="M" name="Male" value="M" required>
-                        <label for="M">Male</label>
-                        
-                        <input type="radio" id="F" name="Female" value="F" required>
-                        <label for="F">Female</label><br>
-                        
-                        <!-- Gets If the Dog is Fixed from Options -->
-                        <label for="isFixed">Has your dog be fixed?</label><br>
-                        <input type="radio" id="T" name="True" value=1 required>
-                        <label for="T">Fixed</label>
-                        
-                        <input type="radio" id="F" name="False" value=0 required>
-                        <label for="F">Not Fixed</label><br>
-                        
-                        <!-- Gets the Dog's Weight from Input -->
-                        <label for="DogWeight"> What is your Dog's Weight</label><br>
-                        <input type="number" if="DogWeight" name="DogWeight" required>
+                            <!-- Gets Dog DOB From Input -->
+                            <label for="DogDOB">What is your Dog's Date of Birth?</label><br>
+                            <input type="date" name ="DogDOB" id="DogDOB" required><br><br>
+                            
+                            <!-- Gets Dog Sex from Male and Female Option -->
+                            <label for="DogSex">What is the Sex of your Dog?</label><br>
+                            <input type="radio" id="M" name="sex" value="M">
+                            <label for="M">Male</label>
 
-                        <!-- Gets the Dog's Color from Input -->
+                            <input type="radio" id="F" name="sex" value="F">
+                            <label for="F">Female</label><br><br>
 
-                        
-                        <!-- Gets the Dog's Other Information -->
+                            
+                            <!-- Gets If the Dog is Fixed from Options -->
+                            <label>Has your dog been fixed?</label><br>
+                            <input type="radio" id="T" name="fixed" value="1">
+                            <label for="T">Fixed</label>
+
+                            <input type="radio" id="F" name="fixed" value="0">
+                            <label for="F">Not Fixed</label>
+                            
+                            <!-- Gets the Dog's Weight from Input -->
+                            <label for="DogWeight"> What is your Dog's Weight</label><br>
+                            <input type="number" id="DogWeight" name="DogWeight" required><br><br>
+
+                            <!-- Gets the Dog's Color from Input -->
+                            <label for="DogColor">What is your Dog's Color</label><br>
+                            <input type="text" id="DogColor" name="DogColor" required><br><br>
+                            
+                            <!-- Gets the Dog's Other Information -->
+                            <label for="DogOtherInfo">Is there anything else you would like to tell us about your dog?</label><br>
+                            <input type="text" id="DogOtherInfo" name="DogOtherInfo"><br><br>
+                        </p>
                 </fieldset>
                 <fieldset>
+                        <!-- Collects information for DogBehavior Table -->
                         <legend>Dog Behavior Information</legend>
+
+                            <!-- Gets Dog Food Preferences -->
+
+                            <!-- Checks if Dog is a social -->
+                            <label for="isSocial">Would you like your dog to participate in social activities with other dogs?</label><br>
+                            <input type="radio" id="T" name="social" value="1">
+                            <label for="T">Yes</label>
+
+                            <input type="radio" id="F" name="social" value="0">
+                            <label for="F">No</label>
+                            <h3>Note:</h3>
+                            <p>-Dogs that are allowed in social activity will undergo a temperament assessment by POH staff to be accepted into social groups.<br>
+                            -Dogs that are not participating in social play will not receive less attention or active time compared to other dogs</p>
+
                 </fieldset>
                 <fieldset>
+                        <!-- Collects information for DogHealth Table -->
                         <legend>Dog Health Information</legend>
 
+                        <p>
+                            <!-- Vet Name -->
+
+                            <!-- Vet Phone -->
+
+                            <!-- Vet Address -->
+
+                            <!-- Vet City -->
+
+                            <!-- Vet State -->
+
+                            <!-- Vet Zip -->
+
+                            <!-- Allergies -->
+
+                            <!-- Medical Conditions -->
+
+                            <!-- Impairments -->
+
+                            <!-- Other Health Information -->
+
+                        </p>
+
+                        <!-- Collects information for DogVaccine Table -->
                         <legend>Dog Vaccine Information</legend>
-    
-                        <input type="radio" id="1a" name="experience" value="1a">
-                        <label for="1a">a. Never attempted either</label>
-                        <br>
-                        <input type="radio" id="1b" name="experience" value="1b">
-                        <label for="1b">b. Boarding and/or daycare client in past but no more than twice a year</label>
-                        <br>
-                        <input type="radio" id="1c" name="experience" value="1c">
-                        <label for="1c">c. Has been at least once but stresses easily or does not adjust well to unfamiliar environments</label> 
-                        <br>
-                        <input type="radio" id="1d" name="experience" value="1d">
-                        <label for="1d">d. Boarded regularly & adjusts easily</label>
-                        <br>
-                        <input type="radio" id="1e" name="experience" value="1e">
-                        <label for="1e">e. Attends daycare often & socializes well</label>
+        
+                            <input type="radio" id="1a" name="experience" value="1a">
+                            <label for="1a">a. Never attempted either</label>
+                            <br>
+                            <input type="radio" id="1b" name="experience" value="1b">
+                            <label for="1b">b. Boarding and/or daycare client in past but no more than twice a year</label>
+                            <br>
+                            <input type="radio" id="1c" name="experience" value="1c">
+                            <label for="1c">c. Has been at least once but stresses easily or does not adjust well to unfamiliar environments</label> 
+                            <br>
+                            <input type="radio" id="1d" name="experience" value="1d">
+                            <label for="1d">d. Boarded regularly & adjusts easily</label>
+                            <br>
+                            <input type="radio" id="1e" name="experience" value="1e">
+                            <label for="1e">e. Attends daycare often & socializes well</label>
                     </p>
     
     
