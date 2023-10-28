@@ -59,50 +59,7 @@
                         <!-- Collects information for DogBehavior Table -->
                         <legend>Dog Behavior Information</legend>
 
-                            <!-- Gets Dog Food Preferences -->
-
-                            <!-- Checks if Dog is a social -->
-                            <label for="isSocial">Would you like your dog to participate in social activities with other dogs?</label><br>
-                            <input type="radio" id="T" name="social" value="1">
-                            <label for="T">Yes</label>
-
-                            <input type="radio" id="F" name="social" value="0">
-                            <label for="F">No</label>
-                            <h3>Note:</h3>
-                            <p>-Dogs that are allowed in social activity will undergo a temperament assessment by POH staff to be accepted into social groups.<br>
-                            -Dogs that are not participating in social play will not receive less attention or active time compared to other dogs</p>
-
-                </fieldset>
-                <fieldset>
-                        <!-- Collects information for DogHealth Table -->
-                        <legend>Dog Health Information</legend>
-
-                        <p>
-                            <!-- Vet Name -->
-
-                            <!-- Vet Phone -->
-
-                            <!-- Vet Address -->
-
-                            <!-- Vet City -->
-
-                            <!-- Vet State -->
-
-                            <!-- Vet Zip -->
-
-                            <!-- Allergies -->
-
-                            <!-- Medical Conditions -->
-
-                            <!-- Impairments -->
-
-                            <!-- Other Health Information -->
-
-                        </p>
-
-                        <!-- Collects information for DogVaccine Table -->
-                        <legend>Dog Vaccine Information</legend>
-        
+                            <legend>1. What is your dogs previous daycare and/or boarding experience</legend> 
                             <input type="radio" id="1a" name="experience" value="1a">
                             <label for="1a">a. Never attempted either</label>
                             <br>
@@ -245,6 +202,54 @@
     
                         <label for="potty">14. What is your dog's normal potty routine?</label>
                         <input type="text" name="potty" id="potty">
+
+                            <!-- Checks if Dog is escape artist -->
+
+                            <!-- Checks if Dog is a climber -->
+
+                            <!-- Checks if Dog is leash trained -->
+
+                            <!-- Checks if Dog is a chewer -->
+
+                            <!-- Checks Dogs Bathroom Routine -->
+
+                            <!-- Checks any other information regarding behavior -->
+                </fieldset>
+                <fieldset>
+                        <!-- Collects information for DogHealth Table -->
+                        <legend>Dog Health Information</legend>
+
+                        <p>
+                            <!-- Vet Name -->
+
+                            <!-- Vet Phone -->
+
+                            <!-- Vet Address -->
+
+                            <!-- Vet City -->
+
+                            <!-- Vet State -->
+
+                            <!-- Vet Zip -->
+
+                            <!-- Allergies -->
+
+                            <!-- Medical Conditions -->
+
+                            <!-- Impairments -->
+
+                            <!-- Other Health Information -->
+
+                        </p>
+
+                        <!-- Collects information for DogVaccine Table -->
+                      
+                     
+                  rea name="seven_desc" id="seven_desc"></textarea>
+                    </p>
+    
+    
+                    
     
                         <legend>15. List all known allergies.</legend>
                         <textarea name="allergies" id="allergies"></textarea>
