@@ -1,29 +1,7 @@
 <?php
-session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
+    require_once '../UserHandling/core/init.php';
 
-    require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/connection.php"); //Needed for making login required, calls other php page
-    require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/functions.php");//Needed for making login required, calls other php page
-    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
-
-    $user_data = check_login($connection); //Needed for making login required, checks credentials
-
-       //Displays Customer's Navigation Bar
-       if($user_data['PermissionLvl'] === '0'){
-        include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Customer Portal/CustNavBar.php");
-        }
-
-    //Displays Employee's Navigation Bar
-    if($user_data['PermissionLvl'] === '1'){
-        include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Employee Portal/EmpNavBar.php");
-        }
-
-    //Displays Admin's Navigation Bar
-    if($user_data['PermissionLvl'] === '2'){
-        include("/xampp/htdocs/PeaceOfHeavenWebPage/php/AdminPortal/AdminNavBar.php");
-        }
-
-    $token = new Token;
-    $token->check($token);
+ 
 
     //Get Current Month and Date for Calendar
     $currentMonth = date('m');
@@ -49,7 +27,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 </head>
 <body>
 <div class=content>
-    <a href="/PeaceOfHeavenWebPage/php/Login/logout.php">Logout</a>
+    <a href="/PeaceOfHeavenWebPage/php/UserHandling/logout.php">Logout</a>
     <h1> Welcome to the Customer Portal </h1>
     <p>Hello, <?php echo $user_data['User_Name']; ?>! </p>
 
@@ -112,20 +90,6 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
     </tr>
     </table>
 </div>
-
-<!-- Functions to have links t other pages if you have the permission -->
-<?php
-    //If statement for link to employee portal
-    if($user_data['PermissionLvl'] >= '1'){
-        echo '<a href="/PeaceOfHeavenWebPage/php/Employee Portal/EmpHome.php">Employee Portal</a><br><br>';
-    }
-
-    //If statement for link to employee portal
-    if($user_data['PermissionLvl'] >= '2'){
-        echo '<a href="/PeaceOfHeavenWebPage/php/AdminPortal/AdminHome.php">Admin Portal</a>';
-    }
-?>
-
 </div>
 </body>
 </html>

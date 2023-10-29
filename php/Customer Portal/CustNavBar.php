@@ -1,5 +1,5 @@
 <?php
-    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
+   
 ?>
 <!DOCTYPE html>
 <html>
