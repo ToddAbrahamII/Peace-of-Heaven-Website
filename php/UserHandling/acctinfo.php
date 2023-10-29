@@ -5,6 +5,7 @@ $user = new User();
 
 if ($user->isLoggedIn()) {
 
+    print_r($user->data());
     ## Include acct info view here ##
 
     if(Input::exists()) {
@@ -16,7 +17,7 @@ if ($user->isLoggedIn()) {
             ));
 
             // If all rules are satisfied, create new customer
-            if($validation->passed() || true) {
+            if($validation->passed()) {
                 echo "validation passed lol";
                 $customer = new Customer(); // constructor call
 
@@ -30,10 +31,12 @@ if ($user->isLoggedIn()) {
                         'CustCity' => Input::get('city'),
                         'CustState'=> Input::get('state'),
                         'CustZip' => Input::get('zip'),
+                        'User_ID' => $user->data()->id
                     ));
 
+                  
                     //Session::flash('#page', '#message');
-                    //Redirect::to('#page');
+                    Redirect::to('../Customer Portal/CustHome.php');
                    
 
 
@@ -87,7 +90,7 @@ if ($user->isLoggedIn()) {
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AcctInfo.css">
+    <!-- <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AcctInfo.css"> -->
 </head>
 
 <body>
@@ -102,8 +105,8 @@ if ($user->isLoggedIn()) {
                 <label for="custLastName">Last Name:</label> <!-- In the form there is an option for more than one -->
                 <input type="text" name="custLastName" id="custLastName" required>
 
-                <label for="custPhone"><br>Cell Phone:</label>
-                <input type="tel" id="custPhone" name="custPhone" placeholder="(123)-456-678" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <!-- <label for="custPhone"><br>Cell Phone:</label>
+                <input type="tel" id="custPhone" name="custPhone" placeholder="(123)-456-678" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required> -->
 
                 <label for="email"><br>Email:</label>
                 <input type="email" id="email" name="email" required> <!-- There is a multiple keyword that will allow multiple addresses-->

@@ -100,7 +100,7 @@ if (Input::exists()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Register.css">
+    <!-- <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Register.css"> -->
 
 <div class="signup-container">
 <form action="" method="post" class="signup-form">
