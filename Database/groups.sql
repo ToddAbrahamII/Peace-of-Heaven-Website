@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2023 at 12:42 AM
+-- Generation Time: Oct 29, 2023 at 06:13 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lr`
+-- Database: `peaceofheavendb`
 --
 
 -- --------------------------------------------------------
@@ -38,8 +38,8 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`id`, `name`, `permissions`) VALUES
-(2, 'Standard user', ''),
-(3, 'Administrator', '{\"admin\": 1}');
+(1, 'Standard user', ''),
+(2, 'Administrator', '{\"admin\": 1}');
 
 --
 -- Indexes for dumped tables
