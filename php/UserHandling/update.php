@@ -14,6 +14,7 @@ if(!$user->isLoggedIn()) {
 }
 
 if(Input::exists()) {
+    echo 'exists';
     if(Token::check(Input::get('token'))) {
         
         $validate = new Validate();

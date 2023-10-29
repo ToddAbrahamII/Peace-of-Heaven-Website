@@ -2,7 +2,7 @@
 
 class Customer {
     private $_db,
-            $_data,
+            $_userData, // contains user data
             $_sessionName;
 
     public function __construct() {
@@ -22,7 +22,7 @@ class Customer {
     }
 
     private function data() {
-        return $this->_data;
+        return $this->_userData;
     }
 }
 

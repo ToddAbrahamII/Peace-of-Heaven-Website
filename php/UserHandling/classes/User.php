@@ -123,10 +123,18 @@ class User {
         return false;
     }
 
+    /**
+     * Deletes session name to logout user
+     * @return void
+     */
     public function logout() {
         Session::delete($this->_sessionName);
     }
 
+    /**
+     * Helper returns private data variables
+     * @return mixed
+     */
     public function data() {
         return $this->_data;
     }

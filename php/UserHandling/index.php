@@ -5,7 +5,7 @@
 require_once 'core/init.php';
 
 
-if (Session::exists('home')) {
+if (!Session::exists('home')) {
     echo '<p>'. Session::flash('home') .'</p>';
 }
 
@@ -19,6 +19,7 @@ if($user->isLoggedIn()) {
         <li><a href="logout.php">Log out</a></li>
         <li><a href="update.php">Update Details</a></li>
         <li><a href="changepassword.php">Change Password</a></li>
+        <li><a href="acctinfo.php">Create Customer account</a></li>
     </ul>
 <?php 
 
