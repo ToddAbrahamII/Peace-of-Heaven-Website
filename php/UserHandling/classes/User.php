@@ -52,17 +52,20 @@ class User {
      * @param mixed $password
      * @return bool
      */
-    public function login($username = null, $password = null) {
+    public function login($username = null, $password = null, $remember) {
         
         $user = $this->find($username);
 
         if($user) {
             if($this->data()->password === Hash::make($password, $this->data()->salt)) {
-                echo 'OK!';
-                print_r($this->_data);
+                
                 Session::put($this->_sessionName, $this->data()->id); // use ID to set a session
+                
+                if($remember) {
+                    $hash = Hash::unique(); // generate a unique hash
+                    $hashCheck = $this->_db->get('users_session', array('user_id', '=', $this->data()->id));
+                }
                 return true;
-
             }
         }
         return false;
@@ -84,6 +87,11 @@ class User {
             throw new Exception('There was a problem updating this user.');
         }
         
+    }
+
+    public function hasPermission ($key) {
+        $group = $this->_db->get('groups', array('id', '=', $this->data()->group));
+        print_r($group->first());
     }
 
     public function logout() {

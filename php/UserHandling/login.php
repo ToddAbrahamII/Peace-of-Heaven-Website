@@ -15,6 +15,8 @@ if(Input::exists()) {
         if($validation->passed()) {
             // log user in
             $user = new User();
+
+            $remember = (Input::get('remember') == 'on') ? true : false;
             $login = $user->login(Input::get('username'), Input::get('password'));
 
             if($login) {
@@ -41,6 +43,12 @@ if(Input::exists()) {
     <div class="field">
         <label for="password">Password</label>
         <input type="password" name="password" id="password" autocomplete="off">
+    </div>
+    <!-- The ability to remember a user is important to the system. If we don't want it on the page, just comment it out-->
+    <div class="field">
+        <label for="remember">
+            <input type="checkbox" name="remember" id="remember"> Remember me
+        </label>
     </div>
 
     <!-- Token must be hidden and included on all interating webpages that need a session -->
