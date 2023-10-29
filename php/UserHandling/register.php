@@ -94,24 +94,30 @@ if (Input::exists()) {
 
 
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Register.css">
 
-<form action="" method="post">
-    <div class="field">
+<div class="signup-container">
+<form action="" method="post" class="signup-form">
         <label for="username">Username</label>
         <input type="text" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off">
 
-    </div>
-
-    <div class="field">
         <label for="password">Choose a password</label>
         <input type="password" name="password" id="password">
-    </div> 
-    <div class="field">
+
+
         <label for="password_again">Enter your password again</label>
         <input type="password" name="password_again" id="password_again">
-    </div>   
 
     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-    <input type="submit" value="Register">
+    <input type="submit" value="Register"><br><br>
+             <a href="login.php"  class="signup-link">Click to Login</a><br><br>
+
+            <a href="/PeaceOfHeavenWebPage/php/WebPages/Home.php" class="home-link">Return Home</a>
 </form>
 
+</div>

@@ -33,25 +33,39 @@ if(Input::exists()) {
     }      
 }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Login.css">
 
-<form action="" method="post"> 
-    <div class="field">
+<div class="login-container">
+<form action="" method="post" class="login-form"> 
+
         <label for="username">Username</label>
         <input type="text" name="username" id="username" autocomplete="off">
-    </div>
 
-    <div class="field">
+
+ 
         <label for="password">Password</label>
         <input type="password" name="password" id="password" autocomplete="off">
-    </div>
+   
     <!-- The ability to remember a user is important to the system. If we don't want it on the page, just comment it out-->
-    <div class="field">
-        <label for="remember">
+
+        <!-- <label for="remember">
             <input type="checkbox" name="remember" id="remember"> Remember me
-        </label>
-    </div>
+        </label> -->
+ 
 
     <!-- Token must be hidden and included on all interating webpages that need a session -->
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-    <input type="submit" value="Log in">
+    <input type="submit" value="Log in"><br><br>
+
+    <a href="register.php"  class="signup-link">Click to Signup</a><br><br>
+
+<a href="/PeaceOfHeavenWebPage/php/WebPages/Home.php" class="home-link">Return Home</a>
 </form>
+</div>
+</body>
+</html>
