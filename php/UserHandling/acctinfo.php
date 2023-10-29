@@ -1,6 +1,7 @@
 <?php
 require_once 'core/init.php';
 
+$user = new User();
 
 if(Input::exists()) {
     if(Token::check(Input::get('token'))) {

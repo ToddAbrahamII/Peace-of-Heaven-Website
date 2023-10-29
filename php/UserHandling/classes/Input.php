@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Summary of Input
+ * Reusable form handler to grab form data
  */
 class Input {
     /**
@@ -24,7 +24,8 @@ class Input {
     }
 
     /**
-     * Get submitted information from user
+     * Helper class that selects and returns an element from the post or get http method.
+     * 
      * @param mixed $item
      * @return mixed
      */
