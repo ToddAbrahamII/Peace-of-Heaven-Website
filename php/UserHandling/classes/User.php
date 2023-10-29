@@ -47,14 +47,19 @@ class User {
         return false;
     }
 
+    public function exists() {
+        return (!empty($this->_data)) ? true : false;
+    }
+
     /**
      * Log a user in and initiate a session.
      * 
      * @param mixed $username
      * @param mixed $password
+     * @param mixed $remember = rememberMe checkbox status
      * @return bool
      */
-    public function login($username = null, $password = null, $remember) {
+    public function login($username = null, $password = null, $remember = null) {
         
         $user = $this->find($username);
 
@@ -107,7 +112,15 @@ class User {
 
     public function hasPermission ($key) {
         $group = $this->_db->get('groups', array('id', '=', $this->data()->group));
-        print_r($group->first());
+        
+        if($group->count()) {
+           $permissions = json_decode($group->first()->permissions, true);
+           
+           if($permissions[$key]) {
+                return true;
+           }
+        }
+        return false;
     }
 
     public function logout() {

@@ -4,7 +4,8 @@
 class DB {
     private static $_instance = null;
     private $_pdo, 
-            $_query, 
+            $_query,
+            $_lastQuery, 
             $_error = false, 
             $_results, 
             $_count = 0;
@@ -34,7 +35,7 @@ class DB {
             $x=1;
             if(count($params)) { // check if parameters are set
                 foreach($params as $param) {
-                    $this->_query->bindValue($x, $param);
+                    $this->_query->bindValue($x, $param); 
                     $x++;
                 }
             }
@@ -43,11 +44,20 @@ class DB {
                 $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
                 $this->_count = $this->_query->rowCount();
 
+                $this->_lastQuery = $sql;
             } else {
                 $this->_error = true;
             }
         }
         return $this;
+    }
+
+    /**
+     * Debugging helper that returns the last query executed on this instance
+     * @return mixed
+     */
+    public function getLastQuery() {
+        return $this->_lastQuery;
     }
 
   
