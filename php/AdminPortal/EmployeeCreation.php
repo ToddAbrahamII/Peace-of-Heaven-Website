@@ -1,41 +1,22 @@
 <?php
-session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
+    require_once '../UserHandling/core/init.php';
+        
+    if (!Session::exists('home')) {
+        echo '<p>'. Session::flash('home') .'</p>';
+    }
 
-    require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/connection.php"); //Needed for making login required, calls other php page
-    require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/functions.php");//Needed for making login required, calls other php page
-    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
-    $user_data = check_login($connection); //Needed for making login required, checks credentials
-    
+    $user = new User();
+    if($user->isLoggedIn()) {
 
-    //Allows permission level to be checked even when Check_Login is not called
-    if (isset($_SESSION['user_data'])) {
-        $user_data = $_SESSION['user_data']; // Retrieve user data from the session
-    } else {
-      
+    //Adds Admin NavBar if Admin Acct logged in
+    if($user->data()->group === 3){
+        include("../AdminPortal/AdminNavBar.php");
+
     }
 
 
-       //Displays Customer's Navigation Bar
-       if($user_data['PermissionLvl'] === '0'){
-        include("");
-        }
-
-    //Displays Employee's Navigation Bar
-    if($user_data['PermissionLvl'] === '1'){
-        include("");
-        }
-
-    //Displays Admin's Navigation Bar
-    if($user_data['PermissionLvl'] === '2'){
-        include("/xampp/htdocs/PeaceOfHeavenWebPage/php/AdminPortal/AdminNavBar.php");
-        }
-
-
-    $token = new Token;
-    $token->check($token);
-
 //Only shows page to users with the correct PermissionLvl
-if($user_data['PermissionLvl'] = '2')
+if($user->data()->group === 3)
     {
 
  //Check if user has clicked on the post button
@@ -145,3 +126,4 @@ if($user_data['PermissionLvl'] = '2')
 </div>
 </body>
 </html>
+<?php } ?>

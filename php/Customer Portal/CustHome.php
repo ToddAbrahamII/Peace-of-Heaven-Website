@@ -51,7 +51,6 @@
 <div class=content>
     <a href="/PeaceOfHeavenWebPage/php/UserHandling/logout.php">Logout</a>
     <h1> Welcome to the Customer Portal </h1>
-    <p>Hello, <?php echo $user_data['User_Name']; ?>! </p>
 
     <!-- Add HTML FOR CALENDAR, HEADER, AND TABLE -->
     <div class='calendar'>

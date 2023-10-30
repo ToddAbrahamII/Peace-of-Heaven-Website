@@ -1,19 +1,19 @@
 <?php
-session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
+    require_once '../UserHandling/core/init.php';
+        
+    if (!Session::exists('home')) {
+        echo '<p>'. Session::flash('home') .'</p>';
+    }
 
-    require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/connection.php"); //Needed for making login required, calls other php page
-    require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/functions.php");//Needed for making login required, calls other php page
-    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
-    $user_data = check_login($connection); //Needed for making login required, checks credentials
- 
-    //Displays Admin's Navigation Bar
-    if($user_data['PermissionLvl'] === '2'){
-        include("/xampp/htdocs/PeaceOfHeavenWebPage/php/AdminPortal/AdminNavBar.php");
-        }
+    $user = new User();
+    if($user->isLoggedIn()) {
+        
+    //Adds Admin NavBar if Admin Acct logged in
+    if($user->data()->group === 3){
+        include("../AdminPortal/AdminNavBar.php");
 
-    //Checks the login in the NavBar .php page
-    $token = new Token;
-    $token->check($token);
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,3 +36,4 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 </div>
 </body>
 </html>
+<?php } ?>

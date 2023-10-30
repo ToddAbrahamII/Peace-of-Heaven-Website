@@ -20,7 +20,16 @@ if(Input::exists()) {
             $login = $user->login(Input::get('username'), Input::get('password'));
 
             if($login) {
-               Redirect::to('acctinfo.php');
+                if($user->data()->group === 1)
+                {
+                     Redirect::to('acctinfo.php');
+                }else if ($user->data()->group === 2)
+                {
+                    Redirect::to('../Employee Portal/EmpHome.php');
+                }if($user->data()->group === 3)
+                {
+                    Redirect::to('../AdminPortal/AdminHome.php');
+                }
             } else {
                 echo 'Sorry, Login Failed';
             }
