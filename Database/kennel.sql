@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `kennel` (
   `kennel_ID` int(4) NOT NULL,
-  `isOccupied` boolean DEFAULT false,
+  `isOccupied` boolean DEFAULT `false`,
   `isBoarding` boolean,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
