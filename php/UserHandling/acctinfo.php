@@ -7,7 +7,8 @@ if ($user->isLoggedIn()) {
 
     print_r($user->data());
     ## Include acct info view here ##
-
+if($user->data()->isComplete === 0)
+{
     if(Input::exists()) {
         if(Token::check(Input::get('token'))) {
             
@@ -36,6 +37,21 @@ if ($user->isLoggedIn()) {
 
                   
                     //Session::flash('#page', '#message');
+
+                    // First, you need to create an instance of the DB class.
+                    $db = DB::getInstance();
+
+                    // Define the table, row id, and fields you want to update.
+                    $table = 'users';
+                    $id = $user->data()->id;
+                    $fields = array(
+                            'isComplete' => 1,
+                        );
+
+                    //Updates isComplete now that account has been completed
+                     $db->update($table, $id, $fields);
+
+                    //Takes account to customer portal
                     Redirect::to('../Customer Portal/CustHome.php');
                    
 
@@ -47,10 +63,15 @@ if ($user->isLoggedIn()) {
                 // output errors
                 foreach ($validation->errors() as $error) {
                     echo $error, '<br>';
-                }
-            }
-        }
+                 }
+             }
+         }
+     }
+    }else{
+        Redirect::to('../Customer Portal/CustHome.php');
     }
+    
+
     /*
     session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 
@@ -90,7 +111,7 @@ if ($user->isLoggedIn()) {
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AcctInfo.css"> -->
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AcctInfo.css">
 </head>
 
 <body>
@@ -105,8 +126,8 @@ if ($user->isLoggedIn()) {
                 <label for="custLastName">Last Name:</label> <!-- In the form there is an option for more than one -->
                 <input type="text" name="custLastName" id="custLastName" required>
 
-                <!-- <label for="custPhone"><br>Cell Phone:</label>
-                <input type="tel" id="custPhone" name="custPhone" placeholder="(123)-456-678" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required> -->
+                <label for="custPhone"><br>Cell Phone:</label>
+                <input type="tel" id="custPhone" name="custPhone" placeholder="(123)-456-678" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
 
                 <label for="email"><br>Email:</label>
                 <input type="email" id="email" name="email" required> <!-- There is a multiple keyword that will allow multiple addresses-->

@@ -20,7 +20,7 @@ if(Input::exists()) {
             $login = $user->login(Input::get('username'), Input::get('password'));
 
             if($login) {
-               Redirect::to('/PeaceOfHeavenWebPage/php/Customer Portal/CustHome.php');
+               Redirect::to('acctinfo.php');
             } else {
                 echo 'Sorry, Login Failed';
             }
