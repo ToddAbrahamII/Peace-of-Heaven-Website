@@ -22,7 +22,7 @@ $GLOBALS['config'] = array(
 
 // Pass in a function that is run every time a class is accessed (auto import)
 spl_autoload_register(function($class) {
-    require_once 'classes/' . $class . '.php';
+    require_once '../UserHandling/classes/' . $class . '.php';
 });
 
 require_once ('../UserHandling/functions/sanitize.php');

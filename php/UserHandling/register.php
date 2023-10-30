@@ -76,10 +76,9 @@ if (Input::exists()) {
                     'joined' => date('Y-m-d H:i:s'),
                     'group' => 1
                 ));
-                
 
                 Session::flash('home', 'You have been registered and can now log in!');
-                Redirect::to('acctinfo.php'); //once logged in, send user to index page
+                Redirect::to('login.php'); //once logged in, send user to index page
 
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -100,7 +99,7 @@ if (Input::exists()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Register.css"> -->
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Register.css">
 
 <div class="signup-container">
 <form action="" method="post" class="signup-form">
@@ -122,3 +121,5 @@ if (Input::exists()) {
 </form>
 
 </div>
+</head>
+</html>

@@ -1,7 +1,29 @@
 <?php
     require_once '../UserHandling/core/init.php';
+    
+    if (!Session::exists('home')) {
+        echo '<p>'. Session::flash('home') .'</p>';
+    }
 
- 
+    $user = new User();
+    if($user->isLoggedIn()) {
+
+    //Adds Customer NavBar if Customer Acct logged in
+    if($user->data()->group === 1){
+        include("../Customer Portal/CustNavBar.php");
+    }
+
+    //Adds Employee NavBar if Employee Acct logged in
+    if($user->data()->group === 2){
+        include("../Employee Portal/EmpNavBar.php");
+
+    }
+
+    //Adds Admin NavBar if Admin Acct logged in
+    if($user->data()->group === 3){
+        include("../AdminPortal/AdminNavBar.php");
+
+    }
 
     //Get Current Month and Date for Calendar
     $currentMonth = date('m');
@@ -29,7 +51,6 @@
 <div class=content>
     <a href="/PeaceOfHeavenWebPage/php/UserHandling/logout.php">Logout</a>
     <h1> Welcome to the Customer Portal </h1>
-    <p>Hello, <?php echo $user_data['User_Name']; ?>! </p>
 
     <!-- Add HTML FOR CALENDAR, HEADER, AND TABLE -->
     <div class='calendar'>
@@ -93,3 +114,4 @@
 </div>
 </body>
 </html>
+<?php } ?>
