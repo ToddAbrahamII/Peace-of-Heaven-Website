@@ -20,13 +20,13 @@ if(Input::exists()) {
             $login = $user->login(Input::get('username'), Input::get('password'));
 
             if($login) {
-                if($user->data()->group === '1')
+                if($user->data()->group === '1' ||  $user->data()->group === 1)
                  {
                     Redirect::to('acctinfo.php');
-                 }else if ($user->data()->group === '2')
+                 }else if ($user->data()->group === '2' || $user->data()->group === 2 )
                 {
                     Redirect::to('../Employee Portal/EmpHome.php');
-                }if($user->data()->group === '3')
+                }if($user->data()->group === '3' ||  $user->data()->group === 3 )
                 {
                     Redirect::to('../AdminPortal/AdminHome.php');
                 }

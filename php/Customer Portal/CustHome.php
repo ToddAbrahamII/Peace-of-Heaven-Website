@@ -9,18 +9,18 @@
     if($user->isLoggedIn()) {
 
     //Adds Customer NavBar if Customer Acct logged in
-    if($user->data()->group === '1'){
+    if($user->data()->group === '1'||  $user->data()->group === 1){
         include("../Customer Portal/CustNavBar.php");
     }
 
     //Adds Employee NavBar if Employee Acct logged in
-    if($user->data()->group === '2'){
+    if($user->data()->group === '2' ||  $user->data()->group === 2 ){
         include("../Employee Portal/EmpNavBar.php");
 
     }
 
     //Adds Admin NavBar if Admin Acct logged in
-    if($user->data()->group === '3'){
+    if($user->data()->group === '3' ||  $user->data()->group === 3 ){
         include("../AdminPortal/AdminNavBar.php");
 
     }
