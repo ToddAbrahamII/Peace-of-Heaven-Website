@@ -1,11 +1,6 @@
 <?php
-session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
+    require_once '../UserHandling/core/init.php';
 
-    require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/connection.php"); //Needed for making login required, calls other php page
-    require("/xampp/htdocs/PeaceOfHeavenWebPage/php/Login/functions.php");//Needed for making login required, calls other php page
-    include("/xampp/htdocs/PeaceOfHeavenWebPage/php/Core/init.php");
-    $user_data = check_login($connection); //Needed for making login required, checks credentials
- 
     //Displays Admin's Navigation Bar
     if($user_data['PermissionLvl'] === '2'){
         include("/xampp/htdocs/PeaceOfHeavenWebPage/php/AdminPortal/AdminNavBar.php");
@@ -36,3 +31,4 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 </div>
 </body>
 </html>
+<?php> } ?>
