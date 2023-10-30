@@ -20,7 +20,7 @@
     <a href=''>Monitoring Requirements</a>
     <a href=''>View Kennels</a>
     <a href="/PeaceOfHeavenWebPage/php/Customer Portal/CustHome.php">Customer Portal</a>
-    <a href='/PeaceOfHeavenWebPage/php/Login/logout.php'>Logout</a>
+    <a href='/PeaceOfHeavenWebPage/php/UserHandling/logout.php'>Logout</a>
    
   </div>
 </body>
