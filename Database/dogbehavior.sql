@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2023 at 10:47 PM
+-- Generation Time: Oct 31, 2023 at 10:45 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,20 +24,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee`
+-- Table structure for table `dogbehavior`
 --
 
-CREATE TABLE `employee` (
-  `Emp_ID` bigint(20) NOT NULL,
-  `EmpFirstName` varchar(100) NOT NULL,
-  `EmpLastName` varchar(100) NOT NULL,
-  `EmpPhone` varchar(100) NOT NULL,
-  `EmpAddress` varchar(100) NOT NULL,
-  `EmpCity` varchar(100) NOT NULL,
-  `EmpState` varchar(100) NOT NULL,
-  `EmpZip` varchar(100) NOT NULL,
-  `AcctEmail` varchar(100) NOT NULL,
-  `User_ID` bigint(20) NOT NULL
+CREATE TABLE `dogbehavior` (
+  `BehaviorID` int(11) NOT NULL,
+  `IsSocial` tinyint(1) NOT NULL,
+  `FoodPref` varchar(500) NOT NULL,
+  `IsJumper` tinyint(1) NOT NULL,
+  `IsEscapeArtist` tinyint(1) NOT NULL,
+  `IsClimber` tinyint(1) NOT NULL,
+  `IsLeashTrained` tinyint(1) NOT NULL,
+  `IsChewer` tinyint(1) NOT NULL,
+  `BathroomRoutine` varchar(500) NOT NULL,
+  `OtherBehaviorInfo` varchar(500) NOT NULL,
+  `DogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -45,22 +46,21 @@ CREATE TABLE `employee` (
 --
 
 --
--- Indexes for table `employee`
+-- Indexes for table `dogbehavior`
 --
-ALTER TABLE `employee`
-  ADD PRIMARY KEY (`Emp_ID`),
-  ADD KEY `Emp_ID` (`Emp_ID`),
-  ADD KEY `User_ID` (`User_ID`);
+ALTER TABLE `dogbehavior`
+  ADD PRIMARY KEY (`BehaviorID`),
+  ADD KEY `DogID` (`DogID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `employee`
+-- AUTO_INCREMENT for table `dogbehavior`
 --
-ALTER TABLE `employee`
-  MODIFY `Emp_ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `dogbehavior`
+  MODIFY `BehaviorID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

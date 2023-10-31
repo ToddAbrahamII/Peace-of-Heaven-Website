@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2023 at 10:47 PM
+-- Generation Time: Oct 31, 2023 at 10:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,20 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee`
+-- Table structure for table `boarding_booking`
 --
 
-CREATE TABLE `employee` (
-  `Emp_ID` bigint(20) NOT NULL,
-  `EmpFirstName` varchar(100) NOT NULL,
-  `EmpLastName` varchar(100) NOT NULL,
-  `EmpPhone` varchar(100) NOT NULL,
-  `EmpAddress` varchar(100) NOT NULL,
-  `EmpCity` varchar(100) NOT NULL,
-  `EmpState` varchar(100) NOT NULL,
-  `EmpZip` varchar(100) NOT NULL,
-  `AcctEmail` varchar(100) NOT NULL,
-  `User_ID` bigint(20) NOT NULL
+CREATE TABLE `boarding_booking` (
+  `booking_id` int(11) NOT NULL,
+  `TS_ID` int(11) NOT NULL,
+  `Res_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -45,22 +38,12 @@ CREATE TABLE `employee` (
 --
 
 --
--- Indexes for table `employee`
+-- Indexes for table `boarding_booking`
 --
-ALTER TABLE `employee`
-  ADD PRIMARY KEY (`Emp_ID`),
-  ADD KEY `Emp_ID` (`Emp_ID`),
-  ADD KEY `User_ID` (`User_ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `employee`
---
-ALTER TABLE `employee`
-  MODIFY `Emp_ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `boarding_booking`
+  ADD PRIMARY KEY (`booking_id`),
+  ADD KEY `TS_ID` (`TS_ID`),
+  ADD KEY `Res_ID` (`Res_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

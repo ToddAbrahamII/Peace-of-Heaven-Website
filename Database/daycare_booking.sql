@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2023 at 03:14 PM
+-- Generation Time: Oct 31, 2023 at 10:50 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,12 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `calander`
+-- Table structure for table `daycare_booking`
 --
 
-CREATE TABLE `calendar` (
-  `TimeSlot` date NOT NULL,
-  `ResID` bigint(20) NOT NULL
+CREATE TABLE `daycare_booking` (
+  `booking_id` int(11) NOT NULL,
+  `TS_ID` int(11) NOT NULL,
+  `Res_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -37,30 +38,12 @@ CREATE TABLE `calendar` (
 --
 
 --
--- Indexes for table `calander`
+-- Indexes for table `daycare_booking`
 --
-ALTER TABLE `calander`
-  ADD PRIMARY KEY `calander - TimeSlot` (`TimeSlot`),
-  ADD PRIMARY KEY `calander - ResID` (`ResID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `calander`
---
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `calander`
---
-ALTER TABLE `calendar`
-  ADD CONSTRAINT `calendar - TimeSlot` FOREIGN KEY (`TimeSlot`) REFERENCES `timeslot` (`TimeSlot`);
-  ADD CONSTRAINT `calendar - ResID` FOREIGN KEY (`ResID`) REFERENCES `reservation` (`ResID`);
+ALTER TABLE `daycare_booking`
+  ADD PRIMARY KEY (`booking_id`),
+  ADD KEY `TS_ID` (`TS_ID`),
+  ADD KEY `Res_ID` (`Res_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

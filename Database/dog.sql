@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2023 at 10:47 PM
+-- Generation Time: Oct 31, 2023 at 10:45 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,20 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee`
+-- Table structure for table `dog`
 --
 
-CREATE TABLE `employee` (
-  `Emp_ID` bigint(20) NOT NULL,
-  `EmpFirstName` varchar(100) NOT NULL,
-  `EmpLastName` varchar(100) NOT NULL,
-  `EmpPhone` varchar(100) NOT NULL,
-  `EmpAddress` varchar(100) NOT NULL,
-  `EmpCity` varchar(100) NOT NULL,
-  `EmpState` varchar(100) NOT NULL,
-  `EmpZip` varchar(100) NOT NULL,
-  `AcctEmail` varchar(100) NOT NULL,
-  `User_ID` bigint(20) NOT NULL
+CREATE TABLE `dog` (
+  `DogID` int(11) NOT NULL,
+  `DogName` varchar(30) NOT NULL,
+  `Breed` varchar(30) NOT NULL,
+  `DogDOB` date NOT NULL,
+  `Sex` char(1) NOT NULL,
+  `isFixed` tinyint(1) NOT NULL,
+  `Weight` int(3) NOT NULL,
+  `Color` varchar(16) NOT NULL,
+  `DogOtherInfo` varchar(500) NOT NULL,
+  `CustID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -45,22 +45,21 @@ CREATE TABLE `employee` (
 --
 
 --
--- Indexes for table `employee`
+-- Indexes for table `dog`
 --
-ALTER TABLE `employee`
-  ADD PRIMARY KEY (`Emp_ID`),
-  ADD KEY `Emp_ID` (`Emp_ID`),
-  ADD KEY `User_ID` (`User_ID`);
+ALTER TABLE `dog`
+  ADD PRIMARY KEY (`DogID`),
+  ADD KEY `CustID` (`CustID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `employee`
+-- AUTO_INCREMENT for table `dog`
 --
-ALTER TABLE `employee`
-  MODIFY `Emp_ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `dog`
+  MODIFY `DogID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

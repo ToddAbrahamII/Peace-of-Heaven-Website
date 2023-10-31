@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2023 at 10:47 PM
+-- Generation Time: Oct 31, 2023 at 10:46 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,20 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee`
+-- Table structure for table `dogvaccine`
 --
 
-CREATE TABLE `employee` (
-  `Emp_ID` bigint(20) NOT NULL,
-  `EmpFirstName` varchar(100) NOT NULL,
-  `EmpLastName` varchar(100) NOT NULL,
-  `EmpPhone` varchar(100) NOT NULL,
-  `EmpAddress` varchar(100) NOT NULL,
-  `EmpCity` varchar(100) NOT NULL,
-  `EmpState` varchar(100) NOT NULL,
-  `EmpZip` varchar(100) NOT NULL,
-  `AcctEmail` varchar(100) NOT NULL,
-  `User_ID` bigint(20) NOT NULL
+CREATE TABLE `dogvaccine` (
+  `VacID` int(11) NOT NULL,
+  `DHPP_Date` date NOT NULL,
+  `RabiesDate` date NOT NULL,
+  `BordellaDate` date NOT NULL,
+  `HasFleaTick` tinyint(1) NOT NULL,
+  `FleaTickDate` date NOT NULL,
+  `OtherVacInfo` varchar(500) NOT NULL,
+  `DogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -45,22 +43,21 @@ CREATE TABLE `employee` (
 --
 
 --
--- Indexes for table `employee`
+-- Indexes for table `dogvaccine`
 --
-ALTER TABLE `employee`
-  ADD PRIMARY KEY (`Emp_ID`),
-  ADD KEY `Emp_ID` (`Emp_ID`),
-  ADD KEY `User_ID` (`User_ID`);
+ALTER TABLE `dogvaccine`
+  ADD PRIMARY KEY (`VacID`),
+  ADD KEY `DogID` (`DogID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `employee`
+-- AUTO_INCREMENT for table `dogvaccine`
 --
-ALTER TABLE `employee`
-  MODIFY `Emp_ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `dogvaccine`
+  MODIFY `VacID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
