@@ -28,11 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `timeslot` (
-  `TS_ID` int(11) NOT NULL,
-  `booking_max` int(11) NOT NULL,
-  `booking_count` int(11) NOT NULL,
-  `TS_date` int(11) NOT NULL,
-  `booking_id` int(11) NOT NULL
+  `TimeSlot` date NOT NULL,
+  `IsAvailable` boolean,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
