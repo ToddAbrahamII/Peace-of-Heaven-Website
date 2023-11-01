@@ -16,7 +16,7 @@ class Dog {
         $uid = Session::get(Config::get('session/session_name'));
         print_r($uid);
 
-        if (!$this->_db->insert('customer', $fields)) {
+        if (!$this->_db->insert('dog', $fields)) {
             throw new Exception('There was a problem adding your info.');
         }
     }

@@ -1,6 +1,8 @@
-<?phprequire_once 'core/init.php';
+<?php 
+    require_once '../UserHandling/core/init.php';
 
 $user = new User();
+$customer = new Customer();
 
 if ($user->isLoggedIn()) {
 
@@ -21,32 +23,39 @@ if ($user->isLoggedIn()) {
                         'DogName' => Input::get('DogName'),
                         'Breed' => Input::get('Breed'),
                         'DogDOB' => Input::get('DogDOB'),
-                        
-
+                        'Sex' => Input::get('Sex'),
+                        'isFixed' => Input::get('isFixed'),
+                        'Weight' => Input::get('Weight'),
+                        'Color' => Input::get('Color'),
+                        'DogOtherInfo' => Input::get('DogOtherInfo'),
+                        'CustID' => $customer->data()->id
                     ));
+
+                    Redirect::to('../Customer Portal/CustHome.php');
 
                 }
                 catch(Exception $e) {
                     die($e->getMessage());
-                }else {
+                }
+                 }else {
                     // output errors
                     foreach ($validation->errors() as $error) {
                         echo $error, '<br>';
-                     }
-                 }
-            
-        }
+                     }   
+                    }
     }
-    ?>
+    }
 
-    <!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
     <html lang="en">
         <head>
     
         </head>
     
         <body>
-            <form>
+            <form method="POST" class="DogInfo=Form">
                 <fieldset>
                         <!-- Collects information for Dog Table -->
                         <legend>Dog General Information</legend>
@@ -78,7 +87,7 @@ if ($user->isLoggedIn()) {
                             <label for="T">Fixed</label>
 
                             <input type="radio" id="F" name="fixed" value="0">
-                            <label for="F">Not Fixed</label>
+                            <label for="F">Not Fixed</label><br><br>
                             
                             <!-- Gets the Dog's Weight from Input -->
                             <label for="DogWeight"> What is your Dog's Weight</label><br>
@@ -91,6 +100,8 @@ if ($user->isLoggedIn()) {
                             <!-- Gets the Dog's Other Information -->
                             <label for="DogOtherInfo">Is there anything else you would like to tell us about your dog?</label><br>
                             <input type="text" id="DogOtherInfo" name="DogOtherInfo"><br><br>
+
+                            <input type="submit" value="Next"><br><br>
                         </p>
                 </fieldset>
             </form>
