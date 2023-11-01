@@ -49,7 +49,6 @@
 </head>
 <body>
 <div class=content>
-    <a href="/PeaceOfHeavenWebPage/php/UserHandling/logout.php">Logout</a>
     <h1> Welcome to the Customer Portal </h1>
 
     <!-- Add HTML FOR CALENDAR, HEADER, AND TABLE -->
