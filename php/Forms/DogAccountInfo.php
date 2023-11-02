@@ -22,14 +22,14 @@ if ($user->isLoggedIn()) {
                     //Creates array of all input to be inserted into dog table
                     $dog = new Dog(); //constructor call
                     $customer->findCustInfo($user->data()->id); //Finds matching user id
-                    $custid = $customer->data()->User_ID; //stores the customer id
+                    $custid = $customer->data()->CustID; //stores the customer id
                     $dog->create(array(
                         'DogName' => Input::get('DogName'),
                         'Breed' => Input::get('Breed'),
                         'DogDOB' => Input::get('DogDOB'),
-                        'Sex' => Input::get('Sex'),
-                        'isFixed' => Input::get('isFixed'),
-                        'Weight' => Input::get('Weight'),
+                        'Sex' => Input::get('sex'),
+                        'isFixed' => Input::get('fixed'),
+                        'Weight' => Input::get('DogWeight'),
                         'Color' => Input::get('Color'),
                         'DogOtherInfo' => Input::get('DogOtherInfo'),
                         'CustID' => $custid 

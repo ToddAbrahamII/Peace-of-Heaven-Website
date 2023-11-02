@@ -37,6 +37,25 @@ class Dog {
         }
         return false;
     }
+
+    public function findDogInfo($customer = null){
+        if($customer){
+            $fields = 'CustID';
+            $data = $this->_db->get('dog', array($fields, '=', $customer));
+
+                $this->_dogData = $data;
+                return true;
+            
+        }else{
+            return false;
+        }
+    }
+
+
+    public function data(){
+        return $this->_dogData;
+    }
+
 }
 
 
