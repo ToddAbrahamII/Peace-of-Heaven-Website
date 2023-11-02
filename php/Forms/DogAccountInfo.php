@@ -4,10 +4,6 @@
 $user = new User(); //constructor call
 $customer = new Customer(); //constructor call 
 
-$customer->findCustID($user->data()->id);
-$custid = $customer->getCustomerData();
-print_r($custid);
-
 //checks if user is logged in
 if ($user->isLoggedIn()) {
 
@@ -25,6 +21,8 @@ if ($user->isLoggedIn()) {
                 try{
                     //Creates array of all input to be inserted into dog table
                     $dog = new Dog(); //constructor call
+                    $customer->findCustInfo($user->data()->id); //Finds matching user id
+                    $custid = $customer->data()->User_ID; //stores the customer id
                     $dog->create(array(
                         'DogName' => Input::get('DogName'),
                         'Breed' => Input::get('Breed'),

@@ -2,7 +2,6 @@
 
 class Customer {
     private $_db,
-            $_userData, // contains user data
             $_customerData, //contains customer data
             $_sessionName;
 
@@ -26,7 +25,7 @@ class Customer {
         return $this->_customerData;
     }
 
-    public function findCustID($user = null){
+    public function findCustInfo($user = null){
         if($user){
             $fields = 'User_ID';
             $data = $this->_db->get('customer', array($fields, '=', $user));
@@ -38,6 +37,10 @@ class Customer {
         }else{
             return false;
         }
+    }
+
+    public function data(){
+        return $this->_customerData;
     }
 
 }
