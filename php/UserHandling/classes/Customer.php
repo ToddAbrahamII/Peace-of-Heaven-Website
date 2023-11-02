@@ -3,6 +3,7 @@
 class Customer {
     private $_db,
             $_userData, // contains user data
+            $_customerData, //contains customer data
             $_sessionName;
 
     public function __construct() {
@@ -21,8 +22,12 @@ class Customer {
         }
     }
 
-    private function data() {
+    public function getUserData() {
         return $this->_userData;
+    }
+
+    public function getCustomerData() {
+        return $this->_customerData;
     }
 }
 

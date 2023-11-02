@@ -2,7 +2,9 @@
 
 class Dog {
     private $_db,
-            $_userData, // contains user data
+            $_userData, //contains user data
+            $_customerData, // contains customer data
+            $_dogData, //contains dog data
             $_sessionName;
 
     public function __construct() {
@@ -21,8 +23,17 @@ class Dog {
         }
     }
 
-    private function data() {
+    
+    public function getUserData() {
         return $this->_userData;
+    }
+
+    public function getCustomerData(){
+        return $this->_customerData;
+    }
+
+    public function getDogData(){
+        return $this->_dogData;
     }
 }
 

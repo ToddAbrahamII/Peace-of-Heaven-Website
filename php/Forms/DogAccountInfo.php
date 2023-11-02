@@ -1,9 +1,10 @@
 <?php 
     require_once '../UserHandling/core/init.php';
 
-$user = new User();
-$customer = new Customer();
+$user = new User(); //constructor call
+$customer = new Customer(); //constructor call 
 
+//checks if user is logged in
 if ($user->isLoggedIn()) {
 
     if(Input::exists()) {
@@ -16,9 +17,11 @@ if ($user->isLoggedIn()) {
 
             // If all rules are satisfied, create new customer
             if($validation->passed()) {
-                $dog = new Dog();
+                //$dog = new Dog(); //constructor call
 
                 try{
+                    //Creates array of all input to be inserted into dog table
+                    $dog = new Dog(); //constructor call
                     $dog->create(array(
                         'DogName' => Input::get('DogName'),
                         'Breed' => Input::get('Breed'),
@@ -28,7 +31,7 @@ if ($user->isLoggedIn()) {
                         'Weight' => Input::get('Weight'),
                         'Color' => Input::get('Color'),
                         'DogOtherInfo' => Input::get('DogOtherInfo'),
-                        'CustID' => $customer->data()->id
+                        'CustID' => $customer->getCustomerData()->id
                     ));
 
                     Redirect::to('../Customer Portal/CustHome.php');
@@ -41,17 +44,19 @@ if ($user->isLoggedIn()) {
                     // output errors
                     foreach ($validation->errors() as $error) {
                         echo $error, '<br>';
-                     }   
-                    }
-    }
+                }   
+            }
+        }
     }
 
 ?>
-
 <!DOCTYPE html>
     <html lang="en">
         <head>
-    
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AcctInfo.css"> -->
+</head>
         </head>
     
         <body>
@@ -74,10 +79,10 @@ if ($user->isLoggedIn()) {
                             
                             <!-- Gets Dog Sex from Male and Female Option -->
                             <label for="DogSex">What is the Sex of your Dog?</label><br>
-                            <input type="radio" id="M" name="sex" value="1">
+                            <input type="radio" id="M" name="sex" value="M">
                             <label for="M">Male</label>
 
-                            <input type="radio" id="F" name="sex" value="0">
+                            <input type="radio" id="F" name="sex" value="F">
                             <label for="F">Female</label><br><br>
 
                             

@@ -6,8 +6,7 @@
     }
 
     $user = new User();
-    if($user->isLoggedIn()) {
-
+     if($user->isLoggedIn()) {
 
 
     //Only shows page to users with the correct PermissionLvl
