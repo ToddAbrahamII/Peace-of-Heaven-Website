@@ -122,6 +122,7 @@
                 <label for="zip">Zip:</label>
                 <input type="text" name="zip" id="zip" required><br>
 
+                <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                 <input type="submit" value="Complete Employee Account"><br><br>
 
             </p>
