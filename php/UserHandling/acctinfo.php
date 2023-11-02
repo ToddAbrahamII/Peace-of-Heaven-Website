@@ -6,7 +6,7 @@ $user = new User();
 if ($user->isLoggedIn()) {
 
     ## Include acct info view here ##
-if($user->data()->isComplete === 0)
+if($user->data()->isComplete == 0 ) 
 {
     if(Input::exists()) {
         if(Token::check(Input::get('token'))) {

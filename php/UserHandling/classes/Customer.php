@@ -22,13 +22,24 @@ class Customer {
         }
     }
 
-    public function getUserData() {
-        return $this->_userData;
-    }
-
     public function getCustomerData() {
         return $this->_customerData;
     }
+
+    public function findCustID($user = null){
+        if($user){
+            $fields = 'User_ID';
+            $data = $this->_db->get('customer', array($fields, '=', $user));
+
+            if($data->count() > 0) {
+                $this->_customerData = $data->first();
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
+
 }
 
 

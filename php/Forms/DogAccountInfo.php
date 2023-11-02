@@ -4,12 +4,17 @@
 $user = new User(); //constructor call
 $customer = new Customer(); //constructor call 
 
+$customer->findCustID($user->data()->id);
+$custid = $customer->getCustomerData();
+print_r($custid);
+
 //checks if user is logged in
 if ($user->isLoggedIn()) {
 
     if(Input::exists()) {
+
         if(Token::check(Input::get('token'))) {
-            
+
             $validate = new Validate();
             $validation = $validate->check($_POST, array(
                 ### Insert rules that acctInfo fields must meet in addition to js validation ###
@@ -17,8 +22,6 @@ if ($user->isLoggedIn()) {
 
             // If all rules are satisfied, create new customer
             if($validation->passed()) {
-                //$dog = new Dog(); //constructor call
-
                 try{
                     //Creates array of all input to be inserted into dog table
                     $dog = new Dog(); //constructor call
@@ -31,7 +34,7 @@ if ($user->isLoggedIn()) {
                         'Weight' => Input::get('Weight'),
                         'Color' => Input::get('Color'),
                         'DogOtherInfo' => Input::get('DogOtherInfo'),
-                        'CustID' => $customer->getCustomerData()->id
+                        'CustID' => $custid 
                     ));
 
                     Redirect::to('../Customer Portal/CustHome.php');
@@ -39,6 +42,7 @@ if ($user->isLoggedIn()) {
                 }
                 catch(Exception $e) {
                     die($e->getMessage());
+                    
                 }
                  }else {
                     // output errors
@@ -106,6 +110,7 @@ if ($user->isLoggedIn()) {
                             <label for="DogOtherInfo">Is there anything else you would like to tell us about your dog?</label><br>
                             <input type="text" id="DogOtherInfo" name="DogOtherInfo"><br><br>
 
+                            <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                             <input type="submit" value="Next"><br><br>
                         </p>
                 </fieldset>

@@ -21,7 +21,7 @@ class Employee {
         }
     }
 
-    private function data() {
+    public function data() {
         return $this->_userData;
     }
 }

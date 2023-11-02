@@ -10,7 +10,7 @@
 
 
     //Only shows page to users with the correct PermissionLvl
-    if($user->data()->group === 3 || $user->data()->group === '3') 
+    if($user->data()->group == 3) 
         {
         //Shows Admin NavBar
         include("../AdminPortal/AdminNavBar.php");

@@ -2,8 +2,6 @@
 
 class Dog {
     private $_db,
-            $_userData, //contains user data
-            $_customerData, // contains customer data
             $_dogData, //contains dog data
             $_sessionName;
 
@@ -23,17 +21,21 @@ class Dog {
         }
     }
 
-    
-    public function getUserData() {
-        return $this->_userData;
-    }
-
-    public function getCustomerData(){
-        return $this->_customerData;
-    }
-
     public function getDogData(){
         return $this->_dogData;
+    }
+
+    public function find($customer = null) {
+        if($customer) {
+            $field = (is_numeric($customer)) ? 'id' : 'username';
+            $data = $this->_db->get('customer', array($field, '=', $customer));
+
+            if($data->count() > 0) {
+                $this->_dogData = $data->first();
+                return true;
+            }
+        }
+        return false;
     }
 }
 
