@@ -1,7 +1,79 @@
+<?php
+session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
+
+    include("connection.php"); //Needed for making login required, calls other php page
+    include("functions.php");//Needed for making login required, calls other php page
+    $user = new User(); //constructor call
+    $customer = new Customer(); //constructor call 
+    
+    //checks if user is logged in
+    if ($user->isLoggedIn()) {
+    
+        if(Input::exists()) {
+    
+            if(Token::check(Input::get('token'))) {
+    
+                $validate = new Validate();
+                $validation = $validate->check($_POST, array(
+                    ### Insert rules that acctInfo fields must meet in addition to js validation ###
+                ));
+    
+                // If all rules are satisfied, create new customer
+                if($validation->passed()) {
+                    try{
+                        //Creates array of all input to be inserted into Dog Behavior table
+                        $dogBehavior = new DogBehavior(); //constructor call
+                        $customer->findCustInfo($user->data()->id); //Finds matching user id
+                        $custid = $customer->data()->CustID; //stores the customer id
+                        $dogBehavior->create(array(
+
+                            'isSocial' => Input::get('IsSocial'),
+                            'FoodPref' => Input::get('FoodPref'),
+                            'IsJumper' => Input::get('IsJumper'),
+                            'IsEscapeArtist' => Input::get('IsEscapeArtist'),
+                            'IsClimber' => Input::get('IsClimber'),
+                            'IsLeashTrained' => Input::get('IsLeashTrained'),
+                            'IsChewer' => Input::get('IsChewer'),
+                            'BathroomRoutine' => Input::get('BathroomRoutine'),
+                            'OtherBehaviorInfo' => Input::get('OtherBehaviorInfo'),
+                            'CustID' => $custid, 
+                            `DogID` int(11) NOT NULL
+                        ));
+    
+                        Redirect::to('../Customer Portal/CustHome.php');
+    
+                    }
+                    catch(Exception $e) {
+                        die($e->getMessage());
+                        
+                    }
+                     }else {
+                        // output errors
+                        foreach ($validation->errors() as $error) {
+                            echo $error, '<br>';
+                    }   
+                }
+            }
+        }
+    
+    ?>
+    <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <!-- <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AcctInfo.css"> -->
+    </head>
+            </head>
+        
+            <body>
+                <form method="POST" class="DogInfo=Form">
+
+
 <fieldset>
                         <!-- Collects information for DogBehavior Table -->
                         <legend>Dog Behavior Information</legend>
-
+                    <p>
                             <legend>1. What is your dogs previous daycare and/or boarding experience</legend> 
                             <input type="radio" id="1a" name="experience" value="1a">
                             <label for="1a">a. Never attempted either</label>
@@ -22,9 +94,9 @@
     
                     <p>
                         <legend>2. Do you want your dog to engage in social play with dogs of like-size & similar temperament?</legend>
-                        <input type="radio" id="2yes" name="social_play" value="yes">
+                        <input type="radio" id="2yes" name="isSocial" value="yes">
                         <label for="2yes">YES</label>
-                        <input type="radio" id="2no" name="social_play" value="no">
+                        <input type="radio" id="2no" name="isSocial" value="no">
                         <label for="2no">NO</label>
                     </p>
     
@@ -95,9 +167,9 @@
     
                     <p>
                         <legend>6. Is your dog permitted to have edible treats? </legend>
-                        <input type="radio" id="6yes" name="weather" value="yes">
+                        <input type="radio" id="6yes" name="treats" value="yes">
                         <label for="6yes">YES</label>
-                        <input type="radio" id="6no" name="weather" value="no">
+                        <input type="radio" id="6no" name="treats" value="no">
                         <label for="6no">NO</label>
                     </p>
     
@@ -111,10 +183,10 @@
                         <br>
     
                         &nbsp;&nbsp;
-                        <label for="seven_desc">a. If yes, please describe.</label>
+                        <label for="time_desc">a. If yes, please describe.</label>
                         <br>
                         &nbsp;&nbsp;
-                        <textarea name="seven_desc" id="seven_desc"></textarea>
+                        <textarea name="time_desc" id="time_desc"></textarea>
                     </p>
     
     
@@ -158,3 +230,7 @@
 
                             <!-- Checks any other information regarding behavior -->
                 </fieldset>
+                </form>
+        </body>
+    </html>
+<?php } ?>
