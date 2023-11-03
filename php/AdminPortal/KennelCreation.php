@@ -25,21 +25,23 @@
 
                 // If all rules are satisfied, create new employee
                 if($validation->passed()) {
-                    $user = New User();
+                    $kennel = New Kennel();
                      // Generate a unique salt for the user
                      $salt = Hash::salt(32);
                     
 
                     try {
                         //Grabs Input for Users Table
-                        $user->create(array(
-                            'username' => Input::get('User_Name'),
-                            'password' => Hash::make(Input::get('password'), $salt),
-                            'salt' => $salt,
-                            'joined' => date('Y-m-d H:i:s'),
-                            'isComplete' => 1,
-                            'group' => 2
+                        $kennel->create(array(
+                            'KennelName' => Input::get('kennelName'),
+                            'isOccupied' => 0,
+                            'isBoarding' => Input::get('kennelType')
+                            
                         ));
+
+                        //Code to Redirect
+                        Redirect::to('../AdminPortal/AdminHome.php');
+
                     }catch (Exception $e) {
                         die($e->getMessage()); //Outputs error
                     }
@@ -65,23 +67,29 @@
     <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/EmployeeCreation.css">
     
 
-    <title>Employee Signup</title>
+    <title>Kennel Creatotion</title>
 </head>
 <body>
     <div class=content>
-    <form method="POST" class="EmpInfo-Form">
+    <form method="POST" class="KennelCreation-Form">
         <fieldset>
 
-            <legend>Employee Account Creation</legend>
+            <legend>Kennel Creation</legend>
             <p>
-                <label>Username</label>
-                <input type="text" name="User_Name"  id="User_Name"><br><br>
+                <!-- Asks for Kennel Name -->
+                <label>What is the name of the kennel?</label>
+                <input type="text" name="kennelName"  id="kennelNAme"><br><br>
 
-                <label>Password</label>
-                <input type="password" name="Password"  id="Password"><br><br>
+                <!-- Asks what type of kennel it is -->
+                <label for="kennelType">Select a kennel type:</label>
+                <select id="kennelType" name="kennelType">
+                    <option value="0">Daycare</option>
+                    <option value="1">Boarding</option>
+                </select><br><br>
 
+                <!-- Creates token and submits for completion -->
                 <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-                <input type="submit" value="Complete Employee Account"><br><br>
+                <input type="submit" value="Complete Kennel"><br><br>
 
             </p>
         </fieldset>
