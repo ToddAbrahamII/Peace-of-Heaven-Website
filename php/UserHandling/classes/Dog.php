@@ -21,6 +21,32 @@ class Dog {
         }
     }
 
+    /**
+     * Writes to vaccine table
+     * @param mixed $fields
+     * @throws \Exception
+     * @return void
+     */
+    public function createVaccineRecord($fields) {
+        if (!$this->_db->insert('dogvaccine', $fields)) {
+            throw new Exception('There was an issue adding vaccine info');
+            //VacId, DHPP_Date, RabiesDate, BordellaDate, HasFleaTick, FleaTickDate, OtherVacInfo
+        }
+    }
+
+    /**
+     * Writes to behavior table
+     * @param mixed $fields
+     * @throws \Exception
+     * @return void
+     */
+    public function createBehaviorRecord($fields) {
+        if(!this->_db->insert('dogbehavior', $fields)) {
+            throw new Exception('There was a problem adding behavior info');
+            //BehaviorID, IsSocial, FoodPref, IsJumper, IsEscapeArtist, IsClimber, IsLeashedTrained, IsChewer, Is
+        }
+    }
+
     public function getDogData(){
         return $this->_dogData;
     }
