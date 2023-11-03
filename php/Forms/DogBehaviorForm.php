@@ -27,17 +27,19 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                         $custid = $customer->data()->CustID; //stores the customer id
                         $dogBehavior->create(array(
 
+                            'Experience' => Input::get('Experience'),
                             'IsSocial' => Input::get('IsSocial'),
-
+                            'IsAggressive' => Input::get('IsAggressive'),
+                            'AggressiveDesc' => Input::get('AggressiveDesc'),
                             'IsJumper' => Input::get('IsJumper'),
                             'IsClimber' => Input::get('IsClimber'),
                             'IsChewer' => Input::get('IsChewer'),
                             'IsEscapeArtist' => Input::get('IsEscapeArtist'),
-                            'EscapeDesc' => Input::get('Escape_Desc'),
+                            'EscapeDesc' => Input::get('EscapeDesc'),
                             'CanWater' => Input::get('CanWater'),
                             'CanTreat' => Input::get('CanTreat'),
                             'IsRestriction' => Input::get('IsRestriction'),
-                            'RestrictionDesc' => Input::get('Restriction_Desc'),
+                            'RestrictionDesc' => Input::get('RestrictionDesc'),
                             'Toys' => Input::get('Toys'),
                             'OtherBehaviorInfo' => Input::get('OtherBehaviorInfo'),
                             'Reinforce' => Input::get('Reinforce')
@@ -84,19 +86,19 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                         <legend>Dog Behavior Information</legend>
                     <p>
                             <legend>1. What is your dogs previous daycare and/or boarding experience</legend> 
-                            <input type="radio" id="1a" name="experience" value="1a">
+                            <input type="radio" id="1a" name="Experience" value="1a">
                             <label for="1a">a. Never attempted either</label>
                             <br>
-                            <input type="radio" id="1b" name="experience" value="1b">
+                            <input type="radio" id="1b" name="Experience" value="1b">
                             <label for="1b">b. Boarding and/or daycare client in past but no more than twice a year</label>
                             <br>
-                            <input type="radio" id="1c" name="experience" value="1c">
+                            <input type="radio" id="1c" name="Experience" value="1c">
                             <label for="1c">c. Has been at least once but stresses easily or does not adjust well to unfamiliar environments</label> 
                             <br>
-                            <input type="radio" id="1d" name="experience" value="1d">
+                            <input type="radio" id="1d" name="Experience" value="1d">
                             <label for="1d">d. Boarded regularly & adjusts easily</label>
                             <br>
-                            <input type="radio" id="1e" name="experience" value="1e">
+                            <input type="radio" id="1e" name="Experience" value="1e">
                             <label for="1e">e. Attends daycare often & socializes well</label>
                     </p>
     
@@ -112,17 +114,17 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
     
                     <p>
                         <legend>3. Has your dog ever growled, snipped, bit, or shown any other aggressive reaction towards people or pets?</legend>
-                        <input type="radio" id="3yes" name="aggressive_reaction" value="yes">
+                        <input type="radio" id="3yes" name="IsAggressive" value="yes">
                         <label for="3yes">YES</label>
-                        <input type="radio" id="3no" name="aggressive_reaction" value="no">
+                        <input type="radio" id="3no" name="IsAggressive" value="no">
                         <label for="3no">NO</label>
                         <br>
     
                         &nbsp;&nbsp; <!-- Temp. tabs until we decide if we want to put text areas in divs and format with CSS-->
-                        <label for="aggressive_encounter">a. If yes, please provide brief description of encounter(s).</label>
+                        <label for="AggressiveDesc">a. If yes, please provide brief description of encounter(s).</label>
                         <br>
                         &nbsp;&nbsp;
-                        <textarea name="aggressive_encounter" id="aggressive_encounter"></textarea>
+                        <textarea name="AggressiveDesc" id="AggressiveDesc"></textarea>
     
                     </p>
     
