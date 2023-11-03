@@ -42,13 +42,12 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                             'RestrictionDesc' => Input::get('RestrictionDesc'),
                             'Toys' => Input::get('Toys'),
                             'OtherBehaviorInfo' => Input::get('OtherBehaviorInfo'),
-                            'Reinforce' => Input::get('Reinforce')
-                            'Commands' => Input::get('Commands')
-                            'IsLeashTrained' => Input:: get('IsLeashTrained')
+                            'Reinforce' => Input::get('Reinforce'),
+                            'Commands' => Input::get('Commands'),
+                            'IsLeashTrained' => Input:: get('IsLeashTrained'),
                             'FoodPref' => Input::get('FoodPref'),
                             'BathroomRoutine' => Input::get('BathroomRoutine'),
                             'CustID' => $custid, 
-                            `DogID` int(11) NOT NULL
                         ));
     
                         Redirect::to('../Customer Portal/CustHome.php');
