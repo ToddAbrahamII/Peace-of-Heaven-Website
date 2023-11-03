@@ -27,15 +27,24 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                         $custid = $customer->data()->CustID; //stores the customer id
                         $dogBehavior->create(array(
 
-                            'isSocial' => Input::get('IsSocial'),
-                            'FoodPref' => Input::get('FoodPref'),
+                            'IsSocial' => Input::get('IsSocial'),
+
                             'IsJumper' => Input::get('IsJumper'),
-                            'IsEscapeArtist' => Input::get('IsEscapeArtist'),
                             'IsClimber' => Input::get('IsClimber'),
-                            'IsLeashTrained' => Input::get('IsLeashTrained'),
                             'IsChewer' => Input::get('IsChewer'),
-                            'BathroomRoutine' => Input::get('BathroomRoutine'),
+                            'IsEscapeArtist' => Input::get('IsEscapeArtist'),
+                            'EscapeDesc' => Input::get('Escape_Desc'),
+                            'CanWater' => Input::get('CanWater'),
+                            'CanTreat' => Input::get('CanTreat'),
+                            'IsRestriction' => Input::get('IsRestriction'),
+                            'RestrictionDesc' => Input::get('Restriction_Desc'),
+                            'Toys' => Input::get('Toys'),
                             'OtherBehaviorInfo' => Input::get('OtherBehaviorInfo'),
+                            'Reinforce' => Input::get('Reinforce')
+                            'Commands' => Input::get('Commands')
+                            'IsLeashTrained' => Input:: get('IsLeashTrained')
+                            'FoodPref' => Input::get('FoodPref'),
+                            'BathroomRoutine' => Input::get('BathroomRoutine'),
                             'CustID' => $custid, 
                             `DogID` int(11) NOT NULL
                         ));
@@ -122,101 +131,101 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                         <legend>4. Is your dog a...</legend>
     
                         <label>a. Jumper? </label>
-                        <input type="radio" id="4a_yes" name="jumping" value="yes">
+                        <input type="radio" id="4a_yes" name="IsJumper" value="yes">
                         <label for="4a_yes">YES</label>
-                        <input type="radio" id="4a_no" name="jumping" value="no">
+                        <input type="radio" id="4a_no" name="IsJumper" value="no">
                         <label for="4a_no">NO</label>
                         <br>
     
                         <label>b. Climber? </label>
-                        <input type="radio" id="4b_yes" name="climbing" value="yes">
+                        <input type="radio" id="4b_yes" name="IsClimber" value="yes">
                         <label for="4b_yes">YES</label>
-                        <input type="radio" id="4b_no" name="climbing" value="no">
+                        <input type="radio" id="4b_no" name="IsClimber" value="no">
                         <label for="4b_no">NO</label>
                         <br>
     
                         <label>c. Aggressive chewer? </label>
-                        <input type="radio" id="4c_yes" name="chewing" value="yes">
+                        <input type="radio" id="4c_yes" name="IsChewer" value="yes">
                         <label for="4c_yes">YES</label>
-                        <input type="radio" id="4c_no" name="chewing" value="no">
+                        <input type="radio" id="4c_no" name="IsChewer" value="no">
                         <label for="4c_no">NO</label>
                         <br>
     
                         <label>d. Escape artist of any kind? </label>
-                        <input type="radio" id="4d_yes" name="escaping" value="yes">
+                        <input type="radio" id="4d_yes" name="IsEscapeArtist" value="yes">
                         <label for="4d_yes">YES</label>
-                        <input type="radio" id="4d_no" name="escaping" value="no">
+                        <input type="radio" id="4d_no" name="IsEscapeArtist" value="no">
                         <label for="4d_no">NO</label>
                         <br>
     
                         &nbsp;&nbsp;
-                        <label for="escaping_desc">i. If yes, please describe his/her escaping abilities.</label>
+                        <label for="EscapeDesc">i. If yes, please describe his/her escaping abilities.</label>
                         <br>
                         &nbsp;&nbsp;
-                        <textarea name="escaping_desc" id="escaping_desc"></textarea>
+                        <textarea name="EscapeDesc" id="EscapeDesc"></textarea>
                     </p>
     
     
                     <p>
                         <legend>5. Do you prefer your dog to participate in water activities (weather permitting)?</legend>
-                        <input type="radio" id="5yes" name="weather" value="yes">
+                        <input type="radio" id="5yes" name="CanWater" value="yes">
                         <label for="5yes">YES</label>
-                        <input type="radio" id="5no" name="weather" value="no">
+                        <input type="radio" id="5no" name="CanWater" value="no">
                         <label for="5no">NO</label>
                     </p>
     
                     <p>
                         <legend>6. Is your dog permitted to have edible treats? </legend>
-                        <input type="radio" id="6yes" name="treats" value="yes">
+                        <input type="radio" id="6yes" name="CanTreat" value="yes">
                         <label for="6yes">YES</label>
-                        <input type="radio" id="6no" name="treats" value="no">
+                        <input type="radio" id="6no" name="CanTreat" value="no">
                         <label for="6no">NO</label>
                     </p>
     
     
                     <p>
                         <legend>7. Any activity limitations or time restrictions? </legend>
-                        <input type="radio" id="7yes" name="time_restrictions" value="yes">
+                        <input type="radio" id="7yes" name="IsRestriction" value="yes">
                         <label for="7yes">YES</label>
-                        <input type="radio" id="7no" name="time_restrictions" value="no">
+                        <input type="radio" id="7no" name="IsRestriction" value="no">
                         <label for="7no">NO</label>
                         <br>
     
                         &nbsp;&nbsp;
-                        <label for="time_desc">a. If yes, please describe.</label>
+                        <label for="RestrictionDesc">a. If yes, please describe.</label>
                         <br>
                         &nbsp;&nbsp;
-                        <textarea name="time_desc" id="time_desc"></textarea>
+                        <textarea name="RestrictionDesc" id="RestrictionDesc"></textarea>
                     </p>
     
     
                     <p>
                         <legend>8. Name a few of your dog's favorite toys or games to play.</legend>
-                        <textarea name="toys" id="toys"></textarea>
+                        <textarea name="Toys" id="Toys"></textarea>
     
                         <legend>9. Please describe any other behaviors, prefrences, or routines we should know about your dog.</legend>
-                        <textarea name="routines" id="routines"></textarea>
+                        <textarea name="OtherBehaviorInfo" id="OtherBehaviorInfo"></textarea>
     
                         <legend>10. Are there any training commands or activities we can continue to reinforce (if possible) while in our care? If so, please list.</legend>
-                        <textarea name="reinforce" id="reinforce"></textarea>
+                        <textarea name="Reinforce" id="Reinforce"></textarea>
     
                         <legend>11. What commands does your dog know?</legend>
-                        <textarea name="commands" id="commands"></textarea>
+                        <textarea name="Commands" id="Commands"></textarea>
                         <br>
     
-                        <label for="leash">12. Is your dog comfortable walking on a leash?</label>
-                        <input type="radio" id="12yes" name="leash" value="yes">
+                        <label for="IsLeashTrained">12. Is your dog comfortable walking on a leash?</label>
+                        <input type="radio" id="12yes" name="IsLeashTrained" value="yes">
                         <label for="12yes">YES</label>
-                        <input type="radio" id="12no" name="leash" value="no">
+                        <input type="radio" id="12no" name="IsLeashTrained" value="no">
                         <label for="12no">NO</label>
                         <br>
     
-                        <label for="feeding">13. What is your dog's feeding schedule?</label>
-                        <input type="text" name="feeding" id="feeding">
+                        <label for="FoodPref">13. What is your dog's feeding schedule?</label>
+                        <input type="text" name="FoodPref" id="FoodPref">
                         <br>
     
-                        <label for="potty">14. What is your dog's normal potty routine?</label>
-                        <input type="text" name="potty" id="potty">
+                        <label for="BathroomRoutine">14. What is your dog's normal potty routine?</label>
+                        <input type="text" name="BathroomRoutine" id="BathroomRoutine">
 
                             <!-- Checks if Dog is escape artist -->
 
