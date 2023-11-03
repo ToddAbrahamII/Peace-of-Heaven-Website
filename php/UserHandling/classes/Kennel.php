@@ -1,8 +1,8 @@
 <?php  
 
-class Employee {
+class Kennel {
     private $_db,
-            $_userData, // contains user data
+            $_kennelData, //contains customer data
             $_sessionName;
 
     public function __construct() {
@@ -16,14 +16,15 @@ class Employee {
         $uid = Session::get(Config::get('session/session_name'));
         print_r($uid);
 
-        if (!$this->_db->insert('employee', $fields)) {
+        if (!$this->_db->insert('kennel', $fields)) {
             throw new Exception('There was a problem adding your info.');
         }
     }
 
-    public function data() {
-        return $this->_userData;
+    public function data(){
+        return $this->_kennelData;
     }
+
 }
 
 

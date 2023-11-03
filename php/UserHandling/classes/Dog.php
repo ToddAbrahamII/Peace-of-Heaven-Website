@@ -2,7 +2,7 @@
 
 class Dog {
     private $_db,
-            $_userData, // contains user data
+            $_dogData, //contains dog data
             $_sessionName;
 
     public function __construct() {
@@ -16,14 +16,46 @@ class Dog {
         $uid = Session::get(Config::get('session/session_name'));
         print_r($uid);
 
-        if (!$this->_db->insert('customer', $fields)) {
+        if (!$this->_db->insert('dog', $fields)) {
             throw new Exception('There was a problem adding your info.');
         }
     }
 
-    private function data() {
-        return $this->_userData;
+    public function getDogData(){
+        return $this->_dogData;
     }
+
+    public function find($customer = null) {
+        if($customer) {
+            $field = (is_numeric($customer)) ? 'id' : 'username';
+            $data = $this->_db->get('customer', array($field, '=', $customer));
+
+            if($data->count() > 0) {
+                $this->_dogData = $data->first();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function findDogInfo($customer = null){
+        if($customer){
+            $fields = 'CustID';
+            $data = $this->_db->get('dog', array($fields, '=', $customer));
+
+                $this->_dogData = $data;
+                return true;
+            
+        }else{
+            return false;
+        }
+    }
+
+
+    public function data(){
+        return $this->_dogData;
+    }
+
 }
 
 

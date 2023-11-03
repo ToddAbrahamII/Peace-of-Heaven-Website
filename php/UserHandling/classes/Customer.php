@@ -2,7 +2,7 @@
 
 class Customer {
     private $_db,
-            $_userData, // contains user data
+            $_customerData, //contains customer data
             $_sessionName;
 
     public function __construct() {
@@ -21,9 +21,28 @@ class Customer {
         }
     }
 
-    private function data() {
-        return $this->_userData;
+    public function getCustomerData() {
+        return $this->_customerData;
     }
+
+    public function findCustInfo($user = null){
+        if($user){
+            $fields = 'User_ID';
+            $data = $this->_db->get('customer', array($fields, '=', $user));
+
+            if($data->count() > 0) {
+                $this->_customerData = $data->first();
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    public function data(){
+        return $this->_customerData;
+    }
+
 }
 
 

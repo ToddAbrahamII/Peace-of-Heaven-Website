@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2023 at 10:47 PM
+-- Generation Time: Nov 03, 2023 at 05:26 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,10 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `kennel` (
-  `kennel_ID` int(4) NOT NULL,
-  `isOccupied` boolean DEFAULT `false`,
-  `isBoarding` boolean,
+  `KennelID` int(11) NOT NULL,
+  `KennelName` varchar(100) NOT NULL,
+  `isOccupied` tinyint(1) NOT NULL,
+  `isBoarding` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kennel`
+--
+
+INSERT INTO `kennel` (`KennelID`, `KennelName`, `isOccupied`, `isBoarding`) VALUES
+(0, 'Kennel 5', 0, 1);
 
 --
 -- Indexes for dumped tables

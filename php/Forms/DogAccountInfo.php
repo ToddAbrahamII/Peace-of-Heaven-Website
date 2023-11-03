@@ -1,12 +1,16 @@
-<?phprequire_once 'core/init.php';
+<?php 
+    require_once '../UserHandling/core/init.php';
 
-$user = new User();
+$user = new User(); //constructor call
+$customer = new Customer(); //constructor call 
 
+//checks if user is logged in
 if ($user->isLoggedIn()) {
 
     if(Input::exists()) {
+
         if(Token::check(Input::get('token'))) {
-            
+
             $validate = new Validate();
             $validation = $validate->check($_POST, array(
                 ### Insert rules that acctInfo fields must meet in addition to js validation ###
@@ -14,39 +18,51 @@ if ($user->isLoggedIn()) {
 
             // If all rules are satisfied, create new customer
             if($validation->passed()) {
-                $dog = new Dog();
-
                 try{
+                    //Creates array of all input to be inserted into dog table
+                    $dog = new Dog(); //constructor call
+                    $customer->findCustInfo($user->data()->id); //Finds matching user id
+                    $custid = $customer->data()->CustID; //stores the customer id
                     $dog->create(array(
                         'DogName' => Input::get('DogName'),
                         'Breed' => Input::get('Breed'),
                         'DogDOB' => Input::get('DogDOB'),
-                        
-
+                        'Sex' => Input::get('sex'),
+                        'isFixed' => Input::get('fixed'),
+                        'Weight' => Input::get('DogWeight'),
+                        'Color' => Input::get('Color'),
+                        'DogOtherInfo' => Input::get('DogOtherInfo'),
+                        'CustID' => $custid 
                     ));
+
+                    Redirect::to('../Customer Portal/CustHome.php');
 
                 }
                 catch(Exception $e) {
                     die($e->getMessage());
-                }else {
+                    
+                }
+                 }else {
                     // output errors
                     foreach ($validation->errors() as $error) {
                         echo $error, '<br>';
-                     }
-                 }
-            
+                }   
+            }
         }
     }
-    ?>
 
-    <!DOCTYPE html>
+?>
+<!DOCTYPE html>
     <html lang="en">
         <head>
-    
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AcctInfo.css"> -->
+</head>
         </head>
     
         <body>
-            <form>
+            <form method="POST" class="DogInfo=Form">
                 <fieldset>
                         <!-- Collects information for Dog Table -->
                         <legend>Dog General Information</legend>
@@ -65,10 +81,10 @@ if ($user->isLoggedIn()) {
                             
                             <!-- Gets Dog Sex from Male and Female Option -->
                             <label for="DogSex">What is the Sex of your Dog?</label><br>
-                            <input type="radio" id="M" name="sex" value="1">
+                            <input type="radio" id="M" name="sex" value="M">
                             <label for="M">Male</label>
 
-                            <input type="radio" id="F" name="sex" value="0">
+                            <input type="radio" id="F" name="sex" value="F">
                             <label for="F">Female</label><br><br>
 
                             
@@ -78,7 +94,7 @@ if ($user->isLoggedIn()) {
                             <label for="T">Fixed</label>
 
                             <input type="radio" id="F" name="fixed" value="0">
-                            <label for="F">Not Fixed</label>
+                            <label for="F">Not Fixed</label><br><br>
                             
                             <!-- Gets the Dog's Weight from Input -->
                             <label for="DogWeight"> What is your Dog's Weight</label><br>
@@ -91,6 +107,9 @@ if ($user->isLoggedIn()) {
                             <!-- Gets the Dog's Other Information -->
                             <label for="DogOtherInfo">Is there anything else you would like to tell us about your dog?</label><br>
                             <input type="text" id="DogOtherInfo" name="DogOtherInfo"><br><br>
+
+                            <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+                            <input type="submit" value="Next"><br><br>
                         </p>
                 </fieldset>
             </form>
