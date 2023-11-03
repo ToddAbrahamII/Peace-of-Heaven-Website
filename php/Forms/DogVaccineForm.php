@@ -14,6 +14,37 @@
                 $validate = new Validate();
                 $validation = $validate->check($_POST, array(
                     ### Insert rules that acctInfo fields must meet in addition to js validation ###
+
+                    /**'dhpp_date' => array( 
+                        'name' => 'DHPP Date',
+                        'required' => true,
+                    ),
+                    'rabies_date' => array(
+                        'name' => 'Rabies Date',
+                        'required' => true,
+                    ),
+                    'bordetella_date' => array(
+                        'name' => 'Bordetella Date',
+                        'required' => true,
+                        'matches' => 'password'
+                    ),
+                    'flea_product' => array( 
+                        'name' => 'Flea Product',
+                        'required' => true,
+                        'min' => 2,
+                        'max' => 80,
+                        'unique' => 'users'
+                    ),
+                    'flea_date' => array(
+                        'name' => 'Flea Date',
+                        'required' => true,
+                        'min' => 6
+                    ),
+                    'other_vac_info' => array(
+                        'name' => 'Other Vac Info',
+                        'required' => true,
+                        'matches' => 'password'
+                    )*/
                 ));
     
                 // If all rules are satisfied, create new customer
