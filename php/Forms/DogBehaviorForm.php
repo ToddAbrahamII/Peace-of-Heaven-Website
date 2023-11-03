@@ -22,10 +22,10 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                 if($validation->passed()) {
                     try{
                         //Creates array of all input to be inserted into Dog Behavior table
-                        $dogBehavior = new dogBehavior(); //constructor call
+                        $dog = new dog(); //constructor call
                         $customer->findCustInfo($user->data()->id); //Finds matching user id
                         $custid = $customer->data()->CustID; //stores the customer id
-                        $dogBehavior->create(array(
+                        $dog->createBehaviorRecord(array(
 
                             'Experience' => Input::get('Experience'),
                             'IsSocial' => Input::get('IsSocial'),
