@@ -102,15 +102,26 @@ CREATE TABLE `dog` (
 
 CREATE TABLE `dogbehavior` (
   `BehaviorID` int(11) NOT NULL,
+  `Experience` int(5) NOT NULL,
   `IsSocial` tinyint(1) NOT NULL,
-  `FoodPref` varchar(500) NOT NULL,
+  `IsAggressive` tinyint(1) NOT NULL,
+  `AggressiveDesc` varchar(500) NOT NULL,
   `IsJumper` tinyint(1) NOT NULL,
-  `IsEscapeArtist` tinyint(1) NOT NULL,
   `IsClimber` tinyint(1) NOT NULL,
-  `IsLeashTrained` tinyint(1) NOT NULL,
   `IsChewer` tinyint(1) NOT NULL,
-  `BathroomRoutine` varchar(500) NOT NULL,
+  `IsEscapeArtist` tinyint(1) NOT NULL,
+  `EscapeDesc` varchar(500) NOT NULL,
+  `CanWater` tinyint(1) NOT NULL,
+  `CanTreat` tinyint(1) NOT NULL,
+  `IsRestriction` tinyint(1) NOT NULL,
+  `RestrictionDesc` varchar(500) NOT NULL,
+  `Toys` varchar(500) NOT NULL,
   `OtherBehaviorInfo` varchar(500) NOT NULL,
+  `Reinforce` varchar(500) NOT NULL,
+  `Commands` varchar(500) NOT NULL,
+  `IsLeashTrained` tinyint(1) NOT NULL,
+  `FoodPref` varchar(500) NOT NULL,
+  `BathroomRoutine` varchar(500) NOT NULL,
   `DogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

@@ -22,7 +22,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                 if($validation->passed()) {
                     try{
                         //Creates array of all input to be inserted into Dog Behavior table
-                        $dogBehavior = new DogBehavior(); //constructor call
+                        $dogBehavior = new dogBehavior(); //constructor call
                         $customer->findCustInfo($user->data()->id); //Finds matching user id
                         $custid = $customer->data()->CustID; //stores the customer id
                         $dogBehavior->create(array(
@@ -77,7 +77,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
             </head>
         
             <body>
-                <form method="POST" class="DogInfo=Form">
+                <form method="POST" class="DogBehavior=Form">
 
 
 <fieldset>
