@@ -85,38 +85,38 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                         <legend>Dog Behavior Information</legend>
                     <p>
                             <legend>1. What is your dogs previous daycare and/or boarding experience</legend> 
-                            <input type="radio" id="1a" name="Experience" value="1a">
+                            <input type="radio" id="1a" name="Experience" value="0">
                             <label for="1a">a. Never attempted either</label>
                             <br>
-                            <input type="radio" id="1b" name="Experience" value="1b">
+                            <input type="radio" id="1b" name="Experience" value="1">
                             <label for="1b">b. Boarding and/or daycare client in past but no more than twice a year</label>
                             <br>
-                            <input type="radio" id="1c" name="Experience" value="1c">
+                            <input type="radio" id="1c" name="Experience" value="2">
                             <label for="1c">c. Has been at least once but stresses easily or does not adjust well to unfamiliar environments</label> 
                             <br>
-                            <input type="radio" id="1d" name="Experience" value="1d">
+                            <input type="radio" id="1d" name="Experience" value="3">
                             <label for="1d">d. Boarded regularly & adjusts easily</label>
                             <br>
-                            <input type="radio" id="1e" name="Experience" value="1e">
+                            <input type="radio" id="1e" name="Experience" value="4">
                             <label for="1e">e. Attends daycare often & socializes well</label>
                     </p>
     
     
                     <p>
                         <legend>2. Do you want your dog to engage in social play with dogs of like-size & similar temperament?</legend>
-                        <input type="radio" id="2yes" name="isSocial" value="yes">
-                        <label for="2yes">YES</label>
-                        <input type="radio" id="2no" name="isSocial" value="no">
-                        <label for="2no">NO</label>
+                        <input type="radio" id="T2" name="isSocial" value="1">
+                        <label for="T2">YES</label>
+                        <input type="radio" id="F2" name="isSocial" value="0">
+                        <label for="F2">NO</label>
                     </p>
     
     
                     <p>
                         <legend>3. Has your dog ever growled, snipped, bit, or shown any other aggressive reaction towards people or pets?</legend>
-                        <input type="radio" id="3yes" name="IsAggressive" value="yes">
-                        <label for="3yes">YES</label>
-                        <input type="radio" id="3no" name="IsAggressive" value="no">
-                        <label for="3no">NO</label>
+                        <input type="radio" id="T3" name="IsAggressive" value="1">
+                        <label for="T3">YES</label>
+                        <input type="radio" id="F3" name="IsAggressive" value="0">
+                        <label for="F3">NO</label>
                         <br>
     
                         &nbsp;&nbsp; <!-- Temp. tabs until we decide if we want to put text areas in divs and format with CSS-->
@@ -132,31 +132,31 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                         <legend>4. Is your dog a...</legend>
     
                         <label>a. Jumper? </label>
-                        <input type="radio" id="4a_yes" name="IsJumper" value="yes">
-                        <label for="4a_yes">YES</label>
-                        <input type="radio" id="4a_no" name="IsJumper" value="no">
-                        <label for="4a_no">NO</label>
+                        <input type="radio" id="T4a" name="IsJumper" value="1">
+                        <label for="T4a">YES</label>
+                        <input type="radio" id="F4a" name="IsJumper" value="0">
+                        <label for="F4a">NO</label>
                         <br>
     
                         <label>b. Climber? </label>
-                        <input type="radio" id="4b_yes" name="IsClimber" value="yes">
-                        <label for="4b_yes">YES</label>
-                        <input type="radio" id="4b_no" name="IsClimber" value="no">
-                        <label for="4b_no">NO</label>
+                        <input type="radio" id="T4b" name="IsClimber" value="1">
+                        <label for="T4b">YES</label>
+                        <input type="radio" id="F4b" name="IsClimber" value="0">
+                        <label for="F4b">NO</label>
                         <br>
     
                         <label>c. Aggressive chewer? </label>
-                        <input type="radio" id="4c_yes" name="IsChewer" value="yes">
-                        <label for="4c_yes">YES</label>
-                        <input type="radio" id="4c_no" name="IsChewer" value="no">
-                        <label for="4c_no">NO</label>
+                        <input type="radio" id="T4c" name="IsChewer" value="1">
+                        <label for="T4c">YES</label>
+                        <input type="radio" id="F4c" name="IsChewer" value="0">
+                        <label for="F4c">NO</label>
                         <br>
     
                         <label>d. Escape artist of any kind? </label>
-                        <input type="radio" id="4d_yes" name="IsEscapeArtist" value="yes">
-                        <label for="4d_yes">YES</label>
-                        <input type="radio" id="4d_no" name="IsEscapeArtist" value="no">
-                        <label for="4d_no">NO</label>
+                        <input type="radio" id="T4d" name="IsEscapeArtist" value="1">
+                        <label for="T4d">YES</label>
+                        <input type="radio" id="F4d" name="IsEscapeArtist" value="0">
+                        <label for="F4d">NO</label>
                         <br>
     
                         &nbsp;&nbsp;
@@ -169,27 +169,27 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
     
                     <p>
                         <legend>5. Do you prefer your dog to participate in water activities (weather permitting)?</legend>
-                        <input type="radio" id="5yes" name="CanWater" value="yes">
-                        <label for="5yes">YES</label>
-                        <input type="radio" id="5no" name="CanWater" value="no">
-                        <label for="5no">NO</label>
+                        <input type="radio" id="T5" name="CanWater" value="1">
+                        <label for="T5">YES</label>
+                        <input type="radio" id="F5" name="CanWater" value="0">
+                        <label for="F5">NO</label>
                     </p>
     
                     <p>
                         <legend>6. Is your dog permitted to have edible treats? </legend>
-                        <input type="radio" id="6yes" name="CanTreat" value="yes">
-                        <label for="6yes">YES</label>
-                        <input type="radio" id="6no" name="CanTreat" value="no">
-                        <label for="6no">NO</label>
+                        <input type="radio" id="T6" name="CanTreat" value="1">
+                        <label for="T6">YES</label>
+                        <input type="radio" id="F6" name="CanTreat" value="0">
+                        <label for="F6">NO</label>
                     </p>
     
     
                     <p>
                         <legend>7. Any activity limitations or time restrictions? </legend>
-                        <input type="radio" id="7yes" name="IsRestriction" value="yes">
-                        <label for="7yes">YES</label>
-                        <input type="radio" id="7no" name="IsRestriction" value="no">
-                        <label for="7no">NO</label>
+                        <input type="radio" id="T7" name="IsRestriction" value="1">
+                        <label for="T7">YES</label>
+                        <input type="radio" id="F7" name="IsRestriction" value="0">
+                        <label for="F7">NO</label>
                         <br>
     
                         &nbsp;&nbsp;
@@ -215,10 +215,10 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                         <br>
     
                         <label for="IsLeashTrained">12. Is your dog comfortable walking on a leash?</label>
-                        <input type="radio" id="12yes" name="IsLeashTrained" value="yes">
-                        <label for="12yes">YES</label>
-                        <input type="radio" id="12no" name="IsLeashTrained" value="no">
-                        <label for="12no">NO</label>
+                        <input type="radio" id="T12" name="IsLeashTrained" value="1">
+                        <label for="T12">YES</label>
+                        <input type="radio" id="F12" name="IsLeashTrained" value="0">
+                        <label for="F12">NO</label>
                         <br>
     
                         <label for="FoodPref">13. What is your dog's feeding schedule?</label>
