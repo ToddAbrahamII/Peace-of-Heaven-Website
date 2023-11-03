@@ -41,7 +41,7 @@ class Dog {
      * @return void
      */
     public function createBehaviorRecord($fields) {
-        if(!this->_db->insert('dogbehavior', $fields)) {
+        if(!$this->_db->insert('dogbehavior', $fields)) {
             throw new Exception('There was a problem adding behavior info');
             //BehaviorID, IsSocial, FoodPref, IsJumper, IsEscapeArtist, IsClimber, IsLeashedTrained, IsChewer, Is
         }
