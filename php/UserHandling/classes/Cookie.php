@@ -9,7 +9,7 @@ class Cookie {
     }
 
     public static function put($name, $value, $expiry) {
-        if(setcookie($name, $value, time() + $expiry, '/')) {
+        if(setcookie($name, $value, time() + $expiry, '/')) {// If I add , true, true as arguments will it break the syste
             return true;
         }
         return false;
