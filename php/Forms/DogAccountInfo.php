@@ -42,7 +42,7 @@ if ($user->isLoggedIn()) {
                     die($e->getMessage());
                     
                 }
-                 }else {
+                 }else { ## Is this an error?
                     // output errors
                     foreach ($validation->errors() as $error) {
                         echo $error, '<br>';
