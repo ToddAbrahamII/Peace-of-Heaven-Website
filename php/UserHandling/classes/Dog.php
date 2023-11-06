@@ -51,19 +51,6 @@ class Dog {
         return $this->_dogData;
     }
 
-    public function find($customer = null) {
-        if($customer) {
-            $field = (is_numeric($customer)) ? 'id' : 'username';
-            $data = $this->_db->get('customer', array($field, '=', $customer));
-
-            if($data->count() > 0) {
-                $this->_dogData = $data->first();
-                return true;
-            }
-        }
-        return false;
-    }
-
     public function findDogInfo($customer = null){
         if($customer){
             $fields = 'CustID';
@@ -76,6 +63,29 @@ class Dog {
             return false;
         }
     }
+
+    public function findDogArray($customer = null) {
+        if ($customer) {
+            $field = 'CustID';
+            $data = $this->_db->get('customer', array($field, '=', $customer));
+    
+            if ($data->count() > 0) {
+                $customerData = $data->results()[0]; // Get the first result
+
+                $customerID = $customerData->CustID; // Assuming the customer ID field is named 'CustID' in the customer table
+    
+                // Now, retrieve the dogs associated with the customer
+                $dogData = $this->_db->get('dog', array('CustID', '=', $customerID)); // Assuming 'customer_id' is the field linking dogs to customers
+    
+                if ($dogData->count() > 0) {
+                    $this->_dogData = $dogData->results(); // Store the array of dog data
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
 
 
     public function data(){

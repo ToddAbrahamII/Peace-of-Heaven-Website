@@ -30,7 +30,7 @@ if ($user->isLoggedIn()) {
                         'Sex' => Input::get('sex'),
                         'isFixed' => Input::get('fixed'),
                         'Weight' => Input::get('DogWeight'),
-                        'Color' => Input::get('Color'),
+                        'Color' => Input::get('DogColor'),
                         'DogOtherInfo' => Input::get('DogOtherInfo'),
                         'CustID' => $custid 
                     ));

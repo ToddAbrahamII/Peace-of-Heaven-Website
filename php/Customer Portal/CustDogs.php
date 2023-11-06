@@ -29,8 +29,9 @@
     // }
     
     $customer->findCustInfo($user->data()->id);
-    print_r($customer->data()->CustID);
+    //print_r($customer->data()->CustID);
     $dogInfo = $dog->findDogInfo($customer->data()->CustID);
+
     print_r($dogInfo);
 
 
