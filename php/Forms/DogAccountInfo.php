@@ -68,16 +68,16 @@ if ($user->isLoggedIn()) {
                         <legend>Dog General Information</legend>
                     <p> 
                             <!-- Gets Dog Name From Input -->
-                            <label for="DogName">What is your dog's name? </label><br>
+                            <label for="DogName">What is your dog's name? </label>
                             <input type="text" name="DogName" id="DogName" required><br><br>
 
                             <!-- Gets Dog Breed From Input -->
-                            <label for="Breed">What is your dog's breed? </label><br>
+                            <label for="Breed">What is your dog's breed? </label>
                             <input type="text" name="Breed" id="Breed" required><br><br>
 
                             <!-- Gets Dog DOB From Input -->
-                            <label for="DogDOB">What is your dog's date of birth?</label><br>
-                            <input type="date" name ="DogDOB" id="DogDOB" required><br>
+                            <label for="DogDOB">What is your dog's date of birth?</label>
+                            <input type="date" name ="DogDOB" id="DogDOB" required><br><br>
                             
                             <!-- Gets Dog Sex from Male and Female Option -->
                             <label for="DogSex">What is the sex of your dog?</label>
@@ -85,7 +85,7 @@ if ($user->isLoggedIn()) {
                             <label for="M">Male</label>
 
                             <input type="radio" id="F" name="sex" value="F">
-                            <label for="F">Female</label><br>
+                            <label for="F">Female</label><br><br>
 
                             
                             <!-- Gets If the Dog is Fixed from Options -->
@@ -97,15 +97,15 @@ if ($user->isLoggedIn()) {
                             <label for="F">Not Fixed</label><br><br>
                             
                             <!-- Gets the Dog's Weight from Input -->
-                            <label for="DogWeight"> What is your dog's weight?</label><br>
+                            <label for="DogWeight"> What is your dog's weight?</label>
                             <input type="number" id="DogWeight" name="DogWeight" required><br><br>
 
                             <!-- Gets the Dog's Color from Input -->
-                            <label for="DogColor">What is your dog's color</label><br>
+                            <label for="DogColor">What is your dog's color</label>
                             <input type="text" id="DogColor" name="DogColor" required><br><br>
                             
                             <!-- Gets the Dog's Other Information -->
-                            <label for="DogOtherInfo">Is there anything else you would like to tell us about your dog?</label><br>
+                            <label for="DogOtherInfo">Is there anything else you would like to tell us about your dog?</label>
                             <input type="text" id="DogOtherInfo" name="DogOtherInfo"><br><br>
 
                             <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
