@@ -40,7 +40,7 @@
                 ));
 
                 // If all rules are satisfied, create new employee
-                if($validation->passed()) {
+              //  if($validation->passed()) {
                     $user = New User();
                      // Generate a unique salt for the user
                      $salt = Hash::salt(32);
@@ -63,11 +63,11 @@
                     //Code to Redirect
                     Redirect::to('../AdminPortal/AdminHome.php');
 
-                }else {
-                    foreach ($validation->errors() as $error) {
-                        echo $error, '<br>';
-                    }
-                }
+              //  }else {
+              //      foreach ($validation->errors() as $error) {
+              //          echo $error, '<br>';
+              //      }
+            //    }
             }
         }
     }
