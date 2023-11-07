@@ -85,7 +85,7 @@
     </head>
     <body>
         <div class=content>
-        <form action="" method="POST" class="EmpInfo-Form">
+        <form method="POST" class="EmpInfo-Form">
             <fieldset>
 
                 <legend>Employee Account Creation</legend>
@@ -96,7 +96,7 @@
                     <label>Password</label>
                     <input type="password" name="Password"  id="Password"><br><br>
 
-                    <label for="password_again">Enter your password again</label>
+                    <label>Enter The password again</label>
                     <input type="password" name="password_again" id="password_again">
 
                     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
