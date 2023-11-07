@@ -5,6 +5,9 @@ class Dog {
             $_dogData, //contains dog data
             $_sessionName;
 
+    /**
+     * Connects to the Database
+     */
     public function __construct() {
         $this->_db = DB::getInstance(); // Retrieve database instance
 
@@ -12,6 +15,9 @@ class Dog {
 
     }
 
+    /**
+     * Creates a row in the Dog Database
+     */
     public function create($fields) {
         $uid = Session::get(Config::get('session/session_name'));
         print_r($uid);
@@ -87,7 +93,9 @@ class Dog {
         }
     }
    
-
+    /**
+     * Returns the data of the row of dog that has been selected
+     */
     public function data(){
         return $this->_dogData;
     }

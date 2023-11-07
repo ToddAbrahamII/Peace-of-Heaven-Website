@@ -22,13 +22,11 @@
     //Adds Employee NavBar if Employee Acct logged in
     if($user->data()->group == 2){
         include("../Employee Portal/EmpNavBar.php");
-
     }
 
     //Adds Admin NavBar if Admin Acct logged in
     if($user->data()->group == 3 ){
         include("../AdminPortal/AdminNavBar.php");
-
     }
 
     ?><!DOCTYPE html>
@@ -84,16 +82,34 @@
 
                             <?php
                         } else {
+                            // Prints No Dogs Statement
                             echo "No dogs found for the customer.";
                         }
                         ?>
+                                <!-- Link to Create a Dog Account -->
                                 <a href="../Forms/DogAccountInfo.php">Create a Dog Account</a>
                                 
-                    
-
                     <!-- Generates Token and submits input -->
                     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                     <input type="submit" value="Next"><br><br>
+
+                    <?php 
+
+                    //Stores the dog name that is selected
+                    $dogCheck = Input::get('selectedDog');
+
+                    //Stores which service was selected
+                    $serviceCheck = Input::get('service');
+
+                    //If Statement for if dog has forms already
+                    print_r($dogCheck);
+                    print_r($serviceCheck);
+
+                    //If Statement for if dog does not have forms
+
+
+                    ?>
+
                     </p>
 
 
