@@ -40,6 +40,7 @@
                         <!-- Collects information for the beginning of a reservation -->
                         <legend>Reservation Selection Start</legend>
                     <p> 
+                        <!-- Allows user to select service for reservation -->
                     <label for="service">Select a Service:</label>
                     <select name="service" id="service">
                         <option value="Grooming">Grooming</option>
@@ -47,6 +48,10 @@
                         <option value="Daycare">Daycare</option>
                     </select>
 
+                    <!-- Add code for drop down menu of dogs linked to customer account --> 
+
+
+                    <!-- Generates Token and submits input -->
                     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                     <input type="submit" value="Next"><br><br>
                     </p>

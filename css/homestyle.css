@@ -1,5 +1,5 @@
 body{
-    background-color: darkgray;
+    background-color: #E0F4FF;
 }
 
 /*Formating Background Image*/
@@ -82,7 +82,7 @@ body{
 /*Button with link to the services*/
 .service-box .button {
     display: block;
-    background-color: white;
+    background-color: #FFEED9;
     color: black;
     padding: 10px;
     text-decoration: none;
@@ -100,7 +100,7 @@ body{
    /* max-width: 1400px; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the container horizontally */
     padding: 10px;
-    background-color: white;
+    background-color: #87C4FF;
 }
 
 /*The image for Kennel Concept Section*/
@@ -135,7 +135,7 @@ body{
     display: inline-block;
     text-align: center;
     padding: 10px 20px;
-    background-color: limegreen; /* Button background color */
+    background-color: #FFEED9; /* Button background color */
     color: black; /* Button text color */
     text-decoration: none; /* Remove underline from the link */
     border: none;
@@ -153,7 +153,7 @@ body{
    /* max-width: 1400px; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the container horizontally */
     padding: 10px;
-    background-color: white;
+    background-color: #87C4FF;
 }
 
 .Our-Reason-description {
@@ -203,7 +203,7 @@ body{
     display: inline-block;
     text-align: center;
     padding: 10px 20px;
-    background-color: limegreen; /* Button background color */
+    background-color: #FFEED9; /* Button background color */
     color: black; /* Button text color */
     text-decoration: none; /* Remove underline from the link */
     border: none;
@@ -230,7 +230,7 @@ body{
 }
 
 .Location-button {
-    background-color: limegreen; /* Button background color */
+    background-color: #FFEED9; /* Button background color */
     color: black; /* Button text color */
     text-decoration: none; /* Remove underline from the link */
     border: none;

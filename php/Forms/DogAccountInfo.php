@@ -7,8 +7,27 @@ $customer = new Customer(); //constructor call
 //checks if user is logged in
 if ($user->isLoggedIn()) {
 
-    if(Input::exists()) {
+    //Adds Customer NavBar if Customer Acct logged in
+    if($user->data()->group == 1){
+        include("../Customer Portal/CustNavBar.php");
+    }
 
+    //Adds Employee NavBar if Employee Acct logged in
+    if($user->data()->group == 2){
+        include("../Employee Portal/EmpNavBar.php");
+
+    }
+
+    //Adds Admin NavBar if Admin Acct logged in
+    if($user->data()->group == 3 ){
+        include("../AdminPortal/AdminNavBar.php");
+
+    }
+
+    //Makes sure form has been submitted
+    if(Input::exists()) {
+        
+        //Checks for Token
         if(Token::check(Input::get('token'))) {
 
             $validate = new Validate();
@@ -23,6 +42,8 @@ if ($user->isLoggedIn()) {
                     $dog = new Dog(); //constructor call
                     $customer->findCustInfo($user->data()->id); //Finds matching user id
                     $custid = $customer->data()->CustID; //stores the customer id
+
+                    //Creates array to be added to dog table
                     $dog->create(array(
                         'DogName' => Input::get('DogName'),
                         'Breed' => Input::get('Breed'),
@@ -35,9 +56,11 @@ if ($user->isLoggedIn()) {
                         'CustID' => $custid 
                     ));
 
+                    //Returns user to home
                     Redirect::to('../Customer Portal/CustHome.php');
 
                 }
+                //Error Handling
                 catch(Exception $e) {
                     die($e->getMessage());
                     
@@ -62,6 +85,7 @@ if ($user->isLoggedIn()) {
         </head>
     
         <body>
+            <div class ='content'>
             <form method="POST" class="DogInfo-Form">
                 <fieldset>
                         <!-- Collects information for Dog Table -->
@@ -108,11 +132,13 @@ if ($user->isLoggedIn()) {
                             <label for="DogOtherInfo">Is there anything else you would like to tell us about your dog?</label>
                             <input type="text" id="DogOtherInfo" name="DogOtherInfo"><br><br>
 
+                            <!-- Generates token and submits -->
                             <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                             <input type="submit" value="Complete Dog Account"><br><br>
                         </p>
                 </fieldset>
             </form>
+</div>
         </body>
     </html>
 <?php } ?>
