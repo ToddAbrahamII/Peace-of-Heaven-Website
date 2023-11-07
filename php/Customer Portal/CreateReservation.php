@@ -98,13 +98,16 @@
                     //Stores the dog name that is selected
                     $dogCheck = Input::get('selectedDog');
             
-                    //Code to Grab Dog Data for the selected Dog
+                    //Query to Grab Dog Data for the selected Dog
+                    $db = DB::getInstance();
+                    $selectedDog = $db->get('dog', array('DogName', '=', $dogCheck, 'AND', 'CustID', '=', $custid));
 
                     //Stores which service was selected
                     $serviceCheck = Input::get('service');
 
                     //If Statement for if dog has forms already
                     print_r($dogCheck);
+                    print_r($selectedDog);
                     print_r($serviceCheck);
 
                     //If Statement for if dog does not have forms
