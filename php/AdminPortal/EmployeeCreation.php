@@ -16,11 +16,27 @@
         include("../AdminPortal/AdminNavBar.php");
 
         if(Input::exists()) {
-            if(Token::check(Input::get('token'))) {
-                
+            if(Token::check(Input::get('token'))) {  
                 $validate = new Validate();
                 $validation = $validate->check($_POST, array(
                     ### Insert rules that Employee Creation fields must meet in addition to js validation ###
+                    'username' => array( 
+                        'name' => 'Username',
+                        'required' => true,
+                        'min' => 2,
+                        'max' => 80,
+                        'unique' => 'users'
+                    ),
+                    'password' => array(
+                        'name' => 'Password',
+                        'required' => true,
+                        'min' => 6
+                    ),
+                    'password_again' => array(
+                        'name' => 'Password Again',
+                        'required' => true,
+                        'matches' => 'password'
+                    )
                 ));
 
                 // If all rules are satisfied, create new employee
@@ -59,34 +75,37 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/EmployeeCreation.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/EmployeeCreation.css">
     
 
-    <title>Employee Signup</title>
-</head>
-<body>
-    <div class=content>
-    <form method="POST" class="EmpInfo-Form">
-        <fieldset>
+        <title>Employee Signup</title>
+    </head>
+    <body>
+        <div class=content>
+        <form action="" method="POST" class="EmpInfo-Form">
+            <fieldset>
 
-            <legend>Employee Account Creation</legend>
-            <p>
-                <label>Username</label>
-                <input type="text" name="User_Name"  id="User_Name"><br><br>
+                <legend>Employee Account Creation</legend>
+                <p>
+                    <label>Username</label>
+                    <input type="text" name="User_Name"  id="User_Name"><br><br>
 
-                <label>Password</label>
-                <input type="password" name="Password"  id="Password"><br><br>
+                    <label>Password</label>
+                    <input type="password" name="Password"  id="Password"><br><br>
 
-                <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-                <input type="submit" value="Complete Employee Account"><br><br>
+                    <label for="password_again">Enter your password again</label>
+                    <input type="password" name="password_again" id="password_again">
 
-            </p>
-        </fieldset>
-    </form>
-</div>
-</body>
+                    <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+                    <input type="submit" value="Complete Employee Account"><br><br>
+
+                </p>
+            </fieldset>
+        </form>
+        </div>
+    </body>
 </html>
 <?php } ?>
