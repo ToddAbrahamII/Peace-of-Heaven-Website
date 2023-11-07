@@ -47,10 +47,12 @@ class Dog {
         }
     }
 
-    public function getDogData(){
-        return $this->_dogData;
-    }
-
+    /**
+     * Finds the first dog in the table linked to the CustID
+     * @param mixed $fields
+     * @throws \Exception
+     * @return void
+     */
     public function findDogInfo($customer = null){
         if($customer){
             $fields = 'CustID';
@@ -64,6 +66,27 @@ class Dog {
             return false;
         }
     }
+
+    /**
+     * Finds all dogs in the Dog table linked to CustID
+     * @param mixed $fields
+     * @throws \Exception
+     * @return void
+     */
+    public function findDogArray($customer = null){
+        if($customer){
+            $fields = 'CustID';
+            $data = $this->_db->get('dog', array($fields, '=', $customer));
+
+            if($data->count() > 0) {
+                $this->_dogData = $data->results();
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
+   
 
     public function data(){
         return $this->_dogData;

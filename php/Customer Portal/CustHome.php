@@ -115,5 +115,5 @@
 </html>
 <?php } else {
             Redirect ::to('../UserHandling/login.php');
-}
+            }
 ?>
