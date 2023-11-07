@@ -113,4 +113,7 @@
 </div>
 </body>
 </html>
-<?php } ?>
+<?php } else {
+            Redirect ::to('../UserHandling/login.php');
+}
+?>
