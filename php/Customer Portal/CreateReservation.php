@@ -97,6 +97,8 @@
 
                     //Stores the dog name that is selected
                     $dogCheck = Input::get('selectedDog');
+            
+                    //Code to Grab Dog Data for the selected Dog
 
                     //Stores which service was selected
                     $serviceCheck = Input::get('service');
