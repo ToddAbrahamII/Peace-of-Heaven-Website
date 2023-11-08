@@ -4,11 +4,20 @@ class Reservation {
             $_reservationData,
             $_sessionName,
             $_cookieName;
+    private $service;
+    /**
+     * @var array
+     */
+    private $dogs;
 
-    public function __construct($reservation = null) { 
+    public function __construct($service, array $dogs) {
         $this->_db = DB::getInstance();
         $this->_sessionName = Config::get("session/session_name");
         $this->_cookieName = Config::get("remember/cookie_name");
+
+
+        $this->service = $service;
+        $this->dogs = $dogs;
     }
 
     /**
@@ -22,36 +31,28 @@ class Reservation {
         if (!$this->_db->insert('reservation', $fields)) {
             throw new Exception('There was a problem creating a reservation');
         }
+        $this->_reservationData = $fields;
     }
-    
-    public function getCustomerReservation() {
 
+
+    /**
+     * @param mixed $reservationData
+     */
+    public function setReservationData($reservationData)
+    {
+        $this->_reservationData = $reservationData;
     }
 
     /**
-     * Query the database to get a Reservation.
-     * If parameter is provided, returns only one reservation
-     * @param mixed $reservationId 
-     * @return bool
+     * @return mixed
      */
-    public function getReservation($reservationId=null) { // retrieve reservation info from DB
-        if($reservationId) {
-            $field = $reservationId;
-            $data = $this->_db->get('reservation', array($field, '=', $reservationId));
-
-            if($data->count() > 0) {
-                $this->_reservationData = $data->first();
-                return true;
-            }
-        } 
-        return false;
+    public function getReservationData()
+    {
+        return $this->_reservationData;
     }
 
-    public function updateReservation($fields=array(), $dogId) {
 
-    }
-    public function deleteReservation($reservationId) {
-       // delete from table_name where field = ?;
-        // Not implemented in DB yet
-    }
+
+
+
 }

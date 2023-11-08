@@ -105,10 +105,34 @@
                     //Stores which service was selected
                     $serviceCheck = Input::get('service');
 
-                    //If Statement for if dog has forms already
+                    //If Statement for if dog has forms already -
                     print_r($dogCheck);
                     print_r($selectedDog);
                     print_r($serviceCheck);
+
+                    // Create reservation
+                    $reservation = new Reservation($serviceCheck, array($selectedDog)); // ToDO:: need array of selected dogs
+
+                    try {
+                        $reservation->createReservation(array(
+                            'ResStartTime' => '2023-11-07', // temporary hard code date
+                            'ResEndTime' => '2023-11-07',
+                            'EmerContact' => 'test',
+                            'EmerPhone' => 12345,
+                            'isCheckedIn' => 0,
+                            'ServiceType' => 'Testboarding',
+                            'isApproved' => 0,
+                            'CustId' => 1,
+                            'DogId' => 2,
+                            'KennelID' => 3
+                        ));
+
+                        Session::flash('home', 'You have been registered and can now log in!');
+                        Redirect::to('login.php'); //once logged in, send user to index page
+
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                    }
 
                     //If Statement for if dog does not have forms
 
