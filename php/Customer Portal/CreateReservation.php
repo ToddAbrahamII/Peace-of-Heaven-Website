@@ -74,8 +74,9 @@
                                 <label for="dogDropdown">Select a dog:</label>
                                 <select id="dogDropdown" name="selectedDog">
                                     <?php foreach ($dogData as $dog) {
+                                        $dogID = $dog ->DogID;
                                         $dogName = $dog->DogName;
-                                        echo "<option value='$dogName'>$dogName</option>";
+                                        echo "<option value='$dogID'>$dogName</option>";
                                     } ?>
                                     </select>
                                 
@@ -107,32 +108,32 @@
 
                     //If Statement for if dog has forms already -
                     print_r($dogCheck);
-                    print_r($selectedDog);
-                    print_r($serviceCheck);
+                    //print_r($selectedDog);
+                    //print_r($serviceCheck);
 
                     // Create reservation
-                    $reservation = new Reservation($serviceCheck, array($selectedDog)); // ToDO:: need array of selected dogs
+                    // $reservation = new Reservation($serviceCheck, array($selectedDog)); // ToDO:: need array of selected dogs
 
-                    try {
-                        $reservation->createReservation(array(
-                            'ResStartTime' => '2023-11-07', // temporary hard code date
-                            'ResEndTime' => '2023-11-07',
-                            'EmerContact' => 'test',
-                            'EmerPhone' => 12345,
-                            'isCheckedIn' => 0,
-                            'ServiceType' => 'Testboarding',
-                            'isApproved' => 0,
-                            'CustId' => 1,
-                            'DogId' => 2,
-                            'KennelID' => 3
-                        ));
+                    // try {
+                    //     $reservation->createReservation(array(
+                    //         'ResStartTime' => '2023-11-07', // temporary hard code date
+                    //         'ResEndTime' => '2023-11-07',
+                    //         'EmerContact' => 'test',
+                    //         'EmerPhone' => 12345,
+                    //         'isCheckedIn' => 0,
+                    //         'ServiceType' => 'Testboarding',
+                    //         'isApproved' => 0,
+                    //         'CustId' => 1,
+                    //         'DogId' => 2,
+                    //         'KennelID' => 3
+                    //     ));
 
-                        Session::flash('home', 'You have been registered and can now log in!');
-                        Redirect::to('login.php'); //once logged in, send user to index page
+                    //     Session::flash('home', 'You have been registered and can now log in!');
+                    //     Redirect::to('login.php'); //once logged in, send user to index page
 
-                    } catch (Exception $e) {
-                        die($e->getMessage());
-                    }
+                    // } catch (Exception $e) {
+                    //     die($e->getMessage());
+                    // }
 
                     //If Statement for if dog does not have forms
 
