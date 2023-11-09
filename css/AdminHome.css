@@ -1,8 +1,46 @@
 .content {
-    margin-left: 12%; /* Adjust this value to create space beside the sidebar */
-    padding: 20px;
+    margin-left: 13%; /* Adjust this value to create space beside the sidebar */
+    padding: 10px;
   }
  
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+
+  .header {
+    background-image: url('/PeaceOfHeavenWebPage/Img/Sunflower-Dog.jpg'); 
+    background-size: cover;
+    background-position: 80% 20%;
+    color: #fff;
+    text-align: center;
+    padding: 75px;
+  }
+  
+  .welcome-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
   
   
   

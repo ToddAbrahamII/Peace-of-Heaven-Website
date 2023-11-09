@@ -50,7 +50,7 @@
     <table>
     <thead>
       <tr>
-        <th>Start Date</th>
+      <th>Start Date</th>
         <th>End Date</th>
         <th>Dog</th>
         <th>Service</th>
@@ -58,12 +58,7 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Your reservation data will go here -->
-        <td>2023-12-13</td>
-        <td>2023-12-13</td>
-        <td>Zeva</td>
-        <td>Daycare</td>
-        <td>Confirmed</td>
+      <!-- PHP Load Data Here -->     
     </tbody>
   </table>
     <div class="view-button-container">
@@ -86,13 +81,8 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Your reservation data will go here -->
       <tr>
-        <td>2023-12-13</td>
-        <td>2023-12-15</td>
-        <td>Sherman</td>
-        <td>Boarding</td>
-        <td>Pending</td>
+        <!-- PHP Data Loaded In Here -->
       </tr>
     </tbody>
   </table>

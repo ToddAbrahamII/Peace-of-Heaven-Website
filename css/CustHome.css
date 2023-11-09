@@ -1,16 +1,14 @@
 .content {
-    margin-left: 12%; /* Adjust this value to create space beside the sidebar */
+    margin-left: 13%; /* Adjust this value to create space beside the sidebar */
     padding: 10px;
   }
-
-/* styles.css */
 
 body {
     font-family: 'Arial', sans-serif;
   }
 
   .header {
-    background-image: url('../Img/Dogs-In-Field.jpg'); /* Replace 'your-background-image.jpg' with the actual image file path */
+    background-image: url('/PeaceOfHeavenWebPage/Img/Dogs-In-Field.jpg'); 
     background-size: cover;
     background-position: center;
     color: #fff;

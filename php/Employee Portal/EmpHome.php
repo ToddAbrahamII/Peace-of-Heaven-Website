@@ -9,13 +9,13 @@
     if($user->isLoggedIn()) {
 
     //Adds Employee NavBar if Employee Acct logged in
-    if($user->data()->group === '2' || $user->data()->group === 2 ){
+    if($user->data()->group == 2 ){
         include("../Employee Portal/EmpNavBar.php");
 
     }
 
     //Adds Admin NavBar if Admin Acct logged in
-    if($user->data()->group === '3' || $user->data()->group === 3 ){
+    if($user->data()->group == 3 ){
         include("../AdminPortal/AdminNavBar.php");
 
     }
@@ -32,9 +32,15 @@
 </head>
 <body>
     <div class=content>
-    <h1> Welcome to the Employee Portal </h1>
-    <p>Hello, <?php echo $user_data['User_Name']; ?>! </p>
+    <!-- Box to style welcome statement -->
+    <div class="header">
+        <div class="welcome-box">
+        <h1>Welcome to the Employee Portal</h1>
+        </div>
+    </div>
 
+
+    
     </div>
 </body>
 </html>

@@ -1,4 +1,19 @@
 .content {
-    margin-left: 12%; /* Adjust this value to create space beside the sidebar */
+    margin-left: 13%; /* Adjust this value to create space beside the sidebar */
+    padding: 10px;
+  }
+
+  .header {
+    background-image: url('/PeaceOfHeavenWebPage/Img/Dogs-In-Snow.jpg'); 
+    background-size: cover;
+    background-position: 65% 35%;
+    color: #fff;
+    text-align: center;
+    padding: 75px;
+  }
+  
+  .welcome-box {
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
+    border-radius: 8px;
   }
