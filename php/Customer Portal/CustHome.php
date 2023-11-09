@@ -25,18 +25,7 @@
 
     }
 
-    //Get Current Month and Date for Calendar
-    $currentMonth = date('m');
-    $currentYear = date('Y');
-
-    //SQL Statement to Pull Calendar Data from Calendar Table
-
-
-    //Result Stores the Calendar Data
-
-    // Calculate days in the current month and the first day of the month
-    $daysInMonth = date('t', strtotime("$currentYear-$currentMonth-01"));
-    $firstDay = date('w', strtotime("$currentYear-$currentMonth-01"));
+   
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,66 +38,120 @@
 </head>
 <body>
 <div class=content>
-    <h1> Welcome to the Customer Portal </h1>
+    <!-- Box to style welcome statement -->
+    <div class="header">
+        <div class="welcome-box">
+        <h1>Welcome to the Customer Portal</h1>
+        </div>
+    </div>
 
-    <!-- Add HTML FOR CALENDAR, HEADER, AND TABLE -->
-    <div class='calendar'>
-    <!--Implement logic that on -1 to $currentMonth and if $currentMonth =1 then -1 to $currentYear  -->
-    <button id="prev-month" onclick="prevMonth()">Previous Month</button>
-
-    <h2><?php echo"$currentMonth/$currentYear"?></h2>
-
-    <button id="next-month" onclick="nextMonth()">Next Month</button>
-
-    <!-- Creates Table with List of Days -->
+    <!-- Table to showcase Confirm Reservations -->
+    <h2>Confirmed Reservations</h2>
     <table>
-    <tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>
+    <thead>
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Dog</th>
+        <th>Service</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Your reservation data will go here -->
+        <td>2023-12-13</td>
+        <td>2023-12-13</td>
+        <td>Zeva</td>
+        <td>Daycare</td>
+        <td>Confirmed</td>
+    </tbody>
+  </table>
+    <div class="view-button-container">
+        <a href="">
+            <button class="view-button">View My Reservations</button>
+        </a>
+    </div>
+  <br><br>
 
-    <?php
-    // Calculate days in the current month and the first day of the month
-    $daysInMonth = date('t', strtotime("$currentYear-$currentMonth-01"));
-    $firstDay = date('w', strtotime("$currentYear-$currentMonth-01"));
-    ?>
+  <!-- Table to show pending reservations -->
+  <h2>Pending Reservations</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Dog</th>
+        <th>Service</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Your reservation data will go here -->
+      <tr>
+        <td>2023-12-13</td>
+        <td>2023-12-15</td>
+        <td>Sherman</td>
+        <td>Boarding</td>
+        <td>Pending</td>
+      </tr>
+    </tbody>
+  </table>
+  <br><br>
+   
+  <!-- Table to show all dogs the customer has -->
+  <h2>My Dogs</h2>
+  <table>
+    <thead>
+      <tr>
+        <!-- Creates Table Headers -->
+        <th>Name</th>
+        <th>Breed</th>
+        <th>DOB</th>
+        <th>Sex</th>
+        <th>Weight</th>
+        <th>Color</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        <?php 
+            //Calls Customer, Links with UserID and Stores CustID
+            $customer = new Customer();
+            $customer->findCustInfo($user->data()->id);
+            $custid = $customer->data()->CustID;
 
-    <tr>
-    
-        <?php
-        // Fill the empty cells at the beginning of the month
-        for ($i = 0; $i < $firstDay; $i++) {
-            echo "<td></td>";
-        }
+            //Class call
+            $dog = new Dog();
 
-    // Generate calendar cells for each day
-    for ($day = 1; $day <= $daysInMonth; $day++) {
-        // Fetch data for the day from the database
-        // Replace this with actual database retrieval
-        $date = "$currentYear-$currentMonth-$day";
-        $event_title = "Sample Event"; // Replace with actual data
-        $is_booked = false; // Replace with actual data
+            //Finds all Dogs linked by CustID
+            $dog->findDogArray($customer->data()->CustID);
 
-        $cellClass = $is_booked ? "booked" : "available";
+            //Stores the Dogs Found
+             $dogData = $dog->data();
 
-        echo "<td class='$cellClass'>";
-        echo "<div class='day'>$day</div>";
-        echo "<div class='event'>$event_title</div>";
-        echo "<button class='book-now'>Book Now</button>";
-        echo "</td>";
+            //Lists Each Dog found in the Array
+            foreach ($dogData as $dog) {
+                    //Populates the Table Columns
+                    echo '<tr>';
+                    echo '<td>' . $dog->DogName . '</td>';
+                    echo '<td>' . $dog->Breed . '</td>';
+                    echo '<td>' . $dog->DogDOB . '</td>';
+                    echo '<td>' . $dog->Sex . '</td>';
+                    echo '<td>' . $dog->Weight . '</td>';
+                    echo '<td>' . $dog->Color . '</td>';
+                    // Add more columns for other dog details
 
-        // Start a new row if it's a Saturday
-        if (($day + $firstDay) % 7 == 0) {
-            echo "</tr><tr>";
-        }
-        }
-
-    // Close any remaining cells in the last row
-    while (($day + $firstDay) % 7 != 0) {
-        echo "<td></td>";
-        $day++;
-         }
+                    echo '</tr>';
+                }
         ?>
+    </tbody>
+  </table>
+    <div class="view-button-container">
+        <a href="../Customer Portal/CustDogs.php">
+            <button class="view-button">View My Dogs</button>
+        </a>
+    </div>
 
-    </tr>
-    </table>
 </div>
 </div>
 </body>

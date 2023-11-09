@@ -1,51 +1,68 @@
 .content {
     margin-left: 12%; /* Adjust this value to create space beside the sidebar */
-    padding: 20px;
+    padding: 10px;
   }
 
-.calendar {
-    text-align: center;
-}
+/* styles.css */
 
-table {
+body {
+    font-family: 'Arial', sans-serif;
+  }
+
+  .header {
+    background-image: url('../Img/Dogs-In-Field.jpg'); /* Replace 'your-background-image.jpg' with the actual image file path */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 75px;
+  }
+  
+  .welcome-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  table {
     width: 100%;
     border-collapse: collapse;
-}
+    margin-top: 20px;
+  }
+  
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
 
-table, th, td {
-    border: 1px solid black;
-}
-
-th {
-    background-color: #333;
-    color: white;
-}
-
-td {
-    width: 14%;
-    padding: 10px;
-}
-
-.available {
-    background-color: #e0e0e0;
-}
-
-.booked {
-    background-color: #ff8c8c;
-}
-
-.book-now {
-    background-color: #4CAF50;
+  .view-button-container {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  .view-button {
+    background-color: #39A7FF;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
     cursor: pointer;
-}
-
-.day {
-    font-weight: bold;
-}
-
-.event {
-    font-size: 0.8em;
-}
+    border-radius: 4px;
+  }
+  
+  .view-button:hover {
+    background-color: #39A7FF;
+  }
+  
