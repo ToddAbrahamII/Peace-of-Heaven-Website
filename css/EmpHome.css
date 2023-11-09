@@ -17,3 +17,48 @@
     padding: 20px;
     border-radius: 8px;
   }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.check-in-button,
+.check-out-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 4px;
+}
+
+.check-in-button:hover,
+.check-out-button:hover {
+    background-color: #45a049;
+}

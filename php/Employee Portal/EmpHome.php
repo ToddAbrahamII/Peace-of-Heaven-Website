@@ -39,8 +39,48 @@
         </div>
     </div>
 
+     <!-- View for Today's Reservations -->
+     <h2>Todays Date: 11/9/2023</h2>
+        <h2>Today's Reservations</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Dog</th>
+                <th>Service</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- PHP Load Data Here -->     
+            </tbody>
+        </table>
+        <br><br>
 
-    
+        <!-- Table for Checked In Dogs -->
+        <h2>Checked-In Dogs</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Dog</th>
+                <th>Breed</th>
+                <th>Date of Birth</th>
+                <th>Service</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- PHP Load Data Here -->     
+            </tbody>
+        </table>
+        <br><br>
+
+        <div class="button-container">
+            <button class="check-in-button">Check-In Dog</button>
+            <button class="check-out-button">Check-Out Dog</button>
+        </div>
+
     </div>
 </body>
 </html>
