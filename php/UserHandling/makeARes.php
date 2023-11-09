@@ -6,38 +6,23 @@
     $dog = new Dog();
 
 
-    if ($user->isLoggedIn() && Session::exists()) {
+    if ($user->isLoggedIn()) {
         if (Input::exists()) {
             if (Token::check(Input::get('token'))) {
                 $validate = new Validate();
                 //$validation = $validate->check($_POST, array());
 
-               if ($validation->passed()|| 1==1) {
-                try {
-                    $reservation = new Reservation();
-                    
-                    //SysIn: customerId, DogId
-                    $customerData = $customer->getCustomerData();
-                    $dogData = $dog->getDogData();
-                    
+                if ($validation->passed()) {
+                    try {
+                        $reservation = new Reservation();
+                        $
 
-                    //Input: ResStartTime, EndTime, emerContactname, emrPhone, serviceType
-
-
-                } catch(Exception $e) {
-                    die($e->getMessage());
-                }
-
-               } else {
-                foreach ($validation->errors() as $error) {
-                    echo $error, '<br>';
+                        $reservation->createReservation($customer->getCustomerData()->CustID, )
+                    }
                 }
             }
         }
     }
-
-}
-
 
 ?>
 

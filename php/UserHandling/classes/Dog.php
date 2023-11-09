@@ -5,9 +5,6 @@ class Dog {
             $_dogData, //contains dog data
             $_sessionName;
 
-    /**
-     * Connects to the Database
-     */
     public function __construct() {
         $this->_db = DB::getInstance(); // Retrieve database instance
 
@@ -15,9 +12,6 @@ class Dog {
 
     }
 
-    /**
-     * Creates a row in the Dog Database
-     */
     public function create($fields) {
         $uid = Session::get(Config::get('session/session_name'));
         print_r($uid);
@@ -59,43 +53,33 @@ class Dog {
      * @throws \Exception
      * @return void
      */
-    public function findDogInfo($dog = null){
-        if($dog){
-            $fields = 'DogID';
-            $data = $this->_db->get('dog', array($fields, '=', $dog));
-
-            if($data->count() > 0) {
-                $this->_dogData = $data->first();
-                return true;
-            }
-        }else{
-            return false;
-        }
-    }
-
-    /**
-     * Finds all dogs in the Dog table linked to CustID
-     * @param mixed $fields
-     * @throws \Exception
-     * @return void
-     */
-    public function findDogArray($customer = null){
+    public function findDogInfo($customer = null){
         if($customer){
             $fields = 'CustID';
             $data = $this->_db->get('dog', array($fields, '=', $customer));
 
             if($data->count() > 0) {
-                $this->_dogData = $data->results();
+                $this->_dogData = $data->first();
                 return true;
             }
+        }
+        return false;
+    }
+
+    public function findDogInfo($customer = null){
+        if($customer){
+            $fields = 'CustID';
+            $data = $this->_db->get('dog', array($fields, '=', $customer));
+
+                $this->_dogData = $data;
+                return true;
+            
         }else{
             return false;
         }
     }
-   
-    /**
-     * Returns the data of the row of dog that has been selected
-     */
+
+
     public function data(){
         return $this->_dogData;
     }

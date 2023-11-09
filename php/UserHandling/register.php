@@ -1,5 +1,5 @@
 <?php
-    require_once 'core/init.php';
+require_once 'core/init.php';
 
 /*
     // Register a new user if validation passed
@@ -33,28 +33,28 @@
     }
 }*/
 
-    if (Input::exists()) {
-        if (Token::check(Input::get('token'))) {
-            $validate = new Validate(); // Create an instance of the Validate class
-            $validation = $validate->check($_POST, array(
-                'username' => array( 
-                    'name' => 'Username',
-                    'required' => true,
-                    'min' => 2,
-                    'max' => 80,
-                    'unique' => 'users'
-                ),
-                'password' => array(
-                    'name' => 'Password',
-                    'required' => true,
-                    'min' => 6
-                ),
-                'password_again' => array(
-                    'name' => 'Password Again',
-                    'required' => true,
-                    'matches' => 'password'
-                )
-            ));
+if (Input::exists()) {
+    if (Token::check(Input::get('token'))) {
+        $validate = new Validate(); // Create an instance of the Validate class
+        $validation = $validate->check($_POST, array(
+            'username' => array( 
+                'name' => 'Username',
+                'required' => true,
+                'min' => 2,
+                'max' => 80,
+                'unique' => 'users'
+            ),
+            'password' => array(
+                'name' => 'Password',
+                'required' => true,
+                'min' => 6
+            ),
+            'password_again' => array(
+                'name' => 'Password Again',
+                'required' => true,
+                'matches' => 'password'
+            )
+        ));
 
        
         if ($validation->passed()) {
@@ -96,30 +96,30 @@
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Register.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Register.css">
 
-        <div class="signup-container">
-            <form action="" method="post" class="signup-form">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off">
+<div class="signup-container">
+<form action="" method="post" class="signup-form">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off">
 
-                <label for="password">Choose a password</label>
-                <input type="password" name="password" id="password">
+        <label for="password">Choose a password</label>
+        <input type="password" name="password" id="password">
 
 
-                <label for="password_again">Enter your password again</label>
-                <input type="password" name="password_again" id="password_again">
+        <label for="password_again">Enter your password again</label>
+        <input type="password" name="password_again" id="password_again">
 
-                <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-                <input type="submit" value="Register"><br><br>
-                <a href="login.php"  class="signup-link">Click to Login</a><br><br>
+    <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+    <input type="submit" value="Register"><br><br>
+             <a href="login.php"  class="signup-link">Click to Login</a><br><br>
 
-                <a href="/PeaceOfHeavenWebPage/php/WebPages/Home.php" class="home-link">Return Home</a>
-            </form>
+            <a href="/PeaceOfHeavenWebPage/php/WebPages/Home.php" class="home-link">Return Home</a>
+</form>
 
-        </div>
-    </head>
+</div>
+</head>
 </html>

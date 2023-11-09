@@ -23,12 +23,6 @@ if($user->isLoggedIn()) {
     </ul>
 <?php 
 
-    $customer = new Customer();
-    $customer = $customer->data($user->data()->id);
-    $customer->data();
-
-    echo 'hi';
-    print_r($customer);
 
     if($user->hasPermission("admin")) {
         echo '<p>You are an administrator!</p>';

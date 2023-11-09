@@ -1,5 +1,5 @@
 body{
-    background-color: #E0F4FF;
+    background-color: darkgrey;
 }
 .Header-container {
     background-image: url('/PeaceOfHeavenWebPage/Img/Sunflower-Dog.jpg');
@@ -24,7 +24,7 @@ body{
     align-items:flex-start;/* Vertically align items */
     margin: 0 auto; /* Center the container horizontally */
     padding: 10px;
-    background-color: #87C4FF;
+    background-color: white;
 }
 
 .Portrait-img {
@@ -57,7 +57,7 @@ body{
     align-items:flex-start;/* Vertically align items */
     margin: 0 auto; /* Center the container horizontally */
     padding: 10px;
-    background-color: #87C4FF;
+    background-color: white;
 }
 
 .Relax-img {

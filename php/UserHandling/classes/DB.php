@@ -129,15 +129,10 @@ class DB {
     }
 
   /**
-     * Constructs a query
-     * && CalledBy
-     * @calls $this->query();
-     * @calledBy $this->
-     * @group Accessor Group
-     * 
-     * @param mixed $action [ex. SELECT,UPDATE,DELETE]
-     * @param mixed $table = DB table
-     * @param mixed $where 
+     * Summary of action
+     * @param mixed $action
+     * @param mixed $table
+     * @param mixed $where
      * @return static
      */
     private function action ($action, $table, $where = array()) { // 
