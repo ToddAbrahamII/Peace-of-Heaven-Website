@@ -6,4 +6,4 @@ $user = new User();
 
 $user->logout();
 
-Redirect::to('login.php');
+Redirect::to('index.php');

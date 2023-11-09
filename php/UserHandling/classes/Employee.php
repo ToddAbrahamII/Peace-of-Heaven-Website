@@ -12,16 +12,13 @@ class Employee {
 
     }
 
-    /**
-     * @param $fields
-     * @return void
-     * @throws Exception
-     */
     public function create($fields) {
+        $uid = Session::get(Config::get('session/session_name'));
+        print_r($uid);
+
         if (!$this->_db->insert('employee', $fields)) {
             throw new Exception('There was a problem adding your info.');
         }
-
     }
 
     public function data() {

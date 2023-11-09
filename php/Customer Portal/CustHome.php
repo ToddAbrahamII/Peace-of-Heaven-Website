@@ -113,7 +113,4 @@
 </div>
 </body>
 </html>
-<?php } else {
-            Redirect ::to('../UserHandling/login.php');
-            }
-?>
+<?php } ?>

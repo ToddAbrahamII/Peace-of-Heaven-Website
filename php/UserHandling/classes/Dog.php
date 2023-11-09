@@ -5,9 +5,6 @@ class Dog {
             $_dogData, //contains dog data
             $_sessionName;
 
-    /**
-     * Connects to the Database
-     */
     public function __construct() {
         $this->_db = DB::getInstance(); // Retrieve database instance
 
@@ -15,9 +12,6 @@ class Dog {
 
     }
 
-    /**
-     * Creates a row in the Dog Database
-     */
     public function create($fields) {
         $uid = Session::get(Config::get('session/session_name'));
         print_r($uid);
@@ -53,49 +47,37 @@ class Dog {
         }
     }
 
-    /**
-     * Finds the first dog in the table linked to the CustID
-     * @param mixed $fields
-     * @throws \Exception
-     * @return void
-     */
-    public function findDogInfo($customer = null){
-        if($customer){
-            $fields = 'CustID';
-            $data = $this->_db->get('dog', array($fields, '=', $customer));
+    public function getDogData(){
+        return $this->_dogData;
+    }
+
+    public function find($customer = null) {
+        if($customer) {
+            $field = (is_numeric($customer)) ? 'id' : 'username';
+            $data = $this->_db->get('customer', array($field, '=', $customer));
 
             if($data->count() > 0) {
                 $this->_dogData = $data->first();
                 return true;
             }
-        }else{
-            return false;
         }
+        return false;
     }
 
-    /**
-     * Finds all dogs in the Dog table linked to CustID
-     * @param mixed $fields
-     * @throws \Exception
-     * @return void
-     */
-    public function findDogArray($customer = null){
+    public function findDogInfo($customer = null){
         if($customer){
             $fields = 'CustID';
             $data = $this->_db->get('dog', array($fields, '=', $customer));
 
-            if($data->count() > 0) {
-                $this->_dogData = $data->results();
+                $this->_dogData = $data;
                 return true;
-            }
+            
         }else{
             return false;
         }
     }
-   
-    /**
-     * Returns the data of the row of dog that has been selected
-     */
+
+
     public function data(){
         return $this->_dogData;
     }

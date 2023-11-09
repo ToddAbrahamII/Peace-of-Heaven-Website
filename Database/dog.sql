@@ -37,7 +37,6 @@ CREATE TABLE `dog` (
   `Weight` int(3) NOT NULL,
   `Color` varchar(16) NOT NULL,
   `DogOtherInfo` varchar(500) NOT NULL,
-  `HasForms` tinyint(1) NOT NULL,
   `CustID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

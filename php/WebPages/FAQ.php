@@ -9,6 +9,8 @@
         <title>FAQ</title>
     </head>   
     <body>
+        <!--Add Line breaks to account for Navigation Bar-->
+        <br><br><br><br><br>
         <h1>Frequently Asked Questions:</h1>
         <p>
             <h2>What are even questions that should be here</h2>
