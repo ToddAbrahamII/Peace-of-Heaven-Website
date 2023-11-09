@@ -97,19 +97,24 @@
                     <?php 
 
                     //Stores the dog name that is selected
-                    $dogCheck = Input::get('selectedDog');
+                    $dogID = Input::get('selectedDog');
             
                     //Query to Grab Dog Data for the selected Dog
-                    $db = DB::getInstance();
-                    $selectedDog = $db->get('dog', array('DogName', '=', $dogCheck, 'AND', 'CustID', '=', $custid));
+                    $dog->findDogInfo($dogID);
 
                     //Stores which service was selected
                     $serviceCheck = Input::get('service');
 
-                    //If Statement for if dog has forms already -
-                    print_r($dogCheck);
-                    //print_r($selectedDog);
-                    //print_r($serviceCheck);
+                    //If Statement for if dog doesn't have forms already -
+                    if($dog->findDogInfo($selectedDog)){
+
+                        print_r('great success!');
+
+                    }
+                    
+                    //If statement for if dog has forms
+
+                 
 
                     // Create reservation
                     // $reservation = new Reservation($serviceCheck, array($selectedDog)); // ToDO:: need array of selected dogs

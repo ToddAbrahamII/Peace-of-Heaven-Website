@@ -59,10 +59,10 @@ class Dog {
      * @throws \Exception
      * @return void
      */
-    public function findDogInfo($customer = null){
-        if($customer){
-            $fields = 'CustID';
-            $data = $this->_db->get('dog', array($fields, '=', $customer));
+    public function findDogInfo($dog = null){
+        if($dog){
+            $fields = 'DogID';
+            $data = $this->_db->get('dog', array($fields, '=', $dog));
 
             if($data->count() > 0) {
                 $this->_dogData = $data->first();
