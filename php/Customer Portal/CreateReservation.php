@@ -9,7 +9,6 @@
     //Class Calls
     $user = new User();
     $customer = new Customer();
-    $dog = new Dog();
 
     //Checks if user is logged in
     if($user->isLoggedIn()) {
@@ -52,43 +51,6 @@
                         <option value="Boarding">Boarding</option>
                         <option value="Daycare">Daycare</option>
                     </select>
-
-                    <!-- Php code for drop down menu for dogs --> 
-                    <?php
-                        //Matches UserID to CustID with account logged in
-                        $customer->findCustInfo($user->data()->id);
-
-                        //Stores the CustID
-                        $custid = $customer->data()->CustID;
-
-                        //Finds all Dogs linked by CustID
-                        $dog->findDogArray($customer->data()->CustID);
-
-                        //Stores the Dogs Found
-                        $dogData = $dog->data();
-
-                        // Check if $dogData is not empty
-                        if (!empty($dogData)) {
-                            ?>  
-                                <!-- Dog Option for Each Dog in the Table -->
-                                <label for="dogDropdown">Select a dog:</label>
-                                <select id="dogDropdown" name="selectedDog">
-                                    <?php foreach ($dogData as $dog) {
-                                        $dogID = $dog ->DogID;
-                                        $dogName = $dog->DogName;
-                                        echo "<option value='$dogID'>$dogName</option>";
-                                    } ?>
-                                    </select>
-                                
-
-                            <?php
-                        } else {
-                            // Prints No Dogs Statement
-                            echo "No dogs found for the customer.";
-                        }
-                        ?>
-                                <!-- Link to Create a Dog Account -->
-                                <a href="../Forms/DogAccountInfo.php">Create a Dog Account</a>
                                 
                     <!-- Generates Token and submits input -->
                     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
@@ -98,70 +60,32 @@
 
                 //Code for when instance exists
                 if(Input::exists()){
-                    
-                    //Stores the dog name that is selected
-                    $dogID = Input::get('selectedDog');
-                    
-                    // $db = DB::getInstance();
-                    // $dogSelected = $db->get('dog',array('DogID', '=', $dogID));
-            
-                    //Query to Grab Dog Data for the selected Dog  
-                    $selectedDog = new Dog();
-                    $selectedDog->findDogInfoWithDogID($dogID);
-                    $hasForms = $selectedDog->data()->HasForms;
-                    
 
                     //Stores which service was selected
                     $serviceCheck = Input::get('service');
 
-                    //If Statement for if dog does not have forms already -
-                    if($hasForms == 0){
-                        print_r('Does not Have Forms');
-                        
-                        //Redirect to DogHealth, Behavior, and Vaccine Forms
-
-                    }
-                    else if($hasForms == 1){
-                        print_r('Has Forms');
+                    //IF Statement for if user has 0 dogs in table to redirect them to create a dog
+                    //Else redirect them to their service page
 
                         //If statement for if grooming was selected
-                        
+                        if($serviceCheck == 'Grooming')
+                        {
+                            Redirect::to('../Forms/GroomingForm.php');
+                        }
 
                         //If statement for if daycare was selected
-
+                        if($serviceCheck == 'Boarding')
+                        {
+                            Redirect::to('../Forms/BoardingForm.php');
+                        }
 
                         //If statement for if boarding was selected 
+                        if($serviceCheck == 'Daycare')
+                        {
+                            Redirect::to('../Forms/DayCareForm.php');
+                        }
 
                     }
-                }
-
-                    // Create reservation
-                    // $reservation = new Reservation($serviceCheck, array($selectedDog)); // ToDO:: need array of selected dogs
-
-                    // try {
-                    //     $reservation->createReservation(array(
-                    //         'ResStartTime' => '2023-11-07', // temporary hard code date
-                    //         'ResEndTime' => '2023-11-07',
-                    //         'EmerContact' => 'test',
-                    //         'EmerPhone' => 12345,
-                    //         'isCheckedIn' => 0,
-                    //         'ServiceType' => 'Testboarding',
-                    //         'isApproved' => 0,
-                    //         'CustId' => 1,
-                    //         'DogId' => 2,
-                    //         'KennelID' => 3
-                    //     ));
-
-                    //     Session::flash('home', 'You have been registered and can now log in!');
-                    //     Redirect::to('login.php'); //once logged in, send user to index page
-
-                    // } catch (Exception $e) {
-                    //     die($e->getMessage());
-                    // }
-
-                    //If Statement for if dog does not have forms
-
-
                     ?>
 
                     </p>
@@ -174,4 +98,4 @@
 </body>
 
 </html>
-<?php }else{Redirect::to('../UserHandling/login.php');} ?>
+<?php } else{Redirect::to('../UserHandling/login.php');} ?>
