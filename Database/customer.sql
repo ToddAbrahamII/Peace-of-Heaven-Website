@@ -28,16 +28,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `customer` (
-  `CustID` bigint(20) NOT NULL,
+  `CustID` int(11) NOT NULL,
   `CustFirstName` varchar(100) NOT NULL,
   `CustLastName` varchar(100) NOT NULL,
-  `CustPhone` varchar(20) NOT NULL,
+  `CustPhone` varchar(12) NOT NULL,
   `CustAddress` varchar(100) NOT NULL,
-  `CustState` varchar(100) NOT NULL,
-  `CustZip` varchar(100) NOT NULL,
+  `CustCity` varchar(100) NOT NULL,
+  `CustState` varchar(2) NOT NULL,
+  `CustZip` int(5) NOT NULL,
   `AcctEmail` varchar(100) NOT NULL,
-  `User_ID` bigint(20) NOT NULL,
-  `CustCity` varchar(100) NOT NULL
+  `User_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
