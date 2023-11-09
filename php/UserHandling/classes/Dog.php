@@ -74,6 +74,23 @@ class Dog {
     }
 
     /**
+     * Finds first dog in the table linked to DogID
+     */
+    public function findDogInfoWithDogID($dog = null){
+        if($dog){
+            $fields = 'DogID';
+            $data = $this->_db->get('dog', array($fields, '=', $dog));
+
+            if($data->count() > 0) {
+                $this->_dogData = $data->first();
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    /**
      * Finds all dogs in the Dog table linked to CustID
      * @param mixed $fields
      * @throws \Exception

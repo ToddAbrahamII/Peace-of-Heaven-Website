@@ -96,20 +96,44 @@
 
                     <?php 
 
+                //Code for when instance exists
+                if(Input::exists()){
+                    
                     //Stores the dog name that is selected
-                    $dogCheck = Input::get('selectedDog');
+                    $dogID = Input::get('selectedDog');
+                    
+                    // $db = DB::getInstance();
+                    // $dogSelected = $db->get('dog',array('DogID', '=', $dogID));
             
-                    //Query to Grab Dog Data for the selected Dog
-                    $db = DB::getInstance();
-                    $selectedDog = $db->get('dog', array('DogName', '=', $dogCheck, 'AND', 'CustID', '=', $custid));
+                    //Query to Grab Dog Data for the selected Dog  
+                    $selectedDog = new Dog();
+                    $selectedDog->findDogInfoWithDogID($dogID);
+                    $hasForms = $selectedDog->data()->HasForms;
+                    
 
                     //Stores which service was selected
                     $serviceCheck = Input::get('service');
 
-                    //If Statement for if dog has forms already -
-                    print_r($dogCheck);
-                    //print_r($selectedDog);
-                    //print_r($serviceCheck);
+                    //If Statement for if dog does not have forms already -
+                    if($hasForms == 0){
+                        print_r('Does not Have Forms');
+                        
+                        //Redirect to DogHealth, Behavior, and Vaccine Forms
+
+                    }
+                    else if($hasForms == 1){
+                        print_r('Has Forms');
+
+                        //If statement for if grooming was selected
+                        
+
+                        //If statement for if daycare was selected
+
+
+                        //If statement for if boarding was selected 
+
+                    }
+                }
 
                     // Create reservation
                     // $reservation = new Reservation($serviceCheck, array($selectedDog)); // ToDO:: need array of selected dogs
