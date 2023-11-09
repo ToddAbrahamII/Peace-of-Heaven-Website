@@ -6,13 +6,10 @@
     
     //checks if user is logged in
     if ($user->isLoggedIn()) {
-        echo "user is logged in";
     
         if(Input::exists()) {
-            echo "input exists";
     
             if(Token::check(Input::get('token'))) {
-                echo "got token?";
     
                 $validate = new Validate();
                 $validation = $validate->check($_POST, array(
@@ -51,14 +48,12 @@
                 ));
     
                 // If all rules are satisfied, create new customer
-                if($validation->passed() || 1==1){
-                    echo "passed";
+                if($validation->passed()) {
                     try{
                         //Creates array of all input to be inserted into dog table
                         $dog = new Dog(); //constructor call
                         $customer->findCustInfo($user->data()->id); //Finds matching user id
                         $custid = $customer->data()->CustID; //stores the customer id
-                        echo $custid;
                         $dog->createVaccineRecord(array(
                             'DHPP_Date' => Input::get('dhpp_date'),
                             'RabiesDate' => Input::get('rabies_date'),
@@ -67,6 +62,8 @@
                             'FleaTickDate' => Input::get('flea_date'),
                             'OtherVacInfo' => Input::get('other_vac_info')
                         ));
+    
+                        Redirect::to('../Customer Portal/CustHome.php');
     
                     }
                     catch(Exception $e) {
@@ -93,7 +90,7 @@
     </head>
 
     <body>
-        <form action="" method="post">
+        <form>
             <fieldset>
 
             <legend>Vaccinations</legend>  
@@ -128,9 +125,6 @@
                     <label for="other_vac_info">Please list below any other vaccination information we may need to know:<br></label>
                     <textarea name="other_vac_info" id="other_vac_info"></textarea>
                 </p>
-
-                <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-                <input type="submit" value="Register"><br><br>
 
             </fieldset>
         </form>

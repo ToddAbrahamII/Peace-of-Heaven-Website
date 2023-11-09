@@ -1,5 +1,5 @@
 body{
-    background-color: darkgrey;
+    background-color: #E0F4FF;
 }
 .Header-container {
     background-image: url('/PeaceOfHeavenWebPage/Img/Dogs-In-Field.jpg');
@@ -22,7 +22,7 @@ body{
     align-items:flex-start;/* Vertically align items */
     margin: 0 auto; /* Center the container horizontally */
     padding: 10px;
-    background-color: white;
+    background-color: #87C4FF;
 }
 
 .Owners-img {
@@ -55,7 +55,7 @@ body{
     align-items:flex-start;/* Vertically align items */
     margin: 0 auto; /* Center the container horizontally */
     padding: 10px;
-    background-color: white;
+    background-color: #87C4FF;
 }
 
 .Overnight-img {
