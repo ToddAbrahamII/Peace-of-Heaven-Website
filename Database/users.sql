@@ -35,7 +35,7 @@ CREATE TABLE `users` (
   `name` varchar(50) NOT NULL,
   `joined` datetime NOT NULL,
   `isComplete` tinyint(1) NOT NULL DEFAULT 0,
-  `group` int(11) NOT NULL
+  `group` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

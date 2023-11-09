@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `dogbehavior` (
 
   `BehaviorID` int(11) NOT NULL,
-  `Experience` int(5) NOT NULL,
+  `Experience` int(1) NOT NULL,
   `IsSocial` tinyint(1) NOT NULL,
   `IsAggressive` tinyint(1) NOT NULL,
   `AggressiveDesc` varchar(500) NOT NULL,
