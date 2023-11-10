@@ -119,6 +119,8 @@
             //Stores the Dogs Found
              $dogData = $dog->data();
 
+
+            if(!empty($dogData)){
             //Lists Each Dog found in the Array
             foreach ($dogData as $dog) {
                     //Populates the Table Columns
@@ -133,6 +135,9 @@
 
                     echo '</tr>';
                 }
+            }
+
+            
         ?>
     </tbody>
   </table>

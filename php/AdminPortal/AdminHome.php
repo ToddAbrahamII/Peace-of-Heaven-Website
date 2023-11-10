@@ -53,7 +53,7 @@
         <br><br>
 
         <!-- Table for Pending Reservations with Confirm and Deny Buttons -->
-        <h2>Pending Reservations </h2>
+        <h2>Pending Boarding and DayCare Reservations </h2>
         <table>
             <thead>
             <tr>
@@ -84,6 +84,35 @@
             </thead>
             <tbody>
             <!-- PHP Load Data Here -->     
+            </tbody>
+        </table>
+        <br><br>
+
+         <!-- Table for Pending Reservations with Confirm and Deny Buttons -->
+         <h2>Pending Grooming Reservations </h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Time Range</th>
+                <th>Dog</th>
+                <th>Description</th>
+                <th>Service</th>
+                <th>Option</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Loads all unapproved grooming appointments --> 
+            <?php
+
+            //Loads in unapproved grooming requests
+            $dog = new Dog();
+            $dog->findAllDogs();
+            $allDogs = $dog->data();
+
+            print_r($allDogs);
+
+            $groomingReservation = new GroomingReservation('Grooming', array());
+            ?>
             </tbody>
         </table>
         <br><br>

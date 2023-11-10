@@ -111,6 +111,22 @@ class Dog {
     }
    
     /**
+     * Finds all dogs, good for admin uses when fetching reservations
+     * 
+     */
+    public function findAllDogs()
+    {
+        $data = $this->_db->get();
+
+      
+        $this->_dogData = $data->results();
+        
+    }
+    
+        
+    
+
+    /**
      * Returns the data of the row of dog that has been selected
      */
     public function data(){
