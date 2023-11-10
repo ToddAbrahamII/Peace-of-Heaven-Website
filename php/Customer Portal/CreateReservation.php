@@ -33,7 +33,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/CreateReservation.css">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/SelectService.css">
 
     <title>Create a Reservation</title>
 </head>
@@ -51,6 +51,7 @@
                         <option value="Boarding">Boarding</option>
                         <option value="Daycare">Daycare</option>
                     </select>
+                    <br><br>
                                 
                     <!-- Generates Token and submits input -->
                     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
