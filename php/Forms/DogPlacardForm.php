@@ -30,21 +30,26 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
 
                 <label for="sex">Sex </label>
                 <input type="text" name="sex" id="sex">
+                <br>
 
                 <label>
                 <input type="checkbox" name="allergiesCheck" id="allergiesCheck"> Allergies
                 </label>
-                <br>
+                
                 <label>
                 <input type="checkbox" name="spayedNeuteredCheck" id="allergiesCheck"> Spayed/Neutered
                 </label>
-                <br>
+                
                 <label>
                 <input type="checkbox" name="vaccinationsCurrentCheck" id="vaccinationsCurrentCheck"> Vaccinations Current
                 </label>
 
+                <br>
+
                 <label for="allergies">Allergies </label>
                 <input type="text" name="allergies" id="allergies">
+
+                <br>
 
                 <label for="vetInfo">Vet Info </label>
                 <input type="text" name="vetInfo" id="vetInfo">
@@ -57,28 +62,40 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                 <label for="firstName">First </label>
                 <input type="text" name="firstName" id="firstName">
 
+                <br>
+
                 <label for="address">Address </label>
                 <input type="text" name="address" id="address">
 
+                <br>
+
                 <label for="homePhone">Home Phone </label>
-                <input type="tel" id="homePhone" name="homePhone" placeholder="123-45-678" pattern="([0-9]{3})[0-9]{3}-[0-9]{4}" required>
+                <input type="tel" id="homePhone" name="homePhone" placeholder="123-123-1234" pattern="([0-9]{3})[0-9]{3}-[0-9]{4}" required>
 
                 <label for="cellPhone">Cell Phone </label>
-                <input type="tel" id="cellPhone" name="cellPhone" placeholder="123-45-678" pattern="([0-9]{3})[0-9]{3}-[0-9]{4}" required>
+                <input type="tel" id="cellPhone" name="cellPhone" placeholder="123-123-1234" pattern="([0-9]{3})[0-9]{3}-[0-9]{4}" required>
 
                 <h2>Care:</h2>
 
                 <label for="feedingInstructions">Feeding Instructions </label>
                 <input type="text" name="feedingInstructions" id="FeedingInstructions">
 
+                <br>
+
                 <label for="grooming">Grooming </label>
                 <input type="text" name="grooming" id="grooming">
+
+                <br>
 
                 <label for="medications">Medications </label>
                 <input type="text" name="medications" id="medications">
 
+                <br>
+
                 <label for="specialInstructions">Special Instructions </label>
                 <input type="text" name="specialInstructions" id="specialInstructions">
+
+                <br>
 
                 <label for="dateIn">Date In </label>
                 <input type="text" name="dateIn" id="dateIn">
@@ -109,25 +126,27 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                 <label>
                     <input type="checkbox" name="location" value="Location"> Location
                 </label>
-                <br>
+                
                 <label>
                     <input type="checkbox" name="google" value="Google"> Google
                 </label>
-                <br>
+                
                 <label>
                     <input type="checkbox" name="facebook" value="Facebook"> Facebook
                 </label>
+                
                 <br>
+
                 <label>
                     <input type="checkbox" name="referral" value="Referral"> Referral
                 </label>
                 <input type="text" name="referralText" id="referralText" class="hidden" placeholder="Enter referral details">
-                <br>
+                
                 <label>
                     <input type="checkbox" name="other" value="Other"> Other
                 </label>
                 <input type="text" name="otherText" id="otherText" class="hidden" placeholder="Enter other details">
-                <br>
+                
 
             </div>
 
