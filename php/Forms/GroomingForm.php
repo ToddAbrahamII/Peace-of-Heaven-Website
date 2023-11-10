@@ -71,13 +71,87 @@
                                 
 
                             <?php
-                        } else {
+                        } else  {
                             // Prints No Dogs Statement
                             echo "No dogs found for the customer.";
                         }
                         ?>
                                 <!-- Link to Create a Dog Account -->
-                                <a href="../Forms/DogAccountInfo.php">Create a Dog Account</a>
+                                <br><a href="../Forms/DogAccountInfo.php">Create a Dog Account</a><br>
+                        
+                        <!-- User selects a week -->
+                        <label for="week">Select a Week for a Grooming Appointment</label>
+                        <input type = "week", id="week", name="week">
+                        
+                        <!-- Generates Token and submits input -->
+                        <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+                        <input type="submit" value="Next"><br><br>
+
+                        <p>Grooming Appointment are requested for a certain week.<br>
+                            After a Grooming Appointment Request is sent, we will call you and schedule a time during that week for the appointment.</p>
+
+                        <?php 
+                        if(Input::exists()){
+                               
+                            if(Token::check(Input::get('token')) || 1==1) {
+                                $validate = new Validate();
+                                $validation = $validate->check($_POST, array(
+                                    ### Insert rules that acctInfo fields must meet in addition to js validation ###
+                                ));
+                    
+                                // If all rules are satisfied, create new customer
+                                if($validation->passed()) {
+                                    try{ 
+                                        //Gets the selected Dogs Info
+                                        $selectedDogID = Input::get('selectedDog');
+                                        $selectedDog = new Dog();
+                                        $selectedDog->findDogInfoWithDogID($selectedDogID);
+                                        $dogSelected = $selectedDog->data();
+
+                                        //constructor call for reservation
+                                        $reservation = new Reservation('Grooming', array($dogSelected));
+
+                                        //Add reservation to reservation table
+                                        $reservation->createReservation(array(
+                                            
+                                            //'ResStartTime' => ,
+                                            //'ResEndTime' =>,
+                                            //'EmerContact' => Input::get(),
+                                            //'EmerPhone' => Input::get(),
+                                            'isCheckedIn' => 0,
+                                            'ServiceType' => 'Grooming',
+                                            'isApproved' => 0,
+                                            'CustID' => $custid,
+                                            'DogID' => $selectedDog->data()->DogID
+                                        ));
+
+                                        //If statement for if dog has forms
+
+
+                                        //if statement for if dog has no forms
+
+                                    } 
+                                    //Error Handling
+                                    catch(Exception $e) {
+                                        die($e->getMessage());
+                                        
+                                    }
+                                }else { ## Is this an error?
+                                    // output errors
+                                    foreach ($validation->errors() as $error) {
+                                        echo $error, '<br>';
+                            }
+
+                        }
+                    }
+                }
+
+                    
+                        
+                        ?> 
+                        
+
+                        
             </fieldset>
         </form> 
     </div>
