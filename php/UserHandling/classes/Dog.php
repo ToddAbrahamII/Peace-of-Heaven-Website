@@ -117,8 +117,6 @@ class Dog {
     public function findAllDogs()
     {
         $data = $this->_db->get();
-
-      
         $this->_dogData = $data->results();
         
     }

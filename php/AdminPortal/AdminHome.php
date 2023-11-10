@@ -104,14 +104,34 @@
             <!-- Loads all unapproved grooming appointments --> 
             <?php
 
-            //Loads in unapproved grooming requests
-            $dog = new Dog();
-            $dog->findAllDogs();
-            $allDogs = $dog->data();
+            //Load all grooming appointments where IsApproved = 0
 
-            print_r($allDogs);
-
+            //Constructor Call
             $groomingReservation = new GroomingReservation('Grooming', array());
+
+            //Grabs all unapproved grooming reservations
+            $groomingReservation->getUnApprovedReservations();
+            $allGroomingData = $groomingReservation->getUnApprovedReservations();
+
+            //Checks that query has results
+            if(!empty($allGroomingData)){
+                //Goes through each table row
+                foreach ($allGroomingData as $groomingReservation){
+                    //populates rows
+                    echo '<tr>';
+                    echo '<td>'. $groomingReservation->ResStartDate .=  $groomingReservation->ResEndDate.'</td>';
+                    echo '<td>'. $groomingReservation->DogID. '</td>';
+                    echo '<td>'. $groomingReservation->GroomingDesc. '</td>';
+                    echo '<td>Grooming</td>';
+                    echo '<td>Confirm or Deny</td>';
+                    echo '</tr>';
+
+            }
+        }
+
+
+
+
             ?>
             </tbody>
         </table>

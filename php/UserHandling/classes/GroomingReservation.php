@@ -51,6 +51,14 @@ class GroomingReservation {
         return $this->_groomingReservationData;
     }
 
+     /**
+     * Retrieves all unapproved grooming reservations
+     */
+    public function getUnApprovedReservations(){
+        return $this->_groomingReservationData = $this->_db->get('grooming_reservation', array('isApproved', '=', 0));
+    }
+
+
 
 
 

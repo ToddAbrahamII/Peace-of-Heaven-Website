@@ -119,11 +119,11 @@
             //Stores the Dogs Found
              $dogData = $dog->data();
 
-
+            //
             if(!empty($dogData)){
             //Lists Each Dog found in the Array
             foreach ($dogData as $dog) {
-                    //Populates the Table Columns
+                    //Populates the rows
                     echo '<tr>';
                     echo '<td>' . $dog->DogName . '</td>';
                     echo '<td>' . $dog->Breed . '</td>';
