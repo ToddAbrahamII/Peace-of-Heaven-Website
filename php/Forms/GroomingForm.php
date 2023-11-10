@@ -34,7 +34,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/CreateReservation.css">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/GroomingForm.css">
 </head>
 <body>
     <div class='content'>
@@ -76,24 +76,41 @@
                             echo "No dogs found for the customer.";
                         }
                         ?>
-                                <!-- Link to Create a Dog Account -->
-                                <br><a href="../Forms/DogAccountInfo.php">Create a Dog Account</a><br>
+                        <br><br>
+                        <!-- User selects a time range -->
+                        <h3>Select a time range that you can schedule a grooming appointment on</h3>
+                            <!-- First Date in the Time Range -->
+                            <label for="startDate">Select the first day in the time range</label>
+                            <input type = "date", id="startDate", name="startDate">
+
+                            <!-- Last Date in Time Range -->
+                            <label for="lastDate">Select the last day in the time range</label>
+                            <input type = "date", id="lastDate", name="lastDate">
+
+                        <p> After a grooming appointment request is sent, we will call you and schedule a date for the appointment within the week you selected.</p>
+                        <br>
                         
-                        <!-- User selects a week -->
-                        <label for="week">Select a Week for a Grooming Appointment</label>
-                        <input type = "week", id="week", name="week">
-                        
+                        <!-- Emergency Contact Name -->
+                        <label for="emergencyContactName">Emergency Contact Name:</label>
+                        <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Enter name" required><br><br>
+
+                        <!-- Emergency Contact Phone -->
+                        <label for="emergencyContactPhone">Emergency Contact Phone:</label>
+                        <input type="tel" id="emergencyContactPhone" name="emergencyContactPhone" placeholder="Enter phone number" required><br><br><br>
+
+                        <!-- Grooming Description Text Area -->
+                        <label for="groomingDescription">Grooming Description:</label>
+                        <textarea id="groomingDescription" name="groomingDescription" rows="4" cols="50" placeholder="Enter grooming description"></textarea><br>
+
                         <!-- Generates Token and submits input -->
                         <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                         <input type="submit" value="Next"><br><br>
 
-                        <p>Grooming Appointment are requested for a certain week.<br>
-                            After a Grooming Appointment Request is sent, we will call you and schedule a time during that week for the appointment.</p>
 
                         <?php 
                         if(Input::exists()){
                                
-                            if(Token::check(Input::get('token')) || 1==1) {
+                            if(Token::check(Input::get('token')) || 1==1) { //validation is not passing for some reason
                                 $validate = new Validate();
                                 $validation = $validate->check($_POST, array(
                                     ### Insert rules that acctInfo fields must meet in addition to js validation ###
@@ -108,27 +125,24 @@
                                         $selectedDog->findDogInfoWithDogID($selectedDogID);
                                         $dogSelected = $selectedDog->data();
 
-                                        //constructor call for reservation
-                                        $reservation = new Reservation('Grooming', array($dogSelected));
+                                        //constructor call for grooming reservation
+                                        $reservation = new GroomingReservation('Grooming', array($dogSelected));
 
                                         //Add reservation to reservation table
                                         $reservation->createReservation(array(
                                             
-                                            //'ResStartTime' => ,
-                                            //'ResEndTime' =>,
-                                            //'EmerContact' => Input::get(),
-                                            //'EmerPhone' => Input::get(),
-                                            'isCheckedIn' => 0,
-                                            'ServiceType' => 'Grooming',
+                                            'ResStartDate' => Input::get('startDate'),
+                                            'ResEndDate' =>Input::get('lastDate'),
+                                            'EmerContact' => Input::get('emergencyContactName'),
+                                            'EmerPhone' => Input::get('emergencyContactPhone'),
                                             'isApproved' => 0,
+                                            'GroomingDesc' => Input::get('groomingDescription'),
                                             'CustID' => $custid,
                                             'DogID' => $selectedDog->data()->DogID
                                         ));
 
-                                        //If statement for if dog has forms
-
-
-                                        //if statement for if dog has no forms
+                                        //Redirects to confirmation page
+                                        Redirect::to("../Customer Portal/Confirmation.php");
 
                                     } 
                                     //Error Handling
@@ -158,4 +172,7 @@
 </body>
 
 </html>
-<?php }else{Redirect::to('../UserHandling/login.php');} ?>
+<?php 
+    //Redirects if user is not logged in
+    }else{Redirect::to('../UserHandling/login.php');} 
+?>

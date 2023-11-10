@@ -1,0 +1,80 @@
+/* Adjust the content area by creating space beside the sidebar */
+.content {
+    margin-left: 12%;
+    padding: 20px;
+}
+
+/* Style for the Grooming-Creator form */
+.Grooming-Creator {
+    text-align: left;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+}
+
+/* Style for fieldset within the Grooming-Creator form */
+.Grooming-Creator fieldset {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Style for the legend element within the fieldset */
+.Grooming-Creator legend {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Style for labels within the Grooming-Creator form */
+.Grooming-Creator label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+/* Style for input elements within the Grooming-Creator form */
+.Grooming-Creator input[type="text"],
+.Grooming-Creator input[type="number"],
+.Grooming-Creator input[type="tel"],
+.Grooming-Creator textarea,
+.Grooming-Creator select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Style for radio input elements */
+.Grooming-Creator input[type="radio"] {
+    margin: 5px;
+}
+
+/* Style for the submit button */
+.Grooming-Creator input[type="submit"] {
+    background-color: #0074D9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Style the submit button on hover */
+.Grooming-Creator input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style for error messages with class .invalid_username */
+.invalid_username {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
