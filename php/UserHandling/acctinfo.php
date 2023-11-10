@@ -18,7 +18,6 @@ if($user->data()->isComplete == 0 )
 
             // If all rules are satisfied, create new customer
             if($validation->passed()) {
-                echo "validation passed lol";
                 $customer = new Customer(); // constructor call
 
                 try {

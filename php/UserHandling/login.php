@@ -20,13 +20,20 @@ if(Input::exists()) {
             $login = $user->login(Input::get('username'), Input::get('password'));
 
             if($login) {
+                //Redirects if user is customer
                 if($user->data()->group == 1)
                  {
                     Redirect::to('acctinfo.php');
-                 }else if ($user->data()->group == 2)
+                 }
+
+                 //Redirects if user is employee
+                 if ($user->data()->group == 2)
                 {
                     Redirect::to('../Employee Portal/EmpHome.php');
-                }if($user->data()->group == 3 )
+                }
+                
+                //Redirects if user is an admin
+                if($user->data()->group == 3 )
                 {
                     Redirect::to('../AdminPortal/AdminHome.php');
                 }

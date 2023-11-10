@@ -20,27 +20,27 @@
                 $validate = new Validate();
                 $validation = $validate->check($_POST, array(
                     ### Insert rules that Employee Creation fields must meet in addition to js validation ###
-                    'username' => array( 
-                        'name' => 'Username',
-                        'required' => true,
-                        'min' => 2,
-                        'max' => 80,
-                        'unique' => 'users'
-                    ),
-                    'password' => array(
-                        'name' => 'Password',
-                        'required' => true,
-                        'min' => 6
-                    ),
-                    'password_again' => array(
-                        'name' => 'Password Again',
-                        'required' => true,
-                        'matches' => 'password'
-                    )
+                    // 'username' => array( 
+                    //     'name' => 'Username',
+                    //     'required' => true,
+                    //     'min' => 2,
+                    //     'max' => 80,
+                    //     'unique' => 'users'
+                    // ),
+                    // 'password' => array(
+                    //     'name' => 'Password',
+                    //     'required' => true,
+                    //     'min' => 6
+                    // ),
+                    // 'password_again' => array(
+                    //     'name' => 'Password Again',
+                    //     'required' => true,
+                    //     'matches' => 'password'
+                    // )
                 ));
 
                 // If all rules are satisfied, create new employee
-              //  if($validation->passed()) {
+                if($validation->passed()) {
                     $user = New User();
                      // Generate a unique salt for the user
                      $salt = Hash::salt(32);
@@ -54,7 +54,7 @@
                             'salt' => $salt,
                             'joined' => date('Y-m-d H:i:s'),
                             'isComplete' => 1,
-                            'group' => 2
+                            'group' => 2,
                         ));
                     }catch (Exception $e) {
                         die($e->getMessage()); //Outputs error
@@ -63,11 +63,11 @@
                     //Code to Redirect
                     Redirect::to('../AdminPortal/AdminHome.php');
 
-              //  }else {
-              //      foreach ($validation->errors() as $error) {
-              //          echo $error, '<br>';
-              //      }
-            //    }
+               }else {
+                   foreach ($validation->errors() as $error) {
+                       echo $error, '<br>';
+                   }
+                }
             }
         }
     }
@@ -96,8 +96,8 @@
                     <label>Password</label>
                     <input type="password" name="Password"  id="Password"><br><br>
 
-                    <label>Enter The password again</label>
-                    <input type="password" name="password_again" id="password_again">
+                    <!-- <label>Enter The password again</label>
+                    <input type="password" name="password_again" id="password_again"> -->
 
                     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                     <input type="submit" value="Complete Employee Account"><br><br>
