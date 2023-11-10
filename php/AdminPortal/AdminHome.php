@@ -130,15 +130,11 @@
                     echo '<td>'. $dogName . '</td>';
                     echo '<td>'. $reservationGrooming->GroomingDesc. '</td>';
                     echo '<td>Grooming</td>';
-                    echo '<td><a href="">View Appointment</a></td>';
+                    echo '<td><a href="../AdminPortal/AppointmentApproval.php?custid=' . $reservationGrooming->CustID . '&dogid=' . $reservationGrooming->DogID . '&reservationid=' . $reservationGrooming->GroomResID . '&service=Grooming">View Appointment</a></td>';
                     echo '</tr>';
              }
             }
-
-
-
-
-            ?>
+            ?> 
             </tbody>
         </table>
         <br><br>
@@ -146,4 +142,11 @@
 </div>
 </body>
 </html>
-<?php } ?>
+<?php 
+    //Gathers Data if anything is submitted
+    if(Input::exists()){
+
+    }
+
+
+}else{Redirect::to('../UserHandling/login.php');} ?>
