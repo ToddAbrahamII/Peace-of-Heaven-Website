@@ -44,6 +44,7 @@ class GroomingReservation {
     }
 
     /**
+     * Used to retrieve grooming Reservation Data
      * @return mixed
      */
     public function getReservationData()
@@ -55,7 +56,16 @@ class GroomingReservation {
      * Retrieves all unapproved grooming reservations
      */
     public function getUnApprovedReservations(){
-        return $this->_groomingReservationData = $this->_db->get('grooming_reservation', array('isApproved', '=', 0));
+        //Gathers all data as a string
+        $data = $this->_db->get('grooming_reservation', array('isApproved', '=', 0));
+
+        if($data->count() > 0) {
+            //Takes all data, sorts into an array so it can be printed in rows
+            $this->_groomingReservationData = $data->results();
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

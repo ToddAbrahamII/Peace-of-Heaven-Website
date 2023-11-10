@@ -111,26 +111,21 @@
 
             //Grabs all unapproved grooming reservations
             $groomingReservation->getUnApprovedReservations();
-            $allGroomingData = $groomingReservation->getUnApprovedReservations();
+            $allGroomingData = $groomingReservation->getReservationData();
 
             //Checks that query has results
             if(!empty($allGroomingData)){
-                print("table is not empty");
                 //Goes through each table row
-
-                print_r($allGroomingData);
-                
 
                 foreach ($allGroomingData as $reservationGrooming){
                     //populates rows
                     echo '<tr>';
-                    echo '<td>'. $reservationGrooming->ResStartDate .=  $reservationGrooming->ResEndDate.'</td>';
+                    echo '<td>'. $reservationGrooming->ResStartDate . ' - ' .  $reservationGrooming->ResEndDate.'</td>';
                     echo '<td>'. $reservationGrooming->DogID. '</td>';
                     echo '<td>'. $reservationGrooming->GroomingDesc. '</td>';
                     echo '<td>Grooming</td>';
                     echo '<td>Confirm or Deny</td>';
                     echo '</tr>';
-
             }
         }
 
