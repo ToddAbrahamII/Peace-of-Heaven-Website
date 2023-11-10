@@ -25,6 +25,8 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
                 <label for="breed">Breed </label>
                 <input type="text" name="breed" id="breed">
 
+                <br>
+
                 <label for="age">Age </label>
                 <input type="text" name="age" id="age">
 
