@@ -108,6 +108,7 @@
 
             //Constructor Call
             $groomingReservation = new GroomingReservation('Grooming', array());
+            $dog = new Dog();
 
             //Grabs all unapproved grooming reservations
             $groomingReservation->getUnApprovedReservations();
@@ -121,13 +122,18 @@
                     //populates rows
                     echo '<tr>';
                     echo '<td>'. $reservationGrooming->ResStartDate . ' - ' .  $reservationGrooming->ResEndDate.'</td>';
-                    echo '<td>'. $reservationGrooming->DogID. '</td>';
+
+                    //Finds the dog name with their ID
+                    $dog->findDogInfoWithDogID($reservationGrooming->DogID);
+                    $dogName = $dog->data()->DogName;
+
+                    echo '<td>'. $dogName . '</td>';
                     echo '<td>'. $reservationGrooming->GroomingDesc. '</td>';
                     echo '<td>Grooming</td>';
-                    echo '<td>Confirm or Deny</td>';
+                    echo '<td><a href="">View Appointment</a></td>';
                     echo '</tr>';
+             }
             }
-        }
 
 
 

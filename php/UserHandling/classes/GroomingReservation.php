@@ -53,7 +53,7 @@ class GroomingReservation {
     }
 
      /**
-     * Retrieves all unapproved grooming reservations
+     * Retrieves all unapproved grooming reservations (Admin Use)
      */
     public function getUnApprovedReservations(){
         //Gathers all data as a string
@@ -68,6 +68,23 @@ class GroomingReservation {
         }
     }
 
+    /**
+     * Get Unapproved Grooming Appointments by CustID
+     */
+    public function getUnApprovedReservationsWithCustID($customer = null){
+        if($customer){
+        //Gathers all data as a string
+        $data = $this->_db->get('grooming_reservation', array('CustID', '=', $customer));
+
+        if($data->count() > 0) {
+            //Takes all data, sorts into an array so it can be printed in rows
+            $this->_groomingReservationData = $data->results();
+            return true;
+        }else{
+            return false;
+        }
+    }
+    }
 
 
 
