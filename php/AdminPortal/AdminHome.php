@@ -115,13 +115,18 @@
 
             //Checks that query has results
             if(!empty($allGroomingData)){
+                print("table is not empty");
                 //Goes through each table row
-                foreach ($allGroomingData as $groomingReservation){
+
+                print_r($allGroomingData);
+                
+
+                foreach ($allGroomingData as $reservationGrooming){
                     //populates rows
                     echo '<tr>';
-                    echo '<td>'. $groomingReservation->ResStartDate .=  $groomingReservation->ResEndDate.'</td>';
-                    echo '<td>'. $groomingReservation->DogID. '</td>';
-                    echo '<td>'. $groomingReservation->GroomingDesc. '</td>';
+                    echo '<td>'. $reservationGrooming->ResStartDate .=  $reservationGrooming->ResEndDate.'</td>';
+                    echo '<td>'. $reservationGrooming->DogID. '</td>';
+                    echo '<td>'. $reservationGrooming->GroomingDesc. '</td>';
                     echo '<td>Grooming</td>';
                     echo '<td>Confirm or Deny</td>';
                     echo '</tr>';
