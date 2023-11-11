@@ -1,0 +1,5 @@
+/* Adjust the content area by creating space beside the sidebar */
+.content {
+    margin-left: 12%;
+    padding: 20px;
+}
