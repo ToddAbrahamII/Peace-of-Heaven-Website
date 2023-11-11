@@ -16,7 +16,11 @@ class Customer {
     }
 
     /**
-     * Inserts Fields to the customer 
+     * @param $fields
+     * @return void
+     * @throws Exception
+     *
+     * @note insertCustomer()
      */
     public function create($fields) {
         $uid = Session::get(Config::get('session/session_name'));
