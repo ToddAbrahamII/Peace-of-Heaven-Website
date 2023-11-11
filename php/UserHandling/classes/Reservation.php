@@ -1,56 +1,48 @@
 <?php
 class Reservation {
-    private $_db,
-            $_reservationData,
-            $_sessionName,
-            $_cookieName;
-    private $service;
-    /**
-     * @var array
-     */
-    private $dogs;
+    private $_db;
 
-    public function __construct($service, array $dogs) {
+    private $customerId,
+            $dogId,
+            $startTime,
+            $endTime,
+            $reservationType;
+
+
+    public function __construct($customerId) {
         $this->_db = DB::getInstance();
-        $this->_sessionName = Config::get("session/session_name");
-        $this->_cookieName = Config::get("remember/cookie_name");
+        $this->customerId = $customerId;
+        $this->reservationType = 'boarding';
 
-
-        $this->service = $service;
-        $this->dogs = $dogs;
     }
 
     /**
-     * Summary of createReservation
-     * @param mixed $fields
-     * @throws \Exception
-     * @return void
+     * @param mixed $startTime - when the dropoff time is
      */
-    public function createReservation($fields) {
-
-        if (!$this->_db->insert('reservation', $fields)) {
-            throw new Exception('There was a problem creating a reservation');
-        }
-        $this->_reservationData = $fields;
-    }
-
-
-    /**
-     * @param mixed $reservationData
-     */
-    public function setReservationData($reservationData)
+    public function setStartTime($startTime)
     {
-        $this->_reservationData = $reservationData;
+        $this->startTime = $startTime;
     }
 
     /**
-     * @return mixed
+     * @param mixed $endTime - pickup time
      */
-    public function getReservationData()
+    public function setEndTime($endTime)
     {
-        return $this->_reservationData;
+        $this->endTime = $endTime;
     }
 
+    public function insertReservation($fields) {
+        $this->_db->insert('reservation', $fields);
+    }
+
+    /**
+     * @param mixed $dogId
+     */
+    public function setDogId($dogId)
+    {
+        $this->dogId = $dogId;
+    }
 
 
 

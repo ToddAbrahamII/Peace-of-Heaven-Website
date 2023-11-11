@@ -39,3 +39,5 @@ if($user->isLoggedIn()) {
     echo "<p>You need to <a href='login.php'>Log in</a> or <a href='register.php'>register</a></p>";
 }
 
+$allGroomingData ->getUnapprovedReservations();
+$allGroomingData
