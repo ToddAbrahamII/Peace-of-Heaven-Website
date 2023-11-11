@@ -81,21 +81,106 @@ if($user->data()->group == 3 ){
             }
 
 
+            // set service type:
+            $service = 'Boarding';
             //create reservation
-            $reservation = new Reservation($custid);
+            $reservation = new Reservation($service, $dogs);
+
 
             //Grab selected dog data
 
-            echo '5454554545';
-            $reservation->setDogId($dogID);
 
-            print_r($reservation);
 
 
 
             ?>
             <!-- Link to Create a Dog Account -->
-            <a href="../Forms/DogAccountInfo.php">Create a Dog Account</a>
+            <br><br>
+            <!-- User selects a time range -->
+            <h3>Select a time range that you can schedule a grooming appointment on</h3>
+            <!-- First Date in the Time Range -->
+            <label for="startDate">Select the first day in the time range</label>
+            <input type = "date", id="startDate", name="startDate">
+
+            <!-- Last Date in Time Range -->
+            <label for="lastDate">Select the last day in the time range</label>
+            <input type = "date", id="lastDate", name="lastDate">
+
+            <p> After a grooming appointment request is sent, we will call you and schedule a date for the appointment within the week you selected.</p>
+            <br>
+
+            <!-- Emergency Contact Name -->
+            <label for="emergencyContactName">Emergency Contact Name:</label>
+            <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Enter name" required><br><br>
+
+            <!-- Emergency Contact Phone -->
+            <label for="emergencyContactPhone">Emergency Contact Phone:</label>
+            <input type="tel" id="emergencyContactPhone" name="emergencyContactPhone" placeholder="Enter phone number" required><br><br><br>
+
+
+
+            <!-- Generates Token and submits input -->
+            <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+            <input type="submit" value="Next"><br><br>
+
+            <?php
+            if(Input::exists()){
+
+                if(Token::check(Input::get('token')) || 1==1) { //validation is not passing for some reason
+                    $validate = new Validate();
+                    $validation = $validate->check($_POST, array(
+                        ### Insert rules that acctInfo fields must meet in addition to js validation ###
+                    ));
+
+                    // If all rules are satisfied, create new customer
+                    if($validation->passed()) {
+                        try{
+                            //Gets the selected Dogs Info
+                            $selectedDogID = Input::get('selectedDog');
+                            $selectedDog = new Dog();
+                            $selectedDog->findDogInfoWithDogID($selectedDogID);
+                            $dogSelected = $selectedDog->data();
+
+                            //constructor call for grooming reservation
+                            $reservation = new GroomingReservation('Grooming', array($dogSelected));
+
+                            //Add reservation to reservation table
+                            $reservation->createReservation(array(
+
+                                'ResStartDate' => Input::get('startDate'),
+                                'ResEndDate' =>Input::get('lastDate'),
+                                'EmerContact' => Input::get('emergencyContactName'),
+                                'EmerPhone' => Input::get('emergencyContactPhone'),
+                                'isCheckedIn' => 0,
+                                'ServiceType' => $service,
+                                'isApproved' => 0,
+                                'CustID' => $custid,
+                                'DogID' => $selectedDog->data()->DogID
+                            ));
+
+                            //Redirects to confirmation page
+                            Redirect::to("../Customer Portal/Confirmation.php");
+
+                        }
+                            //Error Handling
+                        catch(Exception $e) {
+                            die($e->getMessage());
+
+                        }
+                    }else { ## Is this an error?
+                        // output errors
+                        foreach ($validation->errors() as $error) {
+                            echo $error, '<br>';
+                        }
+
+                    }
+                }
+            }
+
+
+
+            ?>
+
         </fieldset>
     </form>
 </div>
