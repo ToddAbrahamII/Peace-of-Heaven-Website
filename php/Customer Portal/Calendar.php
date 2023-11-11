@@ -1,119 +1,138 @@
-<?php
-    require_once '../UserHandling/core/init.php';
-    
-    if (!Session::exists('home')) {
-        echo '<p>'. Session::flash('home') .'</p>';
-    }
-
-    $user = new User();
-    if($user->isLoggedIn()) {
-
-    //Adds Customer NavBar if Customer Acct logged in
-    if($user->data()->group == 1){
-        include("../Customer Portal/CustNavBar.php");
-    }
-
-    //Adds Employee NavBar if Employee Acct logged in
-    if($user->data()->group == 2){
-        include("../Employee Portal/EmpNavBar.php");
-
-    }
-
-    //Adds Admin NavBar if Admin Acct logged in
-    if($user->data()->group == 3 ){
-        include("../AdminPortal/AdminNavBar.php");
-
-    }
-
-    //Get Current Month and Date for Calendar
-    $currentMonth = date('m');
-    $currentYear = date('Y');
-
-    //SQL Statement to Pull Calendar Data from Calendar Table
-
-
-    //Result Stores the Calendar Data
-
-    // Calculate days in the current month and the first day of the month
-    $daysInMonth = date('t', strtotime("$currentYear-$currentMonth-01"));
-    $firstDay = date('w', strtotime("$currentYear-$currentMonth-01"));
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/CustHome.css">
+    <title>PHP Calendar</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-    <title>Customer Portal</title>
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .book-now-btn {
+            cursor: pointer;
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+            background-color: #007BFF;
+        }
+
+        .unavailable-btn {
+            background-color: #dddddd;
+            color: #555;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
-<div class=content>
-    <h1> Welcome to the Customer Portal </h1>
 
-    <!-- Add HTML FOR CALENDAR, HEADER, AND TABLE -->
-    <div class='calendar'>
-    <!--Implement logic that on -1 to $currentMonth and if $currentMonth =1 then -1 to $currentYear  -->
-    <button id="prev-month" onclick="prevMonth()">Previous Month</button>
+<?php
+// Get the current year and month
+$year = isset($_GET['year']) ? $_GET['year'] : date("Y");
+$month = isset($_GET['month']) ? $_GET['month'] : date("m");
 
-    <h2><?php echo"$currentMonth/$currentYear"?></h2>
+// Get the first day of the month and the total number of days in the month
+$firstDay = date("w", mktime(0, 0, 0, $month, 1, $year));
+$totalDays = date("t", mktime(0, 0, 0, $month, 1, $year));
 
-    <button id="next-month" onclick="nextMonth()">Next Month</button>
+// Define availability for each day
+function getAvailability($day, $month, $year) {
+    $currentDate = date("Y-m-d");
+    $selectedDate = "$year-$month-" . sprintf("%02d", $day);
 
-    <!-- Creates Table with List of Days -->
-    <table>
-    <tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>
+    if ($selectedDate < $currentDate) {
+        return 'unavailable';
+    } else {
+        // Add your logic to determine availability for future dates
+        // For now, return 'available' as a placeholder
+        return 'available';
+    }
+}
 
-    <?php
-    // Calculate days in the current month and the first day of the month
-    $daysInMonth = date('t', strtotime("$currentYear-$currentMonth-01"));
-    $firstDay = date('w', strtotime("$currentYear-$currentMonth-01"));
-    ?>
+?>
 
+<h2><?php echo date("F Y", mktime(0, 0, 0, $month, 1, $year)); ?></h2>
+
+<a class="prev" href="?year=<?php echo ($month == 1) ? $year - 1 : $year; ?>&month=<?php echo ($month == 1) ? 12 : $month - 1; ?>">Previous Month</a>
+<a class="next" href="?year=<?php echo ($month == 12) ? $year + 1 : $year; ?>&month=<?php echo ($month == 12) ? 1 : $month + 1; ?>">Next Month</a>
+
+<table>
     <tr>
-    
-        <?php
-        // Fill the empty cells at the beginning of the month
-        for ($i = 0; $i < $firstDay; $i++) {
-            echo "<td></td>";
-        }
-
-    // Generate calendar cells for each day
-    for ($day = 1; $day <= $daysInMonth; $day++) {
-        // Fetch data for the day from the database
-        // Replace this with actual database retrieval
-        $date = "$currentYear-$currentMonth-$day";
-        $event_title = "Sample Event"; // Replace with actual data
-        $is_booked = false; // Replace with actual data
-
-        $cellClass = $is_booked ? "booked" : "available";
-
-        echo "<td class='$cellClass'>";
-        echo "<div class='day'>$day</div>";
-        echo "<div class='event'>$event_title</div>";
-        echo "<button class='book-now'>Book Now</button>";
-        echo "</td>";
-
-        // Start a new row if it's a Saturday
-        if (($day + $firstDay) % 7 == 0) {
-            echo "</tr><tr>";
-        }
-        }
-
-    // Close any remaining cells in the last row
-    while (($day + $firstDay) % 7 != 0) {
-        echo "<td></td>";
-        $day++;
-         }
-        ?>
-
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
     </tr>
-    </table>
-</div>
-</div>
+    <tr>
+        <?php
+        $dayCount = 1;
+
+        // Print blank cells until the first day of the month
+        for ($i = 0; $i < $firstDay; $i++) {
+            echo "<td>&nbsp;</td>";
+            $dayCount++;
+        }
+
+        // Print the days of the month
+        for ($day = 1; $day <= $totalDays; $day++) {
+            $availability = getAvailability($day, $month, $year);
+
+            echo "<td>";
+            echo "<span value='$year-$month-" . sprintf("%02d", $day) . "' class='$availability'>$day</span>";
+            
+            // Check if the date is before the current date
+            if ($availability === 'unavailable') {
+                echo "<br><button class='book-now-btn unavailable-btn'>Unavailable</button>";
+            } else {
+                // For future dates, display the Book Now button
+                echo "<br><button class='book-now-btn' onclick='bookNow(\"$year-$month-" . sprintf("%02d", $day) . "\")'>Book Now</button>";
+            }
+
+            echo "</td>";
+
+            // Start a new row every 7 days
+            if ($dayCount % 7 == 0) {
+                echo "</tr><tr>";
+            }
+
+            $dayCount++;
+        }
+
+        // Fill in remaining blank cells
+        while ($dayCount % 7 != 1) {
+            echo "<td>&nbsp;</td>";
+            $dayCount++;
+        }
+        ?>
+    </tr>
+</table>
+
+
+
 </body>
 </html>
-<?php } else {
-            Redirect ::to('../UserHandling/login.php');
-            }
-?>
