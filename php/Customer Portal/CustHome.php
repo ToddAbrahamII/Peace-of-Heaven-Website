@@ -36,7 +36,7 @@
 
     <title>Customer Portal</title>
 </head>
-<body>
+<body> 
 <div class=content>
     <!-- Box to style welcome statement -->
     <div class="header">

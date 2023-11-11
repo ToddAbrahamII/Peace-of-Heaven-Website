@@ -20,6 +20,7 @@
     <a href='/PeaceOfHeavenWebPage/php/Customer Portal/CustDogs.php'> My Dog Accounts</a>
     <a href=''>Settings</a>
     <a href='/PeaceOfHeavenWebPage/php/UserHandling/logout.php'>Logout</a>
+    <a href='/PeaceOfHeavenWebPage/php/Customer Portal/DayCareCalendar.php'>Day Care Calendar</a>
   </div>
 </body>
 </html>
