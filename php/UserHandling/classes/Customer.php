@@ -12,6 +12,13 @@ class Customer {
 
     }
 
+    /**
+     * @param $fields
+     * @return void
+     * @throws Exception
+     *
+     * @note insertCustomer()
+     */
     public function create($fields) {
         $uid = Session::get(Config::get('session/session_name'));
         print_r($uid);
@@ -21,10 +28,20 @@ class Customer {
         }
     }
 
+    /**
+     * @return mixed
+     *
+     */
     public function getCustomerData() {
         return $this->_customerData;
     }
 
+    /**
+     * @param $user
+     * @return bool|void
+     *
+     * @note selectCustInfo($user)
+     */
     public function findCustInfo($user = null){
         if($user){
             $fields = 'User_ID';
@@ -37,10 +54,6 @@ class Customer {
         }else{
             return false;
         }
-    }
-
-    public function data(){
-        return $this->_customerData;
     }
 
 }

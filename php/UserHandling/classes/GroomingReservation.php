@@ -10,6 +10,10 @@ class GroomingReservation {
      */
     private $dogs;
 
+    /**
+     * @param $service
+     * @param array $dogs
+     */
     public function __construct($service, array $dogs) {
         $this->_db = DB::getInstance();
         $this->_sessionName = Config::get("session/session_name");
@@ -66,6 +70,17 @@ class GroomingReservation {
         }else{
             return false;
         }
+    }
+
+    public function getReservationById($reservationId) {
+        $fields = 'Res_ID';
+        $data = $this->_db->get('reservation', array($fields, '=', $reservationId));
+
+        if($data->count() > 0) {
+            $this->_customerData = $data->first();
+            return true;
+        }
+        return false;
     }
 
     /**
