@@ -220,4 +220,32 @@ class DB {
     public function rollBack() {
         
     }
+
+    /**
+     * Summary of update with choice to change id 
+     * @param mixed $table - table we want to update
+     * @param mixed $id -  of row we need to update
+     * @param mixed $fields - fields we want to update
+     * @return bool
+     */
+    public function updateWithID ($table, $id, $idcolumn, $fields) {
+        $set = '';
+        $x =1;
+
+        // set
+        foreach($fields as $name => $value) {
+            $set .= "{$name} = ?";
+            if($x < count($fields)) { // if not at end of fields array, add a comma.
+                $set .= ', ';
+            }
+            $x++;
+        }
+
+        $sql = "UPDATE {$table} SET {$set} WHERE {$idcolumn} = {$id} ";
+
+        if(!$this->query($sql, $fields)->error()) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -15,7 +15,7 @@
         
     //Adds Admin NavBar if Admin Acct logged in
     if($user->data()->group == 3) {
-        //include("../AdminPortal/AdminNavBar.php");
+        include("../AdminPortal/AdminNavBar.php");
 
     }
 
@@ -140,16 +140,14 @@
                 // Define the table, row id, and fields you want to update.
                 $table = 'grooming_reservation';
                 $id = $groomingReservation->getReservationData()->GroomResID;
-                $fields = 'isApproved';
-
-                $sql = "UPDATE {$table} SET {$fields} = 1 WHERE GroomResID = {$id}";
-
-                $db->query($sql,$fields);
-        
-                //Updates isComplete now that account has been completed
-                 $db->update($table, $id, array($columnName => $columnValue));
+                $idcolumn = 'GroomResID';
+                $fields = array(
+                    'isApproved' => 1
+                );
+ 
+                //Updates isApproved now that reservation has been approved
+                 $db->updateWithID($table, $id, $idcolumn, $fields);
             }
-
             //if grooming was not selected
             if($_SESSION['service'] != 'Grooming'){
                 
@@ -165,15 +163,14 @@
             //if grooming was selected
             if($_SESSION['service'] == 'Grooming'){
                 // First, you need to create an instance of the DB class.
-                $db = DB::getInstance();
+                $db2 = DB::getInstance();
 
                 // Define the table, row id, and fields you want to update.
                 $table = 'grooming_reservation';
-                $where = 'GroomResID = '.$groomingReservation->getReservationData()->GroomResID;
+                $where = ['GroomResID', $groomingReservation->getReservationData()->GroomResID];
                 
-
-                //Updates isComplete now that account has been completed
-                 $db->delete($table,$where);
+                //Deletes from Database
+                 $db2->delete($table,$where);
             }
 
             //if grooming was not selected
