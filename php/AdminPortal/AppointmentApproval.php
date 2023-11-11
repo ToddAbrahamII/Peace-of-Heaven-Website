@@ -7,6 +7,11 @@
 
     $user = new User();
     if($user->isLoggedIn()) {
+
+    //Class Constructor Calls
+    $customer = new Customer();
+    $dog = new Dog();
+    
         
     //Adds Admin NavBar if Admin Acct logged in
     if($user->data()->group == 3) {
@@ -22,22 +27,50 @@
         $_SESSION['service'] = $_GET['service'];
     }
 
+    //Gathers Customer and Dog Info
+    $customer->findCustInfoWithCustID($_SESSION['custid']);
+    $dog->findDogInfoWithDogID($_SESSION['dogid']);
+
+    //Code to show Customer Name
+    $custName = $customer->data()->CustFirstName . ' ' . $customer->data()->CustLastName;
+
+    //Code to show Customer Phone
+    $custPhone = $customer->data()->CustPhone;
+
+    //Code to Show Customer Email
+    $custEmail = $customer->data()->AcctEmail;
+
+    //Code to Show Dog Name
+    $dogName = $dog->data()->DogName;
+
+    //Code to Show Dog Breed
+    $dogBreed = $dog->data()->Breed;
+
+    //Code to Dog DOB
+    $dogDOB = $dog->data()->DogDOB;
+
+    //Stores dog sex
+    $dogSex = $dog->data()->Sex;
+
+    //Stores Dog Weight
+    $dogWeight = $dog->data()->Weight;
+
+    //Stores dog other info
+    $dogOtherInfo = $dog->data()->DogOtherInfo;
+
+
     // <!--PHP If Statement for Grooming Appointment Details-->
     if($_SESSION['service'] == 'Grooming')
     {
+        //Class Constructor Call
+        $groomingReservation = new GroomingReservation('Grooming',array());
+
+        //Gather Reservation Info
+
         //Code to Show Appointment Time Range
 
-        //Code to show Customer Name
-
-        //Code to show Customer Phone
-
-        //Code to Show Customer Email
-
-        //Code to Show Dog Name
-
-        //Code to Show Dog Info
-
         //Code to Select a Date for appointment
+
     }
 
     //<!--PHP If Statement for Boarding Appointment Details -->
@@ -94,6 +127,10 @@
             print_r($_SESSION['reservationid']);
             echo '<br>';
             print_r($_SESSION['service']);
+            echo '<br>';
+            print_r($custName);
+            echo '<br>';
+            print_r($dogName);
         ?>
       
 

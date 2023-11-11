@@ -5,6 +5,9 @@ class Customer {
             $_customerData, //contains customer data
             $_sessionName;
 
+    /**
+     * 
+     */
     public function __construct() {
         $this->_db = DB::getInstance(); // Retrieve database instance
 
@@ -12,6 +15,9 @@ class Customer {
 
     }
 
+    /**
+     * Inserts Fields to the customer 
+     */
     public function create($fields) {
         $uid = Session::get(Config::get('session/session_name'));
         print_r($uid);
@@ -21,10 +27,16 @@ class Customer {
         }
     }
 
+    /**
+     * returns the customer data
+     */
     public function getCustomerData() {
         return $this->_customerData;
     }
 
+    /**
+     * Finds Customer Info using the UserID
+     */
     public function findCustInfo($user = null){
         if($user){
             $fields = 'User_ID';
@@ -39,6 +51,26 @@ class Customer {
         }
     }
 
+    /**
+     * Finds the customer information using the CustID
+     */
+    public function findCustInfoWithCustID($customer = null){
+        if($customer){
+            $fields = 'CustID';
+            $data = $this->_db->get('customer', array($fields, '=', $customer));
+
+            if($data->count() > 0) {
+                $this->_customerData = $data->first();
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * Returns the data of the customer object
+     */
     public function data(){
         return $this->_customerData;
     }
