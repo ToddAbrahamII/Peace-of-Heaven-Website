@@ -72,12 +72,15 @@ class GroomingReservation {
         }
     }
 
+    /**
+     * Gets reservation using GroomResID
+     */
     public function getReservationById($reservationId) {
-        $fields = 'Res_ID';
-        $data = $this->_db->get('reservation', array($fields, '=', $reservationId));
+        $fields = 'GroomResID';
+        $data = $this->_db->get('grooming_reservation', array($fields, '=', $reservationId));
 
         if($data->count() > 0) {
-            $this->_customerData = $data->first();
+            $this->_groomingReservationData = $data->first();
             return true;
         }
         return false;

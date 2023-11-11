@@ -15,7 +15,7 @@
         
     //Adds Admin NavBar if Admin Acct logged in
     if($user->data()->group == 3) {
-        include("../AdminPortal/AdminNavBar.php");
+        //include("../AdminPortal/AdminNavBar.php");
 
     }
 
@@ -66,10 +66,22 @@
         $groomingReservation = new GroomingReservation('Grooming',array());
 
         //Gather Reservation Info
+        $groomingReservation->getReservationById($_SESSION['reservationid']);
 
         //Code to Show Appointment Time Range
+        $timeRange = $groomingReservation->getReservationData()->ResStartDate . ' - ' . $groomingReservation->getReservationData()->ResEndDate; 
+
+        //Store Emergency Contact
+        $emerContact = $groomingReservation->getReservationData()->EmerContact;
+
+        //Store Emergency Contact Phone
+        $emerPhone = $groomingReservation->getReservationData()->EmerPhone;
+
+        //Store Description
+        $resDesc = $groomingReservation->getReservationData()->GroomingDesc;
 
         //Code to Select a Date for appointment
+
 
     }
 
@@ -104,6 +116,84 @@
 
         //Code to show dog vaccine, health, and behavior
 
+        //Checks if a button has been pressed
+        if(Input::exists()){
+
+             //Checks for Token
+            if(Token::check(Input::get('token'))) {
+                $validate = new Validate();
+                $validation = $validate->check($_POST, array(
+                ### Insert rules that acctInfo fields must meet in addition to js validation ###
+        ));
+
+        // If all rules are satisfied, create new customer
+        if($validation->passed() || 1 == 1 ) {
+
+           //if confirm is selected
+           if(Input::get('Confirm')) {
+
+            //if grooming was selected
+            if($_SESSION['service'] == 'Grooming'){
+                // First, you need to create an instance of the DB class.
+                $db = DB::getInstance();
+
+                // Define the table, row id, and fields you want to update.
+                $table = 'grooming_reservation';
+                $id = $groomingReservation->getReservationData()->GroomResID;
+                $fields = 'isApproved';
+
+                $sql = "UPDATE {$table} SET {$fields} = 1 WHERE GroomResID = {$id}";
+
+                $db->query($sql,$fields);
+        
+                //Updates isComplete now that account has been completed
+                 $db->update($table, $id, array($columnName => $columnValue));
+            }
+
+            //if grooming was not selected
+            if($_SESSION['service'] != 'Grooming'){
+                
+            }
+
+            //email for confirmation
+                
+           }   
+
+           //if deny is selected
+           if(Input::get('Deny')) {
+                
+            //if grooming was selected
+            if($_SESSION['service'] == 'Grooming'){
+                // First, you need to create an instance of the DB class.
+                $db = DB::getInstance();
+
+                // Define the table, row id, and fields you want to update.
+                $table = 'grooming_reservation';
+                $where = 'GroomResID = '.$groomingReservation->getReservationData()->GroomResID;
+                
+
+                //Updates isComplete now that account has been completed
+                 $db->delete($table,$where);
+            }
+
+            //if grooming was not selected
+            if($_SESSION['service'] != 'Grooming'){
+                
+            }
+
+            //Email for denial
+
+           }   
+
+            //Redirect
+            Redirect::to('../AdminPortal/AdminHome.php');
+
+        }
+    }
+        }
+            
+        
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -117,21 +207,17 @@
 <body>
     <div class=content>
         <h1> Appointment Details </h1>
+    <form method="post" >
 
-        <?php
-        //Prints Session Variables depending on selected appointment
-            print_r($_SESSION['custid']);
-            echo '<br>';
-            print_r( $_SESSION['dogid']);
-            echo '<br>';
-            print_r($_SESSION['reservationid']);
-            echo '<br>';
-            print_r($_SESSION['service']);
-            echo '<br>';
-            print_r($custName);
-            echo '<br>';
-            print_r($dogName);
-        ?>
+        <!-- Prints Information for Admin -->
+
+        <!-- Generates token and submits -->
+        <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+        <input type="submit" name="Confirm" value="Confirm">
+        <input type="submit" name="Deny"value="Deny">
+    </form>
+
+   
       
 
 
@@ -139,5 +225,6 @@
 </body>
 </html>
 <?php
-    }else(Redirect::to('../UserHandling/login.php'));
+   
+        }else(Redirect::to('../UserHandling/login.php'));
 ?>
