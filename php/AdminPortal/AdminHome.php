@@ -87,7 +87,7 @@
 
                         echo '<td>' . $dogName . '</td>';
                         echo '<td>' . $reservation->ServiceType .'</td>';
-                        echo '<td><a href="../AdminPortal/AppointmentApproval.php?custid=' . $reservation->CustID . '&dogid=' . $reservation->DogID . '&reservationid=' . $reservation->ResID . '&service=Grooming">View Appointment</a></td>';
+                        echo '<td><a href="../AdminPortal/AppointmentApproval.php?custid=' . $reservation->CustID . '&dogid=' . $reservation->DogID . '&reservationid=' . $reservation->Res_ID . '&service=Grooming">View Appointment</a></td>';
                         echo '</tr>';
                     }
                 }
@@ -112,7 +112,7 @@
             </tr>
             </thead>
             <tbody>
-            <!-- PHP Load Data Here -->     
+            <!-- PHP Load Data Here --> 
             </tbody>
         </table>
         <br><br>
