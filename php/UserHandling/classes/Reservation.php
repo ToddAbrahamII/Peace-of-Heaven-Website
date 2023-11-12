@@ -45,9 +45,9 @@ class Reservation {
         return $this->_reservationData;
     }
 
-    public function getUnApprovedReservations(){
+    public function getUnapprovedReservations(){
         //Gathers all data as a string
-        $data = $this->_db->get('grooming_reservation', array('isApproved', '=', 0));
+        $data = $this->_db->get('reservation', array('isApproved', '=', 0));
 
         if($data->count() > 0) {
             //Takes all data, sorts into an array so it can be printed in rows
@@ -57,6 +57,8 @@ class Reservation {
             return false;
         }
     }
+
+
 
     public function getReservationById($reservationId) {
         $fields = 'GroomResID';

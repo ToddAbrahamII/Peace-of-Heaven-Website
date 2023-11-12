@@ -57,8 +57,7 @@
         <table>
             <thead>
             <tr>
-                <th>Start Date</th>
-                <th>End Date</th>
+                <th>Date Range</th>
                 <th>Dog</th>
                 <th>Service</th>
                 <th>Option</th>
@@ -66,6 +65,38 @@
             </thead>
             <tbody>
             <!-- PHP Load Data Here -->     
+            <?php
+                $reservation = new Reservation('boarding', array());
+                $dog = new Dog();
+
+                // grabs all unapproved boarding and daycare reservations
+                $reservation->getUnapprovedReservations();
+                $allReservations = $reservation->getReservationData();
+                
+                print_r('fuck this class');
+
+                //check for results
+                if(!empty($allReservations)) {
+                    // iterate through table rows
+                    foreach($allReservations as $reservation) {
+                        //populates rows 
+                        echo '<tr>';
+                        echo '<td>' . $reservation->ResStartDate . ' - ' . $reservation->ResEndDate . '</td>';
+
+                        //Finds the dog name with their ID
+                        $dog->findDogInfoWithDogID($reservation->DogID);
+                        $dogName = $dog->data()->DogName;
+
+                        echo '<td>' . $dogName . '</td>';
+                        echo '<td>' . $reservation->getReservationData()-> ServiceType .'</td>';
+                        echo '<td><a href="../AdminPortal/AppointmentApproval.php?custid=' . $reservationGrooming->CustID . '&dogid=' . $reservationGrooming->DogID . '&reservationid=' . $reservationGrooming->GroomResID . '&service=Grooming">View Appointment</a></td>';
+                        echo '</tr>';
+                    }
+                }
+
+
+
+            ?>
             </tbody>
         </table>
         <br><br>
