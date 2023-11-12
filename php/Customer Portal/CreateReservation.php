@@ -68,6 +68,8 @@
                     //IF Statement for if user has 0 dogs in table to redirect them to create a dog
                     //Else redirect them to their service page
 
+
+
                         //If statement for if grooming was selected
                         if($serviceCheck == 'Grooming')
                         {
@@ -77,14 +79,17 @@
                         //If statement for if daycare was selected
                         if($serviceCheck == 'Boarding')
                         {
-                            Redirect::to('../Forms/BoardingForm.php');
+                            Redirect::to('../Customer Portal/SelectDog.php?service=' . $serviceCheck);
                         }
 
                         //If statement for if boarding was selected 
                         if($serviceCheck == 'Daycare')
                         {
-                            Redirect::to('../Forms/DayCareForm.php');
+                            Redirect::to('../Customer Portal/SelectDog.php?service=' . $serviceCheck);
                         }
+
+
+
 
                     }
                     ?>

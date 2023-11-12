@@ -32,6 +32,8 @@
         include("../AdminPortal/AdminNavBar.php");
     }
 
+    
+
 ?><!DOCTYPE html>
 <html>
     <head>
