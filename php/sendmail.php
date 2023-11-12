@@ -4,6 +4,7 @@
     </head>
     <body>
         <p>Sending email.</p>
+        <!--This is a test page that allows your to send mail on the amazon hosted domain.-->
 <?php
 
 ini_set('display_errors', 1);
