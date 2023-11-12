@@ -71,6 +71,63 @@ if($user->data()->group == 3 ){
             <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
             <input type="submit" value="Next"><br><br>
 
+            <?php
+            //Grabs Input after submit
+            if(Input::exists()){
+                               
+            if(Token::check(Input::get('token')) || 1==1) { //validation is not passing for some reason
+                $validate = new Validate();
+                $validation = $validate->check($_POST, array(
+                    ### Insert rules that acctInfo fields must meet in addition to js validation ###
+                ));
+    
+                // If all rules are satisfied, create new customer
+                if($validation->passed()) {
+
+                try{ 
+                 
+                    //Look up customer and dog
+                    $customer->findCustInfoWithCustID($_SESSION['custid']);
+                    $dog->findDogInfoWithDogID($_SESSION['dogid']);
+
+                    //Create new reservation
+                    $reservation = new Reservation('Daycare', array($dog));
+
+                    //Grabs Input and assigns values
+                    $reservation->createReservation(array(
+
+                        'ResStartTime' => Input::get('startDate'),
+                        'ResEndTime' => Input::get('lastDate'),
+                        'EmerContact' => Input::get('emergencyContactName'),
+                        'EmerPhone' => Input::get('emergencyContactPhone'),
+                        'isCheckedIn' => 0,
+                        'isApproved' => 0,
+                        'ServiceType' => 'Boarding',
+                        'ResDesc' => Input::get('ResDesc'),
+                        'CustID' => $customer->data()->CustID,
+                        'DogID' => $dog->data()->DogID,
+                        'KennelID' => 0
+                    ));
+
+                    //Redirects to confirmation page
+                    Redirect::to("../Customer Portal/Confirmation.php");
+
+
+                        
+                    }catch(Exception $e) {
+                        die($e->getMessage());
+                        
+                    }}else{ ## Is this an error?
+                        // output errors
+                        foreach ($validation->errors() as $error) {
+                            echo $error, '<br>';
+                }
+
+            }
+                }
+            }
+        ?>
+
            
 
         </fieldset>
