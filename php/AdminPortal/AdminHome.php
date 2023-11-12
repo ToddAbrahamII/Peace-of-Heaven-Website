@@ -72,8 +72,6 @@
                 // grabs all unapproved boarding and daycare reservations
                 $reservation->getUnapprovedReservations();
                 $allReservations = $reservation->getReservationData();
-                
-                print_r('fuck this class');
 
                 //check for results
                 if(!empty($allReservations)) {
@@ -81,7 +79,7 @@
                     foreach($allReservations as $reservation) {
                         //populates rows 
                         echo '<tr>';
-                        echo '<td>' . $reservation->ResStartDate . ' - ' . $reservation->ResEndDate . '</td>';
+                        echo '<td>' . $reservation->ResStartTime . ' - ' . $reservation->ResEndTime . '</td>';
 
                         //Finds the dog name with their ID
                         $dog->findDogInfoWithDogID($reservation->DogID);
