@@ -43,66 +43,34 @@
     </head>
 <body>
     <div class='content'>
-        <!-- Add HTML FOR CALENDAR, HEADER, AND TABLE -->
-        <div class='calendar'>
-        <!--Implement logic that on -1 to $currentMonth and if $currentMonth =1 then -1 to $currentYear  -->
-        <button id="prev-month" onclick="prevMonth()">Previous Month</button>
+    <form method="POST" class="Daycare-Creator">
+        <fieldset>
+            <legend>Daycare Reservation Request</legend>
 
-            <h2><?php echo"$currentMonth/$currentYear"?></h2>
+        <!-- Code to Suggest a Date for Day Care Appointment -->
+            <label for="date">Please select a date that works for you</label><br>
+            <input type = "date", id="date", name="date"><br><br>
 
-            <button id="next-month" onclick="nextMonth()">Next Month</button>
+        <!-- Code to Write Emergency Contact -->
+            <label for="emergencyContactName">Emergency Contact Name:</label><br>
+            <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Enter name" required><br><br>
 
-        <!-- Creates Table with List of Days -->
-        <table>
-        <tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>
+        <!-- Code to Write Emergency Phone -->
+            <label for="emergencyContactPhone">Emergency Contact Phone:</label><br>
+            <input type="tel" id="emergencyContactPhone" name="emergencyContactPhone" placeholder="Enter phone number" required><br><br>
 
-        <?php
-        // Calculate days in the current month and the first day of the month
-        $daysInMonth = date('t', strtotime("$currentYear-$currentMonth-01"));
-        $firstDay = date('w', strtotime("$currentYear-$currentMonth-01"));
-        ?>
+        <!-- Code for Text Area about other Reservation Information -->
+            <label for="ResDesc">Reservation Description:</label><br>
+            <textarea id="ResDesc" name="ResDesc" rows="4" cols="50" placeholder="Describe anything that might be relevant for this reservation"></textarea><br>
 
-        <tr>
-    
-        <?php
-        // Fill the empty cells at the beginning of the month
-        for ($i = 0; $i < $firstDay; $i++) {
-            echo "<td></td>";
-        }
+        <!-- Generates Token and submits input -->
+            <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+            <input type="submit" value="Next"><br><br>
 
-    // Generate calendar cells for each day
-    for ($day = 1; $day <= $daysInMonth; $day++) {
-        // Fetch data for the day from the database
-        // Replace this with actual database retrieval
-        $date = "$currentYear-$currentMonth-$day";
-        $is_booked = false; // Replace with actual data
-
-        $cellClass = $is_booked ? "booked" : "available";
-
-        echo "<td class='$cellClass'>";
-        echo "<div class='day'>$day</div>";
-        echo "<div class='event'>$event_title</div>";
-        echo "<button class='book-now'>Book Now</button>";
-        echo "</td>";
-
-        // Start a new row if it's a Saturday
-        if (($day + $firstDay) % 7 == 0) {
-            echo "</tr><tr>";
-        }
-        }
-
-    // Close any remaining cells in the last row
-    while (($day + $firstDay) % 7 != 0) {
-        echo "<td></td>";
-        $day++;
-         }
-        ?>
-
-    </tr>
-    </table>
-
-    </div>
-</body>
+        
+            </form>
+        </div>
+    </body>
 </html>
 <?php }else{Redirect::to('../UserHandling/login.php');}
 ?>
