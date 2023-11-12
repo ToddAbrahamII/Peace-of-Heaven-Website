@@ -86,8 +86,8 @@
                         $dogName = $dog->data()->DogName;
 
                         echo '<td>' . $dogName . '</td>';
-                        echo '<td>' . $reservation->getReservationData()-> ServiceType .'</td>';
-                        echo '<td><a href="../AdminPortal/AppointmentApproval.php?custid=' . $reservationGrooming->CustID . '&dogid=' . $reservationGrooming->DogID . '&reservationid=' . $reservationGrooming->GroomResID . '&service=Grooming">View Appointment</a></td>';
+                        echo '<td>' . $reservation->ServiceType .'</td>';
+                        echo '<td><a href="../AdminPortal/AppointmentApproval.php?custid=' . $reservation->CustID . '&dogid=' . $reservation->DogID . '&reservationid=' . $reservation->ResID . '&service=Grooming">View Appointment</a></td>';
                         echo '</tr>';
                     }
                 }

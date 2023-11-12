@@ -40,6 +40,9 @@ class Reservation {
         $this->_reservationData = $reservationData;
     }
 
+    /**
+     * Gathers reservation data
+     */
     public function getReservationData()
     {
         return $this->_reservationData;
