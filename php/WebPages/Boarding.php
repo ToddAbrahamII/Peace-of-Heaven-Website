@@ -18,9 +18,9 @@
     </div>
     
 <!--Section for Day Care Image and Description-->
-    <div class = "Clean-Days-container">
-    <img src="/PeaceOfHeavenWebPage/Img/Dog-Portrait.jpg" alt="kennels" Class="Portrait-img">
-    <div class="Clean-Days-Description">
+    <div class = "Doggy-Retreat-container">
+    <img src="/PeaceOfHeavenWebPage/Img/overnight-kennels.jpg" alt="Picture of the outside of 4 kennels" Class="Boarding-img">
+    <div class="Doggy-Retreat-Description">
         <h2>Boarding? Or a Doggy Retreat?</h2>
         <ul>
             <li>POH Boarding areas were created and designed to promote a calm environment and provide comfort for dogs of all kinds. </li>
@@ -36,32 +36,40 @@
     <p><br><br></p>
 
     <!--Section for Playground Images and Description-->
-    <div class = "Relax-container">
-    <div class="Relax-Description">
+    <div class = "Know-container">
+    <div class="Know-Description">
         <h2>Know Before You Go</h2>
         <p> 
             <h3> HOURS </h3>
-                Boarding available year-round.
-                Drop-off any time during open hours M-F or by appt on weekends & holidays.
-                Pick-up is available 7 days a week during open hours M-F or by appt on weekends & holidays.
+            <div>
+                Boarding available year-round.<br>
+                Drop-off any time during open hours M-F or by appt on weekends & holidays.<br>
+                Pick-up is available 7 days a week during open hours M-F or by appt on weekends & holidays.<br>
                 Expected pick-up is by 1pm on departure day.  Late pick-up available for additional fee.
+            </div>
             <h3> PRICING</h3>
-                Boarding Rate…………$75 per night
-                Late Pick-up…………Additional $45 (day care fee); pick-up between 1pm-6:30pm
-                Extended Stays (15+ days)…………Call for availability & pricing
+            <div>
+                Boarding Rate: $75 per night<br>
+                Late Pick-up: Additional $45 (day care fee); pick-up between 1pm-6:30pm<br>
+                Extended Stays (15+ days): Call for availability & pricing
+            
                 <ul>
-                Package Pricing
+                    <strong>Package Pricing</strong>
                     <li> 10% off total price for 5 or more nights</li>
                     <li> 10% off daily rate for 2nd dog of same family</li>
                     <li> Call for pricing & space availability for 3 or more same-family dogs</li>
                 </ul>
+            </div>
             <h3> BOARDING REQUIREMENTS </h3>
-                Pups must be 6 months or older.
-                Proof of current rabies, distemper-parvo, & bordatella vaccines required.
-                All dogs should be on heartworm & flea/tick preventatives.
-                Dogs must be spayed or neutered to engage in social play with other dogs.</p>
+            <div>
+                Pups must be 6 months or older.<br>
+                Proof of current rabies, distemper-parvo, & bordatella vaccines required.<br>
+                All dogs should be on heartworm & flea/tick preventatives.<br>
+                Dogs must be spayed or neutered to engage in social play with other dogs.
+            </div>
+        </p>
     </div>  
-    <img src="/PeaceOfHeavenWebPage/Img/dog-relaxing.jpg" alt="kennels" Class="Relax-img">
+    <img src="/PeaceOfHeavenWebPage/Img/Dogs-In-Field.jpg" alt="Picture of 2 dogs laying in a field of grass" Class="Boarding-img">
     </div>
     
     <!--Space in the page-->

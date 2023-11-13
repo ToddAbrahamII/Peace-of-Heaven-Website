@@ -18,10 +18,7 @@ body{
     font-size: 35px;
 }
 
-ul{
-    list-style-type:circle
-}
-.Clean-Days-container {
+.Doggy-Retreat-container {
     display: flex;
     align-items:flex-start;/* Vertically align items */
     margin: 0 auto; /* Center the container horizontally */
@@ -29,32 +26,34 @@ ul{
     background-color: #87C4FF;
 }
 
-.Portrait-img {
+.Boarding-img {
     max-width: 50%;
     width: 50%;
     height: 15%;
     margin-right: 10px;
 }
 
-.Clean-Days-Description{
+.Doggy-Retreat-Description{
     flex: 1; /* Allow the description to take up the remaining space */
     flex-direction: column;
     align-items: flex-start; /* Align items to the start (left) of the column */
 }
 
-.Clean-Days-Description h2{
+.Doggy-Retreat-Description h2{
     font-size: 45px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.Clean-Days-container p{
-    font-size: 35px;
+.Doggy-Retreat-Description li{
+    font-size: 30px;
     line-height: 1.5;
-    margin-left:15px;
+    margin-left: 35px;
+    margin-bottom: 10px;
+    list-style-type: square;
 }
 
-.Relax-container {
+.Know-container {
     display: flex;
     align-items:flex-start;/* Vertically align items */
     margin: 0 auto; /* Center the container horizontally */
@@ -62,25 +61,29 @@ ul{
     background-color: #87C4FF;
 }
 
-.Relax-img {
-    max-width: 50%;
-    width: 50%;
-    height: 15%;
-    margin-right: 10px;
-}
 
-.Relax-Description{
+.Know-Description{
     flex: 1; /* Allow the description to take up the remaining space */
     flex-direction: column;
     align-items: flex-start; /* Align items to the start (left) of the column */
+    padding-left: 5%;
 }
 
-.Relax-Description h2{
+.Know-Description h2{
     font-size: 45px;
-    text-align: center;
 }
-
-.Relax-Description p {
-    font-size: 35px;
-    text-align: center;
+.Know-Description h3{
+    font-size: 25px;
+    margin-bottom: 5;
+}
+.Know-Description div{
+    font-size: 20px;
+    line-height: 1.5;
+}
+.Know-container li{
+    font-size: 20px;
+    line-height: 1.5;
+    margin-left: 45px;
+    margin-bottom: 10px;
+    list-style-type: square;
 }

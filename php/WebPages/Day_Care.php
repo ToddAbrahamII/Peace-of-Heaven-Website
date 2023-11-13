@@ -22,11 +22,11 @@
     <img src="/PeaceOfHeavenWebPage/Img/kennel-door.jpg" alt="kennels" Class="Kennel-img">
     <div class="Dog-Days-Description">
         <h2>Dog Days at POH</h2>
-        <p>-Each Day Care dog will have its own private 5x8ft resting kennel with food bowls, water bowls, and Kuranda behind.<br>
-           -Day Care kennels are in a climate-controlled space. <br>
-        -Large indoor play area including a "lounge" and a "gym". <br>
-        -Multiple outdoor play areas for individual or social play.<br>
-        -Play equipment for climbing, jumping, splashing, & exploring! </p>  
+        <p> -Each Day Care dog will have its own private 5x8ft resting kennel with food bowls, water bowls, and Kuranda behind.<br>
+            -Day Care kennels are in a climate-controlled space. <br>
+            -Large indoor play area including a "lounge" and a "gym". <br>
+            -Multiple outdoor play areas for individual or social play.<br>
+            -Play equipment for climbing, jumping, splashing, & exploring! </p>  
     </div>  
     </div>
 
