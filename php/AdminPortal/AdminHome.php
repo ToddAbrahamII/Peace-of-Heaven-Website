@@ -131,7 +131,7 @@
             if(!empty($reservationData)){
                 //Goes through each table row
 
-                foreach ($reservation as $datum){
+                foreach ($reservationData as $reservation){
 
                     echo '<tr>'; // row start
 
@@ -139,18 +139,54 @@
                     //Finds the dog name with their ID
                     $dog->findDogInfoWithDogID($reservationData->DogID);
 
+
+
                     $dogData = $dog->data();
                     $dogName = $dog->data()->DogName;
 
                     echo '<td>'. $dogName . '</td>';
-                    echo '<td>'. $reservationData->ResStartTime . ' - ' .  $reservationData->ResStartTime . '</td>';
+                    echo '<td>'. $reservation->ResStartTime . ' - ' .  $reservation->ResStartTime . '</td>';
                     echo '<td>' . $dogData->Breed . '</td>';
                     echo '<td>' . $dogData->DogDOB . '</td>';
-                    echo '<td>' . $reservationData->ServiceType . '</td>';
-                    echo '<td>' . $reservationData->isApproved . '</td>';
+                    echo '<td>' . $reservation->ServiceType . '</td>';
+                    echo '<td>' . $reservation->isApproved . '</td>';
                     echo '</tr>';
                 }
             }
+            ?>
+
+<!--            --><?php
+//
+//            //Load all grooming appointments where IsApproved = 0
+//
+//            //Constructor Call
+//            $groomingReservation = new GroomingReservation('Grooming', array());
+//            $dog = new Dog();
+//
+//            //Grabs all unapproved grooming reservations
+//            $groomingReservation->getUnApprovedReservations();
+//            $allGroomingData = $groomingReservation->getReservationData();
+//
+//            //Checks that query has results
+//            if(!empty($allGroomingData)){
+//                //Goes through each table row
+//
+//                foreach ($allGroomingData as $reservationGrooming){
+//                    //populates rows
+//                    echo '<tr>';
+//                    echo '<td>'. $reservationGrooming->ResStartDate . ' - ' .  $reservationGrooming->ResEndDate.'</td>';
+//
+//                    //Finds the dog name with their ID
+//                    $dog->findDogInfoWithDogID($reservationGrooming->DogID);
+//                    $dogName = $dog->data()->DogName;
+//
+//                    echo '<td>'. $dogName . '</td>';
+//                    echo '<td>'. $reservationGrooming->GroomingDesc. '</td>';
+//                    echo '<td>Grooming</td>';
+//                    echo '<td><a href="../AdminPortal/AppointmentApproval.php?custid=' . $reservationGrooming->CustID . '&dogid=' . $reservationGrooming->DogID . '&reservationid=' . $reservationGrooming->GroomResID . '&service=Grooming">View Appointment</a></td>';
+//                    echo '</tr>';
+//                }
+//            }
             ?>
             </tbody>
         </table>
