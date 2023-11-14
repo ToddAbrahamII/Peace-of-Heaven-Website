@@ -80,19 +80,24 @@ class GroomingReservation {
         $data = $this->_db->get('grooming_reservation', array($fields, '=', $reservationId));
 
         if($data->count() > 0) {
-            $this->_groomingReservationData = $data->first();
+            $this->_groomingReservationData = $data->results();
             return true;
         }
         return false;
     }
 
     /**
-     * Get Unapproved Grooming Appointments by CustID
+     * Get  Grooming Appointments by CustID
+     * change name of function
      */
-    public function getUnApprovedReservationsWithCustID($customer = null){
+    public function getReservationsWithCustID($customer = null){
         if($customer){
         //Gathers all data as a string
-        $data = $this->_db->get('grooming_reservation', array('CustID', 'isApproved'), '=', array($customer, 0) );
+        $whereConditions = array(
+            'CustID', '=', $customer  // Assuming $custId is the value you want to match
+        );
+
+        $data = $this->_db->get('grooming_reservation', $whereConditions);
 
         if($data->count() > 0) {
             //Takes all data, sorts into an array so it can be printed in rows
@@ -104,8 +109,31 @@ class GroomingReservation {
     }
     }
 
-
-
-
-
+        
+    public function getUnApprovedReservationsWithCustID($customer = null) {
+        if ($customer) {
+            $whereConditions = array(
+                'isApproved' => 0,
+                'CustID' => $customer
+            );
+    
+            $data = $this->_db->selectWhere('grooming_reservation', $whereConditions);
+    
+            if ($data->count() > 0) {
+                $this->_groomingReservationData = $data->results();
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+

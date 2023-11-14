@@ -248,4 +248,28 @@ class DB {
         }
         return false;
     }
+
+    public function selectWhere($table, $conditions = array()) {
+        if (count($conditions) > 0) {
+            $where = '';
+            $x = 1;
+    
+            foreach ($conditions as $field => $value) {
+                $where .= "{$field} = ?";
+                if ($x < count($conditions)) {
+                    $where .= ' AND ';
+                }
+                $x++;
+            }
+    
+            $sql = "SELECT * FROM {$table} WHERE {$where}";
+    
+            if (!$this->query($sql, array_values($conditions))->error()) {
+                return $this;
+            }
+        }
+        return false;
+    }
+
+
 }
