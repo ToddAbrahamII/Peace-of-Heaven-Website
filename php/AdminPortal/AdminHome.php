@@ -34,20 +34,47 @@
         </div>
 
         <!-- View for Today's Reservations -->
-        <h2>Todays Date: 11/9/2023</h2>
-        <h2>Today's Reservations</h2>
+        <h2>All Confirmed Upcoming Boarding and Daycare Reservations</h2>
         <table>
             <thead>
             <tr>
-                <th>Start Date</th>
-                <th>End Date</th>
+                <th>Date Range</th>
                 <th>Dog</th>
                 <th>Service</th>
                 <th>Status</th>
             </tr>
             </thead>
             <tbody>
-            <!-- PHP Load Data Here -->     
+            <?php
+                //Constructor Calls
+                $reservation = new Reservation('service', array());
+                $dog = new Dog();
+                $customer = new Customer();
+
+                //Gathers the data
+                $reservation->getConfirmedReservations();
+                $allReservations = $reservation->getReservationData();
+
+                if(!empty($allReservations)){
+
+                    foreach ($allReservations as $reservation){
+                        echo '<tr>';
+                        echo '<td>' . $reservation->ResStartTime . '</td>';
+
+                        //Finds the dog name with their ID
+                        $dog->findDogInfoWithDogID($reservation->DogID);
+                        $dogName = $dog->data()->DogName;
+
+                        echo '<td>'.$dogName.'</td>';
+                        echo '<td>' . $reservation->ServiceType .'</td>';
+                        echo '<td> Confirmed </td>';
+                        echo '</tr>';
+
+                    }
+                }
+
+            ?>
+
             </tbody>
         </table>
         <br><br>
@@ -63,9 +90,9 @@
                 <th>Option</th>
             </tr>
             </thead>
-            <tbody>
-            <!-- PHP Load Data Here -->     
+            <tbody> 
             <?php
+            //Constructor Calls
                 $reservation = new Reservation('boarding', array());
                 $dog = new Dog();
 
@@ -79,6 +106,8 @@
                     foreach($allReservations as $reservation) {
                         //populates rows 
                         echo '<tr>';
+
+                        //change to if statement
                         echo '<td>' . $reservation->ResStartTime . ' - ' . $reservation->ResEndTime . '</td>';
 
                         //Finds the dog name with their ID
@@ -113,11 +142,7 @@
             </tr>
             </thead>
             <tbody>
-            <!-- PHP Load Data Here -->
             <?php
-
-            //Load all grooming appointments where IsApproved = 0
-
             //Constructor Call
             $reservation = new Reservation('reservation', array());
             $dog = new Dog();

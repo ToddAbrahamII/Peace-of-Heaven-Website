@@ -139,7 +139,25 @@ class Reservation {
         $this->_db->insert('reservation', $fields);
     }
 
-  
+    /**
+     * Gets confirmed unfinished reservations
+     */
+    public function getConfirmedReservations(){
+        $whereConditions = array(
+            'isApproved' => 1,
+            'isFinished' => 0,
+        );
+
+        $data = $this->_db->selectWhere('reservation', $whereConditions);
+
+        if ($data->count() > 0) {
+            $this->_reservationData = $data->results();
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 
 
 
