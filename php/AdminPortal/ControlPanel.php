@@ -56,6 +56,11 @@
   <a href="">Update Grooming Reservation</a>
   <a href="">Delete Grooming Reservation</a>
 
+  <h2>Kennel Actions:</h2>
+  <a href="">Create Kennel</a>
+  <a href="">Update Kennel</a>
+  <a href="">Delete Kennel</a>
+
 </div>
 </body>
 </html>

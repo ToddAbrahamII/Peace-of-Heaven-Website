@@ -20,6 +20,7 @@
     <a href=''>View All Confirmed Reservations</a>
     <a href='/PeaceOfHeavenWebPage/php/AdminPortal/Announcement.php'>Make an Announcement</a>
     <a href='/PeaceOfHeavenWebPage/php/AdminPortal/EmployeeCreation.php'>Create an Employee Account</a>
+    <a href='/PeaceOfHeavenWebPage/php/AdminPortal/KennelCreation.php'>Add a Kennel</a>
     <a href='/PeaceOfHeavenWebPage/php/UserHandling/logout.php'>Logout</a>
    
   </div>
