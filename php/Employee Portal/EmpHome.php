@@ -77,8 +77,8 @@
         <br><br>
 
         <div class="button-container">
-            <button class="check-in-button">Check-In Dog</button>
-            <button class="check-out-button">Check-Out Dog</button>
+            <a class="check-in-button" href='/PeaceOfHeavenWebPage/php/Employee Portal/CheckIn.php'><button>Check-In Dog</button></a>
+            <a class="check-out-button" href='/PeaceOfHeavenWebPage/php/Employee Portal/CheckOut.php'><button>Check-Out Dog</button></a>
         </div>
 
     </div>

@@ -14,6 +14,9 @@ class Reservation {
     private $dogs, $service;
 
 
+    /**
+     * Constructs the reservation
+     */
     public function __construct($service, array $dogs) {
         $this->_db = DB::getInstance();
         $this->service = $service;
@@ -22,7 +25,9 @@ class Reservation {
     }
 
 
-
+    /**
+     * Creates reservation
+     */
     public function createReservation($fields) {
 
         if (!$this->_db->insert('reservation', $fields)) {
@@ -48,6 +53,9 @@ class Reservation {
         return $this->_reservationData;
     }
 
+    /**
+     * Finds all unapproved reservation
+     */
     public function getUnapprovedReservations(){
         //Gathers all data as a string
         $data = $this->_db->get('reservation', array('isApproved', '=', 0));
@@ -61,8 +69,9 @@ class Reservation {
         }
     }
 
-
-
+    /**
+     * Find reservation id with the resID
+     */
     public function getReservationById($reservationId) {
         $fields = 'Res_ID';
         $data = $this->_db->get('reservation', array($fields, '=', $reservationId));
@@ -74,6 +83,9 @@ class Reservation {
         return false;
     }
 
+    /**
+     * Finds all  reservations with custID
+     */
     public function getUnApprovedReservationsWithCustID($customer = null)
     {
         if ($customer) {
@@ -89,6 +101,9 @@ class Reservation {
         return false;
     }
 
+    /**
+     * Finds all checked in Reservations
+     */
     public function getCheckedInReservations() {
         $fields = 'isCheckedIn';
         $values = 1;
@@ -102,18 +117,29 @@ class Reservation {
 
     }
 
+    /**
+     * Finds all unchecked Reservations
+     */
+    public function getUncheckedReservations(){
+        $fields = 'isCheckedIn';
+        $values = 0;
+        $data = $this->_db->get('reservation', array($fields, '=', $values));
 
+        if ($data->count() > 0) {
+            $this->_reservationData = $data->results();
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Inserts Reservation
+     */
     public function insertReservation($fields) {
         $this->_db->insert('reservation', $fields);
     }
 
-    /**
-     * @param mixed $dogId
-     */
-    public function setDogId($dogId)
-    {
-        $this->dogId = $dogId;
-    }
+  
 
 
 

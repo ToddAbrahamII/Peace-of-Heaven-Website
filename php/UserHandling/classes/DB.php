@@ -228,26 +228,28 @@ class DB {
      * @param mixed $fields - fields we want to update
      * @return bool
      */
-    public function updateWithID ($table, $id, $idcolumn, $fields) {
+    public function updateWithID($table, $id, $idcolumn, $fields) {
         $set = '';
-        $x =1;
-
-        // set
-        foreach($fields as $name => $value) {
+        $x = 1;
+    
+        // Set
+        foreach ($fields as $name => $value) {
             $set .= "{$name} = ?";
-            if($x < count($fields)) { // if not at end of fields array, add a comma.
+            if ($x < count($fields)) { // If not at the end of the fields array, add a comma.
                 $set .= ', ';
             }
             $x++;
         }
-
-        $sql = "UPDATE {$table} SET {$set} WHERE {$idcolumn} = {$id} ";
-
-        if(!$this->query($sql, $fields)->error()) {
+    
+        $sql = "UPDATE {$table} SET {$set} WHERE {$idcolumn} = ?";
+        $fields[$idcolumn] = $id;
+    
+        if (!$this->query($sql, $fields)->error()) {
             return true;
         }
         return false;
     }
+    
 
     public function selectWhere($table, $conditions = array()) {
         if (count($conditions) > 0) {

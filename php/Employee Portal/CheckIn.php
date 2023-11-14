@@ -40,28 +40,44 @@
 
                 <!-- Php code for drop down menu for dogs --> 
                 <?php
-                        //Matches UserID to CustID with account logged in
-                        $customer->findCustInfo($user->data()->id);
+                        //Constructor Call
+                        $reservation = new Reservation('',array());
 
-                        //Stores the CustID
-                        $custid = $customer->data()->CustID;
-
-                        //Finds all Dogs linked by CustID
-                        $dog->findDogArray($customer->data()->CustID);
-
-                        //Stores the Dogs Found
-                        $dogData = $dog->data();
+                        //Gathers all unchecked Reservations
+                        $reservation->getUncheckedReservations();
+                        $reservation = $reservation->getReservationData();
 
                         // Check if $dogData is not empty
-                        if (!empty($dogData)) {
+                        if (!empty($reservation)) {
                             ?>  
                                 <!-- Dog Option for Each Dog in the Table -->
-                                <label for="resDropdown">Select a dog:</label>
+                                <label for="resDropdown">Select a Reservation to Check In:</label>
                                 <select id="resDropdown" name="selectedRes">
-                                    <?php foreach ($dogData as $dog) {
-                                        $dogID = $dog ->DogID;
-                                        $dogName = $dog->DogName;
-                                        echo "<option value='$dogID'>$dogName</option>";
+
+                                    <?php foreach ($reservation as $reservation) {
+
+                                        //gathers dog info from the reservation
+                                        $dog = new Dog();
+                                        $dogid = $reservation->DogID;
+                                        $dog->findDogInfoWithDogID($dogid);
+                                        $dogName = $dog->data()->DogName; 
+            
+                                        //gathers customer information
+                                        $custid = $reservation->CustID;
+                                        $customer->findCustInfoWithCustID($custid);
+                                        $custName = $customer->data()->CustFirstName . ' ' . $customer->data()->CustLastName;
+                                       
+                                        //Reservation Information
+                                        $resid = $reservation->Res_ID;
+                                        $service = $reservation->ServiceType;
+                                         if($service == 'Daycare'){
+                                            $timerange = $reservation->ResStartTime;
+                                         }else{
+                                            $timerange = $reservation->ResStartTime . '-' . $reservation->ResEndTime;
+                                         }
+
+
+                                        echo "<option value='$resid'>Customer: $custName | Dog: $dogName | Service: $service | Dates: $timerange </option>";
                                     } ?>
                                     </select>
                                 
@@ -80,29 +96,42 @@
 
                         <?php 
                         if(Input::exists()){
-                               
-                            if(Token::check(Input::get('token')) || 1==1) { //validation is not passing for some reason
+
+                            if(Token::check(Input::get('token')) || 1==1 ) { //validation is not passing for some reason
                                 $validate = new Validate();
                                 $validation = $validate->check($_POST, array(
                                     ### Insert rules that acctInfo fields must meet in addition to js validation ###
                                 ));
                     
                                 // If all rules are satisfied, create new customer
-                                if($validation->passed()) {
-                                    try{ 
-                                        //Gets the selected Dogs Info
-                                        $selectedDogID = Input::get('selectedDog');
-                                        $selectedDog = new Dog();
-                                        $selectedDog->findDogInfoWithDogID($selectedDogID);
-                                        $dogSelected = $selectedDog->data();
-                                        $formCheck = $selectedDog->data()->HasForms;
+                                if($validation->passed() || 1 ==1 ) {
 
-                                    } 
-                                    //Error Handling
-                                    catch(Exception $e) {
-                                        die($e->getMessage());
-                                        
-                                    }
+                                try{
+                                    $resID = Input::get('selectedRes');
+                             
+                                    //DB Instance for Update
+                                    $db = DB::getInstance();
+                                    $currentReservation = new Reservation('', array());
+
+                                    //sets table and fields
+                                    $table = 'reservation';
+                                    $id = $resID;
+                                    $idcolumn = 'Res_ID';
+                                    $fields = array(
+                                        //Checks dog in and sets approval for safe keeping
+                                        'isCheckedIn' => 1,
+                                        'isApproved' => 1,
+                                    );
+
+                                    //updates
+                                    $db->updateWithID($table, $id, $idcolumn, $fields);
+
+                                    Redirect::to('../Employee Portal/EmpHome.php');
+
+                                } catch(Exception $e) {
+                                    die($e->getMessage());
+                                    
+                                }
 
                                 }else { ## Is this an error?
                                     // output errors
