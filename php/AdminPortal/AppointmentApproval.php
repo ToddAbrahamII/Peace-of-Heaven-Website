@@ -94,7 +94,7 @@
         $reservation->getReservationById($_SESSION['reservationid']);
 
         //Code to Show Appointment Time Range
-        $timeRange = $reservation->getReservationData()->ResStartDate . ' - ' . $groomingReservation->getReservationData()->ResEndDate; 
+        $timeRange = $reservation->getReservationData()->ResStartTime . ' - ' . $reservation->getReservationData()->ResEndTime; 
 
         //Store Emergency Contact
         $emerContact = $reservation->getReservationData()->EmerContact;
@@ -113,13 +113,13 @@
     //<!--PHP If Statement for Daycare Appointment Details -->
     if($_SESSION['service'] == 'Daycare'){
             //new constructor
-            $reservation = new Reservation('Boarding',  array());
+            $reservation = new Reservation('Daycare',  array());
 
             //Gather Reservation Info
             $reservation->getReservationById($_SESSION['reservationid']);
 
             //Code to Show Appointment Time Range
-            $timeRange = $reservation->getReservationData()->ResStartDate; 
+            $timeRange = $reservation->getReservationData()->ResStartTime; 
 
             //Store Emergency Contact
             $emerContact = $reservation->getReservationData()->EmerContact;
