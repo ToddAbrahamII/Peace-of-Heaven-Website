@@ -3,7 +3,7 @@ class Reservation {
     private $_db,
             $_reservationData;
 
-    private $ResID,
+    public $ResID,
             $ResStartTime,
             $ResEndTime,
             $emerContactName,
@@ -64,8 +64,8 @@ class Reservation {
 
 
     public function getReservationById($reservationId) {
-        $fields = 'GroomResID';
-        $data = $this->_db->get('grooming_reservation', array($fields, '=', $reservationId));
+        $fields = 'ResID';
+        $data = $this->_db->get('reservation', array($fields, '=', $reservationId));
 
         if($data->count() > 0) {
             $this->_reservationData = $data->first();
@@ -78,7 +78,7 @@ class Reservation {
     {
         if ($customer) {
             //Gathers all data as a string
-            $data = $this->_db->get('grooming_reservation', array('CustID', '=', $customer));
+            $data = $this->_db->get('reservation', array('CustID', '=', $customer));
 
             if ($data->count() > 0) {
                 //Takes all data, sorts into an array so it can be printed in rows
@@ -87,6 +87,19 @@ class Reservation {
             }
         }
         return false;
+    }
+
+    public function getCheckedInReservations() {
+        $fields = 'isCheckedIn';
+        $values = 1;
+        $data = $this->_db->get('reservation', array($fields, '=', $values));
+
+        if ($data->count() > 0) {
+            $this->_reservationData = $data->first();
+            return true;
+        }
+        return false;
+
     }
 
 

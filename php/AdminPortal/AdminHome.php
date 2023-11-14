@@ -87,7 +87,7 @@
 
                         echo '<td>' . $dogName . '</td>';
                         echo '<td>' . $reservation->ServiceType .'</td>';
-                        echo '<td><a href="../AdminPortal/AppointmentApproval.php?custid=' . $reservation->CustID . '&dogid=' . $reservation->DogID . '&reservationid=' . $reservation->Res_ID . '&service=Grooming">View Appointment</a></td>';
+                        echo '<td><a href="../AdminPortal/AppointmentApproval.php?custid=' . $reservation->CustID . '&dogid=' . $reservation->DogID . '&reservationid=' . $reservation->Res_ID . '&service=' . $reservation->ServiceType . '">View Appointment</a></td>';
                         echo '</tr>';
                     }
                 }
@@ -105,6 +105,7 @@
             <thead>
             <tr>
                 <th>Dog</th>
+                <th>Reservation Date</th>
                 <th>Breed</th>
                 <th>Date of Birth</th>
                 <th>Service</th>
@@ -112,7 +113,45 @@
             </tr>
             </thead>
             <tbody>
-            <!-- PHP Load Data Here --> 
+            <!-- PHP Load Data Here -->
+            <?php
+
+            //Load all grooming appointments where IsApproved = 0
+
+            //Constructor Call
+            $reservation = new Reservation('reservation', array());
+            $dog = new Dog();
+
+            //store checkedInReservation
+            $reservation->getCheckedInReservations();
+            $reservationData = $reservation->getReservationData();
+            //print checked in reservation
+
+
+            if(!empty($reservationData)){
+                //Goes through each table row
+
+                foreach ($reservation as $datum){
+
+                    echo '<tr>'; // row start
+
+
+                    //Finds the dog name with their ID
+                    $dog->findDogInfoWithDogID($reservationData->DogID);
+
+                    $dogData = $dog->data();
+                    $dogName = $dog->data()->DogName;
+
+                    echo '<td>'. $dogName . '</td>';
+                    echo '<td>'. $reservationData->ResStartTime . ' - ' .  $reservationData->ResStartTime . '</td>';
+                    echo '<td>' . $dogData->Breed . '</td>';
+                    echo '<td>' . $dogData->DogDOB . '</td>';
+                    echo '<td>' . $reservationData->ServiceType . '</td>';
+                    echo '<td>' . $reservationData->isApproved . '</td>';
+                    echo '</tr>';
+                }
+            }
+            ?>
             </tbody>
         </table>
         <br><br>

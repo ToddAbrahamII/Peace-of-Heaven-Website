@@ -38,6 +38,11 @@ if($user->isLoggedIn()) {
 } else {
     echo "<p>You need to <a href='login.php'>Log in</a> or <a href='register.php'>register</a></p>";
 }
+$question = "How are you?";
+askQuestion();
+function askQuestion() {
+    $question = "What question?";
+    echo $question;
+}
+$question = "Who are you?";
 
-$allGroomingData ->getUnapprovedReservations();
-$allGroomingData
