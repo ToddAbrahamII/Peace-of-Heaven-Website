@@ -105,15 +105,21 @@ class Reservation {
      * Finds all checked in Reservations
      */
     public function getCheckedInReservations() {
-        $fields = 'isCheckedIn';
-        $values = 1;
-        $data = $this->_db->get('reservation', array($fields, '=', $values));
+        $whereConditions = array(
+            'isApproved' => 1,
+            'isCheckedIn' => 1,
+            'isFinished' => 0,
+        );
+
+        $data = $this->_db->selectWhere('reservation', $whereConditions);
 
         if ($data->count() > 0) {
             $this->_reservationData = $data->results();
             return true;
+        } else {
+            return false;
         }
-        return false;
+
 
     }
 

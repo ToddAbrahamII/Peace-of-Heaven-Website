@@ -127,6 +127,20 @@
                                     //updates
                                     $db->updateWithID($table, $id, $idcolumn, $fields);
 
+                                    //Updates Kennel to longer be occupied
+                                    $db2 = DB::getInstance();
+                                    $currentReservation->getReservationById($resID);
+                                    $kennel = $currentReservation->getReservationData()->KennelID;
+
+                                    $table2 = 'kennel';
+                                    $id2 = $kennel;
+                                    $idcolumn2 = 'KennelID';
+                                    $fields2 = array(
+                                        'isOccupied' => 0,
+                                    );
+
+                                    $db2->updateWithID($table2, $id2, $idcolumn2, $fields2);
+
                                     Redirect::to('../Employee Portal/EmpHome.php');
 
                                 } catch(Exception $e) {
