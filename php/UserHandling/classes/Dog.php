@@ -111,8 +111,7 @@ class Dog {
     }
    
     /**
-     * Finds all dogs, good for admin uses when fetching reservations
-     * 
+     * Finds all dogs, good for admin uses when fetching reservation
      */
     public function findAllDogs()
     {

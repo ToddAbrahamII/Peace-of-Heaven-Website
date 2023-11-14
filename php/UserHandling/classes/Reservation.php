@@ -64,7 +64,7 @@ class Reservation {
 
 
     public function getReservationById($reservationId) {
-        $fields = 'ResID';
+        $fields = 'Res_ID';
         $data = $this->_db->get('reservation', array($fields, '=', $reservationId));
 
         if($data->count() > 0) {
@@ -95,7 +95,7 @@ class Reservation {
         $data = $this->_db->get('reservation', array($fields, '=', $values));
 
         if ($data->count() > 0) {
-            $this->_reservationData = $data->first();
+            $this->_reservationData = $data->results();
             return true;
         }
         return false;

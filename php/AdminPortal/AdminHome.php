@@ -132,16 +132,19 @@
                 //Goes through each table row
 
                 foreach ($reservationData as $reservation){
+                    print_r($reservation);
 
                     echo '<tr>'; // row start
 
 
                     //Finds the dog name with their ID
-                    $dog->findDogInfoWithDogID($reservationData->DogID);
+                    $dog->findDogInfoWithDogID($reservation->DogID);
 
 
 
                     $dogData = $dog->data();
+                    echo 'hello';
+                    print_r($dogData);
                     $dogName = $dog->data()->DogName;
 
                     echo '<td>'. $dogName . '</td>';
