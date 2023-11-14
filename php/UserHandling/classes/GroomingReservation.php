@@ -92,7 +92,7 @@ class GroomingReservation {
     public function getUnApprovedReservationsWithCustID($customer = null){
         if($customer){
         //Gathers all data as a string
-        $data = $this->_db->get('grooming_reservation', array('CustID', '=', $customer));
+        $data = $this->_db->get('grooming_reservation', array('CustID', 'isApproved'), '=', array($customer, 0) );
 
         if($data->count() > 0) {
             //Takes all data, sorts into an array so it can be printed in rows
