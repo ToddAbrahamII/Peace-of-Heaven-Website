@@ -6,6 +6,9 @@
     }
 
     $user = new User();
+    $customer = new Customer();
+    $dog = new Dog();
+    
     if($user->isLoggedIn()) {
 
     //Adds Employee NavBar if Employee Acct logged in
