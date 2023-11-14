@@ -59,6 +59,7 @@
                         $dog = new dog(); //constructor call
                         $customer->findCustInfo($user->data()->id); //Finds matching user id
                         $custid = $customer->data()->CustID; //stores the customer id
+
                         $dog->createBehaviorRecord(array(
 
                             'Experience' => Input::get('Experience'),
@@ -83,7 +84,11 @@
                             'BathroomRoutine' => Input::get('BathroomRoutine'),
                             'CustID' => $custid, 
                         ));
-    
+                        
+                        $dog->createHealthRecord(array(
+
+                        ))
+
                         $dog->createVaccineRecord(array(
                             'DHPP_Date' => Input::get('dhpp_date'),
                             'RabiesDate' => Input::get('rabies_date'),
@@ -91,6 +96,7 @@
                             'HasFleaTick' => Input::get('flea_product'),
                             'FleaTickDate' => Input::get('flea_date'),
                             'OtherVacInfo' => Input::get('other_vac_info')
+                            'CustID' => $custid, 
                         ));
 
                         Redirect::to('../Customer Portal/CustHome.php');
@@ -235,9 +241,9 @@
                 <input type="text" name="BathroomRoutine" id="BathroomRoutine">
         </fieldset>
         </form>
-        </body>
-    </html>
-<?php } ?>
+    </body>
+</html>
+
 
 
 
