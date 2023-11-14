@@ -45,6 +45,26 @@
         </div>
     </div>
 
+     <!-- Table to showcase Confirm Reservations -->
+     <h2>Announcements </h2>
+    <table>
+    <thead>
+      <tr>
+      <th>Date </th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- PHP Load Data Here -->     
+    </tbody>
+  </table>
+    <div class="view-button-container">
+        <a href="">
+            <button class="view-button">View All Announcements</button>
+        </a>
+    </div>
+  <br><br>
+
     <!-- Table to showcase Confirm Reservations -->
     <h2>Confirmed Reservations</h2>
     <table>

@@ -101,7 +101,7 @@
         //Code to show dog vaccine, health, and behavior
 
         
-    //<!--PHP If Statement for Day Appointment Details -->
+    //<!--PHP If Statement for Daycare Appointment Details -->
         //Code to Show Appointment Date
 
         //Code to show Customer Name
@@ -207,6 +207,7 @@
     <form method="post" >
 
         <!-- Prints Information for Admin -->
+        
 
         <!-- Generates token and submits -->
         <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
