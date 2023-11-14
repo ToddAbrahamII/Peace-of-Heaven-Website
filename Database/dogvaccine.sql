@@ -32,7 +32,7 @@ CREATE TABLE `dogvaccine` (
   `DHPP_Date` date NOT NULL,
   `RabiesDate` date NOT NULL,
   `BordellaDate` date NOT NULL,
-  `HasFleaTick` tinyint(1) NOT NULL,
+  `FleaTickProduct` varchar2(50) NOT NULL,
   `FleaTickDate` date NOT NULL,
   `OtherVacInfo` varchar(500) NOT NULL,
   `DogID` int(11) NOT NULL

@@ -82,12 +82,12 @@
                             'IsLeashTrained' => Input:: get('IsLeashTrained'),
                             'FoodPref' => Input::get('FoodPref'),
                             'BathroomRoutine' => Input::get('BathroomRoutine'),
-                            'CustID' => $custid, 
+                          //  'DogID' => $custid, 
                         ));
                         
-                        $dog->createHealthRecord(array(
+                   //     $dog->createHealthRecord(array(
 
-                        ))
+                 //       ))
 
                         $dog->createVaccineRecord(array(
                             'DHPP_Date' => Input::get('dhpp_date'),
@@ -96,11 +96,15 @@
                             'HasFleaTick' => Input::get('flea_product'),
                             'FleaTickDate' => Input::get('flea_date'),
                             'OtherVacInfo' => Input::get('other_vac_info')
-                            'CustID' => $custid, 
+                            //'DogID' => $custid, 
                         ));
 
                         Redirect::to('../Customer Portal/CustHome.php');
     
+                    }
+                    catch(Exception $e) {
+                        die($e->getMessage());
+                        
                     }
                     }else {
                         // output errors
@@ -162,32 +166,32 @@
             </p>
             <p>
                 <legend>4. Is your dog a...</legend>
-                    <label>a. Jumper? </label>
+            <label>a. Jumper? </label>
                     <input type="radio" id="T4a" name="IsJumper" value="1">
                     <label for="T4a">YES</label>
                     <input type="radio" id="F4a" name="IsJumper" value="0">
                     <label for="F4a">NO</label>
-                <br>
+            <br>
                     <label>b. Climber? </label>
                     <input type="radio" id="T4b" name="IsClimber" value="1">
                     <label for="T4b">YES</label>
                     <input type="radio" id="F4b" name="IsClimber" value="0">
                     <label for="F4b">NO</label>
-                <br>
+            <br>
                     <label>c. Aggressive chewer? </label>
                     <input type="radio" id="T4c" name="IsChewer" value="1">
                     <label for="T4c">YES</label>
                     <input type="radio" id="F4c" name="IsChewer" value="0">
                     <label for="F4c">NO</label>
-                <br>
+            <br>
                     <label>d. Escape artist of any kind? </label>
                     <input type="radio" id="T4d" name="IsEscapeArtist" value="1">
                     <label for="T4d">YES</label>
                     <input type="radio" id="F4d" name="IsEscapeArtist" value="0">
                     <label for="F4d">NO</label>
-                <br> &nbsp;&nbsp;
-                    <label for="EscapeDesc">i. If yes, please describe his/her escaping abilities.</label>
-                <br> &nbsp;&nbsp;
+            <br> &nbsp;&nbsp;
+                    <label for="EscapeDesc">If yes, please describe his/her escaping abilities.</label>
+            <br> &nbsp;&nbsp;
                     <textarea name="EscapeDesc" id="EscapeDesc"></textarea>
             </p>
             <p>
@@ -205,138 +209,114 @@
                 <label for="F6">NO</label>
             </p>
             <p>
-                <legend>7. Any activity limitations or time restrictions? </legend>
-                <input type="radio" id="T7" name="IsRestriction" value="1">
+                <legend>7. Is your dog comfortable walking on a leash?</legend>
+                <input type="radio" id="T7" name="IsLeashTrained" value="1">
                 <label for="T7">YES</label>
-                <input type="radio" id="F7" name="IsRestriction" value="0">
+                <input type="radio" id="F7" name="IsLeashTrained" value="0">
                 <label for="F7">NO</label>
+            </p>
+            <p>
+                <legend>8. Any activity limitations or time restrictions? </legend>
+                <input type="radio" id="T8" name="IsRestriction" value="1">
+                <label for="T8">YES</label>
+                <input type="radio" id="F8" name="IsRestriction" value="0">
+                <label for="F8">NO</label>
             <br> &nbsp;&nbsp;
                 <label for="RestrictionDesc">a. If yes, please describe.</label>
             <br> &nbsp;&nbsp;
                 <textarea name="RestrictionDesc" id="RestrictionDesc"></textarea>
             </p>
             <p>
-                <legend>8. Name a few of your dog's favorite toys or games to play.</legend>
+                <legend>9. Name a few of your dog's favorite toys or games to play.</legend>
                 <textarea name="Toys" id="Toys"></textarea>
     
-                <legend>9. Please describe any other behaviors, prefrences, or routines we should know about your dog.</legend>
+                <legend>10. Please describe any other behaviors, prefrences, or routines we should know about your dog.</legend>
                 <textarea name="OtherBehaviorInfo" id="OtherBehaviorInfo"></textarea>
     
-                <legend>10. Are there any training commands or activities we can continue to reinforce (if possible) while in our care? If so, please list.</legend>
+                <legend>11. Are there any training commands or activities we can continue to reinforce (if possible) while in our care? If so, please list.</legend>
                 <textarea name="Reinforce" id="Reinforce"></textarea>
     
-                <legend>11. What commands does your dog know?</legend>
+                <legend>12. What commands does your dog know?</legend>
                 <textarea name="Commands" id="Commands"></textarea>
             <br>
-                <label for="IsLeashTrained">12. Is your dog comfortable walking on a leash?</label>
-                <input type="radio" id="T12" name="IsLeashTrained" value="1">
-                <label for="T12">YES</label>
-                <input type="radio" id="F12" name="IsLeashTrained" value="0">
-                <label for="F12">NO</label>
+                <legend>13. What is your dog's feeding schedule?</legend>
+                <textarea name="FoodPref" id="FoodPref"></textarea>
             <br>
-                <label for="FoodPref">13. What is your dog's feeding schedule?</label>
-                <input type="text" name="FoodPref" id="FoodPref">
-            <br>
-                <label for="BathroomRoutine">14. What is your dog's normal potty routine?</label>
-                <input type="text" name="BathroomRoutine" id="BathroomRoutine">
+                <legend>14. What is your dog's normal potty routine?</legend>
+                <textarea name="BathroomRoutine" id="BathroomRoutine"></textarea>
+            </p>
+
+
         </fieldset>
-        </form>
-    </body>
-</html>
-
-
-
-
-
-
-
-<!-- HEALTH FORM -->
-<fieldset>
+        <fieldset>
                         <!-- Collects information for DogHealth Table -->
-    <legend>Dog Health Information</legend>
+            <legend>Dog Health Information</legend>
+            <p>
+                <label for="Name">Clinic Name</label>
+                <input type="text" id="Name" name="Name">
+            <br>
+                <label for="Phone">Phone</label>
+                <input type="text" id="Phone" name="Phone">
+            <br>
+                <label for="Address">Address</label>
+                <input type="text" id="Address" name="Address">
+            <br>
+                <label for="City">City</label>
+                <input type="text" id="City" name="City">
+            <br>
+                <label for="State">State</label>
+                <input type="text" id="State" name="State">
+            <br>
+                <label for="Zip">Zip</label>
+                <input type="text" id="Zip" name="Zip">
+            <br>
+                <label for="VetName">Prefered Vet Name</label>
+                <input type="text" id="VetName" name="VetName">
+                <!-- STILL NEED TO INCLUDE RELEASE OF LIABILITY NOTICE-->
+            <br><br>
+                <legend>List all known allergies, medical conditions, and mobility/vision/hearing impairments.</legend>
+                <textarea name="allergies" id="allergies"></textarea>
+            <br>
+                <legend>List all medication & dose frequency.</legend>
+                <textarea name="medication" id="medication"></textarea>
 
-        <p>
-            <!-- Vet Name -->
+            </p>
 
-            <!-- Vet Phone -->
+                <!-- Collects information for DogVaccine Table -->
+        </fieldset>
+        <fieldset>
+            <legend>Vaccinations</legend>  
+            <p>
+                <p>**All dogs accepted for day care must be vaccinated for DHPP, Rabies, & Bordetella**<br>
+                **Proof of current vaccination for all required vaccines must be shown upon arrival**</p>
 
-            <!-- Vet Address -->
+                <label for="dhpp_date">DHPP Date:</label>
+                <input type="date" name="dhpp_date" id="dhpp_date">
+            <br>
+                <label for="rabies_date">Rabies Date:</label>
+                <input type="date" name="rabies_date" id="rabies_date">
+            <br>
+                <label for="bordetella_date">Bordetella Date(6 or 12 mo.):</label>
+                <input type="date" name="bordetella_date" id="bordetella_date">
+            </p>
+            <p>
+                <legend><u>Preventatives</u></legend>
+                <p>*Heartworm & flea/tick preventative treatments are recommended for day care clients*<br>
+                *If fleas/ticks are found on client during stay, client will be treated at owner&quots expense.*</p>
 
-            <!-- Vet City -->
+                <label for="flea_product"><br>Flea/Tick product:</label>
+                <input type="text" name="flea_product" id="flea_product">
 
-            <!-- Vet State -->
-
-            <!-- Vet Zip -->
-
-            <!-- Allergies -->
-
-            <!-- Medical Conditions -->
-
-            <!-- Impairments -->
-
-            <!-- Other Health Information -->
-
-        </p>
-
-        <!-- Collects information for DogVaccine Table -->
-                      
-                     
-        rea name="seven_desc" id="seven_desc"></textarea>
-        </p>
-            <legend>15. List all known allergies.</legend>
-            <textarea name="allergies" id="allergies"></textarea>
-    
-            <legend>16. List all medication & dose frequency.</legend>
-            <textarea name="medication" id="medication"></textarea>
-        </p>
-    
-</fieldset>
-
-
-
-
-
-<!-- VACCINE -->
-<!DOCTYPE html>
-<html lang="en">
-    <body>
-        <form>
-            <fieldset>
-
-                <legend>Vaccinations</legend>  
+                <label for="flea_date">Last date given:</label>
+                <input type="date" name="flea_date" id="flea_date">
+            </p>
+            <p>
+                <legend><u>Notes</u></legend>
                 <p>
-                    <p>**All dogs accepted for day care must be vaccinated for DHPP, Rabies, & Bordetella**<br>
-                    **Proof of current vaccination for all required vaccines must be shown upon arrival**</p>
-
-                    <label for="dhpp_date">DHPP Date:</label>
-                    <input type="date" name="dhpp_date" id="dhpp_date">
-
-                    <label for="rabies_date">Rabies Date:</label>
-                    <input type="date" name="rabies_date" id="rabies_date">
-
-                    <label for="bordetella_date">Bordetella Date(6 or 12 mo.):</label>
-                    <input type="date" name="bordetella_date" id="bordetella_date">
-                </p>
-
-                <legend>Preventatives</legend>
-                <p>
-                    <p>*Heartworm & flea/tick preventative treatments are recommended for day care clients*<br>
-                    *If fleas/ticks are found on client during stay, client will be treated at owner&quots expense.*</p>
-
-                    <label for="flea_product"><br>Flea/Tick product:</label>
-                    <input type="text" name="flea_product" id="flea_product">
-
-                    <label for="flea_date">Last date given:</label>
-                    <input type="date" name="flea_date" id="flea_date">
-                </p>
-
-                <legend>Notes</legend>
-                <p>
-                    <label for="other_vac_info">Please list below any other vaccination information we may need to know:<br></label>
-                    <textarea name="other_vac_info" id="other_vac_info"></textarea>
-                </p>
-
-            </fieldset>
+                <label for="other_vac_info">Please list below any other vaccination information we may need to know:<br></label>
+                <textarea name="other_vac_info" id="other_vac_info"></textarea></p>
+            </p>
+        </fieldset>
         </form>
     </body>
 </html>
