@@ -86,35 +86,50 @@
     }
 
     //<!--PHP If Statement for Boarding Appointment Details -->
-        //Code to Show Appointment Date
+    if($_SESSION['service'] == 'Boarding'){
+        //new constructor
+        $reservation = new Reservation('Boarding',  array());
 
-        //Code to show Customer Name
+        //Gather Reservation Info
+        $reservation->getReservationById($_SESSION['reservationid']);
 
-        //Code to show Customer Phone
+        //Code to Show Appointment Time Range
+        $timeRange = $reservation->getReservationData()->ResStartDate . ' - ' . $groomingReservation->getReservationData()->ResEndDate; 
 
-        //Code to Show Customer Email
+        //Store Emergency Contact
+        $emerContact = $reservation->getReservationData()->EmerContact;
 
-        //Code to Show Dog Name
+        //Store Emergency Contact Phone
+        $emerPhone = $reservation->getReservationData()->EmerPhone;
 
-        //Code to Show Dog Info
+        //Store Description
+        $resDesc = $reservation->getReservationData()->ResDesc;
+
 
         //Code to show dog vaccine, health, and behavior
+    }
 
         
     //<!--PHP If Statement for Daycare Appointment Details -->
-        //Code to Show Appointment Date
+    if($_SESSION['service'] == 'Daycare'){
+            //new constructor
+            $reservation = new Reservation('Boarding',  array());
 
-        //Code to show Customer Name
+            //Gather Reservation Info
+            $reservation->getReservationById($_SESSION['reservationid']);
 
-        //Code to show Customer Phone
+            //Code to Show Appointment Time Range
+            $timeRange = $reservation->getReservationData()->ResStartDate; 
 
-        //Code to Show Customer Email
+            //Store Emergency Contact
+            $emerContact = $reservation->getReservationData()->EmerContact;
 
-        //Code to Show Dog Name
+            //Store Emergency Contact Phone
+            $emerPhone = $reservation->getReservationData()->EmerPhone;
 
-        //Code to Show Dog Info
-
-        //Code to show dog vaccine, health, and behavior
+            //Store Description
+            $resDesc = $reservation->getReservationData()->ResDesc;
+    }
 
         //Checks if a button has been pressed
         if(Input::exists()){
@@ -207,6 +222,30 @@
     <form method="post" >
 
         <!-- Prints Information for Admin -->
+        <h2>Reservation Info</h2>
+        <p>Service: <?php print($_SESSION['service']) ?></p>
+        <p>Time Range: <?php print($timeRange) ?></p>
+        <p>Emergency Contact: <?php print($emerContact) ?></p>
+        <p>Emergency Phone: <?php print($emerPhone) ?></p>
+        <p>Reservation Description: <?php print($resDesc) ?></p>
+
+        <br>
+
+        <h2>Customer Info</h2>
+        <p>Customer Name: <?php print($custName)?></p>
+        <p>Customer Phone: <?php print($custPhone)?></p>
+        <p>Customer Email: <?php print($custEmail)?></p>
+
+        <br>
+
+        <h2>Dog Info</h2>
+        <p>Dog Name: <?php print($dogName)?></p>
+        <p>Breed: <?php print($dogBreed)?></p>
+        <p>Date of Birth: <?php print($dogDOB)?></p>
+        <p>Dog Sex: <?php print($dogSex)?></p>
+        <p>Weight: <?php print($dogWeight)?></p>
+        <p>Dog Other Info: <?php print($dogOtherInfo)?></p>
+
         
 
         <!-- Generates token and submits -->
