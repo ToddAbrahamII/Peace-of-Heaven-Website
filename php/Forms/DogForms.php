@@ -316,6 +316,7 @@
                 <label for="other_vac_info">Please list below any other vaccination information we may need to know:<br></label>
                 <textarea name="other_vac_info" id="other_vac_info"></textarea></p>
             </p>
+            <!-- Do we want to include an E-Signature? -->
         </fieldset>
         </form>
     </body>
