@@ -80,7 +80,7 @@ class GroomingReservation {
         $data = $this->_db->get('grooming_reservation', array($fields, '=', $reservationId));
 
         if($data->count() > 0) {
-            $this->_groomingReservationData = $data->results();
+            $this->_groomingReservationData = $data->first();
             return true;
         }
         return false;

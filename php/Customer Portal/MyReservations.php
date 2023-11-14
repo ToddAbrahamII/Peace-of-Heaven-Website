@@ -5,6 +5,7 @@
         echo '<p>'. Session::flash('home') .'</p>';
     }
 
+    $user = new User();
     $customer = new Customer();
     $dog = new Dog();
     $reservation = new Reservation('', array());
@@ -108,7 +109,7 @@
                     echo '<td>'. $dogName . '</td>';
                     echo '<td>'. $reservationGrooming->GroomingDesc. '</td>';
                     echo '<td>Grooming</td>';
-                    echo '<td>Pending</td>';
+                    echo '<td>' . $reservationGrooming->isApproved .'</td>';
                     echo '</tr>';
              }
             } ?>
