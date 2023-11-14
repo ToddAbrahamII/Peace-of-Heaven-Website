@@ -250,7 +250,9 @@ class DB {
         return false;
     }
     
-
+    /**
+     * Select for AND statements in the db
+     */
     public function selectWhere($table, $conditions = array()) {
         if (count($conditions) > 0) {
             $where = '';
@@ -272,6 +274,5 @@ class DB {
         }
         return false;
     }
-
 
 }

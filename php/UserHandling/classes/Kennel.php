@@ -42,6 +42,49 @@ class Kennel {
     }
 
     /**
+     * Gets unoccupied kennels
+     *
+     */
+    public function getUnoccupiedBoardingKennels(){
+        $whereConditions = array(
+            'isOccupied' => 0,
+            'isBoarding' => 1.
+        );
+
+        $data = $this->_db->selectWhere('kennel', $whereConditions);
+
+        if ($data->count() > 0) {
+            $this->_kennelData = $data->results();
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+     /**
+     * Gets unoccupied kennels
+     *
+     */
+    public function getUnoccupiedDaycareKennels(){
+        $whereConditions = array(
+            'isOccupied' => 0,
+            'isBoarding' => 0.
+        );
+
+        $data = $this->_db->selectWhere('kennel', $whereConditions);
+
+        if ($data->count() > 0) {
+            $this->_kennelData = $data->results();
+            return true;
+        } else {
+            return false;
+        }
+
+
+    }
+
+    /**
      * Returns data for kennel
      */
     public function data(){

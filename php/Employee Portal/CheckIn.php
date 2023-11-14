@@ -125,8 +125,9 @@
 
                                     //updates
                                     $db->updateWithID($table, $id, $idcolumn, $fields);
-
-                                    Redirect::to('../Employee Portal/EmpHome.php');
+                                    
+                                    
+                                    Redirect::to('../Employee Portal/KennelAssign.php?service='.$reservation->ServiceType.'&resid='.$resID);
 
                                 } catch(Exception $e) {
                                     die($e->getMessage());
