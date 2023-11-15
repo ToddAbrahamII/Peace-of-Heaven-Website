@@ -29,6 +29,12 @@ if($user->data()->group == 3 ){
     include("../AdminPortal/AdminNavBar.php");
 }
 
+  //Grabs all sessions variables from the previous page
+  if (isset($_GET['custid']) && isset($_GET['dogid'])) {
+    $_SESSION['custid'] = $_GET['custid'];
+    $_SESSION['dogid'] = $_GET['dogid'];
+}
+
 ?><!DOCTYPE html>
 <html>
 <head>

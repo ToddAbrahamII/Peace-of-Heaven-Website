@@ -10,7 +10,7 @@
 
        //Adds Admin NavBar if Admin Acct logged in
        if($user->data()->group == 3) {
-        //include("../AdminPortal/AdminNavBar.php");
+        include("../AdminPortal/AdminNavBar.php");
 
         if(Input::exists()){
             if(Token::check(Input::get('token'))) {
