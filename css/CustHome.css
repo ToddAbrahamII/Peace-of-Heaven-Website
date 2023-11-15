@@ -63,4 +63,37 @@ body {
   .view-button:hover {
     background-color: #39A7FF;
   }
-  
+
+/* Box styling */
+.announcement {
+  border: 2px solid #3498db;
+  background-color: #ecf0f1;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.announcement:hover {
+  transform: scale(1.05);
+}
+
+/* Header styling */
+.announcement h3 {
+  margin-bottom: 10px;
+  color: #3498db;
+}
+
+/* Date styling */
+.announcement p.date {
+  margin: 0;
+  color: #555;
+}
+
+/* Description styling */
+.announcement p.description {
+  margin: 10px 0 0;
+  color: #333;
+}

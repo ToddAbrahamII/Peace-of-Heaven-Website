@@ -2,7 +2,7 @@
 
 class Announcement {
     private $_db,
-            $_annoucementData,
+            $_announcementData,
             $_sessionName;
 
 
@@ -37,7 +37,7 @@ class Announcement {
 
          if($data->count() > 0) {
              //Takes all data, sorts into an array so it can be printed in rows
-             $this->_annoucementData = $data->results();
+             $this->_announcementData = $data->results();
              return true;
          }else{
              return false;
@@ -47,12 +47,24 @@ class Announcement {
      /**
       * Gets all announcments with an age <= 5 
       */
+      public function postAnnouncements() {
+        $data = $this->_db->get('announcements', array('age', '<=', 5));
+
+        if($data->count() > 0) {
+            //Takes all data, sorts into an array so it can be printed in rows
+            $this->_announcementData = $data->results();
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
        /**
      * Returns data for kennel
      */
     public function data(){
-        return $this->_annoucementData;
+        return $this->_announcementData;
     }
 
 

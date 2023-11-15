@@ -47,17 +47,34 @@
 
      <!-- Table to showcase Confirm Reservations -->
      <h2>Announcements </h2>
-    <table>
-    <thead>
-      <tr>
-      <th>Date </th>
-        <th>Message</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- PHP Load Data Here -->     
-    </tbody>
-  </table>
+      <?php
+      
+      //Constructor Call 
+      $announcement = new Announcement();
+
+      //Call all relevant Announcements
+      $announcement->postAnnouncements();
+      $allAnnouncements = $announcement->data();
+
+      //Checks for empty and prints announcement for each 
+      if(!empty($allAnnouncements)){
+        foreach($allAnnouncements as $announcement){
+          
+          //Gather data
+          $header = $announcement->header;
+          $date = $announcement->date;
+          $description = $announcement->description;
+
+          echo '<div class="announcement">';
+          echo '<h3>'.$header.'</h3>';
+          echo '<p class="date">'.$date.'</p>';
+          echo '<p class="description">'.$description.'</p>';
+          echo '</div>';
+
+        }
+      }
+      
+      ?>
     <div class="view-button-container">
         <a href="">
             <button class="view-button">View All Announcements</button>
