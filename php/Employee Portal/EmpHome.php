@@ -38,32 +38,13 @@
         <h1>Welcome to the Employee Portal</h1>
         </div>
     </div>
-
-     <!-- View for Today's Reservations -->
-     <h2>Todays Date: 11/9/2023</h2>
-        <h2>Today's Reservations</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Dog</th>
-                <th>Service</th>
-                <th>Status</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!-- PHP Load Data Here -->     
-            </tbody>
-        </table>
-        <br><br>
-
-        <!-- Table for Checked In Dogs -->
-        <h2>Checked-In Dogs</h2>
+<!-- Table for Checked In Dogs -->
+<h2>Checked-In Dogs</h2>
         <table>
             <thead>
             <tr>
                 <th>Dog</th>
+                <th>Reservation Date</th>
                 <th>Breed</th>
                 <th>Date of Birth</th>
                 <th>Service</th>
@@ -71,7 +52,43 @@
             </tr>
             </thead>
             <tbody>
-            <!-- PHP Load Data Here -->     
+            <?php
+            //Constructor Call
+            $reservation = new Reservation('reservation', array());
+            $dog = new Dog();
+
+            //store checkedInReservation
+            $reservation->getCheckedInReservations();
+            $reservationData = $reservation->getReservationData();
+            //print checked in reservation
+
+
+            if(!empty($reservationData)){
+                //Goes through each table row
+
+                foreach ($reservationData as $reservation){
+
+                    echo '<tr>'; // row start
+
+
+                    //Finds the dog name with their ID
+                    $dog->findDogInfoWithDogID($reservation->DogID);
+
+
+
+                    $dogData = $dog->data();
+                    $dogName = $dog->data()->DogName;
+
+                    echo '<td>'. $dogName . '</td>';
+                    echo '<td>'. $reservation->ResStartTime . ' - ' .  $reservation->ResStartTime . '</td>';
+                    echo '<td>' . $dogData->Breed . '</td>';
+                    echo '<td>' . $dogData->DogDOB . '</td>';
+                    echo '<td>' . $reservation->ServiceType . '</td>';
+                    echo '<td>' . $reservation->isApproved . '</td>';
+                    echo '</tr>';
+                }
+            }
+            ?>
             </tbody>
         </table>
         <br><br>
@@ -80,6 +97,101 @@
             <a class="check-in-button" href='/PeaceOfHeavenWebPage/php/Employee Portal/CheckIn.php'><button>Check-In Dog</button></a>
             <a class="check-out-button" href='/PeaceOfHeavenWebPage/php/Employee Portal/CheckOut.php'><button>Check-Out Dog</button></a>
         </div>
+
+         <!-- View for Boarding and Daycare Reservations -->
+         <h2>All Confirmed Upcoming Boarding and Daycare Reservations</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Date Range</th>
+                <th>Dog</th>
+                <th>Service</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+                //Constructor Calls
+                $reservation = new Reservation('service', array());
+                $dog = new Dog();
+                $customer = new Customer();
+
+                //Gathers the data
+                $reservation->getConfirmedReservations();
+                $allReservations = $reservation->getReservationData();
+
+                if(!empty($allReservations)){
+
+                    foreach ($allReservations as $reservation){
+                        echo '<tr>';
+                        echo '<td>' . $reservation->ResStartTime . '-'.$reservation->ResEndTime.'</td>';
+
+                        //Finds the dog name with their ID
+                        $dog->findDogInfoWithDogID($reservation->DogID);
+                        $dogName = $dog->data()->DogName;
+
+                        echo '<td>'.$dogName.'</td>';
+                        echo '<td>' . $reservation->ServiceType .'</td>';
+                        echo '<td> Confirmed </td>';
+                        echo '</tr>';
+
+                    }
+                }
+
+            ?>
+
+            </tbody>
+        </table>
+        <br><br>
+
+                <!-- View for Confirmed Grooming Reservations-->
+                <h2>All Confirmed Upcoming Grooming Reservations</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Date Range</th>
+                <th>Dog</th>
+                <th>Description</th>
+                <th>Service</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+                //Constructor Calls
+                $reservation = new GroomingReservation('service', array());
+                $dog = new Dog();
+                $customer = new Customer();
+
+                //Gathers the data
+                $reservation->getConfirmedGroomingReservations();
+                $allReservations = $reservation->getReservationData();
+
+                if(!empty($allReservations)){
+
+                    foreach ($allReservations as $reservation){
+                        echo '<tr>';
+                        echo '<td>' . $reservation->ResStartDate . '</td>';
+
+                        //Finds the dog name with their ID
+                        $dog->findDogInfoWithDogID($reservation->DogID);
+                        $dogName = $dog->data()->DogName;
+
+                        echo '<td>'.$dogName.'</td>';
+                        $groomDesc = $reservation->GroomingDesc;
+                        echo '<td>'.$groomDesc.'</td>';
+                        echo '<td> Grooming </td>';
+                        echo '<td> Confirmed </td>';
+                        echo '</tr>';
+
+                    }
+                }
+
+            ?>
+
+            </tbody>
+        </table>
+        <br><br>
 
     </div>
 </body>

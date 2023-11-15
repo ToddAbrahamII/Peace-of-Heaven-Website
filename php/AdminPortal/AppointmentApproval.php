@@ -165,7 +165,19 @@
             }
             //if grooming was not selected
             if($_SESSION['service'] != 'Grooming'){
-                
+                    // First, you need to create an instance of the DB class.
+                    $db = DB::getInstance();
+
+                    // Define the table, row id, and fields you want to update.
+                    $table = 'reservation';
+                    $id = $reservation->getReservationData()->Res_ID;
+                    $idcolumn = 'Res_ID';
+                    $fields = array(
+                        'isApproved' => 1
+                    );
+
+                     //Updates isApproved now that reservation has been approved
+                    $db->updateWithID($table, $id, $idcolumn, $fields);
             }
 
             //email for confirmation
@@ -190,6 +202,16 @@
 
             //if grooming was not selected
             if($_SESSION['service'] != 'Grooming'){
+                 // First, you need to create an instance of the DB class.
+                 $db = DB::getInstance();
+
+                 // Define the table, row id, and fields you want to update.
+                 $table = 'reservation';
+                 $id = $reservation->getReservationData()->Res_ID;
+                 $idcolumn = 'Res_ID';
+                 $fields = array(
+                     'isApproved' => 1
+                 );
                 
             }
 

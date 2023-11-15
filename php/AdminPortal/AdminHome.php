@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <!-- View for Today's Reservations -->
+        <!-- View for Boarding and Daycare Reservations -->
         <h2>All Confirmed Upcoming Boarding and Daycare Reservations</h2>
         <table>
             <thead>
@@ -227,40 +227,6 @@
                     echo '</tr>';
                 }
             }
-            ?>
-
-<!--            --><?php
-//
-//            //Load all grooming appointments where IsApproved = 0
-//
-//            //Constructor Call
-//            $groomingReservation = new GroomingReservation('Grooming', array());
-//            $dog = new Dog();
-//
-//            //Grabs all unapproved grooming reservations
-//            $groomingReservation->getUnApprovedReservations();
-//            $allGroomingData = $groomingReservation->getReservationData();
-//
-//            //Checks that query has results
-//            if(!empty($allGroomingData)){
-//                //Goes through each table row
-//
-//                foreach ($allGroomingData as $reservationGrooming){
-//                    //populates rows
-//                    echo '<tr>';
-//                    echo '<td>'. $reservationGrooming->ResStartDate . ' - ' .  $reservationGrooming->ResEndDate.'</td>';
-//
-//                    //Finds the dog name with their ID
-//                    $dog->findDogInfoWithDogID($reservationGrooming->DogID);
-//                    $dogName = $dog->data()->DogName;
-//
-//                    echo '<td>'. $dogName . '</td>';
-//                    echo '<td>'. $reservationGrooming->GroomingDesc. '</td>';
-//                    echo '<td>Grooming</td>';
-//                    echo '<td><a href="../AdminPortal/AppointmentApproval.php?custid=' . $reservationGrooming->CustID . '&dogid=' . $reservationGrooming->DogID . '&reservationid=' . $reservationGrooming->GroomResID . '&service=Grooming">View Appointment</a></td>';
-//                    echo '</tr>';
-//                }
-//            }
             ?>
             </tbody>
         </table>
