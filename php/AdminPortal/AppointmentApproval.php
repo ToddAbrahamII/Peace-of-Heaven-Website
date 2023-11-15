@@ -157,7 +157,9 @@
                 $id = $groomingReservation->getReservationData()->GroomResID;
                 $idcolumn = 'GroomResID';
                 $fields = array(
-                    'isApproved' => 1
+                    'isApproved' => 1,
+                    'ResStartDate' => Input::get('ResStartTime'),
+                    'ResEndDate' => Input::get('ResStartTime'),
                 );
  
                 //Updates isApproved now that reservation has been approved
@@ -172,9 +174,26 @@
                     $table = 'reservation';
                     $id = $reservation->getReservationData()->Res_ID;
                     $idcolumn = 'Res_ID';
+
+                    //Updates fields for Daycare
+                    if($_SESSION['service'] == 'Daycare'){
                     $fields = array(
-                        'isApproved' => 1
+                        'isApproved' => 1,
+                        'ResStartTime' => Input::get('ResStartTime'),
+                        'ResEndTime' => Input::get('ResStartTime'),
                     );
+                }
+
+                    //Updates Fields for Boarding
+                    if($_SESSION['service'] == 'Boarding'){
+                        $fields = array(
+                            'isApproved' => 1,
+                            'ResStartTime' => Input::get('ResStartTime'),
+                            'ResEndTime' => Input::get('ResEndTime'),
+                        );
+                    }
+
+
 
                      //Updates isApproved now that reservation has been approved
                     $db->updateWithID($table, $id, $idcolumn, $fields);
@@ -267,6 +286,29 @@
         <p>Dog Sex: <?php print($dogSex)?></p>
         <p>Weight: <?php print($dogWeight)?></p>
         <p>Dog Other Info: <?php print($dogOtherInfo)?></p>
+
+        <!-- PHP If Statement for Update Dates -->
+        <?php
+            if($_SESSION['service'] == 'Grooming'){
+                echo '<label for="ResStartTime">Confirm the Date for this Grooming Appointment:</label>';
+                echo'<input type="date" id="ResStartTime" name="ResStartTime" required><br>';
+        
+            }
+
+            if($_SESSION['service'] == 'Boarding'){
+                echo '<p>Confirm the Dates for this Boarding Appointment</p>';
+                echo '<label for="ResStartTime">Start Date:</label>';
+                echo'<input type="date" id="ResStartTime" name="ResStartTime" required>';
+
+                echo '<label for="ResEndTime">End Date:</label>';
+                echo'<input type="date" id="ResEndTime" name="ResEndTime" required><br>';
+            }
+
+            if($_SESSION['service'] == 'Daycare'){
+                echo '<label for="ResStartTime">Confirm the Date for this Daycare Appointment:</label>';
+                echo'<input type="date" id="ResStartTime" name="ResStartTime" required><br>';
+            }
+        ?>
 
         
 
