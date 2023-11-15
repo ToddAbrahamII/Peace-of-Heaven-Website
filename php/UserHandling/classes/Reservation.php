@@ -189,6 +189,20 @@ class Reservation {
 
     }
 
+        /**
+     * Finds all unchecked Reservations
+     */
+    public function getReservationsWithCustID($customer){
+        $fields = 'CustID';
+        $data = $this->_db->get('reservation', array($fields, '=', $customer));
+
+        if($data->count() > 0) {
+            $this->_reservationData = $data->results();
+            return true;
+        }
+        return false;
+    }
+
 
 
 

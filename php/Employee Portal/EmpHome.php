@@ -94,8 +94,8 @@
         <br><br>
 
         <div class="button-container">
-            <a class="check-in-button" href='/PeaceOfHeavenWebPage/php/Employee Portal/CheckIn.php'><button>Check-In Dog</button></a>
-            <a class="check-out-button" href='/PeaceOfHeavenWebPage/php/Employee Portal/CheckOut.php'><button>Check-Out Dog</button></a>
+            <a class="check-in-button" href='/PeaceOfHeavenWebPage/php/Employee Portal/CheckIn.php'>Check-In Dog</a>
+            <a class="check-out-button" href='/PeaceOfHeavenWebPage/php/Employee Portal/CheckOut.php'>Check-Out Dog</a>
         </div>
 
          <!-- View for Boarding and Daycare Reservations -->

@@ -48,10 +48,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/CustDogs.css">
     
-    <title>Customer Portal</title>
+    <title>Customer Dogs</title>
 </head>
 <body>
     <div class = 'content'>
+    <h1> Your Linked Dog Accounts </h1>
 
     <?php //Generates the Table from the Database of All Dogs in the DB
     if (!empty($dogData)) {

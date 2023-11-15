@@ -47,8 +47,7 @@
   <table>
     <thead>
       <tr>
-        <th>Start Date</th>
-        <th>End Date</th>
+        <th>Date Range</th>
         <th>Dog</th>
         <th>Service</th>
         <th>Status</th>
@@ -56,7 +55,36 @@
     </thead>
     <tbody>
       <tr>
-        <!-- PHP Data Loaded In Here -->
+      <?php
+                //Constructor Calls
+                //Retreives Dog, Customer, and Reservation
+                $reservation = new Reservation('service', array());
+                $dog = new Dog();
+                $customer = new Customer();
+                $customer->findCustInfo($user->data()->id);
+                $custid = $customer->data()->CustID;
+
+                //Gathers the data
+                $reservation->getReservationsWithCustID($custid);
+                $allReservations = $reservation->getReservationData();
+
+                if(!empty($allReservations)){
+
+                    foreach ($allReservations as $reservation){
+                        echo '<tr>';
+                        echo '<td>' . $reservation->ResStartTime . '-'.$reservation->ResEndTime.'</td>';
+
+                        //Finds the dog name with their ID
+                        $dog->findDogInfoWithDogID($reservation->DogID);
+                        $dogName = $dog->data()->DogName;
+
+                        echo '<td>'.$dogName.'</td>';
+                        echo '<td>' . $reservation->ServiceType .'</td>';
+                        echo '<td>'.$reservation->isApproved.'</td>';
+                        echo '</tr>';
+
+                    }
+                }  ?>
       </tr>
     </tbody>
   </table>
