@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2023 at 02:59 PM
+-- Generation Time: Nov 15, 2023 at 10:09 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -29,9 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `announcements` (
   `id` int(11) NOT NULL,
+  `header` varchar(255) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `age` int(11) NOT NULL
+  `age` int(11) NOT NULL,
+  `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `announcements`
+--
+
+INSERT INTO `announcements` (`id`, `header`, `description`, `age`, `date`) VALUES
+(1, 'Black Friday Deal', 'Cheap Deals For the Holidays', 2, '2023-11-15 21:01:25'),
+(2, 'Opening for Boarding on 11/27', 'Reserve Now for a Chance for a Slot', 1, '2023-11-15 21:01:54');
 
 -- --------------------------------------------------------
 
@@ -86,8 +96,8 @@ CREATE TABLE `dog` (
 --
 
 INSERT INTO `dog` (`DogID`, `DogName`, `Breed`, `DogDOB`, `Sex`, `isFixed`, `Weight`, `Color`, `HasForms`, `DogOtherInfo`, `CustID`) VALUES
-(1, 'sherman', 'lab', '2004-10-15', 'M', 1, 75, 'yellow', 1, '', 14),
-(2, 'zeva', 'mutt', '2005-05-05', 'F', 1, 50, 'black', 0, '', 14);
+(1, 'Sherman', 'Lab', '2004-10-15', 'M', 1, 75, 'Yellow', 1, '', 14),
+(2, 'Zeva', 'Mutt', '2005-05-05', 'F', 1, 50, 'Black', 0, '', 14);
 
 -- --------------------------------------------------------
 
@@ -100,16 +110,16 @@ CREATE TABLE `dogbehavior` (
   `Experience` int(5) NOT NULL,
   `IsSocial` tinyint(1) NOT NULL,
   `IsAggressive` tinyint(1) NOT NULL,
-  `AggressiveDesc` varchar(500),
+  `AggressiveDesc` varchar(500) DEFAULT NULL,
   `IsJumper` tinyint(1) NOT NULL,
   `IsClimber` tinyint(1) NOT NULL,
   `IsChewer` tinyint(1) NOT NULL,
   `IsEscapeArtist` tinyint(1) NOT NULL,
-  `EscapeDesc` varchar(500),
+  `EscapeDesc` varchar(500) DEFAULT NULL,
   `CanWater` tinyint(1) NOT NULL,
   `CanTreat` tinyint(1) NOT NULL,
   `IsRestriction` tinyint(1) NOT NULL,
-  `RestrictionDesc` varchar(500),
+  `RestrictionDesc` varchar(500) DEFAULT NULL,
   `Toys` varchar(500) NOT NULL,
   `OtherBehaviorInfo` varchar(500) NOT NULL,
   `Reinforce` varchar(500) NOT NULL,
@@ -153,7 +163,7 @@ CREATE TABLE `dogvaccine` (
   `BordellaDate` date NOT NULL,
   `HasFleaTick` tinyint(1) NOT NULL,
   `FleaTickDate` date NOT NULL,
-  `OtherVacInfo` varchar(500),
+  `OtherVacInfo` varchar(500) DEFAULT NULL,
   `DogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -181,10 +191,10 @@ CREATE TABLE `grooming_reservation` (
 --
 
 INSERT INTO `grooming_reservation` (`GroomResID`, `ResStartDate`, `ResEndDate`, `EmerContact`, `EmerPhone`, `isApproved`, `GroomingDesc`, `isFinished`, `CustID`, `DogID`) VALUES
-(2, '2023-11-05', '2023-11-18', 'Todd Abraham', '999', 1, 'This is a description', 0, 14, 2),
-(3, '2023-10-29', '2023-10-31', 'Todd Abraham', '5555555555', 1, 'Descriptinnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn', 0, 14, 1),
-(4, '2023-11-05', '2023-11-25', 'Todd Abraham', '890-098-2343', 1, 'This is descriping how I want my dog groomed', 0, 14, 2),
-(6, '2023-11-12', '2023-11-25', 'EmerMan', '888-888-8888', 1, 'I want nails on dogs', 0, 14, 2);
+(2, '2023-11-05', '2023-11-18', 'Customer', '999-888-7777', 1, 'This is a description', 0, 14, 2),
+(3, '2023-10-29', '2023-10-31', 'Customer3', '5555555555', 1, 'Shave them', 0, 14, 1),
+(4, '2023-11-30', '2023-11-30', 'Customer4', '890-098-2343', 1, 'This is descripting how I want my dog groomed', 0, 14, 2),
+(6, '2023-11-12', '2023-11-25', 'EmerMan', '888-888-8888', 0, 'I want nails on dogs', 0, 14, 2);
 
 -- --------------------------------------------------------
 
@@ -224,10 +234,16 @@ CREATE TABLE `kennel` (
 --
 
 INSERT INTO `kennel` (`KennelID`, `KennelName`, `isOccupied`, `isBoarding`) VALUES
-(1, 'Boarding Kennel', 0, 1),
-(2, 'Daycare Kennel 1', 0, 0),
-(3, 'DC1', 0, 0),
-(4, 'BK1', 1, 1);
+(5, 'DC1', 0, 0),
+(6, 'DC2', 1, 0),
+(7, 'DC3', 0, 0),
+(8, 'DC4', 0, 0),
+(9, 'DC5', 0, 0),
+(10, 'BK1', 0, 1),
+(12, 'BK2', 0, 1),
+(13, 'BK3', 0, 1),
+(14, 'BK4', 0, 1),
+(15, 'BK5', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -259,7 +275,11 @@ INSERT INTO `reservation` (`Res_ID`, `ResStartTime`, `ResEndTime`, `EmerContact`
 (2, '2023-11-30', '2023-11-30', 'Todd', '999-999-9999', 1, 'Daycare', 1, 'Description', 1, 14, 1, 2),
 (3, '2023-11-15', '2023-11-23', 'Emer', '999-999-9999', 1, 'Boarding', 1, 'Reservations', 1, 14, 1, 3),
 (4, '2023-11-22', '2023-11-26', 'dsas', '9999', 1, 'Boarding', 1, 'asdfasdfa', 1, 14, 2, 1),
-(5, '2023-11-17', '2023-11-17', 'Bobby Joe', '999-999-9999', 1, 'Daycare', 1, 'Description YO', 1, 14, 1, 3);
+(5, '2023-11-17', '2023-11-17', 'Bobby Joe', '999-999-9999', 1, 'Daycare', 1, 'Description YO', 1, 14, 1, 3),
+(6, '2023-11-29', '2023-12-09', 'Contact for Emergency', '123-456-7890', 1, 'Boarding', 1, 'I am leaving for Vacation', 0, 14, 1, 6),
+(7, '2023-11-17', '2023-11-18', 'Emergency Contact', '123-456-7890', 0, 'Boarding', 1, 'Out of Town for the Week', 0, 14, 1, 0),
+(8, '2023-11-27', '2023-11-27', 'Contact', '345-678-9099', 0, 'Daycare', 1, 'Dr Appointment this Day', 0, 14, 1, 0),
+(9, '2023-12-09', '2023-12-09', 'Emergency Guy', '456-777-8788', 1, 'Daycare', 1, 'Gone for Day', 1, 14, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -391,7 +411,7 @@ ALTER TABLE `users_session`
 -- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -439,13 +459,13 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `kennel`
 --
 ALTER TABLE `kennel`
-  MODIFY `KennelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `KennelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `Res_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Res_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
