@@ -43,9 +43,10 @@
     </head>
 <body>
 <div class='content'>
-    <form method="POST" class="Grooming-Creator">
+    <form method="POST" class="Dog-Selector">
         <fieldset>
-            <legend>Select a Dog</legend>
+            <legend>Select a Dog for the Reservation</legend>
+            <br><br>
 
                 <!-- Php code for drop down menu for dogs --> 
                 <?php
@@ -65,7 +66,7 @@
                         if (!empty($dogData)) {
                             ?>  
                                 <!-- Dog Option for Each Dog in the Table -->
-                                <label for="dogDropdown">Select a dog:</label>
+                                <!-- <label for="dogDropdown">Select a dog:</label> -->
                                 <select id="dogDropdown" name="selectedDog">
                                     <?php foreach ($dogData as $dog) {
                                         $dogID = $dog ->DogID;
@@ -83,6 +84,7 @@
                         ?>
 
                         <!-- Generates Token and submits input -->
+                        <br><br><br>
                         <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                         <input type="submit" value="Next"><br><br>
 

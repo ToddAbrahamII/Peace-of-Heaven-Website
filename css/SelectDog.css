@@ -1,5 +1,64 @@
-/* Adjust the content area by creating space beside the sidebar */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+}
+
 .content {
-    margin-left: 12%;
-    padding: 20px;
-  }
+  margin-left: 12%;
+  padding: 20px;
+}
+
+.Dog-Selector {
+  text-align: left;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 50%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+.Dog-Selector fieldset {
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.Dog-Selector legend {
+  font-weight: bold;
+}
+
+.Dog-Selector label {
+  display: block;
+  margin: 5px 0;
+}
+
+.Dog-Selector select,
+.Dog-Selector input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.Dog-Selector input[type="submit"] {
+  background-color: #0074D9;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.Dog-Selector input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Style for error message */
+.invalid_username {
+  color: red;
+  font-weight: bold;
+}
