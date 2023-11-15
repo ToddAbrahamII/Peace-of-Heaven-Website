@@ -100,16 +100,16 @@ CREATE TABLE `dogbehavior` (
   `Experience` int(5) NOT NULL,
   `IsSocial` tinyint(1) NOT NULL,
   `IsAggressive` tinyint(1) NOT NULL,
-  `AggressiveDesc` varchar(500) NOT NULL,
+  `AggressiveDesc` varchar(500),
   `IsJumper` tinyint(1) NOT NULL,
   `IsClimber` tinyint(1) NOT NULL,
   `IsChewer` tinyint(1) NOT NULL,
   `IsEscapeArtist` tinyint(1) NOT NULL,
-  `EscapeDesc` varchar(500) NOT NULL,
+  `EscapeDesc` varchar(500),
   `CanWater` tinyint(1) NOT NULL,
   `CanTreat` tinyint(1) NOT NULL,
   `IsRestriction` tinyint(1) NOT NULL,
-  `RestrictionDesc` varchar(500) NOT NULL,
+  `RestrictionDesc` varchar(500),
   `Toys` varchar(500) NOT NULL,
   `OtherBehaviorInfo` varchar(500) NOT NULL,
   `Reinforce` varchar(500) NOT NULL,
@@ -128,16 +128,15 @@ CREATE TABLE `dogbehavior` (
 
 CREATE TABLE `doghealth` (
   `HealthID` int(11) NOT NULL,
+  `ClinicName` varchar(255) NOT NULL,
   `VetAddress` varchar(40) NOT NULL,
   `VetCity` varchar(30) NOT NULL,
   `VetState` varchar(2) NOT NULL,
   `VetZip` int(5) NOT NULL,
   `VetPhone` varchar(10) NOT NULL,
   `VetName` varchar(30) NOT NULL,
-  `Allergies` varchar(255) NOT NULL,
   `MedicalCond` varchar(255) NOT NULL,
-  `Impairments` varchar(255) NOT NULL,
-  `OtherHealthInfo` varchar(500) NOT NULL,
+  `Medication` varchar(255) NOT NULL,
   `DogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -154,7 +153,7 @@ CREATE TABLE `dogvaccine` (
   `BordellaDate` date NOT NULL,
   `HasFleaTick` tinyint(1) NOT NULL,
   `FleaTickDate` date NOT NULL,
-  `OtherVacInfo` varchar(500) NOT NULL,
+  `OtherVacInfo` varchar(500),
   `DogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

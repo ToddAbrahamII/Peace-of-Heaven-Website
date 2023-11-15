@@ -29,16 +29,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `doghealth` (
   `HealthID` int(11) NOT NULL,
+  `ClinicName` varchar(255) NOT NULL,
   `VetAddress` varchar(40) NOT NULL,
   `VetCity` varchar(30) NOT NULL,
   `VetState` varchar(2) NOT NULL,
   `VetZip` int(5) NOT NULL,
   `VetPhone` varchar(10) NOT NULL,
   `VetName` varchar(30) NOT NULL,
-  `Allergies` varchar(255) NOT NULL,
   `MedicalCond` varchar(255) NOT NULL,
-  `Impairments` varchar(255) NOT NULL,
-  `OtherHealthInfo` varchar(500) NOT NULL,
+  `Medication` varchar(255) NOT NULL,
   `DogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
