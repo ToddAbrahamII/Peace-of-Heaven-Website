@@ -76,30 +76,58 @@
       
       ?>
     <div class="view-button-container">
-        <a href="">
+        <a href="/PeaceOfHeavenWebPage/php/Customer Portal/AllAnnouncements.php">
             <button class="view-button">View All Announcements</button>
         </a>
     </div>
   <br><br>
 
     <!-- Table to showcase Confirmed Daycare and Boarding Reservations -->
-    <h2>Confirmed Boarding and Daycare Reservations</h2>
-    <table>
-    <thead>
-      <tr>
-      <th>Start Date</th>
-        <th>End Date</th>
-        <th>Dog</th>
-        <th>Service</th>
-        <th>Status</th>
-      </tr>
+        <h2>Confirmed Boarding and Daycare Reservations</h2>
+        <table>
+        <thead>
+          <tr>
+            <th>Date Range</th>
+            <th>Dog</th>
+            <th>Service</th>
+            <th>Status</th>
+          </tr>
     </thead>
     <tbody>
-      <!-- PHP Load Data Here -->     
+                  <?php
+                //Constructor Calls
+                //Retreives Dog, Customer, and Reservation
+                $reservation = new Reservation('service', array());
+                $dog = new Dog();
+                $customer = new Customer();
+                $customer->findCustInfo($user->data()->id);
+                $custid = $customer->data()->CustID;
+
+                //Gathers the data
+                $reservation->getConfirmedReservationsWithCustID($custid);
+                $allReservations = $reservation->getReservationData();
+
+                if(!empty($allReservations)){
+
+                    foreach ($allReservations as $reservation){
+                        echo '<tr>';
+                        echo '<td>' . $reservation->ResStartTime . '-'.$reservation->ResEndTime.'</td>';
+
+                        //Finds the dog name with their ID
+                        $dog->findDogInfoWithDogID($reservation->DogID);
+                        $dogName = $dog->data()->DogName;
+
+                        echo '<td>'.$dogName.'</td>';
+                        echo '<td>' . $reservation->ServiceType .'</td>';
+                        echo '<td> Confirmed </td>';
+                        echo '</tr>';
+
+                    }
+                }  ?>
     </tbody>
   </table>
     <div class="view-button-container">
-        <a href="">
+        <a href="/PeaceOfHeavenWebPage/php/Customer Portal/MyReservations.php">
             <button class="view-button">View My Reservations</button>
         </a>
     </div>
@@ -110,19 +138,49 @@
     <table>
     <thead>
       <tr>
-      <th>Start Date</th>
-        <th>End Date</th>
+        <th>Date Range</th>
         <th>Dog</th>
+        <th>Desscription</th>
         <th>Service</th>
         <th>Status</th>
       </tr>
     </thead>
     <tbody>
-      <!-- PHP Load Data Here -->     
+    <?php
+                //Constructor Calls
+                //Retreives Dog, Customer, and Reservation
+                $reservation = new GroomingReservation('service', array());
+                $dog = new Dog();
+                $customer = new Customer();
+                $customer->findCustInfo($user->data()->id);
+                $custid = $customer->data()->CustID;
+
+                //Gathers the data
+                $reservation->getConfirmedGroomingReservationsWithCustID($custid);
+                $allReservations = $reservation->getReservationData();
+
+                if(!empty($allReservations)){
+
+                    foreach ($allReservations as $reservation){
+                        echo '<tr>';
+                        echo '<td>' . $reservation->ResStartDate . '-'.$reservation->ResEndDate.'</td>';
+
+                        //Finds the dog name with their ID
+                        $dog->findDogInfoWithDogID($reservation->DogID);
+                        $dogName = $dog->data()->DogName;
+
+                        echo '<td>'.$dogName.'</td>';
+                        echo '<td>'.$reservation->GroomingDesc . '</td>';
+                        echo '<td>Grooming</td>';
+                        echo '<td> Confirmed </td>';
+                        echo '</tr>';
+
+                    }
+                }  ?> 
     </tbody>
   </table>
     <div class="view-button-container">
-        <a href="">
+        <a href="/PeaceOfHeavenWebPage/php/Customer Portal/MyReservations.php">
             <button class="view-button">View My Reservations</button>
         </a>
     </div>
@@ -133,8 +191,7 @@
   <table>
     <thead>
       <tr>
-        <th>Start Date</th>
-        <th>End Date</th>
+        <th>Date Range</th>
         <th>Dog</th>
         <th>Service</th>
         <th>Status</th>
@@ -142,7 +199,36 @@
     </thead>
     <tbody>
       <tr>
-        <!-- PHP Data Loaded In Here -->
+      <?php
+                //Constructor Calls
+                //Retreives Dog, Customer, and Reservation
+                $reservation = new Reservation('service', array());
+                $dog = new Dog();
+                $customer = new Customer();
+                $customer->findCustInfo($user->data()->id);
+                $custid = $customer->data()->CustID;
+
+                //Gathers the data
+                $reservation->getUnApprovedReservationsWithCustID($custid);
+                $allReservations = $reservation->getReservationData();
+
+                if(!empty($allReservations)){
+
+                    foreach ($allReservations as $reservation){
+                        echo '<tr>';
+                        echo '<td>' . $reservation->ResStartTime . '-'.$reservation->ResEndTime.'</td>';
+
+                        //Finds the dog name with their ID
+                        $dog->findDogInfoWithDogID($reservation->DogID);
+                        $dogName = $dog->data()->DogName;
+
+                        echo '<td>'.$dogName.'</td>';
+                        echo '<td>' . $reservation->ServiceType .'</td>';
+                        echo '<td> Confirmed </td>';
+                        echo '</tr>';
+
+                    }
+                }  ?>
       </tr>
     </tbody>
   </table>

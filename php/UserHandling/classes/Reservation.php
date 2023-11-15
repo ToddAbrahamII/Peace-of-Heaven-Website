@@ -88,17 +88,20 @@ class Reservation {
      */
     public function getUnApprovedReservationsWithCustID($customer = null)
     {
-        if ($customer) {
-            //Gathers all data as a string
-            $data = $this->_db->get('reservation', array('CustID', '=', $customer));
+        $whereConditions = array(
+            'isApproved' => 0,
+            'isFinished' => 0,
+            'CustID' => $customer,
+        );
 
-            if ($data->count() > 0) {
-                //Takes all data, sorts into an array so it can be printed in rows
-                $this->_reservationData = $data->results();
-                return true;
-            }
+        $data = $this->_db->selectWhere('reservation', $whereConditions);
+
+        if ($data->count() > 0) {
+            $this->_reservationData = $data->results();
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     /**
@@ -152,6 +155,27 @@ class Reservation {
         $whereConditions = array(
             'isApproved' => 1,
             'isFinished' => 0,
+        );
+
+        $data = $this->_db->selectWhere('reservation', $whereConditions);
+
+        if ($data->count() > 0) {
+            $this->_reservationData = $data->results();
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+     /**
+     * Gets confirmed reservations for customer
+     */
+    public function getConfirmedReservationsWithCustID($customer){
+        $whereConditions = array(
+            'isApproved' => 1,
+            'isFinished' => 0,
+            'CustID' => $customer,
         );
 
         $data = $this->_db->selectWhere('reservation', $whereConditions);

@@ -131,7 +131,7 @@ class GroomingReservation {
     }
 
         /**
-         * Gets confirmed unfinished reservations
+         * Gets confirmed confirmed reservations
          */
     public function getConfirmedGroomingReservations(){
         $whereConditions = array(
@@ -149,6 +149,27 @@ class GroomingReservation {
         }
 
     }
+
+        /**
+         * Gets confirmed confirmed reservations
+         */
+        public function getConfirmedGroomingReservationsWithCustID($customer){
+            $whereConditions = array(
+                'isApproved' => 1,
+                'isFinished' => 0,
+                'CustID' => $customer
+            );
+    
+            $data = $this->_db->selectWhere('grooming_reservation', $whereConditions);
+    
+            if ($data->count() > 0) {
+                $this->_groomingReservationData = $data->results();
+                return true;
+            } else {
+                return false;
+            }
+    
+        }
 }
 
 
