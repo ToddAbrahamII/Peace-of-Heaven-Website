@@ -31,6 +31,7 @@
 </head>
 <body> 
 <div class=content>
+<h1>Admin Control Panel<h1>
 <h2>Customer Account Actions:</h2>
   <a href="">Create Customer Account</a>
   <a href="">Update Customer Account</a>
@@ -60,6 +61,11 @@
   <a href="">Create Kennel</a>
   <a href="">Update Kennel</a>
   <a href="">Delete Kennel</a>
+
+  <h2>Announcement Actions:</h2>
+  <a href="">Create Announcement</a>
+  <a href="">Update Announcement</a>
+  <a href="">Delete Announcement</a>
 
 </div>
 </body>
