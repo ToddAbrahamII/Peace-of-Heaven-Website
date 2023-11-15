@@ -109,7 +109,9 @@ class GroomingReservation {
     }
     }
 
-        
+    /**
+     * Gets unapproved reservations with customer id
+     */
     public function getUnApprovedReservationsWithCustID($customer = null) {
         if ($customer) {
             $whereConditions = array(
@@ -126,6 +128,26 @@ class GroomingReservation {
                 return false;
             }
         }
+    }
+
+        /**
+         * Gets confirmed unfinished reservations
+         */
+    public function getConfirmedGroomingReservations(){
+        $whereConditions = array(
+            'isApproved' => 1,
+            'isFinished' => 0,
+        );
+
+        $data = $this->_db->selectWhere('grooming_reservation', $whereConditions);
+
+        if ($data->count() > 0) {
+            $this->_groomingReservationData = $data->results();
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
 

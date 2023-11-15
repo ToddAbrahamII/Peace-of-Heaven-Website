@@ -82,8 +82,31 @@
     </div>
   <br><br>
 
-    <!-- Table to showcase Confirm Reservations -->
-    <h2>Confirmed Reservations</h2>
+    <!-- Table to showcase Confirmed Daycare and Boarding Reservations -->
+    <h2>Confirmed Boarding and Daycare Reservations</h2>
+    <table>
+    <thead>
+      <tr>
+      <th>Start Date</th>
+        <th>End Date</th>
+        <th>Dog</th>
+        <th>Service</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- PHP Load Data Here -->     
+    </tbody>
+  </table>
+    <div class="view-button-container">
+        <a href="">
+            <button class="view-button">View My Reservations</button>
+        </a>
+    </div>
+  <br><br>
+
+      <!-- Table to showcase Confirmed Grooming Reservations -->
+      <h2>Confirmed Grooming Reservations</h2>
     <table>
     <thead>
       <tr>

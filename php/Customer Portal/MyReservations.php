@@ -43,7 +43,7 @@
 <body>
     <div class = 'content'>
           <!-- Table to show pending reservations -->
-  <h2>Pending Boarding and Daycare Reservations</h2>
+  <h2>Boarding and Daycare Reservations</h2>
   <table>
     <thead>
       <tr>

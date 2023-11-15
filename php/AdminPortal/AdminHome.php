@@ -59,7 +59,7 @@
 
                     foreach ($allReservations as $reservation){
                         echo '<tr>';
-                        echo '<td>' . $reservation->ResStartTime . '</td>';
+                        echo '<td>' . $reservation->ResStartTime . '-'.$reservation->ResEndTime.'</td>';
 
                         //Finds the dog name with their ID
                         $dog->findDogInfoWithDogID($reservation->DogID);
@@ -67,6 +67,55 @@
 
                         echo '<td>'.$dogName.'</td>';
                         echo '<td>' . $reservation->ServiceType .'</td>';
+                        echo '<td> Confirmed </td>';
+                        echo '</tr>';
+
+                    }
+                }
+
+            ?>
+
+            </tbody>
+        </table>
+        <br><br>
+
+                <!-- View for Confirmed Grooming Reservations-->
+                <h2>All Confirmed Upcoming Grooming Reservations</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Date Range</th>
+                <th>Dog</th>
+                <th>Description</th>
+                <th>Service</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+                //Constructor Calls
+                $reservation = new GroomingReservation('service', array());
+                $dog = new Dog();
+                $customer = new Customer();
+
+                //Gathers the data
+                $reservation->getConfirmedGroomingReservations();
+                $allReservations = $reservation->getReservationData();
+
+                if(!empty($allReservations)){
+
+                    foreach ($allReservations as $reservation){
+                        echo '<tr>';
+                        echo '<td>' . $reservation->ResStartDate . '</td>';
+
+                        //Finds the dog name with their ID
+                        $dog->findDogInfoWithDogID($reservation->DogID);
+                        $dogName = $dog->data()->DogName;
+
+                        echo '<td>'.$dogName.'</td>';
+                        $groomDesc = $reservation->GroomingDesc;
+                        echo '<td>'.$groomDesc.'</td>';
+                        echo '<td> Grooming </td>';
                         echo '<td> Confirmed </td>';
                         echo '</tr>';
 
