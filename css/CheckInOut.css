@@ -1,0 +1,58 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.content {
+    margin: 10% auto;
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    width: 100%;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Drop-down styling */
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+select {
+    width: 100%; /* Fix the width percentage */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    background-color: #39A7FF;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+    background-color: #297db9;
+}

@@ -28,13 +28,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/CustHome.css">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/CheckInOut.css">
 
     <title>Check In Portal</title>
 </head>
 <body> 
 <div class=content>
-<form method="POST" class="Grooming-Creator">
+<form method="POST">
         <fieldset>
             <legend>Select a Reservation to Check In</legend>
 

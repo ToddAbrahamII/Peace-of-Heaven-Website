@@ -34,57 +34,101 @@
 <body> 
     <div class=content>
         <!-- Table to showcase Confirm Reservations -->
-        <h2>All Kennels</h2>
-        <table>
-        <thead>
-        <tr>
-            <th>Kennel Name</th>
-            <th>Kennel Type</th>
-            <th>Status</th>
-        </tr>
-        </thead>
-        <tbody>
+        <h1>All Kennels</h1>
+
+        <h2>Boarding Kennels</h2>
             <?php
                 //populates array with all kennel data
-                $kennel->getKennels();
+                $kennel->getBoardingKennels();
                 $kennel = $kennel->data();
-                
+
+                echo'<div class="kennel-container">';
+
                 if(!empty($kennel)){
                     //Goes through each table row
 
-    
+                    //prints all boarding kennels
                     foreach ($kennel as $kennel){
-
+                    
                     //gather data for if checks
-                    $occupation = $kennel->isOccupied;
-                    $kennelType = $kennel->isBoarding;
-
                     //prints rows
-                    echo '<tr>';
-                    echo '<td>'. $kennel->KennelName . '</td>';
+                    echo '<div class="kennel-box">';
+                    echo '<div class="kennel-title">';
+                    echo '<h3>'. $kennel->KennelName . '</h3>';
+                    echo '</div>';
+                    echo '<div class="kennel-info">';
 
                     //Formats the kennel type
-                    if($kennelType == 0)
-                    {
-                        echo'<td>Boarding<td>';
-                    }else{
-                        echo '<td>Daycare<td>';
-                    }
-
+                    echo'<p>Kennel Type: Boarding</p>';
+                 
+                    $occupation = $kennel->isOccupied;
                     //Formats open vs occupied
                     if($occupation == 0){
-                        echo '<td>Open<td>';
+                        echo '<p>Status: Open</p>';
                     }else{
-                        echo '<td>Occupied<td>';
+                        echo '<p>Status: Occupied</p>';
                     }
 
-                    echo '<tr>';
-
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<br>';
+                        }
+            
                     }
-                }?>
-        </tbody>
-    </table>
-    <br><br>
+
+
+                ?>
+            </div>
+            <br><br><br><br>
+
+            <!-- Daycare Kennels -->
+            <h2>Daycare Kennels</h2>
+            <?php
+                //populates array with all kennel data
+                $kennel = new Kennel();
+                $kennel->getDayCareKennels();
+                $kennel = $kennel->data();
+
+                echo'<div class="kennel-container">';
+
+                if(!empty($kennel)){
+                    //Goes through each table row
+
+                    //prints all boarding kennels
+                    foreach ($kennel as $kennel){
+                    
+                    //gather data for if checks
+                    //prints rows
+                    echo '<div class="kennel-box">';
+                    echo '<div class="kennel-title">';
+                    echo '<h3>'. $kennel->KennelName . '</h3>';
+                    echo '</div>';
+                    echo '<div class="kennel-info">';
+
+                    //Formats the kennel type
+                    echo'<p>Kennel Type: Boarding</p>';
+                 
+                    $occupation = $kennel->isOccupied;
+                    //Formats open vs occupied
+                    if($occupation == 0){
+                        echo '<p>Status: Open</p>';
+                    }else{
+                        echo '<p>Status: Occupied</p>';
+                    }
+
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<br>';
+                        }
+            
+                    }
+
+
+                ?>
+            </div>
+    
+</div>
+            
 
 </div>
 </body>

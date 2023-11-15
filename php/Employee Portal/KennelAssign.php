@@ -32,7 +32,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AdminHome.css">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/CheckInOut.css">
 
     <title>Assign Kennel</title>
 </head>
@@ -76,6 +76,7 @@
                 <?php }else{ echo "No Kennels Found";} ?>
 
                 <!-- Generates Token and submits input -->
+                <br>
                 <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                 <input type="submit" value="Check In Reservation"><br><br>
 

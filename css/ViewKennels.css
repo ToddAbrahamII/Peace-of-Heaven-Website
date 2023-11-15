@@ -1,5 +1,59 @@
-/* Adjust the content area by creating space beside the sidebar */
-.content {
-    margin-left: 12%;
-    padding: 20px;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
 }
+
+.content {
+    margin-left: 13%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    color: black;
+    text-align: center;
+}
+
+.kennel-container {
+    display: flex;
+    justify-content: center; /* Center the boxes horizontally */
+    align-items: flex-start; /* Align the boxes to the top of the container */
+    overflow-x: auto;
+    flex-wrap: wrap;
+    margin-top: 20px; /* Adjust this margin as needed */
+}
+
+.kennel-box {
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.kennel-title {
+    background-color: #39A7FF;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.kennel-info {
+    padding: 10px;
+}
+
+.kennel-info p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+/* Add any additional styles as needed */

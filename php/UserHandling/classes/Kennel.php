@@ -85,6 +85,40 @@ class Kennel {
     }
 
     /**
+     * Gathers all kennels
+     */
+    public function getBoardingKennels()
+    {
+         //Gathers all data as a string
+         $data = $this->_db->get('kennel', array('isBoarding', '=', 1));
+
+         if($data->count() > 0) {
+             //Takes all data, sorts into an array so it can be printed in rows
+             $this->_kennelData = $data->results();
+             return true;
+         }else{
+             return false;
+         }
+    }
+
+    /**
+     * Gathers all kennels
+     */
+    public function getDayCareKennels()
+    {
+         //Gathers all data as a string
+         $data = $this->_db->get('kennel', array('isBoarding', '=', 0));
+
+         if($data->count() > 0) {
+             //Takes all data, sorts into an array so it can be printed in rows
+             $this->_kennelData = $data->results();
+             return true;
+         }else{
+             return false;
+         }
+    }
+
+    /**
      * Returns data for kennel
      */
     public function data(){
