@@ -29,8 +29,10 @@
   }
   
   thead {
-    background-color: #f2f2f2;
+    background-color: #39A7FF;
+    color: white;
   }
+  
   
   th, td {
     border: 1px solid #dddddd;
