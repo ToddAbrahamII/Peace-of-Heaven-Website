@@ -174,7 +174,7 @@
                                         ));
 
                                         //Redirects to confirmation page
-                                        Redirect::to("../Customer Portal/Confirmation.php");
+                                        Redirect::to('../Customer Portal/Confirmation.php');
 
                                     } 
                                     //Error Handling
