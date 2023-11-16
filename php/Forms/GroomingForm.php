@@ -77,6 +77,38 @@
                         }
                         ?>
                         <br><br>
+<!-- 
+                        < ?php
+    //The following code get dates on a weekly basis instead of a day basis
+    // Get the current date
+    $currentDate = date('Y-m-d');
+    setlocale(LC_TIME, 'en_US');
+    // N is the numeric representation of a day
+    $dayOfWeek = date('N', strtotime($currentDate));
+    //makes sure it's asking about the correct week. If saturday, it makes this week be next week instead
+    switch ($dayOfWeek) {
+        case 6:
+            $thisWeekMonday = date('Y-m-d', strtotime('next monday', strtotime($currentDate)));
+            break;
+        case 1:
+        case 7:
+            $thisWeekMonday = date('Y-m-d', strtotime('this monday', strtotime($currentDate)));
+            break;
+        default:
+            $thisWeekMonday = date('Y-m-d', strtotime('last monday', strtotime($currentDate)));
+            break;
+    }
+    $nextWeekMonday = date('Y-m-d', strtotime('+1 week', strtotime($thisWeekMonday)));
+    ?>
+                        <legend>Select your preferred week for the grooming appointment:</legend> 
+                            <input type="radio" id="1a" name="Time" value="0">
+                            <label for="1a">This Week (Starting < ?php echo $thisWeekMonday; ?> )</label>
+                            <input type="radio" id="1b" name="Time" value="1">
+                            <label for="1b">Next Week (Starting < ?php echo $nextWeekMonday; ?>)</label>
+                            <input type="radio" id="1c" name="Time" value="2">
+                            <label for="1c">Some other time</label> 
+-->
+
                         <!-- User selects a time range -->
                         <h3>Select a time range that you can schedule a grooming appointment on</h3>
                             <!-- First Date in the Time Range -->
