@@ -53,6 +53,19 @@ class Dog {
         }
     }
 
+     /**
+     * Writes to behavior table
+     * @param mixed $fields
+     * @throws \Exception
+     * @return void
+     */
+    public function createHealthRecord($fields) {
+        if(!$this->_db->insert('doghealth', $fields)) {
+            throw new Exception('There was a problem adding behavior info');
+            //BehaviorID, IsSocial, FoodPref, IsJumper, IsEscapeArtist, IsClimber, IsLeashedTrained, IsChewer, Is
+        }
+    }
+
     /**
      * Finds the first dog in the table linked to the CustID
      * @param mixed $fields

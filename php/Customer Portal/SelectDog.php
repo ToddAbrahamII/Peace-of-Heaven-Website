@@ -137,7 +137,7 @@
                                     if($formCheck == 0){
                                         
                                         //Goes to forms and stores dog and customer ids
-                                        Redirect::to('../Customer Portal/CustHome.php');
+                                        Redirect::to('../Forms/DogForms.php?dogid='.$selectedDog->data()->DogID.'&service='.$_SESSION['service']);
 
                                     }
 

@@ -1,12 +1,41 @@
 <?php
-    // BEHAVIOR
-    session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
-
-    //Info Has been moved over, but not cleaned up, yet
     require_once '../UserHandling/core/init.php';
+    
+    //Make sure session is logged in
+    if (!Session::exists('home')) {
+        echo '<p>'. Session::flash('home') .'</p>';
+    }
 
-    include("connection.php"); //Needed for making login required, calls other php page
-    include("functions.php");//Needed for making login required, calls other php page
+    //Class Constructor Calls
+    $user = new User();
+    $customer = new Customer();
+    $dog = new Dog();
+
+    //Checks if user is logged in
+    if($user->isLoggedIn()) {
+
+    //Adds Customer NavBar if Customer Acct logged in
+    if($user->data()->group == 1){
+        include("../Customer Portal/CustNavBar.php");
+    }
+
+    //Adds Employee NavBar if Employee Acct logged in
+    if($user->data()->group == 2){
+        include("../Employee Portal/EmpNavBar.php");
+    }
+
+    //Adds Admin NavBar if Admin Acct logged in
+    if($user->data()->group == 3 ){
+        include("../AdminPortal/AdminNavBar.php");
+    }
+
+        //Grabs all sessions variables from the previous page
+    if (isset($_GET['dogid']) && isset($_GET['service'])) {
+            $_SESSION['dogid'] = $_GET['dogid'];
+            $_SESSION['service'] = $_GET['service'];
+        
+        }
+
     $user = new User(); //constructor call
     $customer = new Customer(); //constructor call 
     
@@ -54,12 +83,15 @@
     
                 // If all rules are satisfied, create new customer
                 if($validation->passed()) {
+
+                    if(Input::exists()){
+
                     try{
                         //Creates array of all input to be inserted into Dog Behavior table
-                        $dog = new dog(); //constructor call
+                        $dog = new Dog(); //constructor call
                         $customer->findCustInfo($user->data()->id); //Finds matching user id
                         $custid = $customer->data()->CustID; //stores the customer id
-                        $dogid = $dog
+                        $dogid = $_SESSION['dogid'];
 
                         $dog->createBehaviorRecord(array(
 
@@ -83,7 +115,7 @@
                             'IsLeashTrained' => Input:: get('IsLeashTrained'),
                             'FoodPref' => Input::get('FoodPref'),
                             'BathroomRoutine' => Input::get('BathroomRoutine'),
-                           // 'DogID' => $dogID, 
+                            'DogID' =>  $_SESSION['dogid'],
                         ));
                         
                         $dog->createHealthRecord(array(
@@ -95,9 +127,9 @@
                             'VetPhone' => Input::get('VetPhone'),
                             'VetName' => Input::get('VetName'),
                             'MedicalCond' => Input::get('MedicalCond'),
-                            'Medication' => Input::get('Medication')
-                             // 'DogID' => $dogID,
-                        ))
+                            'Medication' => Input::get('Medication'),
+                            'DogID' =>  $_SESSION['dogid'],
+                        ));
 
                         $dog->createVaccineRecord(array(
                             'DHPP_Date' => Input::get('DHPP_Date'),
@@ -105,11 +137,35 @@
                             'BordellaDate' => Input::get('BordellaDate'),
                             'FleaTickProduct' => Input::get('FleaTickProduct'),
                             'FleaTickDate' => Input::get('FleaTickDate'),
-                            'OtherVacInfo' => Input::get('OtherVacInfo')
-                            //'DogID' => $dogID, 
+                            'OtherVacInfo' => Input::get('OtherVacInfo'),
+                            'DogID' => $_SESSION['dogid'],
                         ));
+                        
+                        //Update Forms Value to 1
+                            //DB Instance for Update
+                            $db = DB::getInstance();
 
-                        Redirect::to('../Customer Portal/CustHome.php');
+                        
+                            //sets table and fields
+                            $table = 'dog';
+                            $id = $dogid;
+                            $idcolumn = 'DogID';
+                            $fields = array(
+                            //Updates the dog to HasForms
+                                'HasForms' => 1,
+                                            );
+                        
+                            //updates
+                            $db->updateWithID($table, $id, $idcolumn, $fields);
+
+                        //Add if statements to know which form to redirect to
+                        if($_SESSION['service'] == 'Boarding'){
+                            Redirect::to('../Forms/BoardingForm.php?dogid='.$dogid . '&custid=' . $custid);
+                        }
+
+                        if($_SESSION['service'] == 'Daycare'){
+                            Redirect::to('../Forms/DayCareForm.php?dogid='.$dogid . '&custid=' . $custid);
+                        }
     
                     }
                     catch(Exception $e) {
@@ -123,6 +179,7 @@
                     }   
                 }
             }
+            }
         }
     }
     
@@ -132,7 +189,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AcctInfo.css"> -->
+        <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AcctInfo.css">
     </head>        
     <body>
         <form method="POST" class="DogBehavior=Form">
@@ -326,8 +383,15 @@
                 <label for="OtherVacInfo">Please list below any other vaccination information we may need to know:<br></label>
                 <textarea name="OtherVacInfo" id="OtherVacInfo"></textarea></p>
             </p>
+            
+            <!-- Generates Token and submits input -->
+            <br><br><br>
+            <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+            <input type="submit" value="Complete Forms"><br><br>
+
             <!-- Do we want to include an E-Signature? -->
         </fieldset>
         </form>
     </body>
 </html>
+<?php }else{Redirect::to('../UserHandling/login.php');}?>
