@@ -75,8 +75,62 @@
                             // Prints No Dogs Statement
                             echo "No dogs found for the customer.";
                         }
+
+                        //Checks if input exists
+                        if(Input::exists()){
+           
+                            if(Token::check(Input::get('token')) || 1==1) { //validation is not passing for some reason
+                                $validate = new Validate();
+                                $validation = $validate->check($_POST, array(
+                                    ### Insert rules that acctInfo fields must meet in addition to js validation ###
+                                ));
+                    
+                                // If all rules are satisfied, create new customer
+                                if($validation->passed()) {
+                                    try{ 
+                                        //Gets the selected Dogs Info
+                                        $selectedDogID = Input::get('selectedDog');
+                                        $selectedDog = new Dog();
+                                        $selectedDog->findDogInfoWithDogID($selectedDogID);
+                                        $dogSelected = $selectedDog->data();
+                    
+                                        //constructor call for grooming reservation
+                                        $reservation = new GroomingReservation('Grooming', array($dogSelected));
+                    
+                                        //Add reservation to reservation table
+                                        $reservation->createReservation(array(
+                                            
+                                            'ResStartDate' => Input::get('startDate'),
+                                            'ResEndDate' =>Input::get('lastDate'),
+                                            'EmerContact' => Input::get('emergencyContactName'),
+                                            'EmerPhone' => Input::get('emergencyContactPhone'),
+                                            'isApproved' => 0,
+                                            'GroomingDesc' => Input::get('groomingDescription'),
+                                            'CustID' => $custid,
+                                            'DogID' => $selectedDog->data()->DogID
+                                        ));
+                    
+                                        //Redirects to confirmation page
+                                        Redirect::to('../Customer Portal/Confirmation.php');
+                    
+                                    } 
+                                    //Error Handling
+                                    catch(Exception $e) {
+                                        die($e->getMessage());
+                                        
+                                    }
+                                }else { ## Is this an error?
+                                    // output errors
+                                    foreach ($validation->errors() as $error) {
+                                        echo $error, '<br>';
+                            }
+                    
+                        }
+                    }
+                    }
                         ?>
                         <br><br>
+
 <!-- 
                         < ?php
     //The following code get dates on a weekly basis instead of a day basis
@@ -137,67 +191,7 @@
                         <!-- Generates Token and submits input -->
                         <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                         <input type="submit" value="Next"><br><br>
-
-
-                        <?php 
-                        if(Input::exists()){
-                               
-                            if(Token::check(Input::get('token')) || 1==1) { //validation is not passing for some reason
-                                $validate = new Validate();
-                                $validation = $validate->check($_POST, array(
-                                    ### Insert rules that acctInfo fields must meet in addition to js validation ###
-                                ));
-                    
-                                // If all rules are satisfied, create new customer
-                                if($validation->passed()) {
-                                    try{ 
-                                        //Gets the selected Dogs Info
-                                        $selectedDogID = Input::get('selectedDog');
-                                        $selectedDog = new Dog();
-                                        $selectedDog->findDogInfoWithDogID($selectedDogID);
-                                        $dogSelected = $selectedDog->data();
-
-                                        //constructor call for grooming reservation
-                                        $reservation = new GroomingReservation('Grooming', array($dogSelected));
-
-                                        //Add reservation to reservation table
-                                        $reservation->createReservation(array(
-                                            
-                                            'ResStartDate' => Input::get('startDate'),
-                                            'ResEndDate' =>Input::get('lastDate'),
-                                            'EmerContact' => Input::get('emergencyContactName'),
-                                            'EmerPhone' => Input::get('emergencyContactPhone'),
-                                            'isApproved' => 0,
-                                            'GroomingDesc' => Input::get('groomingDescription'),
-                                            'CustID' => $custid,
-                                            'DogID' => $selectedDog->data()->DogID
-                                        ));
-
-                                        //Redirects to confirmation page
-                                        Redirect::to('../Customer Portal/Confirmation.php');
-
-                                    } 
-                                    //Error Handling
-                                    catch(Exception $e) {
-                                        die($e->getMessage());
-                                        
-                                    }
-                                }else { ## Is this an error?
-                                    // output errors
-                                    foreach ($validation->errors() as $error) {
-                                        echo $error, '<br>';
-                            }
-
-                        }
-                    }
-                }
-
-                    
-                        
-                        ?> 
-                        
-
-                        
+       
             </fieldset>
         </form> 
     </div>
