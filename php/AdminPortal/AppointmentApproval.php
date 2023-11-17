@@ -290,24 +290,40 @@
         <!-- PHP If Statement for Update Dates -->
         <?php
             if($_SESSION['service'] == 'Grooming'){
+                //echo for confirming dates
                 echo '<label for="ResStartTime">Confirm the Date for this Grooming Appointment:</label>';
                 echo'<input type="date" id="ResStartTime" name="ResStartTime" required><br>';
         
             }
+            
+            if($_SESSION['service'] != 'Grooming')
+            {
+                //Dog Behavior Html
+
+
+                //Dog Health Html
+
+
+                //Dog Vaccine Html
+
+
+
 
             if($_SESSION['service'] == 'Boarding'){
+                //Echo format for Confirming dates
                 echo '<p>Confirm the Dates for this Boarding Appointment</p>';
                 echo '<label for="ResStartTime">Start Date:</label>';
                 echo'<input type="date" id="ResStartTime" name="ResStartTime" required>';
-
                 echo '<label for="ResEndTime">End Date:</label>';
                 echo'<input type="date" id="ResEndTime" name="ResEndTime" required><br>';
             }
 
             if($_SESSION['service'] == 'Daycare'){
+                //Echo for confirming dates
                 echo '<label for="ResStartTime">Confirm the Date for this Daycare Appointment:</label>';
                 echo'<input type="date" id="ResStartTime" name="ResStartTime" required><br>';
             }
+        }
         ?>
 
         
