@@ -41,6 +41,24 @@ class Dog {
     }
 
     /**
+     * Finds the Vaccine info of the selected dog
+     */
+    public function findVaccineRecord($dog = null){
+        if($dog){
+            $fields = 'DogID';
+            $data = $this->_db->get('dogvaccine', array($fields, '=', $dog));
+
+            if($data->count() > 0) {
+                $this->_dogData = $data->first();
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
+
+
+    /**
      * Writes to behavior table
      * @param mixed $fields
      * @throws \Exception
@@ -50,6 +68,23 @@ class Dog {
         if(!$this->_db->insert('dogbehavior', $fields)) {
             throw new Exception('There was a problem adding behavior info');
             //BehaviorID, IsSocial, FoodPref, IsJumper, IsEscapeArtist, IsClimber, IsLeashedTrained, IsChewer, Is
+        }
+    }
+
+    /**
+     * Finds the Vaccine info of the selected dog
+     */
+    public function findBehaviorRecord($dog = null){
+        if($dog){
+            $fields = 'DogID';
+            $data = $this->_db->get('dogbehavior', array($fields, '=', $dog));
+
+            if($data->count() > 0) {
+                $this->_dogData = $data->first();
+                return true;
+            }
+        }else{
+            return false;
         }
     }
 
@@ -66,6 +101,24 @@ class Dog {
         }
     }
 
+    /**
+     * Finds the Vaccine info of the selected dog
+     */
+    public function findHealthRecord($dog = null){
+        if($dog){
+            $fields = 'DogID';
+            $data = $this->_db->get('doghealth', array($fields, '=', $dog));
+
+            if($data->count() > 0) {
+                $this->_dogData = $data->first();
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    
     /**
      * Finds the first dog in the table linked to the CustID
      * @param mixed $fields
@@ -133,7 +186,7 @@ class Dog {
         
     }
     
-        
+    
     
 
     /**

@@ -59,6 +59,7 @@
     $dogOtherInfo = $dog->data()->DogOtherInfo;
 
 
+
     // <!--PHP If Statement for Grooming Appointment Details-->
     if($_SESSION['service'] == 'Grooming')
     {
@@ -299,14 +300,136 @@
             if($_SESSION['service'] != 'Grooming')
             {
                 //Dog Behavior Html
-
+                $dog -> findBehaviorRecord($_SESSION['dogid']);
+                $behavior = $dog ->data();
+                echo '<h2>Dog Behavior Information</h2>';
+                //switch case for Experience values
+                $exp = $behavior -> Experience;
+                switch ($exp) {
+                    case 0:
+                        echo '<p>Daycare/Boarding Experience: Never attempted either</p>';
+                        break;
+                    case 1:
+                        echo '<p>Daycare/Boarding Experience: Boarding and/or daycare client in past but no more than twice a year</p>';
+                        break;
+                    case 2:
+                        echo '<p>Daycare/Boarding Experience: Has been at least once but stresses easily or does not adjust well to unfamiliar environments</p>';
+                        break;
+                    case 3:
+                        echo '<p>Daycare/Boarding Experience: Boarded regularly & adjusts easily</p>';
+                        break;
+                    case 4:
+                        echo '<p>Daycare/Boarding Experience: Attends daycare often & socializes well</p>';
+                        break; 
+                    default:
+                        echo '<p>Daycare/Boarding Experience: Error grabbing information</p>';
+                        break;
+                }
+                if($behavior -> IsSocial == 1){
+                        echo '<p>Can the dog engage in social play?: Yes';
+                }
+                else{
+                        echo '<p>Can the dog engage in social play?: No';
+                }
+                if($behavior -> IsAggressive == 1){
+                    echo '<p>Is the dog aggressive?: Yes';
+                }
+                else{
+                    echo '<p>Is the dog aggressive: No';
+                }
+                if(!empty($behavior ->AggressiveDesc))
+                {
+                    echo '<p>Description of Event: '  .  $behavior-> AggressiveDesc . '</p>';
+                }
+                if($behavior -> IsJumper == 1){
+                    echo '<p>Is the dog a Jumper?: Yes';
+                }
+                else{
+                    echo '<p>Is the dog a Jumper?: No';
+                }
+                if($behavior -> IsClimber == 1){
+                    echo '<p>Is the dog a Climber?: Yes';
+                }
+                else{
+                    echo '<p>Is the dog a Climber?: No';
+                }
+                if($behavior -> IsChewer == 1){
+                    echo '<p>Is the dog a Chewer?: Yes';
+                }
+                else{
+                    echo '<p>Is the dog a Chewer?: No';
+                }
+                if($behavior -> IsEscapeArtist == 1){
+                    echo '<p>Is the dog an Escape Artist?: Yes';
+                }
+                else{
+                    echo '<p>Is the dog an Escape Artist?: No';
+                }
+                if(!empty($behavior ->EscapeDesc))
+                {
+                    echo '<p>Description of Event: '  .  $behavior-> EscapeDesc . '</p>';
+                }
+                if($behavior -> CanWater == 1){
+                    echo '<p>Can the dog do water activities?: Yes';
+                }
+                else{
+                    echo '<p>Can the dog do water activities?: No';
+                }
+                if($behavior -> CanTreat == 1){
+                    echo '<p>Can the dog have treats?: Yes';
+                }
+                else{
+                    echo '<p>Can the dog have treats?: No';
+                }
+                if($behavior -> IsLeashTrained == 1){
+                    echo '<p>Is the dog Leash Trained?: Yes';
+                }
+                else{
+                    echo '<p>Is the dog Leash Trained?: No';
+                }
+                if($behavior -> IsRestriction == 1){
+                    echo '<p>Any activity restrictions?: Yes';
+                }
+                else{
+                    echo '<p>Any activity restrictions?: No';
+                }
+                if(!empty($behavior ->RestrictionDesc))
+                {
+                    echo '<p>Restriction Description: '  .  $behavior-> RestrictionDesc . '</p>';
+                }
+                echo '<p>Favorite toys: '  .  $behavior-> Toys . '</p>';
+                echo '<p>Other behavoir information: '  .  $behavior-> OtherBehaviorInfo . '</p>';
+                echo '<p>Things to reinforce: '  .  $behavior-> Reinforce . '</p>';
+                echo '<p>Known commands: '  .  $behavior-> Commands . '</p>';
+                echo '<p>Feeding schedule: '  .  $behavior-> FoodPref . '</p>';
+                echo '<p>Bathroom routine: '  .  $behavior-> BathroomRoutine . '</p>';
 
                 //Dog Health Html
-
+                $dog -> findHealthRecord($_SESSION['dogid']);
+                $health = $dog ->data();
+                echo '<h2>Dog Health Information</h2>';
+                echo '<p>Clinic Name: ' . $health-> ClinicName . '</p>';
+                echo '<p>Vet phone number: ' . $health-> VetPhone . '</p>';
+                echo '<p>Address: ' . $health-> VetAddress . '</p>';
+                echo '<p>City: ' . $health-> VetCity . '</p>';
+                echo '<p>State: ' . $health-> VetState . '</p>';
+                echo '<p>Zip: ' . $health-> VetZip . '</p>';
+                echo '<p>Prefered vet name: ' . $health-> VetName . '</p>';
+                echo '<p>All known allergies, medical conditions, and mobility/vision/hearing impairments.: ' . $health-> MedicalCond . '</p>';
+                echo '<p>All medication & dose frequency: ' . $health-> Medication . '</p>';
 
                 //Dog Vaccine Html
+                $dog -> findVaccineRecord($_SESSION['dogid']);
+                $Vaccine = $dog ->data();
+                echo '<h2>Dog Vaccine Information</h2>';
+                echo '<p>DHPP: ' . $Vaccine-> DHPP_Date . '</p>';
+                echo '<p>Rabies: ' . $Vaccine-> RabiesDate . '</p>';
+                echo '<p>Bordella: ' . $Vaccine-> BordellaDate . '</p>';
+                echo '<p>Flea Tick Product: ' . $Vaccine-> FleaTickProduct . '</p>';
+                echo '<p>Flea Tick Date: ' . $Vaccine-> FleaTickDate . '</p>';
+                echo '<p>Other Vaccine Information: ' . $Vaccine-> OtherVacInfo . '</p>';
 
-
+                echo '<br>';
 
 
             if($_SESSION['service'] == 'Boarding'){
