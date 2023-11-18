@@ -40,7 +40,7 @@
     <h1>Account Settings</h1>
 
     <!-- Change Password -->
-    <a href="change_password.php"><button>Change Password</button></a><br><br>
+    <a href="/PeaceOfHeavenWebPage/php/UserHandling/changepassword.php"><button>Change Password</button></a><br><br>
 
     <!-- Update Personal Information -->
     <a href="update_personal_info.php"><button>Update Personal Info</button></a><br><br>
@@ -52,7 +52,7 @@
     <a href="update_dog_form_info.php"><button>Update Dog Form Info</button></a><br><br>
 
     <!-- Logout -->
-    <a href="logout.php"><button>Logout</button></a>
+    <a href="/PeaceOfHeavenWebPage/php/UserHandling/logout.php"><button>Logout</button></a>
 
 </div>
 </body>

@@ -1,11 +1,29 @@
 <?php 
 require_once 'core/init.php';
 
-$user = new User();
+    $user = new User();
 
-if(!$user->isLoggedIn()) {
-    Redirect::to('index.php');
-}
+    if(!$user->isLoggedIn()) {
+        Redirect::to('../UserHandling/login.php');
+    }
+
+    //Adds Employee NavBar if Employee Acct logged in
+    if($user->data()->group == 1){
+        include("../Customer Portal/CustNavBar.php");
+
+    }
+
+    //Adds Employee NavBar if Employee Acct logged in
+    if($user->data()->group == 2){
+        include("../Employee Portal/EmpNavBar.php");
+
+    }
+
+    //Adds Admin NavBar if Admin Acct logged in
+    if($user->data()->group == 3 ){
+        include("../AdminPortal/AdminNavBar.php");
+
+    }
 
 if(Input::exists()) {
     if(Token::check(Input::get('token'))) {
@@ -41,7 +59,7 @@ if(Input::exists()) {
                 ));
 
                 Session::flash('home','Your password has been changed!');
-                Redirect::to('index.php');
+                Redirect::to('../Customer Portal/CustHome.php');
             }
         } else {
             foreach($validation->errors() as $error) {
@@ -51,7 +69,17 @@ if(Input::exists()) {
     }
 }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/ChangePass.css">
 
+    <title>Check In Portal</title>
+</head>
+<body> 
+<div class=content>
 <form action="" method="post">
     <div class="field">
         <label for="password_current">Current Password</label>
@@ -72,3 +100,6 @@ if(Input::exists()) {
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
    
 </form>
+</div>
+</body>
+</html>
