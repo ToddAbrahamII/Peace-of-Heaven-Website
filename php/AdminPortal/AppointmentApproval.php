@@ -206,7 +206,7 @@
 
            //if deny is selected
            if(Input::get('Deny')) {
-                
+
             //if grooming was selected
             if($_SESSION['service'] == 'Grooming'){
                 // First, you need to create an instance of the DB class.
@@ -214,7 +214,7 @@
 
                 // Define the table, row id, and fields you want to update.
                 $table = 'grooming_reservation';
-                $where = ['GroomResID', $groomingReservation->getReservationData()->GroomResID];
+                $where = ['GroomResID', '=', $groomingReservation->getReservationData()->GroomResID];
                 
                 //Deletes from Database
                  $db2->delete($table,$where);
@@ -225,14 +225,12 @@
                  // First, you need to create an instance of the DB class.
                  $db = DB::getInstance();
 
-                 // Define the table, row id, and fields you want to update.
+                 // Define the table, row id, and fields you want to delete.
                  $table = 'reservation';
-                 $id = $reservation->getReservationData()->Res_ID;
-                 $idcolumn = 'Res_ID';
-                 $fields = array(
-                     'isApproved' => 1
-                 );
+                 $where = ['Res_ID', '=', $reservation->getReservationData()->Res_ID];
                 
+                 //Deletes from Database
+                 $db->delete($table,$where);  
             }
 
             //Email for denial
@@ -456,11 +454,6 @@
         <input type="submit" name="Confirm" value="Confirm">
         <input type="submit" name="Deny"value="Deny">
     </form>
-
-   
-      
-
-
     </div>
 </body>
 </html>
