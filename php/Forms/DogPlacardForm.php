@@ -20,7 +20,7 @@ session_start(); //Starts the session -- REQUIRED ON EVERY PAGE --
             <div>
                 <H2>Pet:</H2>
                 <label for="dogName">Name </label>
-                <input type="text" name="dogName" id="dogName">
+                <strong><?php echo 'dogName'?></strong>
 
                 <label for="breed">Breed </label>
                 <input type="text" name="breed" id="breed">

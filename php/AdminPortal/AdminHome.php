@@ -184,6 +184,7 @@
             <tr>
                 <th>Dog</th>
                 <th>Reservation Date</th>
+                <th>Print</th>
                 <th>Breed</th>
                 <th>Date of Birth</th>
                 <th>Service</th>
@@ -220,6 +221,7 @@
 
                     echo '<td>'. $dogName . '</td>';
                     echo '<td>'. $reservation->ResStartTime . ' - ' .  $reservation->ResStartTime . '</td>';
+                    echo '<td><a href="">'. $dogName . '</td>';
                     echo '<td>' . $dogData->Breed . '</td>';
                     echo '<td>' . $dogData->DogDOB . '</td>';
                     echo '<td>' . $reservation->ServiceType . '</td>';
