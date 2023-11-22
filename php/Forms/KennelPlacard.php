@@ -164,7 +164,21 @@
 </fieldset>
 
 <!-- Add submit button and close the form -->
-<input type="submit" value="Submit">
+<button onclick="printForm()">Print Placard</button>
+
+<script>
+   
+
+    function printForm() {
+        var printWindow = window.open('', '_blank');
+        printWindow.document.write('<html><head>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(document.querySelector('fieldset').outerHTML);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>
 </form>
 </body>
 </html>
