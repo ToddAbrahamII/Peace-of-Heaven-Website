@@ -17,6 +17,8 @@
     <a href='/PeaceOfHeavenWebPage/php/AdminPortal/ControlPanel.php'>Control Panel</a>
     <a href="/PeaceOfHeavenWebPage/php/Customer Portal/CustHome.php">Customer Portal</a>
     <a href="/PeaceOfHeavenWebPage/php/Employee Portal/EmpHome.php">Employee Portal</a>
+    <a href="http://localhost/PeaceOfHeavenWebPage/php/Forms/KennelPlacard.php">Print Kennel Placard</a>
+    <a href="">Print Boarding Agreement</a>
     <a href='/PeaceOfHeavenWebPage/php/AdminPortal/AnnouncementCreator.php'>Make an Announcement</a>
     <a href='/PeaceOfHeavenWebPage/php/AdminPortal/KennelCreation.php'>Add a Kennel</a>
     <a href='/PeaceOfHeavenWebPage/php/Employee Portal/ViewKennels.php'>View Kennels</a>

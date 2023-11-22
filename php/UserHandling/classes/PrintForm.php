@@ -8,6 +8,7 @@ Class PrintForm {
             $_printData;
     private $reservationId;
 
+    // Instances of Objects to call methods. Will not store data.
     private $user, $customer, $dog, $reservation;
 
 
@@ -21,7 +22,7 @@ Class PrintForm {
         $this->user = new User();
         $this->customer = new Customer();
         $this->dog = new Dog();
-        $this->reservation = new Reservation();
+        $this->reservation = new Reservation('serviceHardCode', array());
     }
 
     /**
@@ -29,12 +30,13 @@ Class PrintForm {
      *
      * @return void
      */
-    public function GetPrintData() {
+    public function GetPrintData($reservationId) {
 
         // Get reservation by ID
-        $this->_reservationData = $this->reservation->getReservationData();
+        $this->_reservationData = $this->reservation->getReservationById($reservationId);
 
         // Get Customer by res->CustId
+        
 
         // Get Dog Data by res->DogId
     }

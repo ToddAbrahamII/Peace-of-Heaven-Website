@@ -207,7 +207,10 @@
                 //Goes through each table row
 
                 foreach ($reservationData as $reservation){
+                    
+                    $reservationId = $reservation->Res_ID;
 
+                    
                     echo '<tr>'; // row start
 
 
@@ -221,7 +224,10 @@
 
                     echo '<td>'. $dogName . '</td>';
                     echo '<td>'. $reservation->ResStartTime . ' - ' .  $reservation->ResStartTime . '</td>';
-                    echo '<td><a href="">'. $dogName . '</td>';
+                    echo '<td>' .
+                            '<p><a href="http://localhost/PeaceOfHeavenWebPage/php/Forms/KennelPlacard.php?Res_ID=' . urlencode($reservationId) .'">Kennel Placard</a></p>' . // Pass Reservation ID through URL
+                            '<p><a href="#">Boarding Agreement</a></p>' .
+                        '</td>';
                     echo '<td>' . $dogData->Breed . '</td>';
                     echo '<td>' . $dogData->DogDOB . '</td>';
                     echo '<td>' . $reservation->ServiceType . '</td>';

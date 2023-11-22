@@ -190,7 +190,7 @@ class Reservation {
     }
 
         /**
-     * Finds all unchecked Reservations
+     * Finds all reservations belonging to customer ID
      */
     public function getReservationsWithCustID($customer){
         $fields = 'CustID';
@@ -202,6 +202,12 @@ class Reservation {
         }
         return false;
     }
+
+    public function getCustomerDataFromReservation() {
+        
+    }
+
+
 
 
 

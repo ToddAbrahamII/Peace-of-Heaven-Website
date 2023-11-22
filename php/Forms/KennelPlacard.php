@@ -15,11 +15,43 @@
         $reservation = new Reservation('service', array()); // Fake constructor
 
         ## Gather all Data
-        $reservation -> get
+        // $reservation -> get
 
     } else {
         Redirect::to('../UserHandling/login.php');
     }
+
+    // GET reservation ID from URL
+    $reservationId = $_GET['Res_ID'];
+
+    // STORE reservation DATA
+    $reservation->getReservationById($reservationId);
+
+    // GET reservation DATA
+    $reservationData = $reservation->getReservationData();
+    
+    // GET customer and dog IDs
+    $customerId = $reservationData->CustID;
+    $dogId = $reservationData->DogID;
+    
+
+    // STORE customer Data
+    $customer->findCustInfoWithCustID($customerId);
+    //STORE Dog Data
+    $dog->findDogInfoWithDogID($dogId);
+
+    // GET Customer and Dog DATA
+    $customerData = $customer->getCustomerData();
+    $dogData = $dog->data();
+
+    // STORE health DATA for Dog
+    $dogHealth = new DogHealth();
+    $dogHealth->findHealthInfo($dogId);
+
+    // GET HEALTH DATA for Dog
+    $healthData = $dogHealth->getHealthInfo();
+
+    
 
 
 
@@ -45,20 +77,22 @@
     <h2>Pet:</h2>
 
     <label for="dogName">Name </label>
-    <strong><?php echo $petData['dogName']; ?></strong>
+    <strong><?php echo $dogData->DogName; ?></strong>
 
     <label for="breed">Breed </label>
-    <input type="text" name="breed" id="breed" value="<?php echo $petData['breed']; ?>">
+    <input type="text" name="breed" id="breed" value="<?php echo $dogData->Breed; ?>">
 
     <label for="age">Age </label>
-    <input type="text" name="age" id="age" value="<?php echo $petData['age']; ?>">
+    <input type="text" name="age" id="age" value="<?php echo $dogData->DogDOB; ?>">
 
     <label for="sex">Sex </label>
-    <input type="text" name="sex" id="sex" value="<?php echo $petData['sex']; ?>">
+    <input type="text" name="sex" id="sex" value="<?php echo $dogData->Sex; ?>">
 
     <label>
-        <input type="checkbox" name="allergiesCheck" id="allergiesCheck" <?php echo $petData['allergiesCheck'] ? 'checked' : ''; ?>> Allergies
+        <input type="checkbox" name="fixedCheckbox" id="fixedCheckbox" <?php echo $dogData->isFixed ? 'checked' : ''; ?>> Spayed/Neutered
     </label>
+
+    
 
     <!-- Add other pet-related inputs with values from $petData -->
 
@@ -68,21 +102,22 @@
     <h2>Owner:</h2>
 
     <label for="lastName">Last </label>
-    <input type="text" name="lastName" id="lastName" value="<?php echo $ownerData['lastName']; ?>">
+    <input type="text" name="lastName" id="lastName" value="<?php echo $customerData->CustLastName; ?>">
 
     <label for="firstName">First </label>
-    <input type="text" name="firstName" id="firstName" value="<?php echo $ownerData['firstName']; ?>">
+    <input type="text" name="firstName" id="firstName" value="<?php echo $customerData->CustFirstName; ?>">
 
     <label for="address">Address </label>
-    <input type="text" name="address" id="address" value="<?php echo $ownerData['address']; ?>">
-
-    <label for="homePhone">Home Phone </label>
-    <input type="tel" id="homePhone" name="homePhone" placeholder="123-123-1234" pattern="([0-9]{3})[0-9]{3}-[0-9]{4}" required value="<?php echo $ownerData['homePhone']; ?>">
+    <input type="text" name="address" id="address" value="<?php echo $customerData->CustAddress; ?>">
 
     <label for="cellPhone">Cell Phone </label>
-    <input type="tel" id="cellPhone" name="cellPhone" placeholder="123-123-1234" pattern="([0-9]{3})[0-9]{3}-[0-9]{4}" required value="<?php echo $ownerData['cellPhone']; ?>">
+    <input type="tel" id="cellPhone" name="cellPhone" placeholder="123-123-1234" required value="<?php echo $customerData->CustPhone; ?>">
 
-    <!-- Add other owner-related inputs with values from $ownerData -->
+    <label for="alternatePhone">Alternate Phone Number </label>
+    <input type="tel" id="alternatePhone" name="alternatePhone" placeholder="123-123-1234">
+
+
+    
 
 </section>
 
@@ -90,22 +125,22 @@
     <h2>Care:</h2>
 
     <label for="feedingInstructions">Feeding Instructions </label>
-    <input type="text" name="feedingInstructions" id="FeedingInstructions" value="<?php echo $careData['feedingInstructions']; ?>">
+    <input type="text" name="feedingInstructions" id="FeedingInstructions" value="<?php echo 'No Table for Data' ?>">
 
     <label for="grooming">Grooming </label>
-    <input type="text" name="grooming" id="grooming" value="<?php echo $careData['grooming']; ?>">
+    <input type="text" name="grooming" id="grooming" value="<?php echo 'I am not sure of the point of this. Is it for grooming appts only?'?>">
 
     <label for="medications">Medications </label>
-    <input type="text" name="medications" id="medications" value="<?php echo $careData['medications']; ?>">
+    <input type="text" name="medications" id="medications" value="<?php echo $healthData->Medication; ?>">
 
     <label for="specialInstructions">Special Instructions </label>
-    <input type="text" name="specialInstructions" id="specialInstructions" value="<?php echo $careData['specialInstructions']; ?>">
+    <input type="text" name="specialInstructions" id="specialInstructions" >
 
     <label for="dateIn">Date In </label>
-    <input type="text" name="dateIn" id="dateIn" value="<?php echo $careData['dateIn']; ?>">
+    <input type="text" name="dateIn" id="dateIn" value="<?php echo $reservationData->ResStartTime ;?>">
 
     <label for="dateOut">Date Out </label>
-    <input type="text" name="dateOut" id="dateOut" value="<?php echo $careData['dateOut']; ?>">
+    <input type="text" name="dateOut" id="dateOut" value="<?php echo $reservationData->ResEndTime ; ?>">
 
     <!-- Add other care-related inputs with values from $careData -->
 
@@ -120,7 +155,7 @@
 
 <section>
     <label for="owner">Owner </label>
-    <input type="text" name="owner" id="owner" value="<?php echo $ownerData['lastName'] . ', ' . $ownerData['firstName']; ?>">
+    <input type="text" name="owner" id="owner">
 
     <label for="date">Date </label>
     <input type="text" name="date" id="date" value="<?php echo date('Y-m-d'); ?>">
