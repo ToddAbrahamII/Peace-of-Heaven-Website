@@ -190,9 +190,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/AcctInfo.css">
-    </head>        
+        <script src="DogForms.js" defer></script>
+    </head>
+
+
     <body>
-        <form method="POST" class="DogBehavior=Form">
+        <form name="DogForms" method="POST" class="DogBehavior=Form" onsubmit="return validateForms()">
         <fieldset>
             <!-- Collects information for DogBehavior Table -->
             <legend>Dog Behavior Information</legend>
