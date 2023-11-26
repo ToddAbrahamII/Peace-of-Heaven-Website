@@ -101,20 +101,22 @@
 <section>
     <h2>Owner:</h2>
 
-    <label for="lastName">Last </label>
-    <input type="text" name="lastName" id="lastName" value="<?php echo $customerData->CustLastName; ?>">
+    <div>
+        <label for="lastName">Last </label>
+        <input type="text" name="lastName" id="lastName" value="<?php echo $customerData->CustLastName; ?>">
 
-    <label for="firstName">First </label>
-    <input type="text" name="firstName" id="firstName" value="<?php echo $customerData->CustFirstName; ?>">
+        <label for="firstName">First </label>
+        <input type="text" name="firstName" id="firstName" value="<?php echo $customerData->CustFirstName; ?>">
 
-    <label for="address">Address </label>
-    <input type="text" name="address" id="address" value="<?php echo $customerData->CustAddress; ?>">
+        <label for="address">Address </label>
+        <input type="text" name="address" id="address" value="<?php echo $customerData->CustAddress; ?>">
 
-    <label for="cellPhone">Cell Phone </label>
-    <input type="tel" id="cellPhone" name="cellPhone" placeholder="123-123-1234" required value="<?php echo $customerData->CustPhone; ?>">
+        <label for="cellPhone">Cell Phone </label>
+        <input type="tel" id="cellPhone" name="cellPhone" placeholder="123-123-1234" required value="<?php echo $customerData->CustPhone; ?>">
 
-    <label for="alternatePhone">Alternate Phone Number </label>
-    <input type="tel" id="alternatePhone" name="alternatePhone" placeholder="123-123-1234">
+        <label for="alternatePhone">Alternate Phone Number </label>
+        <input type="tel" id="alternatePhone" name="alternatePhone" placeholder="123-123-1234">
+    </div>
 
 
     

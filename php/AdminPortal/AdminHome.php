@@ -226,7 +226,7 @@
                     echo '<td>'. $reservation->ResStartTime . ' - ' .  $reservation->ResStartTime . '</td>';
                     echo '<td>' .
                             '<p><a href="http://localhost/PeaceOfHeavenWebPage/php/Forms/KennelPlacard.php?Res_ID=' . urlencode($reservationId) .'">Kennel Placard</a></p>' . // Pass Reservation ID through URL
-                            '<p><a href="#">Boarding Agreement</a></p>' .
+                            '<p><a href="http://localhost/PeaceOfHeavenWebPage/php/Forms/BoardingAgreement.php?Res_ID=' . urlencode($reservationId) .'">Boarding Agreement</a></p>' .
                         '</td>';
                     echo '<td>' . $dogData->Breed . '</td>';
                     echo '<td>' . $dogData->DogDOB . '</td>';
