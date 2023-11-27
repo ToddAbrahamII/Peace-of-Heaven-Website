@@ -1,30 +1,15 @@
 function validateForms() {
     // Behavior variables
-    var Experience = document.forms["DogForms"]["Experience"].value;
-    var isExperienceSelected = false;
-    var isSocial = document.forms["DogForms"]["isSocial"].value;
-    var isSocialSelected = false;
+
     var IsAggressive = document.forms["DogForms"]["IsAggressive"].value;
-    var isAggressiveSelected = false;
     var AggressiveDesc = document.forms["DogForms"]["AggressiveDesc"].value;
-    var IsJumper = document.forms["DogForms"]["IsJumper"].value;
-    var isJumperSelected = false;
-    var IsClimber = document.forms["DogForms"]["IsClimber"].value;
-    var isClimberSelected = false;
-    var IsChewer = document.forms["DogForms"]["IsChewer"].value;
-    var isChewerSelected = false;
+
     var IsEscapeArtist = document.forms["DogForms"]["IsEscapeArtist"].value;
-    var isEscapeSelected = false;
     var EscapeDesc = document.forms["DogForms"]["EscapeDesc"].value;
-    var CanWater = document.forms["DogForms"]["CanWater"].value;
-    var isWaterSelected = false;
-    var CanTreat = document.forms["DogForms"]["CanTreat"].value;
-    var isTreatSelected = false;
-    var IsLeashTrained = document.forms["DogForms"]["IsLeashTrained"].value;
-    var isLeashSelected = false;
+
     var IsRestriction = document.forms["DogForms"]["IsRestriction"].value;
-    var isRestrictionSelected = false;
     var RestrictionDesc = document.forms["DogForms"]["RestrictionDesc"].value;
+
     var Toys = document.forms["DogForms"]["Toys"].value;
     var OtherBehaviorInfo = document.forms["DogForms"]["OtherBehaviorInfo"].value;
     var Reinforce = document.forms["DogForms"]["Reinforce"].value;
@@ -33,20 +18,63 @@ function validateForms() {
     var BathroomRoutine = document.forms["DogForms"]["BathroomRoutine"].value;
 
     // Behavior Checks
-    if (Toys === "") {
-        alert("Toys must be filled out");
+    if (IsAggressive === 1 && AggressiveDesc === "") {
+        alert("You checked 'Yes' for an aggresive event. Please fill out a description");
         return false;
     }
-    for (var i = 0; i < Experience.length; i++) {
-        if (Experience[i].checked) {
-            isExperienceSelected = true;
-            break;
-        }
-    }
-    if (!isExperienceSelected) {
-        alert("Please select level of experience.");
+    if (IsEscapeArtist === 1 && EscapeDesc === "") {
+        alert("You checked 'Yes' for being an escape artist. Please fill out a description");
         return false;
     }
-    return true;
+    if (IsRestriction === 1 && RestrictionDesc === "") {
+        alert("You checked 'Yes' for an aggresive event. Please fill out a description");
+        return false;
+    }
 
+    if (!isValidInput(AggressiveDesc, 500)) {
+        alert("Your description of aggressive reactions must be at most 500 characters long. Please find a way to shorten your response.");
+        return false;
+    }
+    if (!isValidInput(EscapeDesc, 500)) {
+        alert("Your description of your dog's escape attempts must be at most 500 characters long. Please find a way to shorten your response.");
+        return false;
+    }
+    if (!isValidInput(RestrictionDesc, 500)) {
+        alert("Your description of activity/time restrictions must be at most 500 characters long. Please find a way to shorten your response.");
+        return false;
+    }
+
+    if (!isValidInput(Toys, 500)) {
+        alert("Your description of favorite toys must be at most 500 characters long. Please find a way to shorten your response.");
+        return false;
+    }
+    if (!isValidInput(OtherBehaviorInfo, 500)) {
+        alert("Your description of other behaviors must be at most 500 characters long. Please find a way to shorten your response.");
+        return false;
+    }
+    if (!isValidInput(Reinforce, 500)) {
+        alert("Your list of things to reinforce must be at most 500 characters long. Please find a way to shorten your response.");
+        return false;
+    }
+    if (!isValidInput(Commands, 500)) {
+        alert("Your list of known commands must be at most 500 characters long. Please find a way to shorten your response.");
+        return false;
+    }
+    if (!isValidInput(FoodPref, 500)) {
+        alert("Your description of your dog's feeding schedule must be at most 500 characters long. Please find a way to shorten your response.");
+        return false;
+    }
+    if (!isValidInput(BathroomRoutine, 500)) {
+        alert("Your description of your dog's potty routine must be at most 500 characters long. Please find a way to shorten your response.");
+        return false;
+    }
+
+
+}
+
+
+// Check if the input exceeds the maximum length
+
+function isValidInput(input, maxLength) {
+    return input.length <= maxLength;
 }
