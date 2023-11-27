@@ -100,6 +100,31 @@ class DB {
         }
         return false;
     }
+
+    public function updateTable ($table, $fields, $key, $keyValue ) {
+
+        $set = '';
+        $x =1;
+
+        // set
+        foreach($fields as $name => $value) {
+            $set .= "{$name} = ?";
+            if($x < count($fields)) { // if not at end of fields array, add a comma.
+                $set .= ', ';
+            }
+            $x++;
+        }
+
+        $sql = "UPDATE {$table} SET {$set} WHERE {$key} = {$keyValue} ";
+
+        if(!$this->query($sql, $fields)->error()) {
+            return true;
+        }
+        return false;
+
+    }
+
+
     /**
      * returns the list of results from query
      * @return mixed

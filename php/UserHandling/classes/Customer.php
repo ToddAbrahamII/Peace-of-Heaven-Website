@@ -79,6 +79,30 @@ class Customer {
         return $this->_customerData;
     }
 
+
+    public function getAllCustomers() {
+        $data = $this->_db->get('customer', array('1', '=', '1'));
+
+        if($data->count() > 0) {
+            $this->_customerData = $data->results();
+            return true;
+        }
+        return false;
+    }
+
+    /** 
+     * 
+    */
+    public function update($table, $fields, $key, $keyValue) { 
+
+        if(!$this->_db->updateTable($table, $fields, $key, $keyValue)) { // if ID provided, update provided user that matches id
+            throw new Exception('There was a problem updating this user.');
+        }
+        
+    }
+
+
+
 }
 
 

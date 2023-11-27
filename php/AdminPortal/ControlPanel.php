@@ -33,7 +33,7 @@
 <div class=content>
 <h1>Admin Control Panel<h1>
 <h2>Customer Account Actions:</h2>
-  <a href="">Create Customer Account</a>
+  <a href="../userhandling/CreateCustomer.php">Create Customer Account</a>
   <a href="">Update Customer Account</a>
   <a href="">Delete Customer Account</a>
 
