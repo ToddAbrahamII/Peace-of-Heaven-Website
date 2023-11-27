@@ -29,7 +29,7 @@ if ($user->isLoggedIn() && ($user->data()->group == 3 || $user->data()->group ==
                         'CustCity' => Input::get('city'),
                         'CustState'=> Input::get('state'),
                         'CustZip' => Input::get('zip'),
-                        'User_ID' => $user->data()->id
+                        'User_ID' => -1
                     ));
 
                   

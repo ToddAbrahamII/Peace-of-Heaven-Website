@@ -93,12 +93,12 @@ class Customer {
     /** 
      * 
     */
-    public function update($table, $fields, $key, $keyValue) { 
+    public function update( $fields, $key, $keyValue) {
 
-        if(!$this->_db->updateTable($table, $fields, $key, $keyValue)) { // if ID provided, update provided user that matches id
+        if(!$this->_db->updateTable('customer', $fields, $key, $keyValue)) { // if ID provided, update provided user that matches id
             throw new Exception('There was a problem updating this user.');
         }
-        
+        return true;
     }
 
 

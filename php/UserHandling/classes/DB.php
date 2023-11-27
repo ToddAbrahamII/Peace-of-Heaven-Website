@@ -101,7 +101,8 @@ class DB {
         return false;
     }
 
-    public function updateTable ($table, $fields, $key, $keyValue ) {
+    public function updateTable($table, $fields, $key, $keyValue ): bool
+    {
 
         $set = '';
         $x =1;
@@ -120,6 +121,7 @@ class DB {
         if(!$this->query($sql, $fields)->error()) {
             return true;
         }
+
         return false;
 
     }
