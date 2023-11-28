@@ -8,6 +8,19 @@
 
     $user = new User();
 
+    //Adds Employee NavBar if emp Acct logged in
+    if($user->data()->group == 2) {
+        include("../Employee Portal/EmpNavBar.php");
+
+    }
+
+    //Adds Admin NavBar if Admin Acct logged in
+    if($user->data()->group == 3) {
+        include("../AdminPortal/AdminNavBar.php");
+
+    }
+
+
     if($user->isLoggedIn()) {
         // Constructor Calls
         $customer = new Customer();
@@ -66,8 +79,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kennel Placard</title>
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/KennelPlacard.css">
 </head>
 <body>
+<div class='content'>
 <form action="#" method="post">
 
     <fieldset>
@@ -182,5 +197,6 @@
     }
 </script>
 </form>
+</div>
 </body>
 </html>

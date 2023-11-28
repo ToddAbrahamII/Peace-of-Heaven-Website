@@ -9,6 +9,19 @@ if (!Session::exists('home')) {
 
 $user = new User();
 
+    //Adds Employee NavBar if emp Acct logged in
+    if($user->data()->group == 2) {
+        include("../Employee Portal/EmpNavBar.php");
+
+    }
+
+    //Adds Admin NavBar if Admin Acct logged in
+    if($user->data()->group == 3) {
+        include("../AdminPortal/AdminNavBar.php");
+
+    }
+
+
 if($user->isLoggedIn()) {
     // Constructor Calls
     $customer = new Customer();
@@ -52,9 +65,9 @@ $dogHealth->findHealthInfo($dogId);
 // GET HEALTH DATA for Dog
 $healthData = $dogHealth->getHealthInfo();
 
-print_r($dogData);
-print_r($reservationData);
-print_r($customerData);
+// print_r($dogData);
+// print_r($reservationData);
+// print_r($customerData);
 
 ?>
 
@@ -65,12 +78,12 @@ print_r($customerData);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POH Boarding Agreement</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/BoardingAgreement.css">
 </head>
 
 <body>
+<div class = 'content'>
     <h4>Peace of Heaven Pet Care, LLC | 30614 E 200 North Rd, Le Roy, IL | 309.712.3385</h4>
-    <img src="../../img/POH_Logo.png" alt="Peace of Heaven Logo" srcset="">
 
     <h1>POH Boarding Agreement</h1>
 
@@ -245,8 +258,9 @@ print_r($customerData);
 
     </form>
 
+    <div class="formButton">
     <button onclick="printForm()">Print Agreement</button>
-
+    </div>
     <script>
 
 
@@ -260,6 +274,7 @@ print_r($customerData);
             printWindow.print();
         }
     </script>
+    </div>
 </body>
 
 </html>
