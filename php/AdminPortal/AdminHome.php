@@ -193,6 +193,11 @@
 
             </tbody>
         </table>
+        <div class="view-button-container">
+        <a href="/PeaceOfHeavenWebPage/php/AdminPortal/ReservationHistory.php">
+            <button class="view-button">View Reservation History</button>
+        </a>
+    </div>
         <br><br>
 
         <!-- Table for Pending Reservations with Confirm and Deny Buttons -->
