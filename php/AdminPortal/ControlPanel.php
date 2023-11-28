@@ -33,27 +33,18 @@
 <div class=content>
 <h1>Admin Control Panel<h1>
 <h2>Customer Account Actions:</h2>
-  <a href="../userhandling/CreateCustomer.php">Create Customer Account</a>
   <a href="">Update Customer Account</a>
   <a href="">Delete Customer Account</a>
 
-  <h2>Employee Account Actions:</h2>
-  <a href="">Create Employee Account</a>
-  <a href="">Update Employee Account</a>
-  <a href="">Delete Employee Account</a>
-
   <h2>Dog Account Actions:</h2>
-  <a href="">Create Dog Account</a>
   <a href="">Update Dog Account</a>
   <a href="">Delete Dog Account</a>
 
   <h2>Boarding/Daycare Reservation Actions:</h2>
-  <a href="">Create Boarding/Daycare Reservation</a>
   <a href="">Update Boarding/Daycare Reservation</a>
   <a href="">Delete Boarding/Daycare Reservation</a>
 
   <h2>Grooming Reservation Actions:</h2>
-  <a href="">Create Grooming Reservation</a>
   <a href="">Update Grooming Reservation</a>
   <a href="">Delete Grooming Reservation</a>
 
