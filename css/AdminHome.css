@@ -43,6 +43,28 @@
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
+
+  .view-button-container {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  .view-button {
+    background-color: #39A7FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .view-button:hover {
+    background-color: #39A7FF;
+  }
   
   
   

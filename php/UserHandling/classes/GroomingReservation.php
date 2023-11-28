@@ -170,6 +170,25 @@ class GroomingReservation {
             }
     
         }
+
+         /**
+         * Gets confirmed confirmed reservations
+         */
+        public function getAllGroomingReservations(){
+            $whereConditions = array(
+                1 => 1
+            );
+    
+            $data = $this->_db->selectWhere('grooming_reservation', $whereConditions);
+    
+            if ($data->count() > 0) {
+                $this->_groomingReservationData = $data->results();
+                return true;
+            } else {
+                return false;
+            }
+    
+        }
 }
 
 

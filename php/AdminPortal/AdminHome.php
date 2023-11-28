@@ -33,6 +33,67 @@
             </div>
         </div>
 
+                <!-- Table for Checked In Dogs -->
+                <h2>Checked-In Dogs</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Dog</th>
+                <th>Reservation Date</th>
+                <th>Print</th>
+                <th>Breed</th>
+                <th>Date of Birth</th>
+                <th>Service</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            //Constructor Call
+            $reservation = new Reservation('reservation', array());
+            $dog = new Dog();
+
+            //store checkedInReservation
+            $reservation->getCheckedInReservations();
+            $reservationData = $reservation->getReservationData();
+            //print checked in reservation
+
+
+            if(!empty($reservationData)){
+                //Goes through each table row
+
+                foreach ($reservationData as $reservation){
+                    
+                    $reservationId = $reservation->Res_ID;
+
+                    
+                    echo '<tr>'; // row start
+
+
+                    //Finds the dog name with their ID
+                    $dog->findDogInfoWithDogID($reservation->DogID);
+
+
+
+                    $dogData = $dog->data();
+                    $dogName = $dog->data()->DogName;
+
+                    echo '<td>'. $dogName . '</td>';
+                    echo '<td>'. $reservation->ResStartTime . ' - ' .  $reservation->ResStartTime . '</td>';
+                    echo '<td>' .
+                            '<p><a href="http://localhost/PeaceOfHeavenWebPage/php/Forms/KennelPlacard.php?Res_ID=' . urlencode($reservationId) .'">Kennel Placard</a></p>' . // Pass Reservation ID through URL
+                            '<p><a href="http://localhost/PeaceOfHeavenWebPage/php/Forms/BoardingAgreement.php?Res_ID=' . urlencode($reservationId) .'">Boarding Agreement</a></p>' .
+                        '</td>';
+                    echo '<td>' . $dogData->Breed . '</td>';
+                    echo '<td>' . $dogData->DogDOB . '</td>';
+                    echo '<td>' . $reservation->ServiceType . '</td>';
+                    echo '</tr>';
+                }
+            }
+            ?>
+            </tbody>
+        </table>
+        <br><br>
+
         <!-- View for Boarding and Daycare Reservations -->
         <h2>All Confirmed Upcoming Boarding and Daycare Reservations</h2>
         <table>
@@ -77,6 +138,11 @@
 
             </tbody>
         </table>
+        <div class="view-button-container">
+        <a href="/PeaceOfHeavenWebPage/php/AdminPortal/ReservationHistory.php">
+            <button class="view-button">View Reservation History</button>
+        </a>
+    </div>
         <br><br>
 
                 <!-- View for Confirmed Grooming Reservations-->
@@ -89,6 +155,7 @@
                 <th>Description</th>
                 <th>Service</th>
                 <th>Status</th>
+                <th>Finish<th>
             </tr>
             </thead>
             <tbody>
@@ -172,69 +239,6 @@
 
 
 
-            ?>
-            </tbody>
-        </table>
-        <br><br>
-
-        <!-- Table for Checked In Dogs -->
-        <h2>Checked-In Dogs</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Dog</th>
-                <th>Reservation Date</th>
-                <th>Print</th>
-                <th>Breed</th>
-                <th>Date of Birth</th>
-                <th>Service</th>
-                <th>Status</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-            //Constructor Call
-            $reservation = new Reservation('reservation', array());
-            $dog = new Dog();
-
-            //store checkedInReservation
-            $reservation->getCheckedInReservations();
-            $reservationData = $reservation->getReservationData();
-            //print checked in reservation
-
-
-            if(!empty($reservationData)){
-                //Goes through each table row
-
-                foreach ($reservationData as $reservation){
-                    
-                    $reservationId = $reservation->Res_ID;
-
-                    
-                    echo '<tr>'; // row start
-
-
-                    //Finds the dog name with their ID
-                    $dog->findDogInfoWithDogID($reservation->DogID);
-
-
-
-                    $dogData = $dog->data();
-                    $dogName = $dog->data()->DogName;
-
-                    echo '<td>'. $dogName . '</td>';
-                    echo '<td>'. $reservation->ResStartTime . ' - ' .  $reservation->ResStartTime . '</td>';
-                    echo '<td>' .
-                            '<p><a href="http://localhost/PeaceOfHeavenWebPage/php/Forms/KennelPlacard.php?Res_ID=' . urlencode($reservationId) .'">Kennel Placard</a></p>' . // Pass Reservation ID through URL
-                            '<p><a href="http://localhost/PeaceOfHeavenWebPage/php/Forms/BoardingAgreement.php?Res_ID=' . urlencode($reservationId) .'">Boarding Agreement</a></p>' .
-                        '</td>';
-                    echo '<td>' . $dogData->Breed . '</td>';
-                    echo '<td>' . $dogData->DogDOB . '</td>';
-                    echo '<td>' . $reservation->ServiceType . '</td>';
-                    echo '<td>' . $reservation->isApproved . '</td>';
-                    echo '</tr>';
-                }
-            }
             ?>
             </tbody>
         </table>

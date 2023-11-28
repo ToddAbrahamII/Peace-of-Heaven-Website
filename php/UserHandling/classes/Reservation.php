@@ -203,6 +203,22 @@ class Reservation {
         return false;
     }
 
+     /**
+     * Finds all  reservations with custID
+     */
+    public function getAllReservations()
+    {
+        $fields = 'CustID';
+        $data = $this->_db->get('reservation', array(1, '=', 1));
+
+        if($data->count() > 0) {
+            $this->_reservationData = $data->results();
+            return true;
+        }
+        return false;
+    }
+
+
     public function getCustomerDataFromReservation() {
         
     }
