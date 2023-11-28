@@ -241,3 +241,28 @@ body{
     margin-left: auto; /* Auto margin on the left pushes the button to the right */
     margin-right: auto; /* Auto margin on the right pushes the button to the left */
 }
+
+.announcement-section {
+    text-decoration: none;
+    text-align: center;
+    background-color: #87C4FF;
+    padding: 50px;
+}
+
+.cta-button {
+    background-color: #FFEED9;
+    color: black;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+
+.cta-button:hover {
+    background-color: #FFEED9;
+}
+

@@ -29,6 +29,12 @@
         </p>
     </div>
 
+    <section class="announcement-section">
+        <h2>Create an Account and Reserve with us Today!</h2>
+        <p>Offering Services for Daycare, Boarding and Grooming</p><br>
+        <a  class="cta-button" href="/PeaceOfHeavenWebPage/php/UserHandling/login.php">Reserve Now</a>
+    </section><br><br>
+
     <!--Boarding Box with Link to Service Page-->
     <section class="box-sections">
         <div class="service-box">
