@@ -189,6 +189,13 @@ class GroomingReservation {
             }
     
         }
+
+        /**
+         * Marks the grooming appointment as complete
+         */
+        public function completeGroomingAppointment(){
+
+        }
 }
 
 

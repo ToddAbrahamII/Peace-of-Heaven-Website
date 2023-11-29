@@ -155,7 +155,6 @@
                 <th>Description</th>
                 <th>Service</th>
                 <th>Status</th>
-                <th>Finish<th>
             </tr>
             </thead>
             <tbody>

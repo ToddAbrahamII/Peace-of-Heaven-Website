@@ -192,6 +192,11 @@
             </tbody>
         </table>
         <br><br>
+        <div class="view-button-container">
+        <a href="/PeaceOfHeavenWebPage/php/Employee Portal/CompleteGrooming.php">
+            <button class="view-button">Complete Grooming Appointment</button>
+        </a>
+    </div>
 
     </div>
 </body>
