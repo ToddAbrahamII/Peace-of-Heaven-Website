@@ -75,3 +75,20 @@ tr:hover {
 .check-out-button:hover {
   background-color: #39A7FF;
 }
+
+/* Mobile Optimization */
+@media screen and (max-width: 768px) {
+  .content {
+    margin-left: 0; /* No left margin on mobile */
+    padding: 10px;
+  }
+
+  table {
+    overflow-x: auto; /* Enable horizontal scroll on small screens */
+  }
+
+  th, td {
+    font-size: 14px; /* Adjust font size for better readability on small screens */
+  }
+
+}

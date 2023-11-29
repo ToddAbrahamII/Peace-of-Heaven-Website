@@ -66,6 +66,22 @@
     background-color: #39A7FF;
   }
   
-  
-  
-  
+/* Mobile Optimization */
+@media screen and (max-width: 768px) {
+  .content {
+    margin-left: 0; /* Remove left margin for mobile view */
+  }
+
+  .welcome-box {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  table {
+    font-size: 14px; /* Adjust font size for better readability on small screens */
+  }
+
+  .view-button-container {
+    text-align: center;
+    margin-left: 0; /* Remove left margin for mobile view */
+  }
+}

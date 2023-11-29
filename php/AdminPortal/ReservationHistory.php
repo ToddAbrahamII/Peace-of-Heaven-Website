@@ -46,7 +46,7 @@
                 $dog = new Dog();
                 $customer = new Customer();
                 $customer->findCustInfo($user->data()->id);
-                $custid = $customer->data()->CustID;
+                // $custid = $customer->data()->CustID;
 
                 //Gathers the data
                 $reservation->getAllReservations();
@@ -98,7 +98,7 @@
 
         //Find Customer with Customer ID
         $customer->findCustInfo($user->data()->id); //Finds matching user id
-        $custid = $customer->data()->CustID; //stores the customer id
+        // $custid = $customer->data()->CustID; //stores the customer id
 
         //Finds Unapproved Reservations Linked to Account
         $groomingReservation->getAllGroomingReservations();
