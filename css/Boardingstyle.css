@@ -87,3 +87,44 @@ body{
     margin-bottom: 10px;
     list-style-type: square;
 }
+
+/* Mobile Optimization */
+@media screen and (max-width: 768px) {
+    .Doggy-Retreat-container,
+    .Know-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Boarding-img,
+    .Know-container img {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 10px; /* Add some space between image and text */
+    }
+
+    .Doggy-Retreat-Description,
+    .Know-Description {
+        text-align: center; /* Center text in the description */
+        padding-left: 0; /* Remove left padding */
+    }
+
+    .Doggy-Retreat-Description h2,
+    .Know-Description h2 {
+        font-size: 20px !important; /* Use !important to ensure the styles are applied */
+    }
+
+    .Doggy-Retreat-Description li,
+    .Know-container li {
+        font-size: 18px !important; /* Use !important to ensure the styles are applied */
+        line-height: 1.3;
+        margin-left: 20px; /* Adjust the left margin for better alignment */
+    }
+
+    .Know-Description h3,
+    .Know-Description div {
+        font-size: 16px !important; /* Use !important to ensure the styles are applied */
+        margin-bottom: 5px;
+    }
+}
+

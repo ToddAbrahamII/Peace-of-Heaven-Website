@@ -22,6 +22,7 @@
     <img src="/PeaceOfHeavenWebPage/Img/overnight-kennels.jpg" alt="Picture of the outside of 4 kennels" Class="Boarding-img">
     <div class="Doggy-Retreat-Description">
         <h2>Boarding? Or a Doggy Retreat?</h2>
+        <div>
         <ul>
             <li>POH Boarding areas were created and designed to promote a calm environment and provide comfort for dogs of all kinds. </li>
             <li>Each overnight kennel is a climate-controlled 8x8ft indoor space featuring raised Kuranda bed, food & water bowls, 
@@ -29,6 +30,7 @@
             <li>Overnight kennels also have access to individual 8X10ft outdoor yards.</li>
             <li>Facility space also includes 4800 sq ft indoor exercise & play area and 6000 sq ft outdoor exercise & play areas for individual or social activities</li>
         </ul>  
+        </div>
     </div>  
     </div>
 
