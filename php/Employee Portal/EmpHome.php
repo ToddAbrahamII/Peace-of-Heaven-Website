@@ -194,7 +194,7 @@
         <br><br>
         <div class="view-button-container">
         <a href="/PeaceOfHeavenWebPage/php/Employee Portal/CompleteGrooming.php">
-            <button class="view-button">Complete Grooming Appointment</button>
+            <button class="check-out-button">Complete Grooming Appointment</button>
         </a>
     </div>
 

@@ -36,7 +36,7 @@
 <div class=content>
 <form method="POST">
         <fieldset>
-            <legend>Select a Reservation to Check Out</legend>
+            <legend>Select a Reservation to Complete</legend>
 
                 <!-- Php code for drop down menu for dogs --> 
                 <?php
@@ -51,7 +51,7 @@
                         if (!empty($reservation)) {
                             ?>  
                                 <!-- Dog Option for Each Dog in the Table -->
-                                <label for="resDropdown">Select a Reservation to Check Out:</label>
+                                <label for="resDropdown">Select a Reservation to Complete:</label>
                                 <select id="resDropdown" name="selectedRes">
 
                                     <?php foreach ($reservation as $reservation) {
@@ -85,7 +85,7 @@
 
                         <!-- Generates Token and submits input -->
                         <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-                        <input type="submit" value="Check Out Reservation"><br><br>
+                        <input type="submit" value="Complete Grooming Appointment"><br><br>
 
 
                         <?php 
