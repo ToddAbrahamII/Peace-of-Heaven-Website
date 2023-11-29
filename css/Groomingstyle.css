@@ -82,3 +82,37 @@ body{
     font-size: 35px;
     text-align: center;
 }
+
+/* Mobile Optimization */
+@media screen and (max-width: 768px) {
+    .Clean-Days-container,
+    .Relax-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Portrait-img,
+    .Relax-img {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 10px; /* Add some space between image and text */
+    }
+
+    .Clean-Days-Description,
+    .Relax-Description {
+        text-align: center; /* Center text in the description */
+        padding-left: 0; /* Remove left padding */
+    }
+
+    .Clean-Days-Description h2,
+    .Relax-Description h2 {
+        font-size: 30px !important; /* Decrease font size for headings on mobile */
+        margin-bottom: 5px;
+    }
+
+    .Clean-Days-container p,
+    .Relax-Description p {
+        font-size: 18px !important; /* Decrease font size for paragraphs on mobile */
+        line-height: 1.3;
+    }
+}

@@ -1,16 +1,44 @@
+/* General Styles */
+body {
+   margin: 0; /* Remove default body margin for full width */
+}
+
 .footer {
    display: flex;
+   flex-direction: column; /* Stack items vertically on smaller screens */
+   text-align: center; /* Center content on smaller screens */
 }
-.banner-table{
-   flex: 1; 
+
+.banner-table {
+   flex: 1;
    font-family: Arial, Helvetica, sans-serif;
-    text-align: left;
-    background-color: rgb(15, 15, 35);
-    color: white;
- }
- .footer-desc{
-    color: rgb(163, 163, 163);
- }
- .facebook-link{
-    color: rgb(0, 140, 255);
- }
+   text-align: left;
+   background-color: rgb(15, 15, 35);
+   color: white;
+}
+
+.footer-desc {
+   color: rgb(163, 163, 163);
+}
+
+.facebook-link {
+   color: rgb(0, 140, 255);
+   text-decoration: none; /* Remove text decoration from the link */
+}
+
+/* Media Query for Phones */
+@media screen and (max-width: 480px) {
+   .banner-table {
+       font-size: 14px; /* Decrease font size for small screens */
+   }
+
+   .footer-desc,
+   .facebook-link {
+       font-size: 12px; /* Decrease font size for small screens */
+   }
+
+   .banner-table img {
+       max-width: 100%; /* Make the image responsive within its container */
+       margin-top: 10px; /* Add space between text and image */
+   }
+}

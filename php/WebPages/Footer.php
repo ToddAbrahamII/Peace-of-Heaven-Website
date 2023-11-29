@@ -30,7 +30,7 @@
             </td>
             <td>
                <div>Follow the link to place a Reservation</div>
-               <a href="placeholder.com">Request a Reservation</a>
+               <a href="/PeaceOfHeavenWebPage/php/UserHandling/login.php">Request a Reservation</a>
             </td>
         </tr>
 

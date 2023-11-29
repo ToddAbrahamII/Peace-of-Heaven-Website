@@ -1,0 +1,36 @@
+/* General Styles */
+body {
+    background-color: #E0F4FF;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+h1 {
+    text-align: center;
+    font-size: 35px;
+}
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+div {
+    margin-left: 15px;
+}
+
+/* Mobile Optimization */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 30px; /* Decrease font size for the main heading on mobile */
+    }
+
+    h2 {
+        font-size: 20px; /* Decrease font size for subheadings on mobile */
+    }
+
+    div {
+        margin-left: 0; /* Remove left margin on mobile for better spacing */
+    }
+}

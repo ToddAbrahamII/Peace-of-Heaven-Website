@@ -11,8 +11,8 @@
     <body>
         <h1>Frequently Asked Questions:</h1>
         <p>
-            <h2>What are even questions that should be here</h2>
-            <div>That's a good question. We need to contact PoH to get an answer to that</div>
+            <h2>Question 1</h2>
+            <div>Answer</div>
         </p>
         <p>
             <h2>Question 2</h2>
