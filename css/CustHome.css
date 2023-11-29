@@ -101,3 +101,11 @@ tr:nth-child(even) {
   margin: 10px 0 0;
   color: #333;
 }
+
+/* Mobile Optimization */
+@media screen and (max-width: 768px) {
+  .content {
+    margin-left: 0; /* No margin on mobile */
+    padding: 10px;
+  }
+}
