@@ -18,6 +18,7 @@
     <a href='/PeaceOfHeavenWebPage/php/Employee Portal/CheckOut.php'>Check-Out Dog</a>
     <a href='/PeaceOfHeavenWebPage/php/Employee Portal/ViewKennels.php'>View Kennels</a>
     <a href="/PeaceOfHeavenWebPage/php/Customer Portal/CustHome.php">Customer Portal</a>
+    <a href='/PeaceOfHeavenWebPage/php/WebPages/Home.php'>Return to Website</a>
     <a href='/PeaceOfHeavenWebPage/php/UserHandling/logout.php'>Logout</a>
    
   </div>

@@ -18,6 +18,7 @@
     <a href='/PeaceOfHeavenWebPage/php/Customer Portal/MyReservations.php'>My Reservations</a>
     <a href='/PeaceOfHeavenWebPage/php/Forms/DogAccountInfo.php'>Add a Dog Account</a>
     <a href='/PeaceOfHeavenWebPage/php/Customer Portal/CustDogs.php'> My Dog Accounts</a>
+    <a href='/PeaceOfHeavenWebPage/php/WebPages/Home.php'>Return to Website</a>
     <a href='/PeaceOfHeavenWebPage/php/Customer Portal/Settings.php'>Settings</a>
     <a href='/PeaceOfHeavenWebPage/php/UserHandling/logout.php'>Logout</a>
   </div>

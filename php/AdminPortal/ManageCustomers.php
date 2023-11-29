@@ -48,6 +48,8 @@
                 <th>Zip</th>
                 <th>Email</th>
                 <th>UserID</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>

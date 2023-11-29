@@ -33,8 +33,7 @@
 <div class=content>
 <h1>Admin Control Panel<h1>
 <h2>Customer Account Actions:</h2>
-  <a href="">Update Customer Account</a>
-  <a href="">Delete Customer Account</a>
+  <a href="/PeaceOfHeavenWebPage/php/AdminPortal/ManageCustomers.php">Manage Customer Accounts</a>
 
   <h2>Dog Account Actions:</h2>
   <a href="">Update Dog Account</a>

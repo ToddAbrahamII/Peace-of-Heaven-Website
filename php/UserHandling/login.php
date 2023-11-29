@@ -3,6 +3,27 @@
 
 require_once 'core/init.php';
 
+$user = new User();
+if($user->isLoggedIn()) {
+
+    if($user->data()->group == 1)
+    {
+       Redirect::to('acctinfo.php');
+    }
+
+    //Redirects if user is employee
+    if ($user->data()->group == 2)
+   {
+       Redirect::to('../Employee Portal/EmpHome.php');
+   }
+   
+   //Redirects if user is an admin
+   if($user->data()->group == 3 )
+   {
+       Redirect::to('../AdminPortal/AdminHome.php');
+   }
+}
+
 if(Input::exists()) {
     if(Token::check(Input::get('token'))) {
         
