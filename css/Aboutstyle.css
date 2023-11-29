@@ -1,122 +1,92 @@
-body{
+body {
     background-color: #E0F4FF;
 }
+
 .Header-container {
     background-image: url('/PeaceOfHeavenWebPage/Img/Dogs-In-Field.jpg');
-    position: relative; /* Make it a reference for absolute positioning */
+    position: relative;
     width: 100%;
-    height: 40vh; /* 100% of viewport height */
-    background-size: cover; /* Scale the image to cover the container */
-    color: white; /* Text color on top of the image */
+    height: 40vh;
+    background-size: cover;
+    color: white;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-position: center;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 35px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2rem; /* Adjusted font size */
 }
-.Our-Story-Container {
+
+.Our-Story-Container,
+.Our-Facility-container {
     display: flex;
-    align-items:flex-start;/* Vertically align items */
-    margin: 0 auto; /* Center the container horizontally */
+    align-items: flex-start;
+    margin: 0 auto;
     padding: 10px;
     background-color: #87C4FF;
 }
 
-.Owners-img {
+.Owners-img,
+.Overnight-img {
     max-width: 50%;
     width: 50%;
-    height: 15%;
+    height: auto; /* Adjusted height */
     margin-right: 10px;
 }
 
-.Our-Story-Description{
-    flex: 1; /* Allow the description to take up the remaining space */
+.Our-Story-Description,
+.Our-Facility-Description {
+    flex: 1;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the start (left) of the column */
+    align-items: flex-start;
 }
 
-.Our-Story-Description h2{
-    font-size: 60px;
+.Our-Story-Description h2,
+.Our-Facility-Description h2 {
+    font-size: 2rem; /* Adjusted font size */
     text-align: center;
     margin-bottom: 10px;
 }
 
-.Our-Story-Description p{
-    font-size: 35px;
-    line-height: 1.5;
-    margin-left:15px;
-}
-
-.Our-Facility-container {
-    display: flex;
-    align-items:flex-start;/* Vertically align items */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 10px;
-    background-color: #87C4FF;
-}
-
-.Overnight-img {
-    max-width: 50%;
-    width: 50%;
-    height: 15%;
-    margin-right: 10px;
-}
-
-.Our-Facility-Description{
-    flex: 1; /* Allow the description to take up the remaining space */
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the start (left) of the column */
-}
-
-.Our-Facility-Description h2{
-    font-size: 50px;
-    text-align: center;
-}
-
+.Our-Story-Description p,
 .Our-Facility-Description p {
-    font-size: 35px;
-    text-align: center;
+    font-size: 1.5rem; /* Adjusted font size */
+    line-height: 1.5;
+    margin-left: 15px;
 }
 
-.h3-center {
-    font-size: 40px;
-    text-align: center;
-}
-
+.h3-center,
 .Amenities-h3 {
-    font-size: 40px;
+    font-size: 1.8rem; /* Adjusted font size */
 }
 
-.Our-Facility-Description ul{
-    font-size: 35px;
+.Our-Facility-Description ul {
+    font-size: 1.5rem; /* Adjusted font size */
 }
 
-/* Media query for mobile view */
+/* Mobile Optimization*/
 @media screen and (max-width: 768px) {
-    .Header-container {
-        font-size: 10px; /* Adjust font size for mobile */
+    .Our-Story-Container,
+    .Our-Facility-container {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .Our-Story-Description h2, .Our-Facility-Description h2 {
-        font-size: 15px; /* Adjust font size for mobile */
+    .Owners-img,
+    .Overnight-img {
+        width: 100%; /* Make images full width */
+        margin-bottom: 10px; /* Add some space between image and text */
     }
 
-    .Our-Story-Description p, .Our-Facility-Description p {
-        font-size: 8px; /* Adjust font size for mobile */
-    }
-
-    .h3-center {
-        font-size: 15px; /* Adjust font size for mobile */
-    }
-
-    .Amenities-h3 {
-        font-size: 10px; /* Adjust font size for mobile */
-    }
-
+    .Our-Story-Description h2,
+    .Our-Facility-Description h2,
+    .Our-Story-Description p,
+    .Our-Facility-Description p,
+    .h3-center,
+    .Amenities-h3,
     .Our-Facility-Description ul {
-        font-size: 8px; /* Adjust font size for mobile */
+        text-align: center; /* Center the text */
     }
 }
