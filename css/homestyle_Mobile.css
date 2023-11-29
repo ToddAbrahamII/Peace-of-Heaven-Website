@@ -1,0 +1,74 @@
+/* Mobile styles */
+@media only screen and (max-width: 600px) {
+    /* Navigation bar */
+    #navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: larger;
+    }
+
+    #menu {
+        display: none;
+        background-color: #E0F4FF;
+        width: 100%;
+        text-align: center;
+    }
+
+    #menu a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid #39A7FF;
+    }
+
+    #menu a:last-child {
+        border-bottom: none;
+    }
+
+    #menu-toggle:checked + #menu {
+        display: block;
+    }
+
+    /* Additional mobile styles */
+    .Header-container {
+        height: 50vh;
+        font-size: 25px;
+    }
+
+    .subheader1 {
+        font-size: 20px;
+    }
+
+    .intro-paragraph {
+        font-size: 18px;
+    }
+
+    .announcement-section {
+        padding: 20px;
+    }
+
+    .service-box p,
+    .Kennel-description p,
+    .Our-Reason-description p {
+        font-size: 16px;
+    }
+
+    .Kennel-button,
+    .Our-Reason-button,
+    .Location-button,
+    .cta-button {
+        padding: 10px 15px;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    .paw-print-img {
+        padding-top: 5px; /* Adjust the padding as needed */
+        max-width: 50%; /* Adjust the max-width as needed */
+        height: auto; /* Allow the height to adjust proportionally */
+    }
+}

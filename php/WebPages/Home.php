@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/homestyle.css">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/homestyle_Mobile.css">
 
     <title>Peace of Heaven</title>
 </head>
@@ -53,7 +54,7 @@
         <!--Grooming Box with Link to Service Page-->
         <div class="service-box">
     <img src="/PeaceOfHeavenWebPage/Img/Paw-print.jpg" alt="Image" class="paw-print-img">
-            <p>Services with Cleaning, Nail Clippings and Hair Trimmings</p>
+            <p>Grooming Services with Cleaning</p>
             <a class="button" href="/PeaceOfHeavenWebPage/php/WebPages/Grooming.php">Grooming</a>
         </div>
     </section>
