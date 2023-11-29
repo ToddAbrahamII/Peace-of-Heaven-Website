@@ -35,3 +35,15 @@ body, ul, li {
     margin-left: 5px;
 }
 
+/*Mobile Optimization*/
+@media only screen and (max-width: 600px) {
+    #navbar {
+        flex-direction: column; /* Stack items vertically for smaller screens */
+        align-items: stretch;
+    }
+
+    #navbar a {
+        padding: 15px; /* Decrease padding for smaller screens */
+        font-size: large; /* Adjust font size for smaller screens */
+    }
+}
