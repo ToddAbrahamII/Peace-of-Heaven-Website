@@ -20,6 +20,7 @@
         <a href='/PeaceOfHeavenWebPage/php/UserHandling/login.php'>Reserve</a>
         <a href='/PeaceOfHeavenWebPage/php/WebPages/Contact.php'>Contact</a>
         <a href='/PeaceOfHeavenWebPage/php/WebPages/FAQ.php'>FAQ</a>
+        <a href='/PeaceOfHeavenWebPage/php/UserHandling/login.php'>LogIn</a>
 
     </div>
 
