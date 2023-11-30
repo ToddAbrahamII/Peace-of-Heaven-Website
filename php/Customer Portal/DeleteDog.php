@@ -121,10 +121,16 @@
 
                                         // Define the table, row id, and fields you want to delete.
                                         $table = 'dog';
+                                        $table2 = 'dogbehavior';
+                                        $table3 = 'doghealth';
+                                        $table4 = 'dogvaccine';
                                         $where = ['DogID', '=', $dogSelectedID];
                                         
                                         //Deletes from Database
-                                        $db->delete($table,$where);  
+                                        $db->delete($table,$where); 
+                                        $db->delete($table2,$where);
+                                        $db->delete($table3,$where);
+                                        $db->delete($table4,$where); 
 
                                     } 
                                     //Error Handling
