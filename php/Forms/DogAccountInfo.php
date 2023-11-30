@@ -3,7 +3,7 @@
 
 $user = new User(); //constructor call
 $customer = new Customer(); //constructor call 
-
+$formValidate = false;
 //checks if user is logged in
 if ($user->isLoggedIn()) {
 
@@ -37,39 +37,40 @@ if ($user->isLoggedIn()) {
 
             // If all rules are satisfied, create new customer
             if($validation->passed()) {
-                try{
-                    //Creates array of all input to be inserted into dog table
-                    $dog = new Dog(); //constructor call
-                    $customer->findCustInfo($user->data()->id); //Finds matching user id
-                    $custid = $customer->data()->CustID; //stores the customer id
+                if($formValidate){
+                    try{
+                        //Creates array of all input to be inserted into dog table
+                        $dog = new Dog(); //constructor call
+                        $customer->findCustInfo($user->data()->id); //Finds matching user id
+                        $custid = $customer->data()->CustID; //stores the customer id
 
-                    //Creates array to be added to dog table
-                    $dog->create(array(
-                        'DogName' => Input::get('DogName'),
-                        'Breed' => Input::get('Breed'),
-                        'DogDOB' => Input::get('DogDOB'),
-                        'Sex' => Input::get('sex'),
-                        'isFixed' => Input::get('fixed'),
-                        'Weight' => Input::get('DogWeight'),
-                        'Color' => Input::get('DogColor'),
-                        'DogOtherInfo' => Input::get('DogOtherInfo'),
-                        'CustID' => $custid 
-                    ));
+                        //Creates array to be added to dog table
+                        $dog->create(array(
+                            'DogName' => Input::get('DogName'),
+                            'Breed' => Input::get('Breed'),
+                            'DogDOB' => Input::get('DogDOB'),
+                            'Sex' => Input::get('sex'),
+                            'isFixed' => Input::get('fixed'),
+                            'Weight' => Input::get('DogWeight'),
+                            'Color' => Input::get('DogColor'),
+                            'DogOtherInfo' => Input::get('DogOtherInfo'),
+                            'CustID' => $custid 
+                        ));
 
-                    //Returns user to home
-                    Redirect::to('../Customer Portal/CustHome.php');
+                        //Returns user to home
+                        Redirect::to('../Customer Portal/CustHome.php');
 
-                }
-                //Error Handling
-                catch(Exception $e) {
-                    die($e->getMessage());
-                    
-                }
-                 }else { ## Is this an error?
+                    }
+                    //Error Handling
+                    catch(Exception $e) {
+                        die($e->getMessage());  
+                    }
+                }else { ## Is this an error?
                     // output errors
                     foreach ($validation->errors() as $error) {
                         echo $error, '<br>';
-                }   
+                    }   
+                }
             }
         }
     }
@@ -86,7 +87,7 @@ if ($user->isLoggedIn()) {
     
         <body>
             <div class ='content'>
-            <form method="POST" class="DogInfo-Form" name=DogAccountInfo onsubmit="return validateForms()">
+            <form method="POST" class="DogInfo-Form" name=DogAccountInfo onsubmit="$formValidate = validateForms()">
                 <fieldset>
                         <!-- Collects information for Dog Table -->
                         <legend>Dog General Information</legend>
