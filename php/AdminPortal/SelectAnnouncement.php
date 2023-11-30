@@ -15,19 +15,7 @@
     if($user->data()->group == 3 ){
         include("../AdminPortal/AdminNavBar.php");
 
-    
-    
-    //Matches UserID to CustID with account logged in
-    $customer->findCustInfo($user->data()->id);
 
-    //Stores the CustID
-    $custid = $customer->data()->CustID;
-
-    //Finds all Dogs linked by CustID
-    $dog->findDogArray($customer->data()->CustID);
-
-    //Stores the Dogs Found
-    $dogData = $dog->data();
 
 ?>
 <!DOCTYPE html>

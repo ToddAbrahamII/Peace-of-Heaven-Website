@@ -41,6 +41,23 @@ class Kennel {
          }
     }
 
+       /**
+     * Gathers all kennels using id
+     */
+    public function getKennelWithID($kennel)
+    {
+         //Gathers all data as a string
+         $data = $this->_db->get('kennel', array('KennelID', '=', $kennel));
+
+         if($data->count() > 0) {
+             //Takes all data, sorts into an array so it can be printed in rows
+             $this->_kennelData = $data->first();
+             return true;
+         }else{
+             return false;
+         }
+    }
+
     /**
      * Gets unoccupied kennels
      *
@@ -124,6 +141,19 @@ class Kennel {
     public function data(){
         return $this->_kennelData;
     }
+
+
+          /** 
+     * Updates kennel table
+    */
+    public function update( $fields, $key, $keyValue) {
+
+        if(!$this->_db->updateTable('kennel', $fields, $key, $keyValue)) { // if ID provided, update provided user that matches id
+            throw new Exception('There was a problem updating this user.');
+        }
+        return true;
+    }
+
 
 }
 

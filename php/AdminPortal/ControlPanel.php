@@ -49,7 +49,7 @@
 
   <h2>Kennel Actions:</h2>
   <a href="../AdminPortal/KennelCreation.php">Create Kennel</a>
-  <a href="">Update Kennel</a>
+  <a href="../AdminPortal/SelectKennel.php">Update Kennel</a>
   <a href="../AdminPortal/DeleteKennel.php">Delete Kennel</a>
 
   <h2>Announcement Actions:</h2>
