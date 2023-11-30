@@ -86,7 +86,7 @@
     </a>
 
     <!-- Go to update dog -->
-    <a href="https://example.com/page2.html">
+    <a href="../Customer Portal/UpdateDogAccount.php">
         <button>Update a Dog Account</button>
     </a>
 

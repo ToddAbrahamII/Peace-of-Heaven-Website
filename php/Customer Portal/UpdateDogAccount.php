@@ -46,7 +46,7 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/DeleteDog.css">
+        <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/SelectDog.css">
     
     <title>Customer Dogs</title>
 </head>
@@ -54,7 +54,7 @@
     <div class = 'content'>
     <form method="POST" class="Dog-Selector">
         <fieldset>
-            <legend>Select a Dog to Delete</legend>
+            <legend>Select a Dog to Update</legend>
             <br><br>
 
                 <!-- Php code for drop down menu for dogs --> 
@@ -95,7 +95,7 @@
                         <!-- Generates Token and submits input -->
                         <br><br><br>
                         <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-                        <input type="submit" value="Delete"><br><br>
+                        <input type="submit" value="Update"><br><br>
                         
 
                         <?php 
@@ -123,8 +123,7 @@
                                         $table = 'dog';
                                         $where = ['DogID', '=', $dogSelectedID];
                                         
-                                        //Deletes from Database
-                                        $db->delete($table,$where);  
+                                    
 
                                     } 
                                     //Error Handling
