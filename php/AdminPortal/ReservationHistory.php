@@ -65,11 +65,14 @@
                         echo '<td>'.$dogName.'</td>';
                         echo '<td>' . $reservation->ServiceType .'</td>';
 
-                        if($reservation->isApproved == 1){
+                        if($reservation->isApproved == 1 && $reservation->isFinished == 0){
 
                           echo '<td>Confirmed</td>';
 
-                        }else if ($reservation->isApproved == 0){
+                        }else if($reservation->isApproved == 1 && $reservation->isFinished == 1){
+                          echo '<td>Complete</td>';
+                        }
+                        else if ($reservation->isApproved == 0){
                           echo '<td>Pending</td>';
                         }
 
@@ -131,11 +134,14 @@
                     echo '<td>Grooming</td>';
                    
 
-                    if($reservationGrooming->isApproved == 1){
+                    if($reservationGrooming->isApproved == 1 && $reservationGrooming->isFinished == 0){
 
                       echo '<td>Confirmed</td>';
 
-                    }else if ($reservationGrooming->isApproved == 0){
+                    }else if($reservationGrooming->isApproved == 1 && $reservationGrooming->isFinished == 1){
+                      echo '<td>Complete</td>';
+                    }
+                    else if ($reservationGrooming->isApproved == 0){
                       echo '<td>Pending</td>';
                     }
 
