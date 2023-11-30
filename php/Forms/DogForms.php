@@ -202,21 +202,22 @@
                 <legend>Dog Behavior Information</legend>
             <p>
                     <legend>1. What is your dog's previous daycare and/or boarding experience</legend>
-                        <input type="radio" id="1a" name="Experience" value="0" REQUIRED>
-                        <label for="1a">a. Never attempted either</label>
-
-                        <input type="radio" id="1b" name="Experience" value="1">
-                        <label for="1b">b. Boarding and/or daycare client in past but no more than twice a
+                        <input type="radio" id="rad" name="Experience" value="0" REQUIRED>
+                        <label for="rad">a. Never attempted either</label>
+                        <br>
+                        <input type="radio" id="rad" name="Experience" value="1">
+                        <label for="rad">b. Boarding and/or daycare client in past but no more than twice a
                             year</label>
-                        <input type="radio" id="1c" name="Experience" value="2">
-                        <label for="1c">c. Has been at least once but stresses easily or does not adjust
+                            <br>
+                        <input type="radio" id="rad" name="Experience" value="2">
+                        <label for="rad">c. Has been at least once but stresses easily or does not adjust
                             well to unfamiliar environments</label>
-
-                        <input type="radio" id="1d" name="Experience" value="3">
-                        <label for="1d">d. Boarded regularly & adjusts easily</label>
-
-                        <input type="radio" id="1e" name="Experience" value="4">
-                        <label for="1e">e. Attends daycare often & socializes well</label>
+                            <br>
+                        <input type="radio" id="rad" name="Experience" value="3">
+                        <label for="rad">d. Boarded regularly & adjusts easily</label>
+                        <br>
+                        <input type="radio" id="rad" name="Experience" value="4">
+                        <label for="rad">e. Attends daycare often & socializes well</label>
                     <br><br>
                     <legend>2. Do you want your dog to engage in social play with dogs of like-size & similar
                         temperament?</legend>
@@ -233,7 +234,7 @@
                         <label for="F">NO</label>
                     <br> &nbsp;&nbsp;
                     <!-- Temp. tabs until we decide if we want to put text areas in divs and format with CSS-->
-                    <label for="AggressiveDesc">a. If yes, please provide a brief description of
+                    <label for="AggressiveDesc">If yes, please provide a brief description of
                         encounter(s).</label>
                     <br> &nbsp;&nbsp;
                     <textarea name="AggressiveDesc" id="AggressiveDesc"></textarea>
@@ -268,7 +269,7 @@
                         <input type="radio" id="F" name="IsEscapeArtist" value="0">
                         <label for="F">NO</label>
                     <br> &nbsp;&nbsp;
-                    <label for="EscapeDesc">If yes, please describe his/her escaping
+                    <label for="EscapeDesc">If yes to escape artist, please describe his/her escaping
                         abilities.</label>
                     <br> &nbsp;&nbsp;
                     <textarea name="EscapeDesc" id="EscapeDesc"></textarea>
