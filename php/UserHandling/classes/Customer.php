@@ -91,7 +91,7 @@ class Customer {
     }
 
     /** 
-     * 
+     * Updates Customer Table
     */
     public function update( $fields, $key, $keyValue) {
 

@@ -40,3 +40,26 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #ddd;
 }
+
+table a {
+  text-decoration: none; /* Remove text decoration */
+  color: #0074D9; /* Set the color to a preferred value */
+}
+
+table a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Add the following styles for the delete dog button */
+div button {
+  background-color: #ff3333; /* Set the background color to a preferred value */
+  color: #fff; /* Set the text color to white or a contrasting color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+div button:hover {
+  background-color: #cc0000; /* Change background color on hover */
+}

@@ -1,0 +1,82 @@
+/* Adjust the content area by creating space beside the sidebar */
+.content {
+    margin-left: 12%; /* Adjust this value to create space beside the sidebar */
+    padding: 20px;
+}
+
+/* Style for the Dog-Selector form with class .Dog-Selector */
+.Dog-Selector {
+    text-align: left;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+}
+
+/* Style for fieldset within the Dog-Selector form */
+.Dog-Selector fieldset {
+    border: 1px solid #ccc; /* Adjust border styles as needed */
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Style for the legend element within the fieldset */
+.Dog-Selector legend {
+    font-weight: bold;
+}
+
+/* Style for labels within the Dog-Selector form */
+.Dog-Selector label {
+    display: block;
+    margin: 5px 0;
+}
+
+/* Style for input elements within the Dog-Selector form */
+.Dog-Selector input[type="text"],
+.Dog-Selector input[type="number"],
+.Dog-Selector input[type="date"] {
+    width: 80%; /* Adjust the width to take up the full width of the form */
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Style for radio input elements */
+.Dog-Selector input[type="radio"] {
+    margin: 5px; /* Add some margin to space out the radio buttons */
+}
+
+/* Style for labels associated with radio inputs */
+.Dog-Selector label[for="M"],
+.Dog-Selector label[for="F"],
+.Dog-Selector label[for="T"],
+.Dog-Selector label[for="F"] {
+    display: inline-block; /* Display the labels inline */
+    margin-right: 10px; /* Add some space between labels and radio buttons */
+}
+
+/* Style for the submit button */
+.Dog-Selector input[type="submit"] {
+    background-color: #0074D9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Style the submit button on hover */
+.Dog-Selector input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style for error messages with class .invalid_username */
+.invalid_username {
+    color: red;
+    font-weight: bold;
+}

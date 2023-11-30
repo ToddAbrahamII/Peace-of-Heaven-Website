@@ -58,7 +58,7 @@
     if (!empty($dogData)) {
         echo '<table>';
         //Creates Table Columns 
-        echo '<tr><th>Dog Name</th><th>Breed</th><th>Age</th><th>Color</th></tr>'; 
+        echo '<tr><th>Dog Name</th><th>Breed</th><th>Age</th><th>Color</th><th>Update Dog Info</th></tr>'; 
 
         foreach ($dogData as $dog) {
             //Populates the Table Columns
@@ -67,6 +67,8 @@
             echo '<td>' . $dog->Breed . '</td>';
             echo '<td>' . $dog->DogDOB . '</td>';
             echo '<td>' . $dog->Color . '</td>';
+            echo '<td><p><a href="../Customer Portal/UpdateDogAccount.php?DogID='
+            . urlencode($dog->DogID).'">Update</a></p></td>';
             echo '</tr>';
         }
 
@@ -84,19 +86,6 @@
     <a href="../Customer Portal/DeleteDog.php">
         <button>Delete a Dog Account</button>
     </a>
-
-    <!-- Go to update dog -->
-    <a href="../Customer Portal/UpdateDogAccount.php">
-        <button>Update a Dog Account</button>
-    </a>
-
-     <!-- go to update dog forms --> 
-    <a href="https://example.com/page2.html">
-        <button>Update a Dog Accounts Forms</button>
-    </a>
-</div>
-    </div>
-
 
 </body>
 </html>
