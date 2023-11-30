@@ -81,12 +81,12 @@ if ($user->isLoggedIn()) {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/DogAccountInfo.css">
-</head>
+            <script src="DogAccount.js" defer></script>
         </head>
     
         <body>
             <div class ='content'>
-            <form method="POST" class="DogInfo-Form">
+            <form method="POST" class="DogInfo-Form" name=DogAccountInfo onsubmit="return validateForms()">
                 <fieldset>
                         <!-- Collects information for Dog Table -->
                         <legend>Dog General Information</legend>
@@ -105,7 +105,7 @@ if ($user->isLoggedIn()) {
                             
                             <!-- Gets Dog Sex from Male and Female Option -->
                             <label for="DogSex">What is the sex of your dog?</label>
-                            <input type="radio" id="M" name="sex" value="M">
+                            <input type="radio" id="M" name="sex" value="M" required>
                             <label for="M">Male</label>
 
                             <input type="radio" id="F" name="sex" value="F">
@@ -114,7 +114,7 @@ if ($user->isLoggedIn()) {
                             
                             <!-- Gets If the Dog is Fixed from Options -->
                             <label>Has your dog been fixed?</label>
-                            <input type="radio" id="T" name="fixed" value="1">
+                            <input type="radio" id="T" name="fixed" value="1" required>
                             <label for="T">Fixed</label>
 
                             <input type="radio" id="F" name="fixed" value="0">
