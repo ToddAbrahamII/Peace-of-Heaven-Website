@@ -35,13 +35,13 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/DeleteDog.css">
+        <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/DeleteKennel.css">
     
     <title>Announcement Deletetion</title>
 </head>
 <body>
     <div class = 'content'>
-    <form method="POST" class="Announcement-Selector">
+    <form method="POST" class="Kennel-Selector">
         <fieldset>
             <legend>Select an Announcement to Delete</legend>
             <br><br>
