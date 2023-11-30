@@ -37,7 +37,6 @@
     //session variable
     $resid = $_GET['ResID'];
     $service = $_GET['service'];
-    print_r($service);
 
     //gathers data from table depending on service
     if($service == 'Daycare' || $service == 'Boarding'){

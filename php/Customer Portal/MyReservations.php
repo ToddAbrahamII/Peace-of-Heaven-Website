@@ -106,7 +106,8 @@
                           echo '<td>Pending</td>';
                           echo '<td><p><a href="../Customer Portal/UpdateReservation.php?ResID='
                           . urlencode($reservation->Res_ID).'&service='. urlencode($service).'">Update</a></p></td>';
-                          echo '<td>N/A</td>';
+                          echo '<td><p><a href="../Customer Portal/DeleteReservation.php?ResID='
+                          . urlencode($reservation->Res_ID).'&service='. urlencode($service).'">Delete</a></p></td>';
                         }
                         
 
@@ -187,7 +188,8 @@
                       echo '<td>Pending</td>';
                       echo '<td><p><a href="../Customer Portal/UpdateReservation.php?ResID='
                           . urlencode($reservationGrooming->GroomResID).'&service='. urlencode($service).'">Update</a></p></td>';
-                          echo '<td>N/A</td>';
+                      echo '<td><p><a href="../Customer Portal/DeleteReservation.php?ResID='
+                          . urlencode($reservationGrooming->GroomResID).'&service='. urlencode($service).'">Delete</a></p></td>';
                     }
 
 
