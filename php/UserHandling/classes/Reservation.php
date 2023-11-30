@@ -219,6 +219,17 @@ class Reservation {
     }
 
 
+    /** 
+     * Updates Reservation table
+    */
+    public function update( $fields, $key, $keyValue) {
+
+        if(!$this->_db->updateTable('reservation', $fields, $key, $keyValue)) { // if ID provided, update provided user that matches id
+            throw new Exception('There was a problem updating this user.');
+        }
+        return true;
+    }
+
     public function getCustomerDataFromReservation() {
         
     }

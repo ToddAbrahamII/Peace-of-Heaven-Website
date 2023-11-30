@@ -51,6 +51,8 @@
         <th>Dog</th>
         <th>Service</th>
         <th>Status</th>
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -81,17 +83,32 @@
                         echo '<td>'.$dogName.'</td>';
                         echo '<td>' . $reservation->ServiceType .'</td>';
 
+                        //Stores Service Type for Input information to have
+                        if($reservation->ServiceType == 'Daycare'){
+                          $service = 'Daycare';
+                        }else if ($reservation->ServiceType =='Boarding'){
+                          $service = 'Boarding';
+                        }
+
                         if($reservation->isApproved == 1 && $reservation->isFinished == 0){
 
                           echo '<td>Confirmed</td>';
+                          echo '<td>N/A</td>';
+                          echo '<td>N/A</td>';
+                      
 
                         }else if($reservation->isApproved == 1 && $reservation->isFinished == 1){
                           echo '<td>Complete</td>';
+                          echo '<td>N/A</td>';
+                          echo '<td>N/A</td>';
                         }
                         else if ($reservation->isApproved == 0){
                           echo '<td>Pending</td>';
+                          echo '<td><p><a href="../Customer Portal/UpdateReservation.php?ResID='
+                          . urlencode($reservation->Res_ID).'&service='. urlencode($service).'">Update</a></p></td>';
+                          echo '<td>N/A</td>';
                         }
-                    
+                        
 
 
                         echo '</tr>';
@@ -113,6 +130,8 @@
         <th>Description</th>
         <th>Service</th>
         <th>Status</th>
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -150,17 +169,25 @@
                     echo '<td>'. $dogName . '</td>';
                     echo '<td>'. $reservationGrooming->GroomingDesc. '</td>';
                     echo '<td>Grooming</td>';
+                    $service = 'Grooming';
 
-                    
+
                     if($reservationGrooming->isApproved == 1 && $reservationGrooming->isFinished == 0){
 
                       echo '<td>Confirmed</td>';
+                      echo '<td>N/A</td>';
+                      echo '<td>N/A</td>';
 
                     }else if($reservationGrooming->isApproved == 1 && $reservationGrooming->isFinished == 1){
                       echo '<td>Complete</td>';
+                      echo '<td>N/A</td>';
+                      echo '<td>N/A</td>';
                     }
                     else if ($reservationGrooming->isApproved == 0){
                       echo '<td>Pending</td>';
+                      echo '<td><p><a href="../Customer Portal/UpdateReservation.php?ResID='
+                          . urlencode($reservationGrooming->GroomResID).'&service='. urlencode($service).'">Update</a></p></td>';
+                          echo '<td>N/A</td>';
                     }
 
 
