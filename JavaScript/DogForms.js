@@ -1,3 +1,5 @@
+var formValidate = false;
+
 function validateForms() {
 // Behavior variables
     var IsAggressive = document.forms["DogForms"]["IsAggressive"].value;
@@ -129,6 +131,7 @@ function validateForms() {
         alert("Your other vaccination information must be at most 500 characters long. Please find a way to shorten your response.");
         return false;    }
 //If nothing fails
+    formValidate = true;
     return true;
 }
 //SANITIZATION FUNCTIONS

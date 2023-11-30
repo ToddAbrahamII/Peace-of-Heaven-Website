@@ -1,15 +1,9 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
 .content {
     margin-left: 13%;
 }
 
-form {
+  /* Style for the DogInfo-Form form with class .DogInfo-Form */
+  .DogInfo-Form {
     max-width: 60%;
     margin: 20px auto;
     background-color: #fff;
@@ -17,58 +11,40 @@ form {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-fieldset {
+  }
+  
+  /* Style for fieldset within the DogInfo-Form form */
+  .DogInfo-Form fieldset {
     border: 1px solid #3498db;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
-}
-
-legend {
+  }
+  
+  /* Style for the legend element within the fieldset */
+  .DogInfo-Form legend {
     color: #3498db;
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-}
-
-label {
+  }
+  
+  /* Style for labels within the DogInfo-Form form */
+  .DogInfo-Form label {
     display: block;
-    margin: 10px 0 5px;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-.input-group label {
-    margin-bottom: 5px;
-    display: inline-block;
-}
-
-.input-group input[type="radio"] {
-    margin-right: 5px;
-    display: inline-block;
-}
-
-
-
-.button-group {
-    text-align: center;
-    margin-top: 20px; /* Adjust as needed for spacing */
-}
-
-.button-group button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.button-group button:hover {
-    background-color: #2980b9;
-}
+    margin: 5px 0;
+  }
+  
+  
+  /* Style for radio input elements */
+  .DogInfo-Form input[type="radio"] {
+    display: inline-block; /* Display the labels inline */
+    margin: 5px; /* Add some margin to space out the radio buttons */
+  }
+  
+  /* Style for labels associated with radio inputs */
+  .DogInfo-Form label[for="T"],
+  .DogInfo-Form label[for="F"] {
+    display: inline-block; /* Display the labels inline */
+    margin-right: 10px; /* Add some space between labels and radio buttons */
+  }

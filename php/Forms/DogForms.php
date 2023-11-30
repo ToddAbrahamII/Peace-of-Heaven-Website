@@ -196,166 +196,114 @@
 
 <body>
     <div class='content'>
-        <form name="DogForms" method="POST" class="DogBehavior=Form" onsubmit="return validateForms()">
+        <form class="DogInfo-Form" name="DogForms" method="POST" onsubmit="return validateForms()">
             <fieldset>
                 <!-- Collects information for DogBehavior Table -->
                 <legend>Dog Behavior Information</legend>
-                <div>
+            <p>
                     <legend>1. What is your dog's previous daycare and/or boarding experience</legend>
-                    <div>
                         <input type="radio" id="1a" name="Experience" value="0" REQUIRED>
                         <label for="1a">a. Never attempted either</label>
-                    </div>
-                    <br>
-                    <div>
+
                         <input type="radio" id="1b" name="Experience" value="1">
                         <label for="1b">b. Boarding and/or daycare client in past but no more than twice a
                             year</label>
-                    </div>
-                    <br>
-                    <div>
                         <input type="radio" id="1c" name="Experience" value="2">
                         <label for="1c">c. Has been at least once but stresses easily or does not adjust
                             well to unfamiliar environments</label>
-                    </div>
-                    <br>
-                    <div>
+
                         <input type="radio" id="1d" name="Experience" value="3">
                         <label for="1d">d. Boarded regularly & adjusts easily</label>
-                    </div>
-                    <br>
-                    <div>
+
                         <input type="radio" id="1e" name="Experience" value="4">
                         <label for="1e">e. Attends daycare often & socializes well</label>
-                    </div>
-                </div>
-                <div>
+                    <br><br>
                     <legend>2. Do you want your dog to engage in social play with dogs of like-size & similar
                         temperament?</legend>
-                    <div>
-                        <input type="radio" id="T2" name="isSocial" value="1" REQUIRED>
-                        <label for="T2">YES</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="F2" name="isSocial" value="0">
-                        <label for="F2">NO</label>
-                    </div>
-                </div>
-                <div>
+                        <input type="radio" id="T" name="isSocial" value="1" REQUIRED>
+                        <label for="T">YES</label>
+                        <input type="radio" id="F" name="isSocial" value="0">
+                        <label for="F">NO</label>
+                    <br><br>
                     <legend>3. Has your dog ever growled, snipped, bit, or shown any other aggressive reaction
                         towards people or pets?</legend>
-                    <div>
-                        <input type="radio" id="T3" name="IsAggressive" value="1" REQUIRED>
-                        <label for="T3">YES</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="F3" name="IsAggressive" value="0">
-                        <label for="F3">NO</label>
-                    </div>
+                        <input type="radio" id="T" name="IsAggressive" value="1" REQUIRED>
+                        <label for="T">YES</label>
+                        <input type="radio" id="F" name="IsAggressive" value="0">
+                        <label for="F">NO</label>
                     <br> &nbsp;&nbsp;
                     <!-- Temp. tabs until we decide if we want to put text areas in divs and format with CSS-->
                     <label for="AggressiveDesc">a. If yes, please provide a brief description of
                         encounter(s).</label>
                     <br> &nbsp;&nbsp;
                     <textarea name="AggressiveDesc" id="AggressiveDesc"></textarea>
-                </div>
-                <div>
+                    <br><br>
                     <legend>4. Is your dog a...</legend>
                     <label>a. Jumper? </label>
-                    <div>
-                        <input type="radio" id="T4a" name="IsJumper" value="1" REQUIRED>
-                        <label for="T4a">YES</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="F4a" name="IsJumper" value="0">
-                        <label for="F4a">NO</label>
-                    </div>
+                        <input type="radio" id="T" name="IsJumper" value="1" REQUIRED>
+                        <label for="T">YES</label>
+                        <input type="radio" id="F" name="IsJumper" value="0">
+                        <label for="F">NO</label>
                     <br>
                     <label>b. Climber? </label>
-                    <div>
-                        <input type="radio" id="T4b" name="IsClimber" value="1" REQUIRED>
-                        <label for="T4b">YES</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="F4b" name="IsClimber" value="0">
-                        <label for="F4b">NO</label>
-                    </div>
+
+                        <input type="radio" id="T" name="IsClimber" value="1" REQUIRED>
+                        <label for="T">YES</label>
+
+                        <input type="radio" id="F" name="IsClimber" value="0">
+                        <label for="F">NO</label>
                     <br>
                     <label>c. Aggressive chewer? </label>
-                    <div>
-                        <input type="radio" id="T4c" name="IsChewer" value="1" REQUIRED>
-                        <label for="T4c">YES</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="F4c" name="IsChewer" value="0">
-                        <label for="F4c">NO</label>
-                    </div>
+
+                        <input type="radio" id="T" name="IsChewer" value="1" REQUIRED>
+                        <label for="T">YES</label>
+                        <input type="radio" id="F" name="IsChewer" value="0">
+                        <label for="F">NO</label>
                     <br>
                     <label>d. Escape artist of any kind? </label>
-                    <div>
-                        <input type="radio" id="T4d" name="IsEscapeArtist" value="1" REQUIRED>
-                        <label for="T4d">YES</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="F4d" name="IsEscapeArtist" value="0">
-                        <label for="F4d">NO</label>
-                    </div>
+
+                        <input type="radio" id="T" name="IsEscapeArtist" value="1" REQUIRED>
+                        <label for="T">YES</label>
+
+                        <input type="radio" id="F" name="IsEscapeArtist" value="0">
+                        <label for="F">NO</label>
                     <br> &nbsp;&nbsp;
                     <label for="EscapeDesc">If yes, please describe his/her escaping
                         abilities.</label>
                     <br> &nbsp;&nbsp;
                     <textarea name="EscapeDesc" id="EscapeDesc"></textarea>
-                </div>
-                <div>
+                    <br><br>
                     <legend>5. Do you prefer your dog to participate in water activities (weather
                         permitting)?</legend>
-                    <div>
-                        <input type="radio" id="T5" name="CanWater" value="1" REQUIRED>
-                        <label for="T5">YES</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="F5" name="CanWater" value="0">
-                        <label for="F5">NO</label>
-                    </div>
-                </div>
-                <div>
+                        <input type="radio" id="T" name="CanWater" value="1" REQUIRED>
+                        <label for="T">YES</label>
+                        <input type="radio" id="F" name="CanWater" value="0">
+                        <label for="F">NO</label>
+                    <br><br>
                     <legend>6. Is your dog permitted to have edible treats? </legend>
-                    <div>
-                        <input type="radio" id="T6" name="CanTreat" value="1" REQUIRED>
-                        <label for="T6">YES</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="F6" name="CanTreat" value="0">
-                        <label for="F6">NO</label>
-                    </div>
-                </div>
-                <div>
+
+                        <input type="radio" id="T" name="CanTreat" value="1" REQUIRED>
+                        <label for="T">YES</label>
+                        <input type="radio" id="F" name="CanTreat" value="0">
+                        <label for="F">NO</label>
+                    <br><br>
                     <legend>7. Is your dog comfortable walking on a leash?</legend>
-                    <div>
-                        <input type="radio" id="T7" name="IsLeashTrained" value="1" REQUIRED>
-                        <label for="T7">YES</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="F7" name="IsLeashTrained" value="0">
-                        <label for="F7">NO</label>
-                    </div>
-                </div>
-                <div>
+
+                        <input type="radio" id="T" name="IsLeashTrained" value="1" REQUIRED>
+                        <label for="T">YES</label>
+
+                        <input type="radio" id="F" name="IsLeashTrained" value="0">
+                        <label for="F">NO</label>
+                    <br><br>
                     <legend>8. Any activity limitations or time restrictions? </legend>
-                    <div>
-                        <input type="radio" id="T8" name="IsRestriction" value="1" REQUIRED>
-                        <label for="T8">YES</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="F8" name="IsRestriction" value="0">
-                        <label for="F8">NO</label>
-                    </div>
-                    <br> &nbsp;&nbsp;
-                    <label for="RestrictionDesc">a. If yes, please describe.</label>
+                        <input type="radio" id="T" name="IsRestriction" value="1" REQUIRED>
+                        <label for="T">YES</label>
+                        <input type="radio" id="F" name="IsRestriction" value="0">
+                        <label for="F">NO</label>
+                    <label for="RestrictionDesc">If yes, please describe.</label>
                     <br> &nbsp;&nbsp;
                     <textarea name="RestrictionDesc" id="RestrictionDesc"></textarea>
-                </div>
-                <div>
+                <br>
                     <legend>9. Name a few of your dog's favorite toys or games to play.</legend>
                     <textarea name="Toys" id="Toys" REQUIRED></textarea>
 
@@ -375,12 +323,13 @@
                     <br>
                     <legend>14. What is your dog's normal potty routine?</legend>
                     <textarea name="BathroomRoutine" id="BathroomRoutine" REQUIRED></textarea>
-                </div>
+
+                </p>
             </fieldset>
             <fieldset>
                 <!-- Collects information for DogHealth Table -->
                 <legend>Dog Health Information</legend>
-                <div>
+                <p>
                     <label for="ClinicName">Clinic Name</label>
                     <input type="text" id="ClinicName" name="ClinicName" REQUIRED>
                     <br>
@@ -409,47 +358,42 @@
                     <br>
                     <legend>List all medication & dose frequency.</legend>
                     <textarea name="Medication" id="Medication" REQUIRED></textarea>
-                </div>
+                </p>
             </fieldset>
             <fieldset>
                 <!-- Collects information for DogVaccine Table -->
                 <legend>Vaccinations</legend>
-                <p>
                     <p>**All dogs accepted for daycare must be vaccinated for DHPP, Rabies, & Bordetella**<br>
                         **Proof of current vaccination for all required vaccines must be shown upon
                         arrival**</p>
 
                     <label for="DHPP_Date">DHPP Date:</label>
                     <input type="date" name="DHPP_Date" id="DHPP_Date" REQUIRED>
-                    <br>
                     <label for="RabiesDate">Rabies Date:</label>
                     <input type="date" name="RabiesDate" id="RabiesDate" REQUIRED>
-                    <br>
                     <label for="BordellaDate">Bordetella Date(6 or 12 mo.):</label>
                     <input type="date" name="BordellaDate" id="BordellaDate" REQUIRED>
-                </p>
-                <div>
+
+                    <br><br>
                     <legend><u>Preventatives</u></legend>
                     <p>*Heartworm & flea/tick preventative treatments are recommended for daycare clients*<br>
                         *If fleas/ticks are found on the client during the stay, the client will be treated
                         at the owner's expense.*</p>
-
                     <label for="FleaTickProduct"><br>Flea/Tick product:</label>
                     <input type="text" name="FleaTickProduct" id="FleaTickProduct" REQUIRED>
 
                     <label for="FleaTickDate">Last date given:</label>
                     <input type="date" name="FleaTickDate" id="FleaTickDate" REQUIRED>
-                </div>
-                <div>
+
+                    <br><br>
                     <legend><u>Notes</u></legend>
-                    <p>
                         <label for="OtherVacInfo">Please list below any other vaccination information we
                             may need to know:<br></label>
-                        <textarea name="OtherVacInfo" id="OtherVacInfo"></textarea></p>
-                </div>
+                        <textarea name="OtherVacInfo" id="OtherVacInfo"></textarea>
+
 
                 <!-- Generates Token and submits input -->
-                <br><br><br>
+                <br><br>
                 <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                 <input type="submit" value="Complete Forms"><br><br>
 

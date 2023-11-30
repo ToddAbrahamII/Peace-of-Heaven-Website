@@ -3,7 +3,6 @@
 
 $user = new User(); //constructor call
 $customer = new Customer(); //constructor call 
-$formValidate = false;
 //checks if user is logged in
 if ($user->isLoggedIn()) {
 
@@ -37,7 +36,7 @@ if ($user->isLoggedIn()) {
 
             // If all rules are satisfied, create new customer
             if($validation->passed()) {
-                if($formValidate){
+               // if(){
                     try{
                         //Creates array of all input to be inserted into dog table
                         $dog = new Dog(); //constructor call
@@ -65,13 +64,13 @@ if ($user->isLoggedIn()) {
                     catch(Exception $e) {
                         die($e->getMessage());  
                     }
+             //   }    
                 }else { ## Is this an error?
                     // output errors
                     foreach ($validation->errors() as $error) {
                         echo $error, '<br>';
                     }   
                 }
-            }
         }
     }
 
@@ -87,7 +86,7 @@ if ($user->isLoggedIn()) {
     
         <body>
             <div class ='content'>
-            <form method="POST" class="DogInfo-Form" name=DogAccountInfo onsubmit="$formValidate = validateForms()">
+            <form method="POST" class="DogInfo-Form" name=DogAccountInfo onsubmit="return validateForms()">
                 <fieldset>
                         <!-- Collects information for Dog Table -->
                         <legend>Dog General Information</legend>
