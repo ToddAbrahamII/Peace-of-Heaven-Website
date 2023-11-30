@@ -35,37 +35,37 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/DeleteKennel.css">
+        <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/SelectAnnouncement.css">
     
     <title>Announcement Deletetion</title>
 </head>
 <body>
     <div class = 'content'>
-    <form method="POST" class="Kennel-Selector">
+    <form method="POST" class="Announcement-Selector">
         <fieldset>
-            <legend>Select a Kennel to Delete</legend>
+            <legend>Select an Announcement to Update</legend>
             <br><br>
 
                 <!-- Php code for drop down menu for dogs --> 
                 <?php
-                        $kennel = new Kennel();
+                        $announcement = new Announcement();
 
-                        $kennel->getKennels();
+                        $announcement->getAnnouncements();
 
-                        $kennelData = $kennel->data();
+                        $announcementData = $announcement->data();
 
 
 
                         // Check if $dogData is not empty
-                        if (!empty($kennelData)) {
+                        if (!empty($announcementData)) {
                             ?>  
                                 <!-- Dog Option for Each Dog in the Table -->
                                 <!-- <label for="dogDropdown">Select a dog:</label> -->
-                                <select id="kennelDropdown" name="selectedKennel">
-                                    <?php foreach ($kennelData as $kennel) {
-                                        $kennelID = $kennel->KennelID;
-                                        $kennelName = $kennel->KennelName;
-                                        echo "<option value='$kennelID'>$kennelName</option>";
+                                <select id="announceDropdown" name="selectedAnnouncement">
+                                    <?php foreach ($announcementData as $announcement) {
+                                        $announcementID = $announcement->id;
+                                        $announcementHeader = $announcement->header;
+                                        echo "<option value='$announcementID'>$announcementHeader</option>";
                                     } ?>
                                     </select>
                                 
@@ -73,14 +73,14 @@
                             <?php
                         } else  {
                             // Prints No Dogs Statement
-                            echo "No Kennels found.";
+                            echo "No announcements found.";
                         }
                         ?>
 
                         <!-- Generates Token and submits input -->
                         <br><br><br>
                         <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-                        <input type="submit" value="Delete"><br><br>
+                        <input type="submit" value="Select"><br><br>
                         
 
                         <?php 
@@ -94,19 +94,7 @@
                     
                                 // If all rules are satisfied, create new customer
                                 if($validation->passed()) {
-                                    try{ 
-                                        //Gets the selected Dogs Info
-                                        $selectedKennelID = Input::get('selectedKennel');
-
-                                        $db = DB::getInstance();
-
-                                        // Define the table, row id, and fields you want to delete.
-                                        $table = 'kennel';
-                                
-                                        $where = ['KennelID', '=', $selectedKennelID];
-                                        
-                                        //Deletes from Database
-                                        $db->delete($table,$where); 
+                                    try{
                                  
 
                                     } 
@@ -116,7 +104,7 @@
                                         
                                     }
 
-                                    Redirect::to('../AdminPortal/ControlPanel.php');
+                                    Redirect::to('../AdminPortal/UpdateAnnouncement.php?id='. urlencode($announcementID).'');
 
                                 }else { ## Is this an error?
                                     // output errors

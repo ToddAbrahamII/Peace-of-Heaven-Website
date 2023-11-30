@@ -59,6 +59,34 @@ class Announcement {
         }
 
     }
+        
+      /** 
+     * Updates announcement table
+    */
+    public function update( $fields, $key, $keyValue) {
+
+        if(!$this->_db->updateTable('announcements', $fields, $key, $keyValue)) { // if ID provided, update provided user that matches id
+            throw new Exception('There was a problem updating this user.');
+        }
+        return true;
+    }
+
+      /**
+     * Gets all announcements with ID
+     */
+    public function getAnnouncementsWithID($announcement){
+        //Gathers all data as a string
+     $data = $this->_db->get('announcements', array('id', '=', $announcement));
+
+     if($data->count() > 0) {
+         //Takes all data, sorts into an array so it can be printed in rows
+         $this->_announcementData = $data->first();
+         return true;
+     }else{
+         return false;
+     }
+}
+
 
        /**
      * Returns data for kennel

@@ -54,7 +54,7 @@
 
   <h2>Announcement Actions:</h2>
   <a href="../AdminPortal/AnnouncementCreator.php">Create Announcement</a>
-  <a href="">Update Announcement</a>
+  <a href="../AdminPortal/SelectAnnouncement.php">Update Announcement</a>
   <a href="../AdminPortal/DeleteAnnouncement.php">Delete Announcement</a>
 
 </div>
