@@ -45,12 +45,6 @@
     <!-- Update Personal Information -->
     <a href="update_personal_info.php"><button>Update Personal Info</button></a><br><br>
 
-    <!-- Update Dog Information -->
-    <a href="update_dog_info.php"><button>Update Dog Info</button></a><br><br>
-
-    <!-- Update Dog Form Information -->
-    <a href="update_dog_form_info.php"><button>Update Dog Form Info</button></a><br><br>
-
     <!-- Logout -->
     <a href="/PeaceOfHeavenWebPage/php/UserHandling/logout.php"><button>Logout</button></a>
 

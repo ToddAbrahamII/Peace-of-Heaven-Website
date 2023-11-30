@@ -58,7 +58,7 @@
     if (!empty($dogData)) {
         echo '<table>';
         //Creates Table Columns 
-        echo '<tr><th>Dog Name</th><th>Breed</th><th>Age</th><th>Color</th></tr>'; 
+        echo '<tr><th>Dog Name</th><th>Breed</th><th>Age</th><th>Color</th><th>Update</th><th>Delete</th></tr>'; 
 
         foreach ($dogData as $dog) {
             //Populates the Table Columns
