@@ -48,12 +48,12 @@
   <a href="">Delete Grooming Reservation</a>
 
   <h2>Kennel Actions:</h2>
-  <a href="">Create Kennel</a>
+  <a href="../AdminPortal/KennelCreation.php">Create Kennel</a>
   <a href="">Update Kennel</a>
-  <a href="">Delete Kennel</a>
+  <a href="../AdminPortal/DeleteKennel.php">Delete Kennel</a>
 
   <h2>Announcement Actions:</h2>
-  <a href="">Create Announcement</a>
+  <a href="../AdminPortal/AnnouncementCreator.php">Create Announcement</a>
   <a href="">Update Announcement</a>
   <a href="../AdminPortal/DeleteAnnouncement.php">Delete Announcement</a>
 
