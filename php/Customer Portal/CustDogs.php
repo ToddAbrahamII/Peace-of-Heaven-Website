@@ -58,7 +58,7 @@
     if (!empty($dogData)) {
         echo '<table>';
         //Creates Table Columns 
-        echo '<tr><th>Dog Name</th><th>Breed</th><th>Age</th><th>Color</th><th>Update</th><th>Delete</th></tr>'; 
+        echo '<tr><th>Dog Name</th><th>Breed</th><th>Age</th><th>Color</th></tr>'; 
 
         foreach ($dogData as $dog) {
             //Populates the Table Columns
@@ -67,8 +67,6 @@
             echo '<td>' . $dog->Breed . '</td>';
             echo '<td>' . $dog->DogDOB . '</td>';
             echo '<td>' . $dog->Color . '</td>';
-            // Add more columns for other dog details
-
             echo '</tr>';
         }
 
@@ -78,8 +76,28 @@
         echo 'No dogs found for this customer.';
     }
 
-?>
+?><br><br>
+
+<div>
+
+    <!-- Go to delete dog -->
+    <a href="../Customer Portal/DeleteDog.php">
+        <button>Delete a Dog Account</button>
+    </a>
+
+    <!-- Go to update dog -->
+    <a href="https://example.com/page2.html">
+        <button>Update a Dog Account</button>
+    </a>
+
+     <!-- go to update dog forms --> 
+    <a href="https://example.com/page2.html">
+        <button>Update a Dog Accounts Forms</button>
+    </a>
 </div>
+    </div>
+
+
 </body>
 </html>
 <?php }else 
