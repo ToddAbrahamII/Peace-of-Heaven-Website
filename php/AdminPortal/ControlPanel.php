@@ -36,8 +36,7 @@
   <a href="/PeaceOfHeavenWebPage/php/AdminPortal/ManageCustomers.php">Manage Customer Accounts</a>
 
   <h2>Dog Account Actions:</h2>
-  <a href="">Update Dog Account</a>
-  <a href="">Delete Dog Account</a>
+  <a href="../AdminPortal/ManageDogAccounts.php">Manage Dog Accounts</a>
 
   <h2>Boarding/Daycare Reservation Actions:</h2>
   <a href="">Update Boarding/Daycare Reservation</a>

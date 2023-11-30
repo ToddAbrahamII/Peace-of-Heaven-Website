@@ -64,7 +64,15 @@
 
                         echo '<td>'.$dogName.'</td>';
                         echo '<td>' . $reservation->ServiceType .'</td>';
-                        echo '<td>'.$reservation->isApproved.'</td>';
+
+                        if($reservation->isApproved == 1){
+
+                          echo '<td>Confirmed</td>';
+
+                        }else if ($reservation->isApproved == 0){
+                          echo '<td>Pending</td>';
+                        }
+
                         echo '</tr>';
 
                     }
@@ -121,7 +129,17 @@
                     echo '<td>'. $dogName . '</td>';
                     echo '<td>'. $reservationGrooming->GroomingDesc. '</td>';
                     echo '<td>Grooming</td>';
-                    echo '<td>' . $reservationGrooming->isApproved .'</td>';
+                   
+
+                    if($reservationGrooming->isApproved == 1){
+
+                      echo '<td>Confirmed</td>';
+
+                    }else if ($reservationGrooming->isApproved == 0){
+                      echo '<td>Pending</td>';
+                    }
+
+
                     echo '</tr>';
              }
             } ?>

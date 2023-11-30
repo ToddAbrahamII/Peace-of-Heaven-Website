@@ -48,7 +48,6 @@
                 <th>Breed</th>
                 <th>Date of Birth</th>
                 <th>Service</th>
-                <th>Status</th>
             </tr>
             </thead>
             <tbody>
@@ -84,7 +83,6 @@
                     echo '<td>' . $dogData->Breed . '</td>';
                     echo '<td>' . $dogData->DogDOB . '</td>';
                     echo '<td>' . $reservation->ServiceType . '</td>';
-                    echo '<td>' . $reservation->isApproved . '</td>';
                     echo '</tr>';
                 }
             }
