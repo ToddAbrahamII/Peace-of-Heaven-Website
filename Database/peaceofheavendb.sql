@@ -278,7 +278,7 @@ CREATE TABLE `reservation` (
   `Res_ID` int(11) NOT NULL,
   `ResStartTime` date NOT NULL,
   `ResEndTime` date NOT NULL,
-  `EmerContact` text NOT NULL,
+  `EmerContact` varchar(255) NOT NULL,
   `EmerPhone` varchar(12) NOT NULL,
   `isCheckedIn` tinyint(1) NOT NULL,
   `ServiceType` text NOT NULL,

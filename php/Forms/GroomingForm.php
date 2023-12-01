@@ -35,10 +35,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/GroomingForm.css">
+    <script src="Grooming.js" defer></script>
 </head>
 <body>
     <div class='content'>
-        <form method="POST" class="Grooming-Creator">
+        <form method="POST" class="Grooming-Creator" onsubmit="return validateForms()">
             <fieldset>
                 <legend>Grooming Reservation Request</legend>
 

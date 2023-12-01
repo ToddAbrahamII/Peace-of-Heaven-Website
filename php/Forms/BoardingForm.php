@@ -41,10 +41,11 @@ if($user->data()->group == 3 ){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/BoardingForm.css">
+    <script src="Boarding.js" defer></script>
 </head>
 <body>
 <div class='content'>
-    <form method="POST" class="Boarding-Creator">
+    <form method="POST" class="Boarding-Creator" name="BoardingForm" onsubmit="return validateForms()">
         <fieldset>
             <legend>Boarding Reservation Request</legend>
 

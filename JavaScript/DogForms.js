@@ -94,7 +94,7 @@ function validateForms() {
 
 //Health Checks
     //Checks for Correct format for uniques
-    if (!isValidPhone(VetPhoneInput)) {
+    if (!isValidPhone(VetPhone)) {
         alert("Please ensure the phone number is 10 digits");
         return false;    }    
     if (!isValidState(VetState)) {

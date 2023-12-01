@@ -46,10 +46,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/DayCareForm.css">
+        <script src="DayCare.js" defer></script>
     </head>
 <body>
     <div class='content'>
-    <form method="POST" class="Daycare-Creator">
+    <form method="POST" class="Daycare-Creator" name="DayCareFrom" onsubmit="return validateForms()">
         <fieldset>
             <legend>Daycare Reservation Request</legend>
 
