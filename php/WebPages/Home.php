@@ -41,7 +41,7 @@
         <div class="service-box">
             <img src="/PeaceOfHeavenWebPage/Img/Paw-print.jpg" alt="Image" class="paw-print-img">
             <p>Overnight Dog Watching</p>
-            <a class="button" href="/PeaceOfHeavenWebPage/php/WebPagesBoarding.php">Boarding</a>
+            <a class="button" href="/PeaceOfHeavenWebPage/php/WebPages/Boarding.php">Boarding</a>
         </div>
 
         <!-- Day Care Box with Link to Service Page-->
