@@ -13,17 +13,16 @@
         <h1>Frequently Asked Questions</h1>
     </div>
     <div class="FAQ-container">
-        <h2>FAQ's:</h2>
         <div>
-            <h3>Question 1</h3>
+            <h2>Question 1</h2>
             <p>Answer</p>
         </div>
         <div>
-            <h3>Question 1</h3>
+            <h2>Question 1</h2>
             <p>Answer</p>
         </div>
         <div>
-            <h3>Question 1</h3>
+            <h2>Question 1</h2>
             <p>Answer</p>
         </div>
     </div>
