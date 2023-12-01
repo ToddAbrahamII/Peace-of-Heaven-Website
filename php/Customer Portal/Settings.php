@@ -31,7 +31,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/CustHome.css">
+    <link rel="stylesheet" href="/PeaceOfHeavenWebPage/css/Settings.css">
 
     <title>Check In Portal</title>
 </head>
@@ -43,7 +43,7 @@
     <a href="/PeaceOfHeavenWebPage/php/UserHandling/changepassword.php"><button>Change Password</button></a><br><br>
 
     <!-- Update Personal Information -->
-    <a href="update_personal_info.php"><button>Update Personal Info</button></a><br><br>
+    <a href="/PeaceOfHeavenWebPage/php/Customer Portal/UpdateCustomerAccount.php"><button>Update Personal Info</button></a><br><br>
 
     <!-- Logout -->
     <a href="/PeaceOfHeavenWebPage/php/UserHandling/logout.php"><button>Logout</button></a>

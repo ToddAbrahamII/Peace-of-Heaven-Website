@@ -1,0 +1,46 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Global styles */
+.content {
+    margin-left: 13%;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Add additional styles based on your preferences */
+
+/* Example: Add a border around buttons */
+button {
+    border: 1px solid #3498db;
+}
+
+/* Example: Add some spacing between buttons */
+button + button {
+    margin-left: 10px;
+}
