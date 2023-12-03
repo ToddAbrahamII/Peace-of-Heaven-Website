@@ -2,7 +2,7 @@ body{
     background-color: #E0F4FF;
 }
 .Header-container {
-    background-image: url('/PeaceOfHeavenWebPage/Img/Sunflower-Dog.jpg');
+    background-image: url('/PeaceOfHeavenWebPage/Img/Boarding-Header.jpg');
     position: relative; /* Make it a reference for absolute positioning */
     width: 100%;
     height: 80vh; /* 100% of viewport height */

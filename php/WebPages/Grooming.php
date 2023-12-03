@@ -19,7 +19,7 @@
     
 <!--Section for Day Care Image and Description-->
     <div class = "Clean-Days-container">
-    <img src="/PeaceOfHeavenWebPage/Img/Dog-Portrait.jpg" alt="kennels" Class="Portrait-img">
+    <img src="/PeaceOfHeavenWebPage/Img/Grooming1.jpg" alt="kennels" Class="Portrait-img">
     <div class="Clean-Days-Description">
         <h2>Is Your Dog Muddy? Fluffy? We Got You Covered!</h2>
         <p>More Details Coming Soon</p>  
@@ -35,7 +35,7 @@
         <h2>Sudsy Services</h2>
         <p>Stay tuned for services & pricing.</p>
     </div>  
-    <img src="/PeaceOfHeavenWebPage/Img/dog-relaxing.jpg" alt="kennels" Class="Relax-img">
+    <img src="/PeaceOfHeavenWebPage/Img/Grooming2.jpg" alt="kennels" Class="Relax-img">
     </div>
     
     <!--Space in the page-->

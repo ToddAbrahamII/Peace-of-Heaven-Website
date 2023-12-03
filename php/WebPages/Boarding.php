@@ -19,7 +19,7 @@
     
 <!--Section for Day Care Image and Description-->
     <div class = "Doggy-Retreat-container">
-    <img src="/PeaceOfHeavenWebPage/Img/overnight-kennels.jpg" alt="Picture of the outside of 4 kennels" Class="Boarding-img">
+    <img src="/PeaceOfHeavenWebPage/Img/Boarding1.jpg" alt="Picture of the outside of 4 kennels" Class="Boarding-img">
     <div class="Doggy-Retreat-Description">
         <h2>Boarding? Or a Doggy Retreat?</h2>
         <div>
@@ -71,7 +71,7 @@
             </div>
         </p>
     </div>  
-    <img src="/PeaceOfHeavenWebPage/Img/Dogs-In-Field.jpg" alt="Picture of 2 dogs laying in a field of grass" Class="Boarding-img">
+    <img src="/PeaceOfHeavenWebPage/Img/Boarding2.jpg" alt="Picture of 2 dogs laying in a field of grass" Class="Boarding-img">
     </div>
     
     <!--Space in the page-->

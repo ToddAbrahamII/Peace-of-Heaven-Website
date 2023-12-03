@@ -215,7 +215,7 @@ body{
 }
 
 .Location-container {
-    background-image: url('/PeaceOfHeavenWebPage/Img/Dogs-In-Field.jpg');
+    background-image: url('/PeaceOfHeavenWebPage/Img/HomePage-Location.jpg');
     position: relative; /* Make it a reference for absolute positioning */
     width: 100%;
     height: 50vh; /* 100% of viewport height */

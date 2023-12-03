@@ -15,7 +15,7 @@
 
  <!--Image and Description of the Kennel Concept Section of the Page-->
  <div class="Our-Story-Container">
-        <img src="/PeaceOfHeavenWebPage/Img/POH-Owners.jpg" alt="Owners" class="Owners-img">
+        <img src="/PeaceOfHeavenWebPage/Img/About1.jpg" alt="Owners" class="Owners-img">
         <div class="Our-Story-Description">
             <h2>Our Story</h2>
             <p>-POH Pet Care is built for Beau, Bronx, our buddy Brody-who has crossed the rainbow bridge, and all dogs in between.</p>
@@ -27,7 +27,7 @@
 <p><br><br><br></p>
 
 <div class = "Our-Facility-container">
-    <img src="/PeaceOfHeavenWebPage/Img/overnight-kennels.jpg" alt="kennels" Class="Overnight-img">
+    <img src="/PeaceOfHeavenWebPage/Img/About2.jpg" alt="kennels" Class="Overnight-img">
     <div class="Our-Facility-Description">
         <h2>Our Facility</h2>
         <p>More information coming soon</p>

@@ -19,7 +19,7 @@
     
 <!--Section for Day Care Image and Description-->
     <div class = "Dog-Days-container">
-    <img src="/PeaceOfHeavenWebPage/Img/kennel-door.jpg" alt="kennels" Class="Kennel-img">
+    <img src="/PeaceOfHeavenWebPage/Img/DayCare1.jpg" alt="kennels" Class="Kennel-img">
     <div class="Dog-Days-Description">
         <h2>Dog Days at POH</h2>
         <p> -Each Day Care dog will have its own private 5x8ft resting kennel with food bowls, water bowls, and Kuranda behind.<br>
@@ -50,7 +50,7 @@
            All dogs should be on heartworm & flea/tick preventatives.<br>
            Must be spayed or neutered to engage in social play with other dogs.</p>
     </div>  
-    <img src="/PeaceOfHeavenWebPage/Img/dog-playtoys.jpg" alt="kennels" Class="Playground-img">
+    <img src="/PeaceOfHeavenWebPage/Img/DayCare2.jpg" alt="kennels" Class="Playground-img">
     </div>
     
     <!--Space in the page-->
