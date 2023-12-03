@@ -211,7 +211,7 @@
                             <br>
                         <input type="radio" id="rad" name="Experience" value="2">
                         <label for="rad">c. Has been at least once but stresses easily or does not adjust
-                            well to unfamiliar environments</label>
+                            well to unfamiliar <br>environments</label>
                             <br>
                         <input type="radio" id="rad" name="Experience" value="3">
                         <label for="rad">d. Boarded regularly & adjusts easily</label>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2023 at 08:28 PM
+-- Generation Time: Dec 03, 2023 at 09:12 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,7 @@ CREATE TABLE `announcements` (
 --
 
 INSERT INTO `announcements` (`id`, `header`, `description`, `age`, `date`) VALUES
-(1, 'Black Friday Deal', 'Cheap Deals For the Holidays', 2, '2023-11-15 21:01:25'),
+(1, 'Black Friday Deal', 'Cheap Deals For the Holidays', 0, '2023-11-15 21:01:25'),
 (2, 'Opening for Boarding on 11/27', 'Reserve Now for a Chance for a Slot', 1, '2023-11-15 21:01:54');
 
 -- --------------------------------------------------------
@@ -67,7 +67,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`CustID`, `CustFirstName`, `CustLastName`, `CustPhone`, `CustAddress`, `CustCity`, `CustState`, `CustZip`, `AcctEmail`, `User_ID`) VALUES
-(14, 'FirstName', 'LastName', '9999999999', '123 Customer St.', 'Cust City', 'CI', '89988', 'Customer@tester.com', 20);
+(14, 'FirstName', 'LastName', '9999999999', '123 Customer St.', 'Cust City', 'CI', '89988', 'Customer@tester.com', 20),
+(21, 'Demo', 'Account', '1234567890', 'Demo St', 'Demo', 'DM', '12345', 'demoacct@demo.com', 32);
 
 -- --------------------------------------------------------
 
@@ -94,8 +95,9 @@ CREATE TABLE `dog` (
 --
 
 INSERT INTO `dog` (`DogID`, `DogName`, `Breed`, `DogDOB`, `Sex`, `isFixed`, `Weight`, `Color`, `HasForms`, `DogOtherInfo`, `CustID`) VALUES
-(1, 'Sherman', 'Lab', '2004-10-15', '', 0, 75, 'Yellow', 1, '', 14),
-(2, 'Zeva', 'Mutt', '2005-05-05', 'F', 1, 50, 'Black', 1, '', 14);
+(1, 'Sherman', 'Lab', '2004-10-15', 'M', 0, 75, 'Yellow', 1, '', 14),
+(2, 'Zeva', 'Mutt', '2005-05-05', 'F', 1, 50, 'Black', 1, '', 14),
+(6, 'Luca', 'German Shepard', '2016-05-14', 'F', 1, 76, 'Black', 1, 'Aggressive towards cats', 21);
 
 -- --------------------------------------------------------
 
@@ -135,7 +137,8 @@ CREATE TABLE `dogbehavior` (
 INSERT INTO `dogbehavior` (`BehaviorID`, `Experience`, `IsSocial`, `IsAggressive`, `AggressiveDesc`, `IsJumper`, `IsClimber`, `IsChewer`, `IsEscapeArtist`, `EscapeDesc`, `CanWater`, `CanTreat`, `IsRestriction`, `RestrictionDesc`, `Toys`, `OtherBehaviorInfo`, `Reinforce`, `Commands`, `IsLeashTrained`, `FoodPref`, `BathroomRoutine`, `DogID`) VALUES
 (1, 0, 0, 1, 'na', 1, 1, 1, 1, 'na', 1, 1, 1, 'na', 'na', 'na', 'na', 'na', 1, 'na', 'na', 2),
 (2, 0, 0, 1, 'na', 1, 1, 1, 1, 'na', 1, 1, 1, 'na', 'na', 'na', 'na', 'na', 1, 'na', 'na', 2),
-(3, 0, 0, 1, 'dssdf', 1, 1, 0, 0, 'sdfasdf', 1, 0, 0, 'asdfdsa', 'sdfsda', 'sdfds', 'sdfasdf', 'sadfadsf', 1, 'asdfasdf', 'sdfasdf', 1);
+(3, 0, 0, 1, 'dssdf', 1, 1, 0, 0, 'sdfasdf', 1, 0, 0, 'asdfdsa', 'sdfsda', 'sdfds', 'sdfasdf', 'sadfadsf', 1, 'asdfasdf', 'sdfasdf', 1),
+(4, 0, 0, 1, 'Growled at Cats', 1, 1, 0, 0, '', 1, 1, 0, '', 'Bone', 'N/a', 'Sit, Shake', 'Sit, Lay Down, Shake', 1, 'Evening, night', '3x a day', 6);
 
 -- --------------------------------------------------------
 
@@ -164,7 +167,8 @@ CREATE TABLE `doghealth` (
 INSERT INTO `doghealth` (`HealthID`, `ClinicName`, `VetAddress`, `VetCity`, `VetState`, `VetZip`, `VetPhone`, `VetName`, `MedicalCond`, `Medication`, `DogID`) VALUES
 (1, 'klj', 'kkkl', 'jlk', 'jk', 99999, '9999', 'kdsjflk', 'jlkjkl', 'kljjljk', 2),
 (2, 'klj', 'kkkl', 'jlk', 'jk', 99999, '9999', 'kdsjflk', 'jlkjkl', 'kljjljk', 2),
-(3, 'asdfasd', 'sadfasdf', 'asdfa', 'as', 666666, 'asdfasd', 'sdfasdfasdf', 'asdfasdf', 'asdfasfd', 1);
+(3, 'asdfasd', 'sadfasdf', 'asdfa', 'as', 666666, 'asdfasd', 'sdfasdfasdf', 'asdfasdf', 'asdfasfd', 1),
+(4, 'Demo Vet', 'Demo', 'Demo', 'DM', 12345, '124256889', 'Demo Vet', 'None', 'None', 6);
 
 -- --------------------------------------------------------
 
@@ -189,7 +193,8 @@ CREATE TABLE `dogvaccine` (
 
 INSERT INTO `dogvaccine` (`VacID`, `DHPP_Date`, `RabiesDate`, `BordellaDate`, `FleaTickProduct`, `FleaTickDate`, `OtherVacInfo`, `DogID`) VALUES
 (1, '2222-12-05', '2009-06-07', '2023-11-07', 'yum', '2023-11-29', 'sdada', 2),
-(2, '2023-11-22', '2023-11-28', '2023-11-22', 'asdfa', '2023-11-30', 'safasdf', 1);
+(2, '2023-11-22', '2023-11-28', '2023-11-22', 'asdfa', '2023-11-30', 'safasdf', 1),
+(3, '2023-10-17', '2023-10-08', '2023-08-28', 'Flea Tick Preventor', '2023-11-28', 'N/A', 6);
 
 -- --------------------------------------------------------
 
@@ -209,6 +214,13 @@ CREATE TABLE `grooming_reservation` (
   `CustID` int(11) NOT NULL,
   `DogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grooming_reservation`
+--
+
+INSERT INTO `grooming_reservation` (`GroomResID`, `ResStartDate`, `ResEndDate`, `EmerContact`, `EmerPhone`, `isApproved`, `GroomingDesc`, `isFinished`, `CustID`, `DogID`) VALUES
+(10, '2023-12-10', '2023-12-16', 'Demo Person', '1234560905', 0, 'Nails need trimmed', 0, 21, 6);
 
 -- --------------------------------------------------------
 
@@ -281,6 +293,13 @@ CREATE TABLE `reservation` (
   `KennelID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`Res_ID`, `ResStartTime`, `ResEndTime`, `EmerContact`, `EmerPhone`, `isCheckedIn`, `ServiceType`, `isApproved`, `ResDesc`, `isFinished`, `CustID`, `DogID`, `KennelID`) VALUES
+(12, '2023-12-28', '2023-12-28', 'Demo Person', '124-788-9997', 0, 'Daycare', 0, 'Leaving town for the day and need day care from 10 am - 5:30 pm', 0, 21, 6, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -304,7 +323,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `salt`, `joined`, `isComplete`, `group`) VALUES
 (20, 'Todd1200', '8a429dc7b839832e0cec672ba44ee2f112964701f45d022ed6ac9631a1fedd47', 'faa8def326700b37f9e8874b25ef5944', '2023-10-30 03:15:12', 1, 1),
 (23, 'TopDAWG', '1b40c97090b9255194d31de7f0a34b0299b9b2a077df42ea59e9721015d1995a', '1f5fde3ed114f4969efc6145158f8049', '2023-10-30 21:10:51', 1, 3),
-(31, 'Employee', '5b762d6422cae8c0e4f28cb9b3a39952668b6db36047ea7b359e9c1231a527ef', 'abc27c311fdbc0dcd03e84951cc05a72', '2023-11-15 01:32:39', 1, 2);
+(31, 'Employee', '5b762d6422cae8c0e4f28cb9b3a39952668b6db36047ea7b359e9c1231a527ef', 'abc27c311fdbc0dcd03e84951cc05a72', '2023-11-15 01:32:39', 1, 2),
+(32, 'Demo', '98c4605157c6da5f3b1e5eebd844526773cf142914c9c33187945dbb413f83e0', '4f3ef959531ecf6758d4be34aff17051', '2023-12-03 20:43:26', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -411,43 +431,43 @@ ALTER TABLE `users_session`
 -- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `CustID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `dog`
 --
 ALTER TABLE `dog`
-  MODIFY `DogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `DogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `dogbehavior`
 --
 ALTER TABLE `dogbehavior`
-  MODIFY `BehaviorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `BehaviorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `doghealth`
 --
 ALTER TABLE `doghealth`
-  MODIFY `HealthID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `HealthID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `dogvaccine`
 --
 ALTER TABLE `dogvaccine`
-  MODIFY `VacID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `VacID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `grooming_reservation`
 --
 ALTER TABLE `grooming_reservation`
-  MODIFY `GroomResID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `GroomResID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `groups`
@@ -459,19 +479,19 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `kennel`
 --
 ALTER TABLE `kennel`
-  MODIFY `KennelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `KennelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `Res_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Res_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users_session`
