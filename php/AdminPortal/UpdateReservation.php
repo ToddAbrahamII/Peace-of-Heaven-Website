@@ -35,8 +35,8 @@
     $custid = $customer->data()->CustID;
 
     //session variable
-    $resid = $_GET['ResID'];
-    $service = $_GET['service'];
+    $resid = $_GET['Res_ID'];
+    $service = $_GET['ServiceType'];
 
     //gathers data from table depending on service
     if($service == 'Daycare' || $service == 'Boarding'){
@@ -135,7 +135,7 @@
 
             }
 
-            Redirect::to('../Admin_portal/viewReservations.php');
+            Redirect::to('../Customer Portal/MyReservations.php');
         
     } }
 

@@ -234,6 +234,15 @@ class Reservation {
         
     }
 
+    public function getAllReservationsView() {
+        $data = $this->_db->get('v_futureBoardingDaycare', array('1', '=', '1'));
+        if($data->count() > 0) {
+            $this->_reservationData = $data->results();
+            return true;
+        }
+        return false;
+    }
+
 
 
 

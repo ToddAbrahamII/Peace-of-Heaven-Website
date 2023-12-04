@@ -21,8 +21,9 @@ if($user->isLoggedIn()) {
         <li><a href="changepassword.php">Change Password</a></li>
         <li><a href="acctinfo.php">Create Customer account</a></li>
     </ul>
-<?php 
+<?php
 
+    $mysqli->query($sql);
     $customer = new Customer();
     $customer = $customer->data($user->data()->id);
     $customer->data();
@@ -39,7 +40,7 @@ if($user->isLoggedIn()) {
     echo "<p>You need to <a href='login.php'>Log in</a> or <a href='register.php'>register</a></p>";
 }
 $question = "How are you?";
-askQuestion();
+
 function askQuestion() {
     $question = "What question?";
     echo $question;

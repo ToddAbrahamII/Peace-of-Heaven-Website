@@ -62,10 +62,10 @@
                 //Gathers the data
                 $customer->getAllCustomers();
                 $allCustomers = $customer->getCustomerData();
-//                print_r($allCustomers);
+
                 $reservation->getConfirmedReservations();
                 $allReservations = $reservation->getReservationData();
-//                print_r($allReservations);
+
 
                 if(!empty($allCustomers)){
 
@@ -87,6 +87,11 @@
                             . '<p><a href="UpdateCustomer.php?CustID='
                             . urlencode($customer->CustID) .'">Update</a></p>'.
                             '</td>';
+
+                        echo '<td>'
+                        . '<p><a href="DeleteCustomer.php?CustID='
+                        . urlencode($customer->CustID) .'">Delete</a></p>'.
+                        '</td>';
                         
     
                         echo '</tr>';

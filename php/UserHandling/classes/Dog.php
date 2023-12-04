@@ -179,11 +179,14 @@ class Dog {
     /**
      * Finds all dogs, good for admin uses when fetching reservation
      */
-    public function findAllDogs()
-    {
-        $data = $this->_db->get();
-        $this->_dogData = $data->results();
-        
+    public function findAllDogs() {
+        $data = $this->_db->get('dog', array('1', '=', '1'));
+
+        if($data->count() > 0) {
+            $this->_dogData = $data->results();
+            return true;
+        }
+        return false;
     }
     
     
