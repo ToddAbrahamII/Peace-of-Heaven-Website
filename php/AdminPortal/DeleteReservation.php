@@ -31,8 +31,7 @@
       //Matches UserID to CustID with account logged in
       $customer->findCustInfo($user->data()->id);
 
-      //Stores the CustID
-      $custid = $customer->data()->CustID;
+
   
       //session variable
       $resid = $_GET['Res_ID'];
@@ -83,7 +82,7 @@
                 <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                 <input type="submit" value="Delete"><br><br>
 
-                <a href='../Customer Portal/MyReservations.php'>Cancel</a>
+                <a href='../AdminPortal/ViewReservations.php'>Cancel</a>
                         
 
 
@@ -135,7 +134,7 @@
                                         
                                     }
 
-                                    Redirect::to('../AdminPortal/viewReservations.php');
+                                    Redirect::to('../AdminPortal/ViewReservations.php');
 
                                 }else { ## Is this an error?
                                     // output errors

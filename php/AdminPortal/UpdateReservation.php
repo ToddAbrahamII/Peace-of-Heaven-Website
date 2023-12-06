@@ -31,8 +31,7 @@
     //Matches UserID to CustID with account logged in
     $customer->findCustInfo($user->data()->id);
 
-    //Stores the CustID
-    $custid = $customer->data()->CustID;
+
 
     //session variable
     $resid = $_GET['Res_ID'];
