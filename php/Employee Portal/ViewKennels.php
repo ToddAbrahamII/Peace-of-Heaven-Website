@@ -106,7 +106,15 @@
                     echo '<div class="kennel-info">';
 
                     //Formats the kennel type
-                    echo'<p>Kennel Type: Boarding</p>';
+                    if($kennel->isBoarding == 1)
+                    {
+                    echo'<p>Kennel Type: Boarding </p>';
+                    }
+
+                    else if($kennel->isBoarding == 0)
+                    {
+                    echo'<p>Kennel Type: Daycare </p>';    
+                    }
                  
                     $occupation = $kennel->isOccupied;
                     //Formats open vs occupied

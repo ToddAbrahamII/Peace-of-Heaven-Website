@@ -224,7 +224,7 @@
 
                         echo '<td>'.$dogName.'</td>';
                         echo '<td>' . $reservation->ServiceType .'</td>';
-                        echo '<td> Confirmed </td>';
+                        echo '<td> Pending </td>';
                         echo '</tr>';
 
                     }
