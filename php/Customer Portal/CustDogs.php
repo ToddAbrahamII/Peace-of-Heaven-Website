@@ -63,12 +63,13 @@
         foreach ($dogData as $dog) {
             //Populates the Table Columns
             echo '<tr>';
+            $dogid = $dog->DogID;
             echo '<td>' . $dog->DogName . '</td>';
             echo '<td>' . $dog->Breed . '</td>';
             echo '<td>' . $dog->DogDOB . '</td>';
             echo '<td>' . $dog->Color . '</td>';
             echo '<td><p><a href="../Customer Portal/UpdateDogAccount.php?DogID='
-            . urlencode($dog->DogID).'">Update</a></p></td>';
+            . urlencode($dogid).'">Update</a></p></td>';
             echo '</tr>';
         }
 

@@ -82,6 +82,7 @@
         $customer->findCustInfoWithCustID($dogData->CustID);
         $customerData = $customer->getCustomerData();
         echo '<tr>'; // START ROW
+        $dogID = $dogData->DogID;
         echo '<td>' . $dogData->DogName . '</td>';
         echo '<td>' . $dogData->Breed . '</td>';
         echo '<td>' . $dogData->Color . '</td>';
@@ -93,6 +94,8 @@
         echo '<td>' 
             . '<p><a href="../AdminPortal/UpdateDog.php?DogID='
             . urlencode($dogData->DogID) . '">Update</a></p>'. 
+            '<p><a href="../AdminPortal/DeleteDog.php?DogID='
+            . urlencode($dogData->DogID) . '">Delete</a></p>'. 
 
             '</td>';
         echo '</tr>';
@@ -108,9 +111,10 @@
 <div>
 
     <!-- Go to delete dog -->
-    <a href="../Customer Portal/DeleteDog.php">
+    <!-- <a href="../AdminPortal/DeleteDog.php?DogID='/*<?php
+           /* urlencode($dogID)*/?>'">
         <button>Delete a Dog Account</button>
-    </a>
+    </a> -->
 
 </body>
 </html>

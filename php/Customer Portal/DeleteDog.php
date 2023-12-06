@@ -111,7 +111,7 @@
                                 if($validation->passed()) {
                                     try{ 
                                         //Gets the selected Dogs Info
-                                        $selectedDogID = $_GET["DogID"];
+                                        $selectedDogID = $dogID;
                                         $selectedDog = new Dog();
                                         $selectedDog->findDogInfoWithDogID($selectedDogID);
                                         $dogSelectedID = $selectedDog->data()->DogID;
