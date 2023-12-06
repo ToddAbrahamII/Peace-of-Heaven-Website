@@ -135,7 +135,7 @@
 
             }
 
-            Redirect::to('../Admin_portal/viewReservations.php');
+            Redirect::to('../Customer Portal/MyReservations.php');
         
     } }
 
