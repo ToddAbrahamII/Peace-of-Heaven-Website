@@ -41,9 +41,9 @@
   <h2>Boarding/Daycare Reservation Actions:</h2>
   <a href="viewReservations.php">Manage Reservations</a>
 
-  <h2>Grooming Reservation Actions:</h2>
+  <!-- <h2>Grooming Reservation Actions:</h2>
   <a href="">Update Grooming Reservation</a>
-  <a href="">Delete Grooming Reservation</a>
+  <a href="">Delete Grooming Reservation</a> -->
 
   <h2>Kennel Actions:</h2>
   <a href="../AdminPortal/KennelCreation.php">Create Kennel</a>
