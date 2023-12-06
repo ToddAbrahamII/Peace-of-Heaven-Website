@@ -93,8 +93,6 @@
         echo '<td>' 
             . '<p><a href="../AdminPortal/UpdateDog.php?DogID='
             . urlencode($dogData->DogID) . '">Update</a></p>'. 
-            '<p><a href="../AdminPortal/DeleteDog.php?DogID='
-            . urlencode($dogData->DogID) . '">Delete</a></p>' .
 
             '</td>';
         echo '</tr>';

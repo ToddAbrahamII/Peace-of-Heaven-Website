@@ -51,6 +51,8 @@ if($user->isLoggedIn()) {
                     echo "Update failed.";
                 }
 
+                Redirect::to('../AdminPortal/ManageCustomers.php');
+
             }
         }
 
@@ -105,7 +107,7 @@ if($user->isLoggedIn()) {
                         value="<?php echo $customerData->CustZip ?>"><br>
 
                     <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-                    <input type="submit" value="Update <?php echo $customerData->CustFirstName ?>"><br><br>
+                    <input type="submit" value="Update"><br><br>
 
 
                 </p>

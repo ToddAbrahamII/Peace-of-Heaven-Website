@@ -64,7 +64,7 @@
                 <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
                 <input type="submit" value="Delete"><br><br>
 
-                <a href='../Customer Portal/MyReservations.php'>Cancel</a>
+                <a href='../AdminPortal/ManageCustomers.php'>Cancel</a>
                         
 
 
