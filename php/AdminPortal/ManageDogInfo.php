@@ -91,9 +91,9 @@
         echo '<td>' . $dogData->Color . '</td>';
         echo '<td>' . $dogData->DogOtherInfo . '</td>';
         echo '<td>' 
-            . '<p><a href="../Customer Portal/UpdateDogAccount.php?DogID='
+            . '<p><a href="../AdminPortal/UpdateDog.php?DogID='
             . urlencode($dogData->DogID) . '">Update</a></p>'. 
-            '<p><a href="../Customer Portal/DeleteDog.php?DogID='
+            '<p><a href="../AdminPortal/DeleteDog.php?DogID='
             . urlencode($dogData->DogID) . '">Delete</a></p>' .
 
             '</td>';

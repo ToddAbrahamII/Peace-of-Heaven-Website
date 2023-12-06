@@ -135,7 +135,7 @@
                                         
                                     }
 
-                                    Redirect::to('../Customer Portal/MyReservations.php');
+                                    Redirect::to('../AdminPortal/viewReservations.php');
 
                                 }else { ## Is this an error?
                                     // output errors

@@ -45,6 +45,7 @@
             <tr>
                 <th>Dog</th>
                 <th>Reservation Date</th>
+                <th>Print</th>
                 <th>Breed</th>
                 <th>Date of Birth</th>
                 <th>Service</th>
@@ -80,6 +81,10 @@
 
                     echo '<td>'. $dogName . '</td>';
                     echo '<td>'. $reservation->ResStartTime . ' - ' .  $reservation->ResStartTime . '</td>';
+                    echo '<td>' .
+                    '<p><a href="http://localhost/PeaceOfHeavenWebPage/php/Forms/KennelPlacard.php?Res_ID=' . urlencode($reservationId) .'">Kennel Placard</a></p>' . // Pass Reservation ID through URL
+                    '<p><a href="http://localhost/PeaceOfHeavenWebPage/php/Forms/BoardingAgreement.php?Res_ID=' . urlencode($reservationId) .'">Boarding Agreement</a></p>' .
+                    '</td>';
                     echo '<td>' . $dogData->Breed . '</td>';
                     echo '<td>' . $dogData->DogDOB . '</td>';
                     echo '<td>' . $reservation->ServiceType . '</td>';

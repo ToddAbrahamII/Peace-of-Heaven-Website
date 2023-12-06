@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2023 at 09:12 PM
+-- Generation Time: Dec 06, 2023 at 05:24 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -298,7 +298,7 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`Res_ID`, `ResStartTime`, `ResEndTime`, `EmerContact`, `EmerPhone`, `isCheckedIn`, `ServiceType`, `isApproved`, `ResDesc`, `isFinished`, `CustID`, `DogID`, `KennelID`) VALUES
-(12, '2023-12-28', '2023-12-28', 'Demo Person', '124-788-9997', 0, 'Daycare', 0, 'Leaving town for the day and need day care from 10 am - 5:30 pm', 0, 21, 6, 0);
+(12, '2023-12-28', '2023-12-28', 'Demo Person', '124-788-9997', 0, 'Daycare', 0, 'Leaving town for the day and need day care from 10 am - 5:30 PM', 0, 21, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -337,6 +337,34 @@ CREATE TABLE `users_session` (
   `user_id` int(11) NOT NULL,
   `hash` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_futureboardingdaycare`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_futureboardingdaycare` (
+`Res_ID` int(11)
+,`ResStartTime` date
+,`ResEndTime` date
+,`CustID` bigint(20)
+,`CustFirstName` varchar(100)
+,`CustLastName` varchar(100)
+,`CustPhone` varchar(20)
+,`DogID` int(11)
+,`ServiceType` text
+,`ResDesc` varchar(500)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_futureboardingdaycare`
+--
+DROP TABLE IF EXISTS `v_futureboardingdaycare`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_futureboardingdaycare`  AS SELECT `r`.`Res_ID` AS `Res_ID`, `r`.`ResStartTime` AS `ResStartTime`, `r`.`ResEndTime` AS `ResEndTime`, `c`.`CustID` AS `CustID`, `c`.`CustFirstName` AS `CustFirstName`, `c`.`CustLastName` AS `CustLastName`, `c`.`CustPhone` AS `CustPhone`, `r`.`DogID` AS `DogID`, `r`.`ServiceType` AS `ServiceType`, `r`.`ResDesc` AS `ResDesc` FROM (`reservation` `r` join `customer` `c` on(`r`.`CustID` = `c`.`CustID`)) WHERE `r`.`ResEndTime` > curdate() AND (`r`.`ServiceType` = 'Boarding' OR `r`.`ServiceType` = 'Daycare') ;
 
 --
 -- Indexes for dumped tables
