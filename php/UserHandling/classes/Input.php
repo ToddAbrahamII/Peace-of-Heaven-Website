@@ -5,7 +5,8 @@
  */
 class Input {
     /**
-     * Verify what method has been used to send input and that it exists.
+     * Check if input has been sent from client
+     *
      * @param mixed $type
      * @return bool
      */

@@ -93,7 +93,8 @@ class User {
     }
 
     /**
-     * Summary of update
+     * Update user information matching $id
+     *
      * @param mixed $fields - The fields that need to be updated
      * @param mixed $id - [optional] user ID for user that admin wants to update
      * @return void
@@ -110,6 +111,11 @@ class User {
         
     }
 
+    /**Check user id against permission level of db
+     *
+     * @param $key
+     * @return bool
+     */
     public function hasPermission ($key) {
         $group = $this->_db->get('groups', array('id', '=', $this->data()->group));
         
@@ -124,7 +130,8 @@ class User {
     }
 
     /**
-     * Deletes session name to logout user
+     * Logs user out by deleting session
+     *
      * @return void
      */
     public function logout() {
@@ -133,12 +140,16 @@ class User {
 
     /**
      * Helper returns private data variables
+     *
      * @return mixed
      */
     public function data() {
         return $this->_data;
     }
 
+    /**Check if user is logged in
+     * @return true
+     */
     public function isLoggedIn() {
         return $this->_isLoggedIn;
     }

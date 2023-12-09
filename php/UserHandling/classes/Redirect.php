@@ -4,7 +4,9 @@
  */
 Class Redirect {
     /**
-     * Summary of to
+     * Redirect user to $location
+     *
+     *
      * @param mixed $location
      * @return void
      */

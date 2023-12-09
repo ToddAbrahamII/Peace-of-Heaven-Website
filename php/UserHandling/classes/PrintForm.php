@@ -4,8 +4,7 @@ Class PrintForm {
 
     private $_db,
             $_sessionName,
-            $_reservationData,
-            $_printData;
+            $_reservationData;
     private $reservationId;
 
     // Instances of Objects to call methods. Will not store data.

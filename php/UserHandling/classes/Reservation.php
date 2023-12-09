@@ -6,10 +6,7 @@ class Reservation {
     public $ResID,
             $ResStartTime,
             $ResEndTime,
-            $emerContactName,
-            $isApproved,
-            $custId,
-            $kennlId;
+            $isApproved;
 
     private $dogs, $service;
 

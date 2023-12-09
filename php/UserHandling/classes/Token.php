@@ -7,15 +7,15 @@
  */
 class Token {
     /**
-     * Summary of generate
+     * Genereate a nunique token to be embedded in a page
      * @return mixed
      */
     public static function generate() {
         return Session::put(Config::get('session/token_name'), md5(uniqid()));
     }
 
-    /**
-     * Summary of check
+    /** Verify that the session matches the passed token
+
      * @param mixed $token
      * @return bool
      */

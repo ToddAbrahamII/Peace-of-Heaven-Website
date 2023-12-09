@@ -9,9 +9,11 @@ class DB {
             $_error = false, 
             $_results, 
             $_count = 0;
-    
-        
 
+
+    /** Construct new DB instanct
+     *
+     */
     private function __construct() {
         try {
             $this->_pdo = new PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db'),Config::get('mysql/username'), Config::get('mysql/password'));
@@ -21,7 +23,12 @@ class DB {
         }
     }
     
-    // First check if instance already exists so we keep from inefficient db access
+
+
+    /** Singleton -
+     * Get or create a database instance
+     * @return DB|null
+     */
     public static function getInstance() {
         if(!isset(self::$_instance)) {
             self::$_instance = new DB();
@@ -29,6 +36,12 @@ class DB {
         return self::$_instance;
     }
 
+    /**
+     * Prepare and execute a query
+     * @param $sql
+     * @param $params
+     * @return $this
+     */
     public function query($sql, $params = array()) {
         $this->_error = false; // make sure not returning previous query error
         if($this->_query = $this->_pdo->prepare($sql)) { // if prepare is successful
@@ -53,7 +66,8 @@ class DB {
     }
 
     /**
-     * Debugging helper that returns the last query executed on this instance
+     * Debugging helper that returns the
+     * last query executed on this instance
      * @return mixed
      */
     public function getLastQuery() {
@@ -74,7 +88,7 @@ class DB {
     }
 
     /**
-     * Summary of update
+     * Creates update
      * @param mixed $table - table we want to update
      * @param mixed $id -  of row we need to update
      * @param mixed $fields - fields we want to update
@@ -101,6 +115,13 @@ class DB {
         return false;
     }
 
+    /**
+     * @param $table
+     * @param $fields
+     * @param $key
+     * @param $keyValue
+     * @return bool
+     */
     public function updateTable($table, $fields, $key, $keyValue ): bool
     {
 
@@ -156,8 +177,8 @@ class DB {
     }
 
   /**
-     * Constructs a query
-     * && CalledBy
+     * Handles simple CRUD queries
+   *
      * @calls $this->query();
      * @calledBy $this->
      * @group Accessor Group

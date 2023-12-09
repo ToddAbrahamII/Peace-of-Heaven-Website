@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 class Kennel {
     private $_db,
