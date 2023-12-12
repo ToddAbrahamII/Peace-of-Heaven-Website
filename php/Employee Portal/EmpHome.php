@@ -70,6 +70,8 @@
 
                     echo '<tr>'; // row start
 
+                    
+                    $reservationId = $reservation->Res_ID;
 
                     //Finds the dog name with their ID
                     $dog->findDogInfoWithDogID($reservation->DogID);
