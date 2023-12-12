@@ -93,6 +93,8 @@
             <th>Status</th>
           </tr>
     </thead>
+    <!-- Doesn't try to grab info about a customer if the account isn't a customer (Employee/Admin view) -->
+  <?php if($user->data()->group == 1 ){ ?>
     <tbody>
                   <?php
                 //Constructor Calls
@@ -125,6 +127,7 @@
                     }
                 }  ?>
     </tbody>
+  <?php  } ?>
   </table>
     <div class="view-button-container">
         <a href="/PeaceOfHeavenWebPage/php/Customer Portal/MyReservations.php">
@@ -145,6 +148,7 @@
         <th>Status</th>
       </tr>
     </thead>
+  <?php if($user->data()->group == 1 ){ ?>
     <tbody>
     <?php
                 //Constructor Calls
@@ -178,6 +182,7 @@
                     }
                 }  ?> 
     </tbody>
+  <?php } ?>
   </table>
     <div class="view-button-container">
         <a href="/PeaceOfHeavenWebPage/php/Customer Portal/MyReservations.php">
@@ -197,6 +202,7 @@
         <th>Status</th>
       </tr>
     </thead>
+  <?php if($user->data()->group == 1 ){ ?>
     <tbody>
       <tr>
       <?php
@@ -231,6 +237,7 @@
                 }  ?>
       </tr>
     </tbody>
+  <?php } ?>
   </table>
   <br><br>
    
@@ -246,6 +253,7 @@
         <th>Status</th>
       </tr>
     </thead>
+    <?php if($user->data()->group == 1 ){ ?>
     <tbody>
       <tr>
         <!-- Load in Pending Grooming Appointments -->
@@ -287,6 +295,7 @@
             } ?>
       </tr>
     </tbody>
+  <?php } ?>
   </table>
   <br><br>
 
@@ -305,6 +314,7 @@
         
       </tr>
     </thead>
+  <?php if($user->data()->group == 1 ){ ?>
     <tbody>
         <?php 
             //Calls Customer, Links with UserID and Stores CustID
@@ -342,6 +352,7 @@
             
         ?>
     </tbody>
+  <?php } ?>
   </table>
     <div class="view-button-container">
         <a href="../Customer Portal/CustDogs.php">
