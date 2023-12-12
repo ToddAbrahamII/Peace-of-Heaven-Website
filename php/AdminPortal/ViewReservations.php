@@ -32,22 +32,24 @@
             <h1>Manage Reservations</h1>
             </div>
         </div>
+        <!-- https://www.kryogenix.org/code/browser/licence.html Licence for code that makes the list sortable by columns-->
+            <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 
         <!-- Table for All Customers -->
         <h2>All Future Reservations</h2>
-        <table>
+        <table  class="sortable">
             <thead>
             <tr>
-                <th>Reservation #</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Customer</th>
-                <th>Phone</th>
-                <th>Dog</th>
-                <th>Reservation Type</th>
-                <th>Dog Notes</th>
-                <th>Update</th>
-                <th>Delete</th>
+                <th class="sortHeader">Reservation #</th>
+                <th class="sortHeader">Start Date</th>
+                <th class="sortHeader">End Date</th>
+                <th class="sortHeader">Customer</th>
+                <th class="sortHeader">Phone</th>
+                <th class="sortHeader">Dog</th>
+                <th class="sortHeader">Reservation Type</th>
+                <th class="sortHeader">Dog Notes</th>
+                <th class="sortHeader">Update</th>
+                <th class="sortHeader">Delete</th>
             </tr>
             </thead>
             <tbody>

@@ -44,6 +44,11 @@
     background-color: #f9f9f9;
   }
 
+  .sortHeader:hover{
+    cursor: pointer;
+    background-color: #2d85cc;
+  }
+
   .view-button-container {
     text-align: right;
     margin-top: 20px;
