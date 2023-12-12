@@ -58,6 +58,7 @@
     <tbody>
       <tr>
       <?php
+        if($user->data()->group == 1 ){
                 //Constructor Calls
                 //Retreives Dog, Customer, and Reservation
                 $reservation = new Reservation('service', array());
@@ -115,7 +116,10 @@
                         echo '</tr>';
 
                     }
-                }  ?>
+                }  
+        } else{
+          echo 'Reservations pop up here in the customer portal. Please log into an customer account to view this';
+        } ?>
       </tr>
     </tbody>
   </table>
@@ -139,6 +143,7 @@
       <tr>
         <!-- Load in Pending Grooming Appointments -->
         <?php
+        if($user->data()->group == 1 ){
         //Constructor Class Calls
         $groomingReservation = new GroomingReservation('Grooming', array());
         $dog = new Dog();
@@ -195,7 +200,7 @@
 
                     echo '</tr>';
              }
-            } ?>
+            }} ?>
       </tr>
     </tbody>
   </table>

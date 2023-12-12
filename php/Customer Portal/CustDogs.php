@@ -27,7 +27,8 @@
         include("../AdminPortal/AdminNavBar.php");
 
     }
-    
+    // Prevents errors from Employee/Admin View
+    if($user->data()->group == 1 ){
     //Matches UserID to CustID with account logged in
     $customer->findCustInfo($user->data()->id);
 
@@ -39,6 +40,7 @@
 
     //Stores the Dogs Found
     $dogData = $dog->data();
+    }
 
 ?>
 <!DOCTYPE html>
@@ -55,6 +57,7 @@
     <h1> Your Linked Dog Accounts </h1>
 
     <?php //Generates the Table from the Database of All Dogs in the DB
+    if($user->data()->group == 1 ){
     if (!empty($dogData)) {
         echo '<table>';
         //Creates Table Columns 
@@ -74,9 +77,12 @@
         }
 
         echo '</table>';
-    } else {
+    }  else {
         //Error Handling for if there are not dogs found
         echo 'No dogs found for this customer.';
+    } } else{
+        //Error Handling for Admin/Employee Account
+        echo 'You are not logged into a customer account, so you have no dogs.';
     }
 
 ?><br><br>

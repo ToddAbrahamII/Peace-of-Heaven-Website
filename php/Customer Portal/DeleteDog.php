@@ -28,6 +28,8 @@
 
     }
     
+    // Prevents errors from Employee/Admin View
+    if($user->data()->group == 1 ){
     //Matches UserID to CustID with account logged in
     $customer->findCustInfo($user->data()->id);
 
@@ -39,6 +41,7 @@
 
     //Stores the Dogs Found
     $dogData = $dog->data();
+    }
 
 ?>
 <!DOCTYPE html>
@@ -59,6 +62,7 @@
 
                 <!-- Php code for drop down menu for dogs --> 
                 <?php
+                    if($user->data()->group == 1 ){
                         //Matches UserID to CustID with account logged in
                         $customer->findCustInfo($user->data()->id);
 
@@ -90,6 +94,10 @@
                             // Prints No Dogs Statement
                             echo "No dogs found for the customer.";
                         }
+                    } else{
+                            // Prevents errors from Admin/Employee View
+                            echo "Log into a customer account to view this process";
+                    }
                         ?>
 
                         <!-- Generates Token and submits input -->
