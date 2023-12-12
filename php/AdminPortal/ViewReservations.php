@@ -48,8 +48,8 @@
                 <th class="sortHeader">Dog</th>
                 <th class="sortHeader">Reservation Type</th>
                 <th class="sortHeader">Dog Notes</th>
-                <th class="sortHeader">Update</th>
-                <th class="sortHeader">Delete</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>

@@ -33,19 +33,22 @@
             </div>
         </div>
 
+        <!-- https://www.kryogenix.org/code/browser/licence.html Licence for code that makes the list sortable by columns-->
+        <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
         <!-- Table for All Customers -->
         <h2>All Dogs</h2>
-        <table>
+        <table class="sortable">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Breed</th>
-                <th>Color</th>
-                <th>Age</th>
-                <th>Owner</th>
-                <th>Weight</th>
-                <th>Color</th>
-                <th>Dog Notes</th>
+                <th class="sortHeader">Name</th>
+                <th class="sortHeader">Breed</th>
+                <th class="sortHeader">Color</th>
+                <th class="sortHeader">Age</th>
+                <th class="sortHeader">Owner</th>
+                <th class="sortHeader">Weight</th>
+                <th class="sortHeader">Color</th>
+                <th class="sortHeader">Dog Notes</th>
                 <th>Manage</th>
             </tr>
             </thead>
